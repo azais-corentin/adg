@@ -24,6 +24,7 @@ import {
 	apkSplits,
 	fail,
 	isBooted,
+	runningEmulators,
 	shell
 } from './lib';
 
@@ -112,7 +113,10 @@ async function boot(sdk: string): Promise<void> {
 			'swiftshader_indirect',
 			'-accel',
 			'on',
-			'-no-metrics'
+			'-no-metrics',
+			// gRPC endpoint (token-protected, localhost) used to set/read the clipboard.
+			'-grpc',
+			String(EMULATOR_PORT + 3000)
 		],
 		{
 			detached: true,
@@ -134,7 +138,8 @@ async function boot(sdk: string): Promise<void> {
 /**
  * Stable, animation-free UI so consecutive screenshots only differ where the game changes;
  * no on-screen keyboard (pasting needs no IME, and a keyboard would cover dialogs); no
- * "Viewing full screen" hint over the game.
+ * "Viewing full screen" hint over the game; the gRPC endpoint up even on an instance that was
+ * booted without `-grpc`.
  */
 function prepare(): void {
 	for (const scale of [
@@ -152,6 +157,8 @@ function prepare(): void {
 	for (const ime of shell('ime list -s').split('\n')) {
 		if (ime.trim()) shell(`ime disable ${ime.trim()}`);
 	}
+	const advertised = runningEmulators().find((ini) => ini['port.serial'] === String(EMULATOR_PORT));
+	if (!advertised?.['grpc.port']) adb(['emu', 'grpc', String(EMULATOR_PORT + 3000)]);
 }
 
 function install(): void {

@@ -13,22 +13,19 @@ import { readFileSync } from 'node:fs';
 import { deflateSync, gunzipSync, gzipSync, inflateSync } from 'node:zlib';
 import {
 	ACTIVITY,
-	BANDS,
 	PACKAGE,
 	adbTry,
-	dismissDialogs,
-	drag,
 	fail,
 	findDialog,
 	findPhrase,
-	fling,
-	navIcons,
 	ocr,
+	reachMainUi,
 	requireBooted,
 	screencap,
 	setClipboard,
 	shell,
-	tap
+	tap,
+	tapOptionsButton
 } from './lib';
 
 const WEB = 'AntimatterDimensionsSavefileFormat';
@@ -71,49 +68,6 @@ function encode(envelope: Envelope, player: Record<string, unknown>): string {
 		.replace(/\+/g, '0b')
 		.replace(/\//g, '0c');
 	return `${envelope === 'web' ? WEB + 'AAB' : ANDROID + 'AAA'}${body}${END}`;
-}
-
-/**
- * Brings the game to its main UI: taps "Start game" on the loading screen, waits out offline
- * progress, closes dialogs. Returns the x centres of the bottom navigation icons.
- */
-async function reachMainUi(timeoutMs = 120_000): Promise<number[]> {
-	const started = Date.now();
-	while (Date.now() - started < timeoutMs) {
-		if ((await dismissDialogs()) > 0) continue;
-		const frame = screencap();
-		const words = ocr(frame);
-		const start = findPhrase(words, 'Start game');
-		if (start) {
-			await tap(start.cx, start.cy, 2500);
-			continue;
-		}
-		if (findPhrase(words, 'Calculating offline progress') || findPhrase(words, 'This shouldn')) {
-			await Bun.sleep(2000);
-			continue;
-		}
-		const icons = navIcons(frame);
-		if (icons.length >= 5) return icons;
-		await Bun.sleep(1500);
-	}
-	fail('the game did not reach its main screen');
-}
-
-async function openImportDialog(icons: number[]): Promise<void> {
-	// Options is always the third tab from the right (… Options, Shop, Info).
-	await tap(icons[icons.length - 3], (BANDS.navIcons[0] + BANDS.navIcons[1]) / 2, 1200);
-	if (!findPhrase(ocr(screencap(), ...BANDS.subtabs), 'Options')) fail('could not open Options');
-	await fling(480, 500, 1700);
-	await fling(480, 500, 1700);
-	for (let page = 0; page < 12; page++) {
-		const button = findPhrase(ocr(screencap(), BANDS.ticker[1], BANDS.prestige[0]), 'Import save');
-		if (button) {
-			await tap(button.cx, button.cy, 1200);
-			return;
-		}
-		await drag(480, 1500, 700);
-	}
-	fail('could not find "Import save" in Options');
 }
 
 async function pasteSave(save: string): Promise<void> {
@@ -164,7 +118,7 @@ shell(`am start -n ${ACTIVITY}`);
 await Bun.sleep(3000);
 if (!adbTry(['shell', 'pidof', PACKAGE])?.trim()) fail('the game did not start');
 
-await openImportDialog(await reachMainUi());
+await tapOptionsButton('Import save');
 await pasteSave(save);
 await confirmImport();
 await reachMainUi();

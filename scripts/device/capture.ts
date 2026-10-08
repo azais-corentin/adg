@@ -15,11 +15,13 @@ import { join } from 'node:path';
 import { isStageId } from '../../src/lib/stages';
 import {
 	BANDS,
+	DRAG_X,
 	REPO_ROOT,
 	dismissDialogs,
 	drag,
 	dragHorizontal,
 	fail,
+	findPhrase,
 	fling,
 	scrollShift,
 	lineLabels,
@@ -47,13 +49,11 @@ const FIRST_SUBTAB: Record<string, string> = {
 };
 
 /**
- * Pages that must not be dragged: the Time Study tree and the Perk tree pan instead of
- * scrolling, and a hold on a study buys it.
+ * Pages that must not be dragged: the Perk tree fills the page and pans instead of scrolling.
+ * The Time Study tree is handled by `captureStudies`.
  */
-const NO_SCROLL = new Set(['eternity-studies', 'reality-perks']);
+const NO_SCROLL = new Set(['reality-perks']);
 
-/** Drags happen along the left edge, where no game control lives. */
-const DRAG_X = 5;
 const CONTENT_TOP = BANDS.ticker[1];
 const CONTENT_BOTTOM = BANDS.prestige[0];
 /** Each page scrolls by this much, leaving ~650 px of overlap with the previous one. */
@@ -62,7 +62,12 @@ const PAGE_STEP = 1000;
 const MIN_SHIFT = 24;
 const MAX_PAGES = 40;
 
-const slug = (label: string) => label.toLowerCase().replace(/[^a-z0-9]/g, '');
+/** OCR misreads of short subtab labels. */
+const OCR_FIXES: Record<string, string> = { vv: 'v' };
+const slug = (label: string) => {
+	const plain = label.toLowerCase().replace(/[^a-z0-9]/g, '');
+	return OCR_FIXES[plain] ?? plain;
+};
 
 function tabNames(count: number): string[] {
 	const optional = count - 1 - FIXED_TABS.length;
@@ -72,7 +77,8 @@ function tabNames(count: number): string[] {
 
 function subtabLabels(): { text: string; cx: number; cy: number }[] {
 	const [top, bottom] = BANDS.subtabs;
-	return lineLabels(ocr(screencap(), top, bottom), 40)
+	// Words inside a label are ~11 px apart, labels at least ~39 px (Statistics' six subtabs).
+	return lineLabels(ocr(screencap(), top, bottom), 22)
 		.filter((label) => /[a-z]/i.test(label.text))
 		.map((label) => ({ text: label.text, cx: label.box.cx, cy: label.box.cy }))
 		.sort((a, b) => a.cx - b.cx);
@@ -88,9 +94,29 @@ async function scrollToTop(): Promise<void> {
 	}
 }
 
+/**
+ * The Time Study page: a header with buttons, then the zoomable tree from the "Zoom:" row
+ * down. Holding a study buys it, so the finger must never touch the tree. A scroll keeps the
+ * finger on the same content point, so dragging from just above the "Zoom:" row up to the top
+ * shows the tree (page 1) while only ever touching the header; the reverse drag restores it.
+ */
+async function captureStudies(): Promise<Frame[]> {
+	const top = screencap();
+	const zoom = findPhrase(ocr(top, CONTENT_TOP, CONTENT_BOTTOM), 'Zoom');
+	const from = zoom ? Math.round(zoom.y - 25) : 0;
+	if (!zoom || from < CONTENT_TOP + 200) return [top];
+	await drag(DRAG_X, from, CONTENT_TOP + 20);
+	const tree = screencap();
+	await drag(DRAG_X, CONTENT_TOP + 20, from);
+	return Math.abs(scrollShift(top, tree, CONTENT_TOP, CONTENT_BOTTOM)) < MIN_SHIFT
+		? [top]
+		: [top, tree];
+}
+
 /** Captures one subtab, page by page, stopping when a drag no longer moves the page. */
 async function capturePages(name: string): Promise<Frame[]> {
 	if (NO_SCROLL.has(name)) return [screencap()];
+	if (name === 'eternity-studies') return captureStudies();
 	await scrollToTop();
 	const pages = [screencap()];
 	while (pages.length < MAX_PAGES) {

@@ -23,7 +23,8 @@
 		"device:pull-apk": "bun scripts/device/pull-apk.ts",
 		"device:emulator": "bun scripts/device/emulator.ts",
 		"device:load": "bun scripts/device/load-save.ts",
-		"device:capture": "bun scripts/device/capture.ts"
+		"device:capture": "bun scripts/device/capture.ts",
+		"device:export": "bun scripts/device/export-save.ts"
 	},
 	"devDependencies": {
 		"@antimatter-dimensions/notations": "3.1.0",

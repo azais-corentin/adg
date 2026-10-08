@@ -414,6 +414,57 @@ export function navIcons(frame: Frame): number[] {
 }
 
 /**
+ * Brings the game to its main UI: taps "Start game" on the loading screen, waits out offline
+ * progress, closes dialogs. Returns the x centres of the bottom navigation icons.
+ */
+export async function reachMainUi(timeoutMs = 120_000): Promise<number[]> {
+	const started = Date.now();
+	while (Date.now() - started < timeoutMs) {
+		if ((await dismissDialogs()) > 0) continue;
+		const frame = screencap();
+		const words = ocr(frame);
+		const start = findPhrase(words, 'Start game');
+		if (start) {
+			await tap(start.cx, start.cy, 2500);
+			continue;
+		}
+		if (findPhrase(words, 'Calculating offline progress') || findPhrase(words, 'This shouldn')) {
+			await Bun.sleep(2000);
+			continue;
+		}
+		const icons = navIcons(frame);
+		if (icons.length >= 5) return icons;
+		await Bun.sleep(1500);
+	}
+	fail('the game did not reach its main screen');
+}
+
+/** Drags and flings run along the left screen edge, where no game control lives. */
+export const DRAG_X = 5;
+
+/**
+ * Opens the Options tab and taps the button labelled `label` (found by OCR, scrolling down
+ * from the top of the page). Options is always the third tab from the right (…, Options,
+ * Shop, Info).
+ */
+export async function tapOptionsButton(label: string): Promise<void> {
+	const icons = await reachMainUi();
+	await tap(icons[icons.length - 3], (BANDS.navIcons[0] + BANDS.navIcons[1]) / 2, 1200);
+	if (!findPhrase(ocr(screencap(), ...BANDS.subtabs), 'Options')) fail('could not open Options');
+	await fling(DRAG_X, 500, 1700);
+	await fling(DRAG_X, 500, 1700);
+	for (let page = 0; page < 12; page++) {
+		const button = findPhrase(ocr(screencap(), BANDS.ticker[1], BANDS.prestige[0]), label);
+		if (button) {
+			await tap(button.cx, button.cy, 1200);
+			return;
+		}
+		await drag(DRAG_X, 1500, 700);
+	}
+	fail(`could not find "${label}" in Options`);
+}
+
+/**
  * Running emulators, as advertised by the emulator itself in
  * $XDG_RUNTIME_DIR/avd/running/pid_<pid>.ini (AVD name, ports, gRPC port and bearer token).
  */
