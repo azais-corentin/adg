@@ -19,10 +19,14 @@ export const APP_VERSION = '3.18.0';
 export const APP_VERSION_CODE = '30180000';
 export const ACTIVITY = `${PACKAGE}/.MainActivity`;
 
-/** Console port of the emulator; the adb serial follows from it. */
-export const EMULATOR_PORT = 5584;
+/**
+ * Console port of the emulator (even, 5554–5682); the adb serial follows from it. Set
+ * ADG_EMULATOR_PORT (e.g. 5586) to run a second, independent instance next to the default
+ * one; it gets its own AVD because a running emulator locks its AVD's disk images.
+ */
+export const EMULATOR_PORT = Number(process.env.ADG_EMULATOR_PORT ?? 5584);
 export const SERIAL = `emulator-${EMULATOR_PORT}`;
-export const AVD_NAME = 'adg-pixel9pro-api35';
+export const AVD_NAME = `adg-pixel9pro-api35${EMULATOR_PORT === 5584 ? '' : `-${EMULATOR_PORT}`}`;
 
 /** The phone's screen (Pixel 9 Pro at its current display settings, see docs/device/README.md). */
 export const SCREEN = { width: 960, height: 2142, density: 360 } as const;
@@ -43,7 +47,7 @@ export const REPO_ROOT = resolve(import.meta.dir, '../..');
 export const CACHE_DIR = join(homedir(), '.cache', 'adg');
 export const APK_DIR = join(CACHE_DIR, 'apk', APP_VERSION);
 export const AVD_HOME = join(CACHE_DIR, 'avd');
-export const EMULATOR_LOG = join(CACHE_DIR, 'emulator.log');
+export const EMULATOR_LOG = join(CACHE_DIR, `emulator-${EMULATOR_PORT}.log`);
 
 export function fail(message: string): never {
 	console.error(`error: ${message}`);
@@ -410,15 +414,14 @@ export function navIcons(frame: Frame): number[] {
 }
 
 /**
- * Puts text on the emulator's clipboard through the emulator's gRPC endpoint
- * (EmulatorController/setClipboard). The endpoint, port and bearer token are advertised in
- * $XDG_RUNTIME_DIR/avd/running/pid_<pid>.ini; the request is a hand-encoded protobuf
- * `ClipData { string text = 1; }` in a gRPC frame.
+ * Running emulators, as advertised by the emulator itself in
+ * $XDG_RUNTIME_DIR/avd/running/pid_<pid>.ini (AVD name, ports, gRPC port and bearer token).
  */
-export async function setClipboard(text: string): Promise<void> {
+export function runningEmulators(): Record<string, string>[] {
 	const runtime = process.env.XDG_RUNTIME_DIR ?? `/run/user/${process.getuid?.() ?? 1000}`;
 	const dir = join(runtime, 'avd', 'running');
-	const info = readdirSync(dir)
+	if (!existsSync(dir)) return [];
+	return readdirSync(dir)
 		.filter((name) => /^pid_\d+\.ini$/.test(name))
 		.map((name) =>
 			Object.fromEntries(
@@ -427,10 +430,53 @@ export async function setClipboard(text: string): Promise<void> {
 					.filter((line) => line.includes('='))
 					.map((line) => [line.slice(0, line.indexOf('=')), line.slice(line.indexOf('=') + 1)])
 			)
-		)
-		.find((ini) => ini['port.serial'] === String(EMULATOR_PORT));
-	if (!info?.['grpc.port']) throw new Error(`no gRPC endpoint advertised for ${SERIAL} in ${dir}`);
+		);
+}
 
+/**
+ * One unary call to the emulator's gRPC endpoint (android.emulation.control.EmulatorController),
+ * over plain HTTP/2 with the advertised bearer token. `message` is an encoded protobuf; returns
+ * the encoded response message.
+ */
+async function emulatorRpc(method: string, message: Uint8Array): Promise<Uint8Array> {
+	const info = runningEmulators().find((ini) => ini['port.serial'] === String(EMULATOR_PORT));
+	if (!info?.['grpc.port']) throw new Error(`no gRPC endpoint advertised for ${SERIAL}`);
+	const frame = new Uint8Array(5 + message.length);
+	new DataView(frame.buffer).setUint32(1, message.length);
+	frame.set(message, 5);
+
+	const client = connect(`http://127.0.0.1:${info['grpc.port']}`);
+	const { promise, resolve, reject } = Promise.withResolvers<string | undefined>();
+	const request = client.request({
+		':method': 'POST',
+		':path': `/android.emulation.control.EmulatorController/${method}`,
+		'content-type': 'application/grpc',
+		te: 'trailers',
+		...(info['grpc.token'] ? { authorization: `Bearer ${info['grpc.token']}` } : {})
+	});
+	let status: string | undefined;
+	const chunks: Buffer[] = [];
+	request.on(
+		'response',
+		(headers) => (status ??= String(headers['grpc-status'] ?? '') || undefined)
+	);
+	request.on('trailers', (trailers) => (status = String(trailers['grpc-status'])));
+	request.on('data', (chunk: Buffer) => chunks.push(chunk));
+	request.on('end', () => resolve(status));
+	request.on('error', reject);
+	request.end(frame);
+	try {
+		const code = await promise;
+		if (code !== '0') throw new Error(`${method} returned grpc-status ${code}`);
+	} finally {
+		client.close();
+	}
+	// Response: one gRPC frame (flag byte, big-endian length, message).
+	return new Uint8Array(Buffer.concat(chunks).subarray(5));
+}
+
+/** Puts text on the emulator clipboard: `setClipboard(ClipData { string text = 1; })`. */
+export async function setClipboard(text: string): Promise<void> {
 	const bytes = new TextEncoder().encode(text);
 	const varint: number[] = [];
 	for (let n = bytes.length; ; n >>>= 7) {
@@ -440,34 +486,20 @@ export async function setClipboard(text: string): Promise<void> {
 		}
 		varint.push((n & 0x7f) | 0x80);
 	}
-	const message = new Uint8Array([0x0a, ...varint, ...bytes]);
-	const frame = new Uint8Array(5 + message.length);
-	new DataView(frame.buffer).setUint32(1, message.length);
-	frame.set(message, 5);
+	await emulatorRpc('setClipboard', new Uint8Array([0x0a, ...varint, ...bytes]));
+}
 
-	const client = connect(`http://127.0.0.1:${info['grpc.port']}`);
-	const { promise, resolve, reject } = Promise.withResolvers<string | undefined>();
-	const request = client.request({
-		':method': 'POST',
-		':path': '/android.emulation.control.EmulatorController/setClipboard',
-		'content-type': 'application/grpc',
-		te: 'trailers',
-		...(info['grpc.token'] ? { authorization: `Bearer ${info['grpc.token']}` } : {})
-	});
-	let status: string | undefined;
-	request.on(
-		'response',
-		(headers) => (status ??= String(headers['grpc-status'] ?? '') || undefined)
-	);
-	request.on('trailers', (trailers) => (status = String(trailers['grpc-status'])));
-	request.on('data', () => {});
-	request.on('end', () => resolve(status));
-	request.on('error', reject);
-	request.end(frame);
-	try {
-		const code = await promise;
-		if (code !== '0') throw new Error(`setClipboard returned grpc-status ${code}`);
-	} finally {
-		client.close();
+/** Reads the emulator clipboard: `getClipboard(Empty) → ClipData { string text = 1; }`. */
+export async function getClipboard(): Promise<string> {
+	const message = await emulatorRpc('getClipboard', new Uint8Array());
+	if (message.length === 0) return '';
+	if (message[0] !== 0x0a) throw new Error('unexpected getClipboard response');
+	let length = 0;
+	let i = 1;
+	for (let shift = 0; ; shift += 7) {
+		const byte = message[i++];
+		length += (byte & 0x7f) * 2 ** shift;
+		if (byte < 0x80) break;
 	}
+	return new TextDecoder().decode(message.subarray(i, i + length));
 }

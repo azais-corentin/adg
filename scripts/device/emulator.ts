@@ -111,7 +111,8 @@ async function boot(sdk: string): Promise<void> {
 			'-gpu',
 			'swiftshader_indirect',
 			'-accel',
-			'on'
+			'on',
+			'-no-metrics'
 		],
 		{
 			detached: true,
