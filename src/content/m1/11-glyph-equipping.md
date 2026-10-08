@@ -1,0 +1,78 @@
+---
+title: 'Glyphs: equipping and choosing'
+stage: early-reality
+order: 14
+summary: 'What glyph type, level, rarity and effects mean, and how to equip and pick glyphs on Android.'
+verified:
+  android: '3.18.0'
+  upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
+---
+
+<script>
+	import Callout from '#lib/components/Callout.svelte';
+	import Screen from '#lib/components/Screen.svelte';
+</script>
+
+## The four attributes
+
+Every glyph has four attributes. Type decides which effects it can roll; level and rarity decide how strong those effects are. <!-- in-game How to Play, "Glyphs"; vendor/ad-source/src/core/glyphs/glyph-generator.js -->
+
+- **Type** — Power (Ω), Infinity (∞), Replication (Ξ), Time (Δ) or Dilation (Ψ) before any Celestial. Each type boosts its own corner of the game: Power helps Antimatter Dimensions, Infinity helps Infinity Dimensions, Replication speeds up Replicanti, Time helps Time Dimensions and Eternity gain, Dilation helps Dilated Time and Tachyon Galaxies.
+- **Level** — grows with the EP, Replicanti and Dilated Time you reached in the Reality that produced it, plus a share of your Eternity count once you buy the right upgrade. Higher level means stronger effects and usually more of them. <!-- vendor/ad-source/src/core/glyphs/auto-glyph-processor.js (getGlyphLevelInputs) -->
+- **Rarity** — a percentage from 0% to 100%. Higher is better: it raises effect strength and the chance of extra effects. Named bands run Common, Uncommon, Rare, Epic, Legendary, Mythical, Transcendent, Celestial. <!-- vendor/ad-source/src/core/constants.js (GlyphRarities) -->
+- **Effects** — the actual bonuses, up to four per glyph. Same-type effects on several equipped glyphs combine: "+" effects add, "×" effects multiply. <!-- in-game How to Play, "Glyphs" -->
+
+Your first glyph is fixed: a Power glyph with Antimatter Dimension power, plus a Companion heart that records the EP you Realitied with. Its level scales with your progress; its effect and rarity do not. Once a glyph exists, its attributes never change. <!-- vendor/ad-source/src/core/glyphs/glyph-generator.js (startingGlyph, companionGlyph) -->
+
+## Equipping on Android
+
+Open the **Reality** tab (rocket icon) and the **Glyphs** subtab. Your inventory is the grid; your equipped glyphs are the circles in the middle; their combined effects list on the right.
+
+<Screen
+	src="ra/reality-glyphs-0.webp"
+	alt="The Glyphs subtab: equipped glyph circles in the middle, the inventory grid below, and the combined effects list."
+	caption="The Glyphs subtab. Circles in the middle are equipped; the grid below is inventory."
+/>
+
+- **Equip:** drag a glyph from the inventory into an empty circle, or tap it for the equip option. It applies immediately.
+- **Swap:** dragging a glyph onto an occupied circle replaces it but **restarts your current Reality** for no reward — only swap when you mean it.
+- **Inspect:** tapping an equipped glyph shows its full stats.
+- **Protected slots:** the top rows of your inventory are protected. New glyphs never land there, and Sort and Auto-clean skip them. Put glyphs you want to keep there.
+
+You start with **3 active slots** (plus the Companion, which rides along free). The Reality Upgrades Linguistically Expand and Synthetic Symbolism each add one more, for 5 total. <!-- vendor/ad-source/src/core/glyphs/glyph-core.js (activeSlotCount) -->
+
+<Screen
+	src="ra/reality-glyphs-1.webp"
+	alt="A glyph detail sheet: type, level, rarity, effects and sacrifice value."
+	caption="Tapping a glyph shows its stats. Compare level and rarity before choosing."
+/>
+
+<Callout kind="android">
+
+On touch, drag the glyph icon and drop it on the circle. If your fingers keep missing, use the tap-to-select then tap-the-slot flow instead.
+
+</Callout>
+
+## Choosing your glyph each Reality
+
+After the first Reality (and with the START perk), each Reality offers a choice of glyphs; without START you get one glyph picked from four at random. <!-- vendor/ad-source/src/core/reality.js (GlyphSelection) -->
+
+Early on, keep it simple:
+
+1. **Take Time glyphs with EP multiplier first.** Nothing else speeds up the early Reality loop as much.
+2. **Otherwise take Power glyphs with AD power.** Strong immediately, even at level 1.
+3. **Skip Dilation and Replication at level 1–2** unless nothing better shows. Their best effects scale with glyph level and are weak before it grows.
+
+Per-type priorities and the mid-game setups (one Time plus Dilation/Replication, later Power/Infinity mixes) are in the next article, Which glyphs to wear.
+
+## Full inventory? Sacrifice, don't delete
+
+If no inventory space is left, new glyphs are deleted — or auto-sacrificed once unlocked. Never delete glyphs for space before the **Scour to Empower** upgrade: deleting gives nothing, while sacrificing feeds permanent bonuses. <!-- in-game How to Play, "Glyphs" -->
+
+Once that upgrade is bought, the Reality button offers to sacrifice the new glyph instead of keeping it. The Glyph sacrifice article covers what each type pays.
+
+## Further reading
+
+- In-game How to Play: Glyphs (Info tab → How to play).
+- Tables61's [guide to Glyphs pre-Celestial 1](https://www.reddit.com/r/AntimatterDimensions/comments/101lby4/) — the community reference these priorities follow (summarized here in our own words).
+- [Fandom: Glyphs](https://antimatter-dimensions.fandom.com/wiki/Glyphs) — effect list and formulas (CC BY-SA; reworded here).
