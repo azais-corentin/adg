@@ -20,7 +20,7 @@ Storing real time pauses chunk generation (Memories from banked chunks still con
 
 ## Glyph setups per pet
 
-Match the set to the pet you are feeding. Letters are Glyph types (E = Time... in practice, Power/Infinity/Time/Replication/Dilation/Effarig/Reality by role):
+Match the set to the pet you are feeding (Power, Infinity, Time, Replication, Dilation, Effarig and Reality Glyphs each boost their own resource):
 
 - **Teresa (EP chunks):** Eternity-heavy sets that maximize EP and IP gain. Raw pushing power matters most.
 - **Effarig (shard chunks):** shard-gain and Glyph-level sets — Effarig Glyphs plus level and rarity effects. Higher best-Glyph-level also feeds Effarig's memory rate.
