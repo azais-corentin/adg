@@ -20,7 +20,6 @@ The **$ tab** holds the Shop, which sells permanent boosts for **STD coins** ("S
 - **30 STD** — double production of all Antimatter Dimensions (2× AD mult).
 - **60 STD** — double production of all Dimensions (2× all dims, stacking toward the shown ×32).
 - **40 STD** — double Infinity Point gain.
-- **60 STD** — +50% Replicanti speed and +50% (shown ×1.50) Replicanti-related gain.
 - **50 STD** — triple Eternity Point gain.
 - **40 STD** — +50% Dilated Time gain.
 - **60 STD** — +100% Reality Shard (RM) gain on Reality.
