@@ -11,6 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## The Doom button
@@ -45,6 +46,12 @@ Buy one-time upgrades the moment you can afford them — unlike the repeatables,
 ## The shape of a Doomed run
 
 Each Armageddon cycle replays the early game at speed: Dimensions to first Infinity (Strike 1 hits), Break-style pushes (Strike 2 at the Galaxy-strength Break upgrade), Eternity (Strike 3), Time Studies toward Dilation (Strike 4 at 115 Time Theorems, Strike 5 at Dilation). The next article, [Pelle Strikes](/guide/m2/pelle-strikes), walks through all five. Between cycles, spend shards, fill Rifts, and push Remnants higher.
+
+<Screen
+	src="pelle/celestials-nav-top.webp"
+	alt="The Celestial Navigation map inside a Doomed Reality: the Pelle node lit alongside the earlier Celestials, with all eight subtabs along the bottom."
+	caption="The map in Doom. Pelle sits apart from the rest; the lit path shows how far this Reality has climbed."
+/>
 
 <Callout kind="android">
 

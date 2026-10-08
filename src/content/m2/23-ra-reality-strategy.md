@@ -10,6 +10,7 @@ verified:
 
 <script>
 	import Callout from '#lib/components/Callout.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## What a Ra run looks like
@@ -28,6 +29,12 @@ Match the set to the pet you are feeding (Power, Infinity, Time, Replication, Di
 - **V (Infinity Power chunks):** Replicanti-heavy sets, since Infinity Power climbs with Replicanti. Hold as many Theorems as you can; V's rate scales with them.
 
 Keep one all-round push set for the climb, then swap to the target pet's farming set once progress plateaus. The Glyph presets (7 slots) make this one tap.
+
+<Screen
+	src="ra/reality-glyphs-0.webp"
+	alt="The Glyphs tab in the Ra stage: the active effect list with softcap note, the upcoming Reality preview, and the equipped set above the inventory."
+	caption="The Glyphs tab. Match the equipped effects to the pet you are feeding, then swap back to the push set for the climb."
+/>
 
 ## Black Hole play
 

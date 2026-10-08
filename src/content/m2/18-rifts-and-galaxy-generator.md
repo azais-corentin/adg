@@ -11,6 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## Filling Rifts to full
@@ -36,6 +37,12 @@ Generation is capped in phases: 1,000, then 1e5, 1e7, 1e9 and 1e10 galaxies. Eac
 Sacrifices are permanent for the rest of the Doom. Before each one, spend the Rift's benefits while you still have them: fill it as far past its milestones as is cheap, bank the currencies it boosted, and only then sacrifice.
 
 </Callout>
+
+<Screen
+	src="pelle/reality-imaginary-0.webp"
+	alt="The Imaginary Upgrades subtab inside Doom: the capped Machine header with the disabled-upgrade note and the repeatable rows below."
+	caption="Imaginary Upgrades in Doom. Most one-time effects switch off here, so buy everything you can before Dooming."
+/>
 
 ## The final push
 
