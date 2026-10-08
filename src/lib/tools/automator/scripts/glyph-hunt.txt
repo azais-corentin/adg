@@ -2,6 +2,7 @@
 # at 90 or more, then stops so you can push that Reality further yourself.
 auto reality off
 auto eternity off
+auto infinity on
 studies nowait load id 1
 until pending rm > 0 {
   wait pending ep > ep

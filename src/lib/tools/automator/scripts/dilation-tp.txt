@@ -1,7 +1,8 @@
 # Dilation: unlocks Time Dilation, then runs dilated Eternities until TP reaches the goal.
 # Each dilated run ends once it would at least double your TP.
 # Time Study preset 1 must include one of studies 231-234.
-studies load id 1
+auto infinity on
+studies nowait load id 1
 unlock dilation
 while tp < 1e20 {
   start dilation

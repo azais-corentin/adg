@@ -33,7 +33,7 @@ function realityUpgradeName(id: number): string {
 
 /** What each unlock is called in the game, for the prerequisites list. */
 export const UNLOCK_LABELS: Record<AutomatorUnlock, string> = {
-	infinityAutobuyer: 'The Big Crunch autobuyer (from its Normal Challenge)',
+	infinityAutobuyer: `The Big Crunch autobuyer. The Reality Upgrade ${realityUpgradeName(10)} completes its Normal Challenge at the start of every Reality.`,
 	infinityAutobuyerModes: `${milestoneEternities('bigCrunchModes')} Eternities (more Big Crunch autobuyer modes)`,
 	eternityAutobuyer: `${milestoneEternities('autobuyerEternity')} Eternities (the Eternity autobuyer milestone). The Reality Upgrade ${realityUpgradeName(10)} starts every Reality with them.`,
 	eternityAutobuyerModes: `The Reality Upgrade ${realityUpgradeName(13)} (more Eternity autobuyer modes)`,
@@ -105,17 +105,23 @@ const META: readonly ScriptMeta[] = [
 		stage: 'early-reality',
 		purpose:
 			'Grows Eternity Points by taking an Eternity only when it would at least double your EP, and buys more of your Time Study tree after each one.',
-		unlocks: ['eternityAutobuyer'],
+		unlocks: ['eternityAutobuyer', 'infinityAutobuyer'],
 		perks: [],
 		setup: [
 			'Save the tree you want as Time Study preset 1 (Eternity tab, Studies). The script buys what it can afford from it after every Eternity.',
-			'Keep your Big Crunch and dimension autobuyers on; the script turns only the Eternity autobuyer off, and back on when it ends.'
+			'Keep your dimension autobuyers on. The script turns the Big Crunch autobuyer on and the Eternity autobuyer off, and the Eternity autobuyer back on when it ends.'
 		],
 		tweaks: [
 			'The goal on the while line (1e300 EP). The script stops there.',
 			'The preset number in "load id 1".'
 		],
-		verified: null
+		verified: {
+			android: '3.18.0',
+			date: '2026-10-08',
+			save: 'teresa',
+			observed:
+				'started by a Reality (EP back to 0), it took an Eternity only once the pending EP passed the EP it had (9.9e36, 8.5e44, 5.4e49, 8.7e55, … EP), stopped after passing 1e300 and turned the Eternity autobuyer back on.'
+		}
 	},
 	{
 		id: 'ec-runner',
@@ -123,7 +129,7 @@ const META: readonly ScriptMeta[] = [
 		stage: 'early-reality',
 		purpose:
 			'Takes one Eternity Challenge up to 5 completions: respecs, buys a tree that reaches the challenge, starts it, and finishes each run as soon as it would add a completion.',
-		unlocks: ['eternityAutobuyer'],
+		unlocks: ['eternityAutobuyer', 'infinityAutobuyer'],
 		perks: [72, 73],
 		setup: [
 			'The first lines respec your Time Studies and Eternity, so start it when losing the current tree is fine.'
@@ -131,9 +137,16 @@ const META: readonly ScriptMeta[] = [
 		tweaks: [
 			'To run another challenge, change the 1 in ec1, EC1 and |1! to its number.',
 			'Each challenge needs a different study before it: EC1–3 need 171 (the default tree), EC4 needs 143 (idle path), EC5 needs 42, EC6 needs 121 (active), EC7 needs 111, EC8 needs 123 (idle), EC9 needs 151, EC10 needs 181. Edit the list before the | to match.',
-			'Lower the 5 on the until line to stop at fewer completions.'
+			'Lower the 5 on the until line to stop at fewer completions.',
+			'The script turns the Big Crunch autobuyer on. EC4 limits how many Infinities you may do, so for EC4 set that autobuyer to crunch rarely, or delete the "auto infinity on" line and crunch by hand.'
 		],
-		verified: null
+		verified: {
+			android: '3.18.0',
+			date: '2026-10-08',
+			save: 'teresa',
+			observed:
+				'with EC1 at 0 completions and the ECR and ECB perks, it respecced, bought the tree and the EC1 study, started EC1 and ended it once completions were pending. EC1 then showed Completed (5 of 5) and the script had run to its end.'
+		}
 	},
 	{
 		id: 'dilation-tp',
@@ -141,10 +154,10 @@ const META: readonly ScriptMeta[] = [
 		stage: 'early-reality',
 		purpose:
 			'Unlocks Time Dilation, then repeats dilated Eternities. Each one ends as soon as it would at least double your Tachyon Particles.',
-		unlocks: ['eternityAutobuyer'],
+		unlocks: ['eternityAutobuyer', 'infinityAutobuyer'],
 		perks: [53],
 		setup: [
-			'Time Study preset 1 must include one of the studies 231–234; unlocking Dilation needs one of them.',
+			'Time Study preset 1 must include one of the studies 231–234; unlocking Dilation needs one of them. The script buys what it can afford from the preset once, then waits to unlock Dilation, so have the Time Theorems for the tree up to that study.',
 			'Without the DILR perk, unlocking Dilation also needs 5 completions of EC11 and EC12 and enough total Time Theorems.'
 		],
 		tweaks: [
@@ -165,7 +178,13 @@ const META: readonly ScriptMeta[] = [
 		tweaks: [
 			'The 1000 on the wait line. Use "pending glyph level" instead of "pending rm" to wait for a glyph level.'
 		],
-		verified: null
+		verified: {
+			android: '3.18.0',
+			date: '2026-10-08',
+			save: 'teresa',
+			observed:
+				'with a Reality worth 8.06e8 RM on offer, it showed the green banner "A Reality now gives 1000 RM" and stopped.'
+		}
 	},
 	{
 		id: 'respec-tree',
@@ -185,7 +204,7 @@ const META: readonly ScriptMeta[] = [
 		stage: 'teresa',
 		purpose:
 			'One full Reality per pass: Eternities that double your EP, Dilation unlocked on the way, and a Reality once it pays the RM you set. The Automator starts the script again after each Reality.',
-		unlocks: ['realityAutobuyer', 'eternityAutobuyer'],
+		unlocks: ['realityAutobuyer', 'eternityAutobuyer', 'infinityAutobuyer'],
 		perks: [53, 45, 46],
 		setup: [
 			'Time Study preset 1 holds your main tree, including one of the studies 231–234.',
@@ -204,7 +223,7 @@ const META: readonly ScriptMeta[] = [
 		stage: 'effarig',
 		purpose:
 			"Uses Effarig's Glyph filter to look for a good glyph: quick Realities until the filter scores the glyph it would pick at 90 or more, then a notification and a stop, so you can push that Reality's glyph level up first.",
-		unlocks: ['realityAutobuyer', 'eternityAutobuyer'],
+		unlocks: ['realityAutobuyer', 'eternityAutobuyer', 'infinityAutobuyer'],
 		perks: [53, 45, 46],
 		setup: [
 			'Unlock and set up the Glyph filter (Glyphs tab). In Rarity Threshold mode the score is the rarity in %. In Specified Effect mode a glyph missing one of your effects scores below 0.',

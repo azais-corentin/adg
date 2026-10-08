@@ -2,6 +2,7 @@
 # The Automator starts this script again after every Reality.
 auto reality off
 auto eternity off
+auto infinity on
 studies nowait load id 1
 until pending rm >= 1e12 {
   wait pending ep > ep

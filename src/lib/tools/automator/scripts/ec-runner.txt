@@ -1,5 +1,6 @@
 # EC runner: takes Eternity Challenge 1 up to 5 completions.
 # For another EC, change the 1 in every ec1/EC1/|1! and the studies before the |.
+auto infinity on
 studies respec
 eternity
 until ec1 completions >= 5 {

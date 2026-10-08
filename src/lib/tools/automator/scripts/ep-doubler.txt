@@ -1,6 +1,7 @@
 # EP doubler: Eternity each time it would at least double your EP.
 # Save the tree you want as Time Study preset 1 first.
 auto eternity off
+auto infinity on
 while ep < 1e300 {
   studies nowait load id 1
   wait pending ep > ep
