@@ -16,7 +16,7 @@ verified:
 
 ## Unlocking hard V
 
-The last three V-Achievements stay hidden until V's memory in Ra reaches level 6. That unlock also opens one Triad study per 6 V-memory levels. <!-- vendor/ad-source/src/core/secret-formula/celestials/ra.js `unlockHardV`: level 6, effect one triad per 6 V levels --> So hard V is a mid-Ra activity: level Ra's V memory first (see [Ra's memories](/guide/m2/ra-memories)), then come back to V's tab with new goals and new tools.
+The last three V-Achievements stay hidden until V's memory in Ra reaches level 6. That unlock also opens one Triad study per 6 V-memory levels (V level 6 → first triad, 12 → second, 18 → third, 24 → fourth). <!-- vendor/ad-source/src/core/secret-formula/celestials/ra.js `unlockHardV`: level 6, effect floor(V level / 6) --> So hard V is a mid-Ra activity: level Ra's V memory first (see [Ra's memories](/guide/m2/ra-memories)), then come back to V's tab with new goals and new tools.
 
 Each hard tier counts as **two** V-Achievements and awards **two** Space Theorems. Flip the tab between normal and hard with the Hide/Show Hard V button. <!-- vendor/ad-source/src/components/tabs/celestial-v/VTab.vue, vendor/ad-source/src/core/celestials/V.js `updateTotalRunUnlocks` -->
 
@@ -30,19 +30,19 @@ Each hard tier counts as **two** V-Achievements and awards **two** Space Theorem
 
 ### Requiem for a Glyph
 
-Reality with at most −1, −4, −7, −10, −13 "Glyphs" — negative counts reached with Cursed Glyphs, each of which counts as −3 toward the total. <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[6].values`; vendor/ad-source/src/core/glyphs/glyph-core.js:736-740 --> The **Create a Cursed Glyph** button on the V tab makes them (up to five at once).
+Reality with 5, 4, 3, 2, then 1 "Glyphs" — counts that go below zero through Cursed Glyphs, each of which counts as −3 toward the total. <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[6].values`; vendor/ad-source/src/core/glyphs/glyph-core.js:734-740 --> The **Create a Cursed Glyph** button on the V tab makes them (up to five at once).
 
 Cursed Glyphs are weak by design, so this is really a low-Glyph-count Reality with extra steps: equip the cursed ones plus as few real Glyphs as possible, keep the whole Reality equipped that way, and Reality when the tracker confirms the count. Start with the −1 tier (one cursed Glyph plus minimal real ones) and work down.
 
 ### Post-destination
 
-Hold <Num value="400000" /> Time Theorems while your Black Hole is at ÷<Num value="1e100" /> or slower — and slower means more inverted — without discharging or entering EC12. Tiers raise the bar to ÷<Num value="1e150" />, ÷<Num value="1e200" />, ÷<Num value="1e250" />, ÷<Num value="1e300" />. <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[7].values` -->
+Hold <Num value="400000" /> Time Theorems while your Black Hole is at ÷<Num value="1e100" /> or slower — and slower means more inverted — without discharging or entering EC12. Tiers raise the bar to ÷<Num value="1e150" />, ÷<Num value="1e200" />, ÷<Num value="1e250" />, ÷<Num value="1e300" /> (five tiers total: 100, 150, 200, 250, 300). <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[7].values` -->
 
 This one is about Black Hole control: invert the hole deep, accumulate 400,000 TT, and resist every urge to discharge. Plan a Reality where TT is the only goal.
 
 ### Shutter Glyph
 
-Reach Glyph level 6,500 / 7,000 / 8,000 / 9,000 / 10,000 inside V's Reality. <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[8].values` --> This is the purest power check in V: your Glyph level must be enormous *despite* the square-root weakening. High sacrifices, strong Reality Glyphs, and every Theorem in the tree all feed it. Take the early tiers when they come naturally during farming; the 9,000+ tiers wait for near-maxed setups.
+Reach Glyph level 6,500 / 7,000 / 8,000 / 9,000 / 10,000 inside V's Reality (five tiers). <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[8].values` --> This is the purest power check in V: your Glyph level must be enormous *despite* the square-root weakening. High sacrifices, strong Reality Glyphs, and every Theorem in the tree all feed it. Take the early tiers when they come naturally during farming; the 9,000+ tiers wait for near-maxed setups.
 
 Goal reduction applies to hard achievements too, at a steeper price. Use it — the top tiers assume you will.
 

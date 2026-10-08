@@ -18,7 +18,7 @@ verified:
 
 V is the fourth Celestial, the Celestial of Achievements. Where Teresa, Effarig and the Nameless Ones each add a new currency or layer, V adds a new kind of goal: tiered achievements you complete inside a special, heavily weakened Reality. Finishing them earns Space Theorems, a second currency for the Time Study tree, and enough of them unlocks Ra.
 
-You reach V through the Celestials tab (the comet icon), which shows a map of every Celestial. Tap V's hexagon once to see its requirements, twice to open its tab.
+You reach V through the Celestials tab, which shows a map of every Celestial. Tap V's hexagon once to see its requirements, twice to open its tab.
 
 <Screen
 	src="ra/celestials-nav-0.webp"
@@ -34,7 +34,7 @@ V unlocks when you meet all six of these **at the same time**. The V tab shows a
 | --- | --- | --- |
 | Realities | <Num value="10000" /> | Lifetime total. |
 | Eternities | <Num value="1e70" /> | Lifetime total. |
-| Infinities | <Num value="1e160" /> | Lifetime total, counting banked ones. |
+| Infinities | <Num value="1e160" /> | Lifetime total, counting banked ones (total, not current). |
 | Dilated Time | <Num value="1e320" /> | Best this Reality, not lifetime. |
 | Replicanti | <Num value="1e320000" /> | Best this Reality, not lifetime. |
 | Reality Machines | <Num value="1e60" /> | Current amount. |
