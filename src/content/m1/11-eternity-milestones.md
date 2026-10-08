@@ -27,8 +27,8 @@ The **Milestones** subtab of the Eternity tab lists rewards that unlock permanen
 
 ## The early milestones
 
-| Eternities | Reward | Why it matters |
-| ---------- | ------ | -------------- |
+| ETs | Reward | Why it matters |
+| --- | ------ | -------------- |
 | 1 | IP multiplier autobuyer | Your first new automation. |
 | 2 | Start with Normal Challenges done, normal autobuyers, and Infinity broken | No more re-breaking Infinity every run. |
 | 3 | Replicanti Galaxy autobuyer | One less thing to babysit. |
