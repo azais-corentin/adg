@@ -10,7 +10,10 @@ export default defineConfig({
 			compilerOptions: {
 				// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
 				runes: ({ filename }) =>
-					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
+					filename.split(/[/\\]/).includes('node_modules') ? undefined : true,
+				// mdsvex 0.12 still emits `<script context="module">` for frontmatter.
+				warningFilter: (warning) =>
+					!(warning.code === 'script_context_deprecated' && warning.filename?.endsWith('.md'))
 			},
 			// 404.html is served by Cloudflare for unknown paths (assets.not_found_handling).
 			adapter: adapter({ fallback: '404.html' }),
