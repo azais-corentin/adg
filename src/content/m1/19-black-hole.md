@@ -31,10 +31,10 @@ Unlock costs <Num value="100" /> RM (achievement: Is this an Interstellar refere
 | Upgrade | Starts | Each level | Cost scaling |
 | ------- | ------ | ---------- | ------------ |
 | Interval | 60 min off (3600 s) | ×0.8 downtime | ×3.5, from 15 RM |
-| Power | ×5 speed (180 ÷ 2 for the first hole's divisor-adjusted display) | ×1.35 burst speed | ×2, from 20 RM |
+| Power | ×5 speed | ×1.35 burst speed | ×2, from 20 RM |
 | Duration | 10 s on | ×1.3 burst length | ×4, from 10 RM |
 
-<!-- vendor/ad-source/src/core/black-hole.js: interval 3600s ×0.8 (cost 15 ×3.5), power ×5 ×1.35 (cost 20 ×2), duration 10s ×1.3 (cost 10 ×4); H2P confirms the 0.2/0.35/0.3 per-upgrade text -->
+<!-- vendor/ad-source/src/core/black-hole.js: interval 3600s ×0.8 (cost 15 ×3.5), power ×5 ×1.35 (cost 20 ×2), duration 10s ×1.3 (cost 10 ×4); H2P confirms the 0.2/0.35/0.3 per-upgrade text. (The in-game effect readout divides power by 2 for display; the applied game-speed multiplier is the full ×5 base.) -->
 
 Buy **power first, then duration, then interval**: a stronger burst helps every cycle, a longer burst stretches it, and a shorter interval only matters once bursts are worth having often. Power's gentle ×2 cost scaling means it stays affordable the longest; duration's ×4 scaling bites fast, so alternate once power leads by a few levels. Keep the hole running during pushes — toggle it off only for timing-sensitive unlocks like fastest-Reality runs, where you want the clock slow, not fast.
 
