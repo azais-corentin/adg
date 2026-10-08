@@ -1,0 +1,297 @@
+/*
+ * adg design tokens.
+ * Light: cool paper and ink, for daylight reading. Dark: the game's own pure black,
+ * so a split screen next to Antimatter Dimensions doesn't glow.
+ * Colour beyond ink comes only from the game's layer colours (`--layer-*`): every
+ * stage, article and highlight carries the colour of the layer it belongs to.
+ */
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible Next';
+	font-style: normal;
+	font-weight: 200 800;
+	font-display: swap;
+	src: url('/fonts/atkinson-hyperlegible-next-latin.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible Next';
+	font-style: italic;
+	font-weight: 200 800;
+	font-display: swap;
+	src: url('/fonts/atkinson-hyperlegible-next-italic-latin.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible Mono';
+	font-style: normal;
+	font-weight: 200 800;
+	font-display: swap;
+	src: url('/fonts/atkinson-hyperlegible-mono-latin.woff2') format('woff2');
+}
+
+:root {
+	color-scheme: light dark;
+
+	--paper: light-dark(#f3f4f6, #000000);
+	--surface: light-dark(#ffffff, #101114);
+	--surface-sunk: light-dark(#e8eaee, #17181c);
+	--ink: light-dark(#14161b, #e3e4e8);
+	--muted: light-dark(#575c68, #9a9eaa);
+	--rule: light-dark(#d4d7de, #2b2d33);
+	--focus: light-dark(#1d4ed8, #8ab4ff);
+
+	/* Game layer colours, darkened for paper / lifted for black to keep text contrast. */
+	--layer-antimatter: light-dark(#b5303a, #ec6464);
+	--layer-infinity: light-dark(#8c5a14, #d49a46);
+	--layer-eternity: light-dark(#8a2db5, #c776ee);
+	--layer-dilation: light-dark(#3d7a0c, #7fe23c);
+	--layer-reality: light-dark(#0b7a0e, #34c437);
+	--layer-teresa: light-dark(#3434c8, #8b8bf6);
+	--layer-effarig: light-dark(#b02424, #ee7070);
+	--layer-nameless: light-dark(#9a5222, #f1aa7f);
+	--layer-v: light-dark(#776410, #ead584);
+	--layer-ra: light-dark(#6546ad, #b6a0de);
+	--layer-imaginary: light-dark(#40677a, #9cc6d8);
+	--layer-laitela: light-dark(#3a3b42, #f2f2f2);
+	--layer-pelle: light-dark(#b00f30, #ff5a74);
+	--layer: var(--layer-antimatter);
+
+	--font-text: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+	--font-mono: 'Atkinson Hyperlegible Mono', ui-monospace, monospace;
+
+	/* Type scale on a 17px base, roughly ×1.2 per step. */
+	--step--1: 0.875rem;
+	--step-0: 1.0625rem;
+	--step-1: 1.25rem;
+	--step-2: 1.5rem;
+	--step-3: 1.875rem;
+
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.5rem;
+	--space-6: 2.5rem;
+
+	--measure: 40rem;
+	--radius: 6px;
+	--tap: 44px;
+	--header-h: 3.25rem;
+	--tabbar-h: 3.75rem;
+}
+
+:root[data-theme='light'] {
+	color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+	color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	scroll-padding-top: calc(var(--header-h) + var(--space-4));
+}
+
+body {
+	margin: 0;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: var(--font-text);
+	font-size: var(--step-0);
+	line-height: 1.6;
+	-webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+	font-weight: 750;
+	letter-spacing: -0.012em;
+	text-wrap: balance;
+}
+
+h1 {
+	font-size: var(--step-3);
+	margin: 0 0 var(--space-3);
+}
+
+h2 {
+	font-size: var(--step-2);
+	margin: var(--space-6) 0 var(--space-3);
+}
+
+h3 {
+	font-size: var(--step-1);
+	margin: var(--space-5) 0 var(--space-2);
+}
+
+p,
+ul,
+ol {
+	margin: 0 0 var(--space-4);
+}
+
+ul,
+ol {
+	padding-left: 1.4em;
+}
+
+li + li {
+	margin-top: var(--space-1);
+}
+
+a {
+	color: inherit;
+	text-decoration-line: underline;
+	text-decoration-color: var(--layer);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.22em;
+}
+
+a:hover {
+	text-decoration-thickness: 3px;
+}
+
+:focus-visible {
+	outline: 3px solid var(--focus);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+strong {
+	font-weight: 720;
+}
+
+code,
+kbd {
+	font-family: var(--font-mono);
+}
+
+/* Game numbers: tabular figures, so columns of values line up as they do in the game. */
+.num {
+	font-variant-numeric: tabular-nums;
+	font-weight: 650;
+}
+
+code {
+	font-size: 0.9em;
+	padding: 0.1em 0.3em;
+	border-radius: 4px;
+	background: var(--surface-sunk);
+}
+
+pre {
+	overflow-x: auto;
+	padding: var(--space-3) var(--space-4);
+	border-radius: var(--radius);
+	background: var(--surface-sunk);
+	font-size: var(--step--1);
+	line-height: 1.5;
+}
+
+pre code {
+	padding: 0;
+	background: none;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0 0 var(--space-4);
+	font-size: var(--step--1);
+}
+
+th,
+td {
+	text-align: left;
+	vertical-align: top;
+	padding: var(--space-2) var(--space-3) var(--space-2) 0;
+	border-bottom: 1px solid var(--rule);
+}
+
+th {
+	font-weight: 720;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--rule);
+	margin: var(--space-6) 0;
+}
+
+button,
+select,
+input {
+	font: inherit;
+	color: inherit;
+}
+
+/* Buttons and button-like links share one look: a quiet bordered control. */
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-2);
+	min-height: var(--tap);
+	padding: 0 var(--space-4);
+	border: 1.5px solid var(--layer);
+	border-radius: var(--radius);
+	background: var(--surface);
+	color: var(--ink);
+	font-weight: 650;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.button:hover {
+	background: color-mix(in srgb, var(--layer) 10%, var(--surface));
+}
+
+/* Every page's content column. */
+.page {
+	max-width: var(--measure);
+}
+
+.muted {
+	color: var(--muted);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (min-width: 60rem) {
+	:root {
+		--step-0: 1.0625rem;
+		--step-2: 1.625rem;
+		--step-3: 2.25rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition: none !important;
+		animation: none !important;
+		scroll-behavior: auto !important;
+	}
+}

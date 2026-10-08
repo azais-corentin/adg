@@ -2,6 +2,7 @@ import { mdsvex } from 'mdsvex';
 import { defineConfig } from 'vitest/config';
 import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
+import remarkHeadings from './src/lib/content/remark-headings.ts';
 
 export default defineConfig({
 	plugins: [
@@ -13,7 +14,7 @@ export default defineConfig({
 			},
 			// 404.html is served by Cloudflare for unknown paths (assets.not_found_handling).
 			adapter: adapter({ fallback: '404.html' }),
-			preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
+			preprocess: [mdsvex({ extensions: ['.svx', '.md'], remarkPlugins: [remarkHeadings] })],
 			extensions: ['.svelte', '.svx', '.md']
 		})
 	],
