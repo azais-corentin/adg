@@ -7,6 +7,8 @@ test('every internal link and image resolves and pages fit the screen', async ({
 	page,
 	baseURL
 }) => {
+	// One page load per article, tool and screenshot: well past the default 30 s.
+	test.setTimeout(300_000);
 	const origin = new URL(baseURL ?? 'http://localhost:4173').origin;
 	const queue = ['/'];
 	const visited = new Set<string>();

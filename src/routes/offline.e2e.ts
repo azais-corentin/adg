@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+test.use({ serviceWorkers: 'allow' });
+
 test('guide and tools keep working offline after the first visit', async ({ page, context }) => {
 	await page.goto('/');
 	await page.evaluate(async () => {
