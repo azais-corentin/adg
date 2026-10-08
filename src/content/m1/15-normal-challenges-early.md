@@ -16,9 +16,9 @@ verified:
 
 ## How challenges work
 
-The Challenges tab (triangle icon) offers **Normal Challenges**. Entering one starts a fresh Infinity run under a restriction — weaker Dimensions, stranger costs, missing Boosts — and completing it (reaching <Num value="1.80e308" /> antimatter inside) grants its reward permanently. Challenges 1–9 are open as soon as you have crunched once; 10–12 stay locked until 16 Infinities.
+The Challenges tab (triangle icon) offers **Normal Challenges**. Entering one starts a fresh Infinity run under a restriction — weaker Dimensions, stranger costs, missing Boosts — and completing it (reaching <Num value="1.79e308" /> antimatter inside) grants its reward permanently. Challenges 1–9 are open as soon as you have crunched once; 10–12 stay locked until 16 Infinities.
 
-<!-- goals 1.80e308; NC10-12 lockedAt 16 Infinities: src/lib/data/generated/challenges.json -->
+<!-- goals NUMBER_MAX_VALUE (1.79e308); NC10-12 lockedAt 16 Infinities: src/lib/data/generated/challenges.json, vendor/ad-source/src/core/normal-challenges.js -->
 
 Every challenge reward unlocks or improves an autobuyer, so challenges are not optional content — they are how your automation grows. You can retry freely, and leaving a challenge keeps nothing but costs nothing either. If the Big Crunch autobuyer is on when you enter, it will crunch for you the moment you hit the goal.
 
@@ -36,7 +36,7 @@ Every challenge reward unlocks or improves an autobuyer, so challenges are not o
 | C2 | buying anything halts production for 3 min (recovering gradually) | 2nd Dimension autobuyer upgrades | Buy rarely and in bulk; then wait |
 | C3 | 1st Dimension weakened, gains an exponential multiplier that resets on Boost/Galaxy | 3rd Dimension autobuyer upgrades | Boost/Galaxy often — the multiplier resets anyway, so spend it |
 | C4 | buying a Dimension erases all lower tiers | 4th Dimension autobuyer upgrades | Buy top-down (high tiers first) so wipes destroy little |
-| C5 | Tickspeed multiplier starts at ×1.080 not ×1.125 | 5th Dimension autobuyer upgrades | Noticeably slower Tickspeed; lean on Dimensions |
+| C5 | Tickspeed multiplier starts at ×1.080 not ×1.1245 | 5th Dimension autobuyer upgrades | Noticeably slower Tickspeed; lean on Dimensions |
 | C6 | Dimensions cost the Dimension 2 tiers below instead of antimatter | 6th Dimension autobuyer upgrades | Odd economy; keep lower tiers stocked as currency |
 | C7 | buy-10 multiplier reduced (recovers with Boosts) | 7th Dimension autobuyer upgrades | Boost early and often — each Boost restores part of the multiplier |
 | C8 | no Boost multiplier, no Galaxies; Sacrifice resets everything but hits much harder | 8th Dimension autobuyer upgrades | Sacrifice constantly, even at small multipliers — it is your only engine |
@@ -62,3 +62,4 @@ Ignore any guide telling you to set numeric autobuyer priorities for C9. Priorit
 
 - In-game Info → How to play → "Normal Challenges".
 - [The Challenges tab, Infinity subtab](/guide/m1/normal-challenges-late), for C10–C12 once they unlock.
+- When the crunch interval is maxed, [Breaking Infinity](/guide/m1/breaking-infinity) is next.

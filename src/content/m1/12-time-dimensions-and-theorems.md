@@ -44,15 +44,14 @@ Buy max Time Dimensions is on by default — leave it on. EP spent on Time Dimen
 | ----------- | --------------- | ------------ | ----- |
 | Antimatter | <Num value="1e20000" /> | ×<Num value="1e20000" /> each | Cheap at first; the price explodes after a few. |
 | Infinity Points | 1 IP | ×100 each | The workhorse early source. |
-| Eternity Points | 1 EP | ×2 each | The long-term source once EP flows. |
+| Eternity Points | 1 EP | roughly ×2 of the last price each (2, 4, 6, 8, … EP) | The long-term source once EP flows. |
 
-Each purchase gives exactly 1 TT, and there is a buy-max toggle per row. Early on, buy antimatter and IP theorems freely — the first studies cost 1–6 TT, and you will have dozens within a few Eternities. EP theorems take over once your EP per run passes a few hundred, since doubling each time still beats the IP row's ×100 growth.
+Each purchase gives exactly 1 TT, and there is a buy-max toggle per row. Early on, buy antimatter and IP theorems freely — the first studies cost 1–6 TT, and you will have dozens within a few Eternities. EP theorems take over once your EP per run passes a few hundred, since the IP row's ×100 geometric growth prices it out fast.
 
 ## The early economy in practice
 
-1. Each Eternity, push IP as far as it goes, then spend IP on theorems before Eternity resets it.
 2. Spend new TT on the next studies down the tree ([Time Studies](/guide/m1/time-studies) explains the order).
-3. More studies → faster runs → more IP and EP → more theorems. This loop carries you to the first Eternity Challenges at around 130 TT.
+3. More studies → faster runs → more IP and EP → more theorems. This loop carries you to the first Eternity Challenges ([Unlocking Eternity Challenges](/guide/m1/unlocking-eternity-challenges)) at around 130 TT.
 
 ## Further reading
 

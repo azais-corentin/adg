@@ -54,8 +54,8 @@ A new tree starts at study 11 (1 TT) and grows downward. The cheap early backbon
 - Study 111 (12 TT) improves the whole IP formula — a big early jump.
 - 121/122/123 picks your pace (Active, unless you know why not).
 - 151 (8 TT) multiplies all Time Dimensions by 10,000.
-- 161/162 (7 TT each) are huge flat multipliers to Antimatter and Infinity Dimensions.
-- 171 (15 TT) slows Tickspeed cost growth — required for the first EC studies.
+- 161/162 (7 TT each) are flat e616-AD and e11-ID multipliers — strong, but they stop scaling, so later percentage studies overtake them.
+- 171 (15 TT) improves the Tickspeed cost curve from ×1.33 to ×1.25 per step — required for the first EC studies.
 
 Study 181 (200 TT) generates a share of your per-crunch IP every second and marks the transition into the Eternity Challenge era.
 

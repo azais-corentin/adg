@@ -17,12 +17,12 @@ verified:
 
 Every glyph has four attributes. Type decides which effects it can roll; level and rarity decide how strong those effects are. <!-- in-game How to Play, "Glyphs"; vendor/ad-source/src/core/glyphs/glyph-generator.js -->
 
-- **Type** — Power (Ω), Infinity (∞), Replication (Ξ), Time (Δ) or Dilation (Ψ) before any Celestial. Each type boosts its own corner of the game: Power helps Antimatter Dimensions, Infinity helps Infinity Dimensions, Replication speeds up Replicanti, Time helps Time Dimensions and Eternity gain, Dilation helps Dilated Time and Tachyon Galaxies.
-- **Level** — grows with the EP, Replicanti and Dilated Time you reached in the Reality that produced it, plus a share of your Eternity count once you buy the right upgrade. Higher level means stronger effects and usually more of them. <!-- vendor/ad-source/src/core/glyphs/auto-glyph-processor.js (getGlyphLevelInputs) -->
-- **Rarity** — a percentage from 0% to 100%. Higher is better: it raises effect strength and the chance of extra effects. Named bands run Common, Uncommon, Rare, Epic, Legendary, Mythical, Transcendent, Celestial. <!-- vendor/ad-source/src/core/constants.js (GlyphRarities) -->
-- **Effects** — the actual bonuses, up to four per glyph. Same-type effects on several equipped glyphs combine: "+" effects add, "×" effects multiply. <!-- in-game How to Play, "Glyphs" -->
+- **Type** — Power (Ω), Infinity (∞), Replication (Ξ), Time (Δ) or Dilation (Ψ) before any Celestial (later Effarig, Reality and Cursed types join). Each type boosts its own corner of the game: Power helps Antimatter Dimensions, Infinity helps Infinity Dimensions, Replication speeds up Replicanti, Time helps Time Dimensions and Eternity gain, Dilation helps Dilated Time and Tachyon Galaxies.
+- **Level** — grows with the EP, Replicanti and Dilated Time you reached in the Reality that produced it, plus a share of your Eternity count once you buy Measure of Forever. Higher level means stronger effects and usually more of them. <!-- vendor/ad-source/src/core/glyphs/auto-glyph-processor.js (getGlyphLevelInputs); reality-upgrades.js (Measure of Forever) -->
+- **Rarity** — a strength value shown as a percentage. Higher is better: it raises effect strength and the chance of extra effects. Named bands run Common, Uncommon, Rare, Epic, Legendary, Mythical, Transcendent, Celestial (top-down, not bottom-up). <!-- vendor/ad-source/src/core/constants.js (GlyphRarities, descending minStrength) -->
+- **Effects** — the actual bonuses, up to four per glyph on basic types. Same-type effects on several equipped glyphs combine: "+" effects add, "×" effects multiply. <!-- in-game How to Play, "Glyphs" -->
 
-Your first glyph is fixed: a Power glyph with Antimatter Dimension power, plus a Companion heart that records the EP you Realitied with. Its level scales with your progress; its effect and rarity do not. Once a glyph exists, its attributes never change. <!-- vendor/ad-source/src/core/glyphs/glyph-generator.js (startingGlyph, companionGlyph) -->
+Your first glyph is fixed: a Power glyph with Antimatter Dimension power at slightly above-average strength. The Companion heart rides along free and records the EP you Realitied with (its rarity encodes log10(EP)/1e6). Once a glyph exists, its attributes never change. <!-- vendor/ad-source/src/core/glyphs/glyph-generator.js (startingGlyph strength 1.5, companionGlyph) -->
 
 ## Equipping on Android
 

@@ -51,14 +51,15 @@ Further up the right side sit the start-with-Boosts/Galaxy upgrades (<Num value=
 ## What not to do
 
 - Do not hoard IP "for later". Unspent IP does nothing until you own the upgrade that scales with it — spend everything, every Crunch, until that 5-IP upgrade is yours.
-- Do not buy the <Num value="1000" />-IP offline upgrade early. It is excellent later, but at this stage <Num value="1000" /> IP is days of progress; spend it on the cheap multipliers instead.
+- Do not buy the <Num value="1000" />-IP offline upgrade early. It pays half your best IP/min while offline (and needs offline progress on in Options) — excellent later, but at this stage <Num value="1000" /> IP is days of progress; spend it on the cheap multipliers instead.
 
 <Callout kind="tip">
 
-The greyed-out upgrade at the top ("Multiply Infinity Points ×2") is a rebuyable IP multiplier. It gets more expensive above <Num value="1e3000000" /> IP and caps at <Num value="1e6000000" /> IP — ignore it for now; it matters in the hundreds-of-IP era.
+The greyed-out upgrade at the top ("Multiply Infinity Points ×2") is a rebuyable IP multiplier. It starts at 10 IP and rises tenfold per purchase, steepening above <Num value="1e3000000" /> IP and capping at <Num value="1e6000000" /> IP — ignore it for now; it matters in the hundreds-of-IP era.
 
 </Callout>
 
 ## Further reading
 
 - In-game Info → How to play → "Infinity".
+- Next: pushing the crunch autobuyer to its floor in [Upgrading autobuyers and the road to Break Infinity](/guide/m1/maxing-crunch-autobuyer).

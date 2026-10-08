@@ -66,8 +66,8 @@ The full upgrade list, with the late ones that cost up to <Num value="1e50" /> E
 
 1. Eternity as soon as the button lights up.
 2. Buy Time Dimension 1 for 1 EP.
-3. Buy your first Time Theorems and your first Time Study — [Time Studies](/guide/m1/time-studies) walks through the tree.
-4. Eternity again. The first dozen Eternities each take only minutes, and each one unlocks a milestone that removes a piece of the re-setup busywork.
+3. Buy your first Time Theorems ([Time Dimensions and Time Theorems](/guide/m1/time-dimensions-and-theorems)) and your first Time Study — [Time Studies](/guide/m1/time-studies) walks through the tree.
+4. Eternity again. The first dozen Eternities each take only minutes, and each one unlocks a [milestone](/guide/m1/eternity-milestones) that removes a piece of the re-setup busywork.
 
 
 <Checklist stage="early-eternity" />

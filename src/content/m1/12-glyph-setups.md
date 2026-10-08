@@ -45,7 +45,7 @@ Once you have 3–4 slots and a leveled Black Hole, runs live or die on Tachyon 
 
 ## Late pre-Teresa: split into two sets
 
-With 5 slots and fast runs, Dilation stops helping RM pushes. Set up two saved sets (the Glyph Presets button stores them) and swap per goal:
+With 5 slots and fast runs, Dilation stops helping RM pushes. Set up two saved sets (the Glyph Presets button stores them) and swap per goal: an **RM push set** (Power/Infinity mix with the best raw multipliers) for beating your max-EP record, and a **glyph-level farming set** (Time plus Dilation/Replication with Tachyon Galaxy threshold) for raising future glyph levels. Tables61's guide works through the exact effect picks per set — use its reasoning, not a fixed list, since your best rolls decide.
 
 Do not chase perfect rolls — a full set of good-enough glyphs at high level beats two perfect ones at low level. Level comes from pushing EP, Replicanti and Dilated Time each Reality, which the Black Hole and Reality Upgrades accelerate.
 

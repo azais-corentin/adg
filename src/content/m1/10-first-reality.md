@@ -22,14 +22,14 @@ If the study will not buy, check which of those three is missing: usually it is 
 
 ## What a Reality resets — and what it keeps
 
-Reality resets almost everything up to this point: antimatter, Infinity Points, Eternity Points, Infinities, Eternities, Time Theorems, Time Dimensions, Tachyon Particles, Dilated Time, Replicanti, challenges, studies and Dilation upgrades. <!-- vendor/ad-source/src/core/reality.js (finishProcessReality) -->
+Reality resets almost everything up to this point: antimatter, Infinity Points, Eternity Points, Infinities, Eternities, Time Theorems, Time Dimensions, Tachyon Particles, Dilated Time, Replicanti, EC studies, normal/infinity challenge *completions*, studies and Dilation upgrades. EC *completion counts* survive — only the studies and unlock flags clear. <!-- vendor/ad-source/src/core/reality.js (finishProcessReality); vendor/ad-source/src/core/eternity.js (initializeChallengeCompletions) -->
 
 Two things surprise most players:
 
 - **You lose the first 13 rows of achievements** — every pre-Reality achievement and its reward goes dark. You keep everything under the General header in Statistics, and all your best challenge times. <!-- in-game How to Play, "Reality" -->
 - **You re-earn those achievements one at a time.** Every 30 minutes the game completes your next unfinished achievement for free, even offline, until rows 1–13 are full again. You can also redo their requirements by hand, which is faster for the easy ones. Turning the timer off in Options pauses it at zero rather than skipping it. <!-- in-game How to Play, "Reality" -->
 
-Each Reality pays three things: **Reality Machines** (the new currency), **one Glyph**, and **one Perk Point**. <!-- vendor/ad-source/src/core/reality.js (giveRealityRewards) -->
+Each Reality pays three things: **Reality Machines** (the new currency), **Glyphs** (your starting Power glyph plus a Companion on run one; a choice of glyphs on later runs), and **one Perk Point**. <!-- vendor/ad-source/src/core/reality.js (giveRealityRewards) -->
 
 <Callout kind="warning">
 
@@ -41,8 +41,8 @@ There is a button on the Glyphs tab that restarts your current Reality without c
 
 Reality Machines scale purely off your Eternity Points when you Reality:
 
-- The first 10 RM scale roughly linearly between <Num value="1e4000" /> and <Num value="2e5333" /> EP.
-- Past that, RM = 1,000^(log10(EP)/4,000 − 1): every extra 4,000 EP exponent multiplies RM by 1,000. <!-- in-game How to Play, "Reality" -->
+- The first 10 RM scale roughly linearly between <Num value="1e4000" /> and <Num value="2.16e5333" /> EP (exactly 10^5333⅓, i.e. 16000/3).
+- Past that, RM = 1,000^(log10(EP)/4,000 − 1): every extra 4,000 EP exponent multiplies RM by 1,000. <!-- in-game How to Play, "Reality"; vendor/ad-source/src/core/machines.js (uncappedRM) -->
 
 Two caps apply only before your first-ever Reality: gains soften past <Num value="1e6000" /> EP and stop entirely at <Num value="1e8000" /> EP, so there is no point pushing past that on run one. <!-- vendor/ad-source/src/core/machines.js (uncappedRM) -->
 

@@ -85,7 +85,7 @@ Everything here is bought with taps on the Break subtab, and the floating **Max*
 
 ## When to move on
 
-Break Infinity is done when the upgrades above are all bought and your crunches are paying <Num value="1e8" /> IP or more. At that point antimatter in the low thousands unlocks the **Infinity Dimensions** — a new production layer that turns this whole phase from a grind into an avalanche. That is the next article.
+Break Infinity is done when the upgrades above are all bought and your crunches are paying <Num value="1e8" /> IP or more. At that point antimatter in the low thousands unlocks the **Infinity Dimensions** — a new production layer that turns this whole phase from a grind into an avalanche. That is the next article: [Infinity Dimensions and Infinity Power](/guide/m1/infinity-dimensions).
 
 Further reading:
 

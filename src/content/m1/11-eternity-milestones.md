@@ -70,7 +70,7 @@ Once the 8-Eternity milestone removes the Break Infinity re-buy, runs get much s
 
 ## When to move on
 
-Keep farming Eternities until progress stalls even with fresh studies — usually around a few hundred Eternities and a few hundred Time Theorems. That is the point to start [Eternity Challenges](/guide/m1/unlocking-eternity-challenges), whose first studies cost 30+ TT. Past 1,000 Eternities every milestone is unlocked (there is also an achievement for it).
+Keep farming Eternities until progress stalls even with fresh studies — usually around a few hundred Eternities and a few hundred Time Theorems. That is the point to start [Eternity Challenges](/guide/m1/unlocking-eternity-challenges), whose first studies cost 30+ TT. The walls inside (EC4/EC9–EC12) get their own [walkthrough](/guide/m1/eternity-challenge-walls). Past 1,000 Eternities every milestone is unlocked.
 
 ## Further reading
 
