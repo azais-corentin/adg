@@ -9,6 +9,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
+		"deploy": "bun run build && wrangler deploy",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "bun run check:ts && bun run check:svelte",
 		"check:ts": "svelte-kit sync && node node_modules/@typescript/native/bin/tsc -p tsconfig.json --noEmit",

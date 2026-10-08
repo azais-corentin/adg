@@ -1,0 +1,14 @@
+// Cloudflare Pages now deploys as a Workers static-assets project.
+// Deploy: `bun run deploy` (builds, then `wrangler deploy`).
+{
+	"name": "adg",
+	"compatibility_date": "2026-10-06",
+	"assets": {
+		"directory": "./build",
+		"not_found_handling": "404-page",
+		"html_handling": "auto-trailing-slash"
+	},
+	"routes": [{ "pattern": "ad.nelieru.cc", "custom_domain": true }],
+	"workers_dev": false,
+	"preview_urls": false
+}

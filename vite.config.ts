@@ -11,7 +11,8 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			adapter: adapter(),
+			// 404.html is served by Cloudflare for unknown paths (assets.not_found_handling).
+			adapter: adapter({ fallback: '404.html' }),
 			preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
 			extensions: ['.svelte', '.svx', '.md']
 		})
