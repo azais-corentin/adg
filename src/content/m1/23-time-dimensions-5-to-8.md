@@ -27,6 +27,8 @@ Below the Dilation study, the tree holds four more studies that each unlock one 
 
 Together they cost just over <Num value="1.111e9" /> Theorems. That number is only sane because of the Theorem generator: at <Num value="1e15" /> Dilated Time it mints Theorems per second from your Tachyon Particles, replacing the buy-buttons entirely. <!-- vendor/ad-source/src/core/secret-formula/eternity/dilation-upgrades.js --> Do not attempt these studies on bought Theorems — buy the generator first, let it fill the tank, then purchase the four studies in one respec.
 
+The generator pays TP divided by 20000 per second, so raising TP still speeds it up after purchase: each dilated push that sets a new TP record shortens the wait for the next study. Keep cycling dilation while the Theorems accumulate rather than idling on a fixed TP total.
+
 <Screen
 	src="early-eternity/dimensions-time-top.webp"
 	alt="The Time subtab of the Dimensions tab: Time Shard count and rate, a Max all button, Time Dimensions 1 to 4 with EP costs, and the 5th Time Dimension showing its Theorem unlock."
