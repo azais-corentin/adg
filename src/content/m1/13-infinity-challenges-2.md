@@ -1,8 +1,8 @@
 ---
-title: Infinity Challenges, part 2
+title: 'Infinity Challenges, part 2'
 stage: break-infinity
 order: 13
-summary: Walkthroughs for IC5 through IC8, the two hardest challenges, and finishing all eight.
+summary: 'Walkthroughs for IC5 through IC8, the two hardest challenges, and finishing all eight.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
