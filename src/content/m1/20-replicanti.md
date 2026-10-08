@@ -1,8 +1,8 @@
 ---
-title: Replicanti
+title: 'Replicanti'
 stage: replicanti
 order: 20
-summary: Unlocking Replicanti for 1e140 IP, growing them, and tuning the chance, interval and galaxy upgrades.
+summary: 'Unlocking Replicanti for 1e140 IP, growing them, and tuning the chance, interval and galaxy upgrades.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
