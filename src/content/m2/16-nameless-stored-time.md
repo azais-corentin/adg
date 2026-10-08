@@ -16,7 +16,7 @@ verified:
 
 ## How they unlock
 
-The Nameless Ones unlock when you finish **Effarig's Eternity** — the second layer of Effarig's Reality. A Nameless subtab appears in the Celestials tab (rocket icon). They do not unlock the next Celestial directly; V comes from achievements instead.
+The Nameless Ones unlock when you finish **Effarig's Eternity** — the second layer of Effarig's Reality. A Nameless subtab appears in the Celestials tab. They do not unlock the next Celestial directly; V comes from achievements instead.
 
 <!-- src/core/celestials/enslaved.js: isUnlocked = EffarigUnlock.eternity.isUnlocked; vendor/ad-source/src/core/secret-formula/h2p.js (Nameless entry: "will not directly unlock the next Celestial") -->
 
@@ -40,7 +40,7 @@ Practical notes:
 
 ## Storing real time
 
-**Store real time** halts all production (game speed 0) and banks real seconds at 70% efficiency, up to a cap of 8 hours (19 hours with a later Ra bonus in this save's screenshot — the base cap is 8). <!-- src/core/celestials/enslaved.js: storedRealTimeEfficiency 0.7; storedRealTimeCap 8h + Ra bonus -->
+**Store real time** halts all production (game speed 0) and banks real seconds at 70% efficiency, up to a base cap of 8 hours (a Ra unlock raises the cap further). <!-- src/core/celestials/enslaved.js: storedRealTimeEfficiency 0.7; storedRealTimeCap 8h + Ra improvedStoredTime bonus -->
 
 Its use is **amplifying** a Reality: on the Glyphs tab you can spend the whole bank to simulate the Reality you just ran repeatedly, multiplying out its RM, shards, Glyphs and Perk Points. Short Realities amplify best — the multiplier is roughly stored time divided by run length. There is a setting to store offline time as real time automatically; turn it on if you close the game for hours at a time.
 
@@ -57,7 +57,7 @@ Stored game time is also the currency for two unlocks at the bottom of the tab:
 | Cost (stored game time) | Unlock |
 | --- | --- |
 | <Num value="1e35" /> years | Tickspeed softcap from Time Dimensions raised by <Num value="1e5" /> upgrades |
-| <Num value="1e40" /> years, plus a level-<Num value="5000" /> and 100%-rarity Glyph on record | The Nameless Ones' Reality |
+| <Num value="1e40" /> years, plus a level-<Num value="5000" /> and 100%-rarity Glyph in your best-Reality records | The Nameless Ones' Reality |
 
 <!-- vendor/ad-source/src/core/celestials/enslaved.js: ENSLAVED_UNLOCKS FREE_TICKSPEED_SOFTCAP / RUN -->
 

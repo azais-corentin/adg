@@ -22,7 +22,7 @@ Tesseracts unlock on completing the Nameless Reality. Each one permanently raise
 
 ## Costs
 
-Tesseracts are bought on the Infinity Dimensions tab with Infinity Points. Costs rise steeply (the first costs <Num value="1e20000000" /> IP — a 1 followed by 20 million zeroes — and each next one climbs far faster), but each Tesseract is much stronger than the last, widening the cap by a growing amount.
+Tesseracts are bought on the Infinity Dimensions tab with Infinity Points. Costs rise steeply (the first costs <Num value="1e20000000" /> IP — the cost formula is 10^(1e7 × base), with bases starting at 2 — and each next one climbs far faster), but each Tesseract is much stronger than the last, widening the cap by a growing amount.
 
 <!-- src/core/celestials/enslaved.js: Tesseracts.BASE_COSTS / costs(index) = 10^(1e7 × cost); capIncrease -->
 
