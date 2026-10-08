@@ -1,0 +1,1710 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/achievements/normal-achievements.js",
+			"core/secret-formula/achievements/secret-achievements.js"
+		]
+	},
+	"normal": [
+		{
+			"id": 11,
+			"row": 1,
+			"column": 1,
+			"name": "You gotta start somewhere",
+			"description": "Buy a 1st Antimatter Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 12,
+			"row": 1,
+			"column": 2,
+			"name": "100 antimatter is a lot",
+			"description": "Buy a 2nd Antimatter Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 13,
+			"row": 1,
+			"column": 3,
+			"name": "Half life 3 CONFIRMED",
+			"description": "Buy a 3rd Antimatter Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 14,
+			"row": 1,
+			"column": 4,
+			"name": "L4D: Left 4 Dimensions",
+			"description": "Buy a 4th Antimatter Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 15,
+			"row": 1,
+			"column": 5,
+			"name": "5 Dimension Antimatter Punch",
+			"description": "Buy a 5th Antimatter Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 16,
+			"row": 1,
+			"column": 6,
+			"name": "We couldn't afford 9",
+			"description": "Buy a 6th Antimatter Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 17,
+			"row": 1,
+			"column": 7,
+			"name": "Not a luck related achievement",
+			"description": "Buy a 7th Antimatter Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 18,
+			"row": 1,
+			"column": 8,
+			"name": "90 degrees to infinity",
+			"description": "Buy an 8th Antimatter Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 21,
+			"row": 2,
+			"column": 1,
+			"name": "To infinity!",
+			"description": "Go Infinite.",
+			"descriptionSource": null,
+			"reward": "Start with 100 antimatter.",
+			"rewardSource": null
+		},
+		{
+			"id": 22,
+			"row": 2,
+			"column": 2,
+			"name": "FAKE NEWS!",
+			"description": "Encounter 50 different news messages.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 23,
+			"row": 2,
+			"column": 3,
+			"name": "The 9th Dimension is a lie",
+			"description": "Have exactly 99 8th Antimatter Dimensions.",
+			"descriptionSource": null,
+			"reward": "8th Antimatter Dimensions are 10% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 24,
+			"row": 2,
+			"column": 4,
+			"name": "Antimatter Apocalypse",
+			"description": "Get over 1e80 antimatter.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 25,
+			"row": 2,
+			"column": 5,
+			"name": "Boosting to the max",
+			"description": "Buy 10 Dimension Boosts.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 26,
+			"row": 2,
+			"column": 6,
+			"name": "You got past The Big Wall",
+			"description": "Buy an Antimatter Galaxy.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 27,
+			"row": 2,
+			"column": 7,
+			"name": "Double Galaxy",
+			"description": "Buy 2 Antimatter Galaxies.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 28,
+			"row": 2,
+			"column": 8,
+			"name": "There's no point in doing that...",
+			"description": "Buy a single 1st Antimatter Dimension when you have over 1e150 of them.",
+			"descriptionSource": null,
+			"reward": "1st Antimatter Dimensions are 10% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 31,
+			"row": 3,
+			"column": 1,
+			"name": "I forgot to nerf that",
+			"description": "Get any Antimatter Dimension multiplier over ×10 No.",
+			"descriptionSource": null,
+			"reward": "1st Antimatter Dimensions are 5% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 32,
+			"row": 3,
+			"column": 2,
+			"name": "The Gods are pleased",
+			"description": "Get over ×600 from Dimensional Sacrifice outside of Challenge 8.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": "get reward() {\n      return `Dimensional Sacrifice is stronger.\n      ${Sacrifice.getSacrificeDescription({ \"Achievement32\": false, \"Achievement57\": false, \"Achievement88\": false })} ➜\n      ${Sacrifice.getSacrificeDescription({ \"Achievement32\": true, \"Achievement57\": false, \"Achievement88\": false })}`;\n    }"
+		},
+		{
+			"id": 33,
+			"row": 3,
+			"column": 3,
+			"name": "That's a lot of infinites",
+			"description": "Reach Infinity 10 times.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 34,
+			"row": 3,
+			"column": 4,
+			"name": "You didn't need it anyway",
+			"description": "Infinity without having any 8th Antimatter Dimensions.",
+			"descriptionSource": null,
+			"reward": "Dimensions 1-7 are 2% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 35,
+			"row": 3,
+			"column": 5,
+			"name": "Don't you dare sleep",
+			"description": null,
+			"descriptionSource": "get description() {\n      return PlayerProgress.realityUnlocked()\n        ? `Be offline for a period of over ${formatInt(6)} hours (real time).`\n        : `Be offline for a period of over ${formatInt(6)} hours.`;\n    }",
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 36,
+			"row": 3,
+			"column": 6,
+			"name": "Claustrophobic",
+			"description": "Infinity with just 1 Antimatter Galaxy. (Your Antimatter Galaxies are reset on Infinity.)",
+			"descriptionSource": null,
+			"reward": "Multiply starting tick speed by 1.02.",
+			"rewardSource": null
+		},
+		{
+			"id": 37,
+			"row": 3,
+			"column": 7,
+			"name": "That's FAST!",
+			"description": "Infinity in under 2 hours.",
+			"descriptionSource": null,
+			"reward": "Start with 5,000 antimatter.",
+			"rewardSource": null
+		},
+		{
+			"id": 38,
+			"row": 3,
+			"column": 8,
+			"name": "I don't believe in Gods",
+			"description": "Buy an Antimatter Galaxy without Dimensional Sacrificing.\n(Your Antimatter Galaxies are reset on Infinity.)",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 41,
+			"row": 4,
+			"column": 1,
+			"name": "No DLC required",
+			"description": "Buy 16 Infinity Upgrades.",
+			"descriptionSource": null,
+			"reward": "Unlock two new Infinity Upgrades- ×2 IP multiplier and offline IP generation.",
+			"rewardSource": null
+		},
+		{
+			"id": 42,
+			"row": 4,
+			"column": 2,
+			"name": "Super Sanic",
+			"description": "Have antimatter per second exceed your current antimatter above 1e63.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 43,
+			"row": 4,
+			"column": 3,
+			"name": "How the antitables have turned..",
+			"description": "Get the 8th Antimatter Dimension multiplier to be highest, 7th Antimatter Dimension multiplier  second highest, etc.",
+			"descriptionSource": null,
+			"reward": "Each Antimatter Dimension gains a boost proportional to tier\n(8th gets 8%, 7th gets 7%, etc.)",
+			"rewardSource": null
+		},
+		{
+			"id": 44,
+			"row": 4,
+			"column": 4,
+			"name": "Over in 30 Seconds",
+			"description": "Have antimatter per second exceed your current antimatter\nfor 30 consecutive seconds.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 45,
+			"row": 4,
+			"column": 5,
+			"name": "Faster than a potato",
+			"description": "Get more than 100 Oc ticks per second.",
+			"descriptionSource": null,
+			"reward": "Multiply starting tickspeed by ×1.02.",
+			"rewardSource": null
+		},
+		{
+			"id": 46,
+			"row": 4,
+			"column": 6,
+			"name": "Multidimensional",
+			"description": "Reach 1 T of all Antimatter Dimensions except the 8th.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 47,
+			"row": 4,
+			"column": 7,
+			"name": "Daredevil",
+			"description": "Complete 3 Normal Challenges.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 48,
+			"row": 4,
+			"column": 8,
+			"name": "Antichallenged",
+			"description": "Complete all 12 Normal Challenges.",
+			"descriptionSource": null,
+			"reward": "All Dimensions are 10% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 51,
+			"row": 5,
+			"column": 1,
+			"name": "Limit Break",
+			"description": "Break Infinity.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 52,
+			"row": 5,
+			"column": 2,
+			"name": "Age of Automation",
+			"description": "Max the interval for Antimatter Dimension and Tickspeed upgrade autobuyers.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 53,
+			"row": 5,
+			"column": 3,
+			"name": "Definitely not worth it",
+			"description": "Max the intervals for all normal autobuyers.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 54,
+			"row": 5,
+			"column": 4,
+			"name": "That's FASTER!",
+			"description": "Infinity in 10 minutes or less.",
+			"descriptionSource": null,
+			"reward": "Start with 500 K antimatter.",
+			"rewardSource": null
+		},
+		{
+			"id": 55,
+			"row": 5,
+			"column": 5,
+			"name": "Forever isn't that long",
+			"description": "Infinity in 1 minute or less.",
+			"descriptionSource": null,
+			"reward": "Start with 50 B antimatter.",
+			"rewardSource": null
+		},
+		{
+			"id": 56,
+			"row": 5,
+			"column": 6,
+			"name": "Many Deaths",
+			"description": "Complete the 2nd Antimatter Dimension Autobuyer Challenge in 3 minutes or less.",
+			"descriptionSource": null,
+			"reward": "All Antimatter Dimensions are stronger in the first 3 minutes of Infinities.",
+			"rewardSource": null
+		},
+		{
+			"id": 57,
+			"row": 5,
+			"column": 7,
+			"name": "Gift from the Gods",
+			"description": "Complete the 8th Antimatter Dimension Autobuyer Challenge in 3 minutes or less.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": "get reward() {\n      return `Dimensional Sacrifice is stronger.\n      ${Sacrifice.getSacrificeDescription({ \"Achievement32\": true, \"Achievement57\": false, \"Achievement88\": false })} ➜\n      ${Sacrifice.getSacrificeDescription({ \"Achievement32\": true, \"Achievement57\": true, \"Achievement88\": false })}`;\n    }"
+		},
+		{
+			"id": 58,
+			"row": 5,
+			"column": 8,
+			"name": "This is fine.",
+			"description": "Complete the Tickspeed Autobuyer Challenge in 3 minutes or less.",
+			"descriptionSource": null,
+			"reward": "Increase the multiplier for buying 10 Antimatter Dimensions by +1%.",
+			"rewardSource": null
+		},
+		{
+			"id": 61,
+			"row": 6,
+			"column": 1,
+			"name": "Bulked Up",
+			"description": null,
+			"descriptionSource": "get description() {\n      return `Get all of your Antimatter Dimension Autobuyer bulk amounts to\n        ${formatInt(Autobuyer.antimatterDimension.bulkCap)}.`;\n    }",
+			"reward": "Dimension Autobuyer bulks are unlimited.",
+			"rewardSource": null
+		},
+		{
+			"id": 62,
+			"row": 6,
+			"column": 2,
+			"name": "Oh, hey... You're still here?",
+			"description": "Reach 100 M Infinity Points per minute.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 63,
+			"row": 6,
+			"column": 3,
+			"name": "A new beginning",
+			"description": "Begin generation of Infinity Power.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 64,
+			"row": 6,
+			"column": 4,
+			"name": "Zero Deaths",
+			"description": "Get to Infinity without Dimension Boosts or Antimatter Galaxies while in a Normal Challenge.",
+			"descriptionSource": null,
+			"reward": "Antimatter Dimensions 1-4 are 25% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 65,
+			"row": 6,
+			"column": 5,
+			"name": "Not-so-challenging",
+			"description": "Get the sum of all of your Normal Challenge times under 3 minutes.",
+			"descriptionSource": null,
+			"reward": "All Antimatter Dimensions are stronger in the first 3 minutes of Infinities,\nbut only in Challenges.",
+			"rewardSource": null
+		},
+		{
+			"id": 66,
+			"row": 6,
+			"column": 6,
+			"name": "Faster than a squared potato",
+			"description": "Get more than 1e58 ticks per second.",
+			"descriptionSource": null,
+			"reward": "Multiply starting tickspeed by ×1.02.",
+			"rewardSource": null
+		},
+		{
+			"id": 67,
+			"row": 6,
+			"column": 7,
+			"name": "Infinitely Challenging",
+			"description": "Complete an Infinity Challenge.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 68,
+			"row": 6,
+			"column": 8,
+			"name": "You did this again just for the achievement right?",
+			"description": "Complete the 3rd Antimatter Dimension Autobuyer Challenge in 10 seconds or less.",
+			"descriptionSource": null,
+			"reward": "1st Antimatter Dimensions are 50% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 71,
+			"row": 7,
+			"column": 1,
+			"name": "ERROR 909: Dimension not found",
+			"description": "Get to Infinity with only a single 1st Antimatter Dimension without Dimension Boosts\nor Antimatter Galaxies, while in the 2nd Antimatter Dimension Autobuyer Challenge.",
+			"descriptionSource": null,
+			"reward": "1st Antimatter Dimensions are 3 times stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 72,
+			"row": 7,
+			"column": 2,
+			"name": "Can't hold all these infinities",
+			"description": "Get all Antimatter Dimension multipliers over ×1.8e308.",
+			"descriptionSource": null,
+			"reward": "All Antimatter Dimensions are 10% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 73,
+			"row": 7,
+			"column": 3,
+			"name": "THIS ACHIEVEMENT DOESN'T EXIST",
+			"description": "Get 9.9999e9999 antimatter.",
+			"descriptionSource": null,
+			"reward": "Antimatter Dimensions gain a multiplier based on current antimatter.",
+			"rewardSource": null
+		},
+		{
+			"id": 74,
+			"row": 7,
+			"column": 4,
+			"name": "Not a second lost",
+			"description": "Get the sum of all best Normal Challenge times under 5 seconds.",
+			"descriptionSource": null,
+			"reward": "All Antimatter Dimensions are 40% stronger, but only in challenges.",
+			"rewardSource": null
+		},
+		{
+			"id": 75,
+			"row": 7,
+			"column": 5,
+			"name": "NEW DIMENSIONS???",
+			"description": "Unlock the 4th Infinity Dimension.",
+			"descriptionSource": null,
+			"reward": "Your Achievement bonus affects Infinity Dimensions.",
+			"rewardSource": null
+		},
+		{
+			"id": 76,
+			"row": 7,
+			"column": 6,
+			"name": "One for each dimension",
+			"description": "Play for 8 days.",
+			"descriptionSource": null,
+			"reward": "Extremely small multiplier to Antimatter Dimensions based on time played.",
+			"rewardSource": null
+		},
+		{
+			"id": 77,
+			"row": 7,
+			"column": 7,
+			"name": "1 Million is a lot",
+			"description": "Reach 1 M Infinity Power.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 78,
+			"row": 7,
+			"column": 8,
+			"name": "Blink of an eye",
+			"description": "Infinity in under 250ms.",
+			"descriptionSource": null,
+			"reward": "Start with 50 Sp antimatter.",
+			"rewardSource": null
+		},
+		{
+			"id": 81,
+			"row": 8,
+			"column": 1,
+			"name": "Game Design Is My Passion",
+			"description": "Beat Infinity Challenge 5 in 15 seconds or less.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 82,
+			"row": 8,
+			"column": 2,
+			"name": "Anti-antichallenged",
+			"description": "Complete all 8 Infinity Challenges.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 83,
+			"row": 8,
+			"column": 3,
+			"name": "YOU CAN GET 50 GALAXIES?!?!",
+			"description": "Get 50 Antimatter Galaxies.",
+			"descriptionSource": null,
+			"reward": "Tickspeed is just over 5% faster per Antimatter Galaxy.",
+			"rewardSource": null
+		},
+		{
+			"id": 84,
+			"row": 8,
+			"column": 4,
+			"name": "I got a few to spare",
+			"description": "Reach 1e35000 antimatter.",
+			"descriptionSource": null,
+			"reward": "Antimatter Dimensions are stronger the more unspent antimatter you have.",
+			"rewardSource": null
+		},
+		{
+			"id": 85,
+			"row": 8,
+			"column": 5,
+			"name": "ALL YOUR IP ARE BELONG TO US",
+			"description": "Big Crunch for 1e150 Infinity Points.",
+			"descriptionSource": null,
+			"reward": "Additional ×4 multiplier to Infinity Points.",
+			"rewardSource": null
+		},
+		{
+			"id": 86,
+			"row": 8,
+			"column": 6,
+			"name": "Do you even bend time bro?",
+			"description": "Reach ×1 K faster per Tickspeed upgrade.",
+			"descriptionSource": null,
+			"reward": "All Galaxies are 1% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 87,
+			"row": 8,
+			"column": 7,
+			"name": "2 MILLION INFINITIES",
+			"description": "Infinity 2 M times.",
+			"descriptionSource": null,
+			"reward": "Infinities more than 5 seconds long\ngive ×250 more Infinities.",
+			"rewardSource": null
+		},
+		{
+			"id": 88,
+			"row": 8,
+			"column": 8,
+			"name": "Yet another infinity reference",
+			"description": "Get a ×1.8e308 multiplier in a single Dimensional Sacrifice.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": "get reward() {\n      return `Dimensional Sacrifice is stronger.\n      ${Sacrifice.getSacrificeDescription({ \"Achievement32\": true, \"Achievement57\": true, \"Achievement88\": false })} ➜\n      ${Sacrifice.getSacrificeDescription({ \"Achievement32\": true, \"Achievement57\": true, \"Achievement88\": true })}`;\n    }"
+		},
+		{
+			"id": 91,
+			"row": 9,
+			"column": 1,
+			"name": "Ludicrous Speed",
+			"description": "Big Crunch for 1e200 Infinity Points in 2 seconds or less.",
+			"descriptionSource": null,
+			"reward": "All Antimatter Dimensions are significantly stronger in the\nfirst 5 seconds of Infinities.",
+			"rewardSource": null
+		},
+		{
+			"id": 92,
+			"row": 9,
+			"column": 2,
+			"name": "I brake for NOBODY!",
+			"description": "Big Crunch for 1e250 Infinity Points in 20 seconds or less.",
+			"descriptionSource": null,
+			"reward": "All Antimatter Dimensions are significantly stronger in the\nfirst 60 seconds of Infinities.",
+			"rewardSource": null
+		},
+		{
+			"id": 93,
+			"row": 9,
+			"column": 3,
+			"name": "MAXIMUM OVERDRIVE",
+			"description": "Big Crunch for 1e300 Infinity Points.",
+			"descriptionSource": null,
+			"reward": "Additional ×4 multiplier to Infinity Points.",
+			"rewardSource": null
+		},
+		{
+			"id": 94,
+			"row": 9,
+			"column": 4,
+			"name": "4.3333 minutes of Infinity",
+			"description": "Reach 1e260 Infinity Power.",
+			"descriptionSource": null,
+			"reward": "Double Infinity Power gain.",
+			"rewardSource": null
+		},
+		{
+			"id": 95,
+			"row": 9,
+			"column": 5,
+			"name": "Is this safe?",
+			"description": "Gain 1.8e308 Replicanti in 1 hour.",
+			"descriptionSource": null,
+			"reward": "You keep your Replicanti and 1 Replicanti Galaxy on Infinity.",
+			"rewardSource": null
+		},
+		{
+			"id": 96,
+			"row": 9,
+			"column": 6,
+			"name": "Time is relative",
+			"description": "Go Eternal.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 97,
+			"row": 9,
+			"column": 7,
+			"name": "Like jumping on a lego",
+			"description": "Get the sum of Infinity Challenge times under 6.66 seconds.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 98,
+			"row": 9,
+			"column": 8,
+			"name": "0 degrees from Infinity",
+			"description": "Unlock the 8th Infinity Dimension.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 101,
+			"row": 10,
+			"column": 1,
+			"name": "8 nobody got time for that",
+			"description": "Eternity without buying Antimatter Dimensions 1-7.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 102,
+			"row": 10,
+			"column": 2,
+			"name": "This mile took an eternity",
+			"description": "Get all Eternity milestones.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 103,
+			"row": 10,
+			"column": 3,
+			"name": "Tätä saavutusta ei ole olemassa II",
+			"description": "Reach 9.99999e999 Infinity Points.",
+			"descriptionSource": null,
+			"reward": "Make the Infinity Point formula better. log(x)/308 ➜ log(x)/307.8",
+			"rewardSource": null
+		},
+		{
+			"id": 104,
+			"row": 10,
+			"column": 4,
+			"name": "That wasn't an eternity",
+			"description": "Eternity in under 30 seconds.",
+			"descriptionSource": null,
+			"reward": "Start Eternities with 50 Sp Infinity Points.",
+			"rewardSource": null
+		},
+		{
+			"id": 105,
+			"row": 10,
+			"column": 5,
+			"name": "Infinite Time",
+			"description": "Have 308 Tickspeed upgrades from Time Dimensions.",
+			"descriptionSource": null,
+			"reward": "Time Dimensions gain a multiplier based on tickspeed.",
+			"rewardSource": null
+		},
+		{
+			"id": 106,
+			"row": 10,
+			"column": 6,
+			"name": "The swarm",
+			"description": "Get 10 Replicanti Galaxies in 15 seconds.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 107,
+			"row": 10,
+			"column": 7,
+			"name": "Do you really need a guide for this?",
+			"description": "Eternity with less than 10 Infinities.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 108,
+			"row": 10,
+			"column": 8,
+			"name": "We COULD afford 9",
+			"description": "Eternity with exactly 9 Replicanti.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 111,
+			"row": 11,
+			"column": 1,
+			"name": "Yo dawg, I heard you liked infinities...",
+			"description": "Have all your Infinities in your past 10 Infinities be at least\n1.8e308 times higher Infinity Points than the previous one.",
+			"descriptionSource": null,
+			"reward": "Your antimatter doesn't reset on Dimension Boosts or Antimatter Galaxies.",
+			"rewardSource": null
+		},
+		{
+			"id": 112,
+			"row": 11,
+			"column": 2,
+			"name": "Never again",
+			"description": "Get the sum of Infinity Challenge times below 750ms.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 113,
+			"row": 11,
+			"column": 3,
+			"name": "Eternities are the new infinity",
+			"description": "Eternity in under 250ms.",
+			"descriptionSource": null,
+			"reward": "Gain ×2 more Eternities.",
+			"rewardSource": null
+		},
+		{
+			"id": 114,
+			"row": 11,
+			"column": 4,
+			"name": "You're a mistake",
+			"description": "Fail an Eternity Challenge.",
+			"descriptionSource": null,
+			"reward": "A fading sense of accomplishment.",
+			"rewardSource": null
+		},
+		{
+			"id": 115,
+			"row": 11,
+			"column": 5,
+			"name": "I wish I had gotten 7 eternities",
+			"description": "Start an Infinity Challenge inside an Eternity Challenge.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 116,
+			"row": 11,
+			"column": 6,
+			"name": "Do I really need to infinity",
+			"description": "Eternity with only 1 Infinity.",
+			"descriptionSource": null,
+			"reward": "Multiplier to Infinity Points based on Infinities.",
+			"rewardSource": null
+		},
+		{
+			"id": 117,
+			"row": 11,
+			"column": 7,
+			"name": "Costco sells Dimboosts now!",
+			"description": "Bulk buy 750 Dimension Boosts at once.",
+			"descriptionSource": null,
+			"reward": "The multiplier from Dimension Boosts to Antimatter Dimensions is 1% higher.",
+			"rewardSource": null
+		},
+		{
+			"id": 118,
+			"row": 11,
+			"column": 8,
+			"name": "IT'S OVER 9000",
+			"description": "Get a total Dimensional Sacrifice multiplier of 1e9000.",
+			"descriptionSource": null,
+			"reward": "Dimensional Sacrifice doesn't reset your Antimatter Dimensions\nand the Autobuyer activates every tick if turned on.",
+			"rewardSource": null
+		},
+		{
+			"id": 121,
+			"row": 12,
+			"column": 1,
+			"name": "Can you get infinite IP?",
+			"description": "Reach 1e30008 Infinity Points.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 122,
+			"row": 12,
+			"column": 2,
+			"name": "You're already dead.",
+			"description": "Eternity without buying Antimatter Dimensions 2-8.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 123,
+			"row": 12,
+			"column": 3,
+			"name": "5 more eternities until the update",
+			"description": "Complete 50 unique Eternity Challenge tiers.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 124,
+			"row": 12,
+			"column": 4,
+			"name": "Long lasting relationship",
+			"description": "Have your Infinity Power per second exceed your Infinity Power\nfor 60 consecutive seconds during a single Infinity.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 125,
+			"row": 12,
+			"column": 5,
+			"name": "Like feasting on a behind",
+			"description": "Reach 1e90 Infinity Points without having any Infinities\nor any 1st Antimatter Dimensions in your current Eternity.",
+			"descriptionSource": null,
+			"reward": "Infinity Point multiplier based on time spent this Infinity.",
+			"rewardSource": null
+		},
+		{
+			"id": 126,
+			"row": 12,
+			"column": 6,
+			"name": "Popular music",
+			"description": "Have 180 times more Replicanti Galaxies than Antimatter Galaxies.",
+			"descriptionSource": null,
+			"reward": "Replicanti Galaxies divide your Replicanti by 1.8e308\ninstead of resetting them to 1.",
+			"rewardSource": null
+		},
+		{
+			"id": 127,
+			"row": 12,
+			"column": 7,
+			"name": "But I wanted another prestige layer...",
+			"description": "Reach 1.8e308 Eternity Points.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 128,
+			"row": 12,
+			"column": 8,
+			"name": "What do I have to do to get rid of you",
+			"description": "Reach 1e22000 Infinity Points without any Time Studies.",
+			"descriptionSource": null,
+			"reward": "Time Dimensions are multiplied by the number of Time Studies you have.",
+			"rewardSource": null
+		},
+		{
+			"id": 131,
+			"row": 13,
+			"column": 1,
+			"name": "No ethical consumption",
+			"description": "Get 2 B Banked Infinities.",
+			"descriptionSource": null,
+			"reward": "You gain ×2 times more Infinities and\nafter Eternity you permanently keep 5% of your Infinities as Banked Infinities.",
+			"rewardSource": null
+		},
+		{
+			"id": 132,
+			"row": 13,
+			"column": 2,
+			"name": "Unique snowflakes",
+			"description": "Have 569 Antimatter Galaxies without gaining any\nReplicanti Galaxies in your current Eternity.",
+			"descriptionSource": null,
+			"reward": "Gain a multiplier to Tachyon Particle and Dilated Time gain based on Antimatter Galaxies.",
+			"rewardSource": null
+		},
+		{
+			"id": 133,
+			"row": 13,
+			"column": 3,
+			"name": "I never liked this infinity stuff anyway",
+			"description": "Reach 1e200,000 Infinity Points without\nbuying any Infinity Dimensions or the ×2 Infinity Point multiplier.",
+			"descriptionSource": null,
+			"reward": "You start Eternities with all Infinity Challenges unlocked and completed.",
+			"rewardSource": null
+		},
+		{
+			"id": 134,
+			"row": 13,
+			"column": 4,
+			"name": "When will it be enough?",
+			"description": "Reach 1e18000 Replicanti.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": "get reward() {\n      return `You gain Replicanti ${formatInt(2)} times faster under ${format(replicantiCap(), 1)} Replicanti.`;\n    }"
+		},
+		{
+			"id": 135,
+			"row": 13,
+			"column": 5,
+			"name": "Faster than a potato^286078",
+			"description": "Get more than 1e8,296,262 ticks per second.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 136,
+			"row": 13,
+			"column": 6,
+			"name": "I told you already, time is relative",
+			"description": "Dilate time.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 137,
+			"row": 13,
+			"column": 7,
+			"name": "Now you're thinking with dilation!",
+			"description": "Get 1e260,000 antimatter\nin 1 minute or less while Dilated.",
+			"descriptionSource": null,
+			"reward": "Gain ×2 Dilated Time and Time Theorems while Dilated.",
+			"rewardSource": null
+		},
+		{
+			"id": 138,
+			"row": 13,
+			"column": 8,
+			"name": "This is what I have to do to get rid of you.",
+			"description": "Reach 1e26000 Infinity Points without any Time Studies while Dilated.",
+			"descriptionSource": null,
+			"reward": "Removes the downsides from Time Study 131 and 133 in the Active and Idle Time Study paths.",
+			"rewardSource": null
+		},
+		{
+			"id": 141,
+			"row": 14,
+			"column": 1,
+			"name": "Snap back to reality",
+			"description": "Make a new Reality.",
+			"descriptionSource": null,
+			"reward": "×4 Infinity Point gain, and increase the multiplier for buying 10\nAntimatter Dimensions by +0.1.",
+			"rewardSource": null
+		},
+		{
+			"id": 142,
+			"row": 14,
+			"column": 2,
+			"name": "How does this work?",
+			"description": "Unlock the automator.",
+			"descriptionSource": null,
+			"reward": "Dimension Boosts are 50% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 143,
+			"row": 14,
+			"column": 3,
+			"name": "Yo dawg, I heard you liked reskins...",
+			"description": "Have all your Eternities in your past 10 Eternities be at least\n1.8e308 times higher Eternity Points than the previous one.",
+			"descriptionSource": null,
+			"reward": "Galaxies no longer reset Dimension Boosts.",
+			"rewardSource": null
+		},
+		{
+			"id": 144,
+			"row": 14,
+			"column": 4,
+			"name": "Is this an Interstellar reference?",
+			"description": "Unlock the Black Hole.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 145,
+			"row": 14,
+			"column": 5,
+			"name": "Are you sure these are the right way around?",
+			"description": "Have either Black Hole interval smaller than its duration.",
+			"descriptionSource": null,
+			"reward": "Black Hole intervals are 10% shorter.",
+			"rewardSource": null
+		},
+		{
+			"id": 146,
+			"row": 14,
+			"column": 6,
+			"name": "Perks of living",
+			"description": "Have all Perks bought.",
+			"descriptionSource": null,
+			"reward": "+1% Glyph rarity.",
+			"rewardSource": null
+		},
+		{
+			"id": 147,
+			"row": 14,
+			"column": 7,
+			"name": "Master of Reality",
+			"description": "Have all Reality upgrades bought.",
+			"descriptionSource": null,
+			"reward": "Unlock Teresa, the Celestial of Reality.",
+			"rewardSource": null
+		},
+		{
+			"id": 148,
+			"row": 14,
+			"column": 8,
+			"name": "Royal flush",
+			"description": "Reality with one of each basic Glyph type.",
+			"descriptionSource": null,
+			"reward": "Gained Glyph level is increased by number of distinct Glyph types equipped.",
+			"rewardSource": null
+		},
+		{
+			"id": 151,
+			"row": 15,
+			"column": 1,
+			"name": "You really didn't need it anyway",
+			"description": "Get 800 Antimatter Galaxies without\nbuying 8th Antimatter Dimensions in your current Infinity.",
+			"descriptionSource": null,
+			"reward": "Unlock V, the Celestial of Achievements.",
+			"rewardSource": null
+		},
+		{
+			"id": 152,
+			"row": 15,
+			"column": 2,
+			"name": "Y'all got any more of them Glyphs?",
+			"description": "Have 100 Glyphs in your inventory.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 153,
+			"row": 15,
+			"column": 3,
+			"name": "More like \"reallydoesn'tmatter\"",
+			"description": "Reality without producing antimatter.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 154,
+			"row": 15,
+			"column": 4,
+			"name": "I am speed",
+			"description": "Reality in under 5 seconds (game time).",
+			"descriptionSource": null,
+			"reward": "10% chance each Reality of ×2 Realities and Perk Points.",
+			"rewardSource": null
+		},
+		{
+			"id": 155,
+			"row": 15,
+			"column": 5,
+			"name": "Achievement #15983",
+			"description": "Play for 13.7 billion years.",
+			"descriptionSource": null,
+			"reward": "Black Hole durations are 10% longer.",
+			"rewardSource": null
+		},
+		{
+			"id": 156,
+			"row": 15,
+			"column": 6,
+			"name": "College Dropout",
+			"description": "Reality without buying Time Theorems.",
+			"descriptionSource": null,
+			"reward": "Gain ×2.5 generated Time Theorems, and a free coupon to McDonalds™️.",
+			"rewardSource": null
+		},
+		{
+			"id": 157,
+			"row": 15,
+			"column": 7,
+			"name": "It's super effective!",
+			"description": "Get a Glyph with 4 effects.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 158,
+			"row": 15,
+			"column": 8,
+			"name": "Bruh, are you like, inside the hole?",
+			"description": "Make both Black Holes permanent.",
+			"descriptionSource": null,
+			"reward": "Black Hole power increased by 10%.",
+			"rewardSource": null
+		},
+		{
+			"id": 161,
+			"row": 16,
+			"column": 1,
+			"name": "that's where you're wrong kiddo",
+			"description": "Get 1e100,000,000 antimatter while Dilated.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 162,
+			"row": 16,
+			"column": 2,
+			"name": "Reinstalled the game and rejoined the server",
+			"description": "Have every Time Study at once.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 163,
+			"row": 16,
+			"column": 3,
+			"name": "Actually, super easy! Barely an inconvenience!",
+			"description": "Complete all the Eternity Challenges 5 times with less than 1\nsecond (game time) in your current Reality.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 164,
+			"row": 16,
+			"column": 4,
+			"name": "Infinity times two",
+			"description": "Get 1.8e308 Infinities.",
+			"descriptionSource": null,
+			"reward": "Gain ×1,024 more Infinities.",
+			"rewardSource": null
+		},
+		{
+			"id": 165,
+			"row": 16,
+			"column": 5,
+			"name": "Perfectly balanced",
+			"description": "Get a level 5,000 Glyph with all Glyph level factors equally weighted.",
+			"descriptionSource": null,
+			"reward": "Unlock optimal automatic Glyph level factor adjustment.",
+			"rewardSource": null
+		},
+		{
+			"id": 166,
+			"row": 16,
+			"column": 6,
+			"name": "Nicenice.",
+			"description": "Get a Glyph with level exactly 6,969.",
+			"descriptionSource": null,
+			"reward": "+69 to Glyph level.",
+			"rewardSource": null
+		},
+		{
+			"id": 167,
+			"row": 16,
+			"column": 7,
+			"name": "Mr. Layer? Sorry, you're not on the list",
+			"description": "Reach 1.8e308 Reality Machines.",
+			"descriptionSource": null,
+			"reward": "Gain more Reality Machines based on your current Reality Machines.",
+			"rewardSource": null
+		},
+		{
+			"id": 168,
+			"row": 16,
+			"column": 8,
+			"name": "Woah, we're halfway there",
+			"description": "Get 50 total Ra Celestial Memory levels.",
+			"descriptionSource": null,
+			"reward": "Get 10% more memories.",
+			"rewardSource": null
+		},
+		{
+			"id": 171,
+			"row": 17,
+			"column": 1,
+			"name": "The god is delighted",
+			"description": "Sacrifice every sacrificable Glyph type at least once.",
+			"descriptionSource": null,
+			"reward": "Glyph sacrifice is ×2 stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 172,
+			"row": 17,
+			"column": 2,
+			"name": "Hitchhiker's Guide to Reality",
+			"description": "Reality for 1.8e308 Reality Machines without having\nany Charged Infinity Upgrades, having any equipped Glyphs, or buying any Triad Studies.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 173,
+			"row": 17,
+			"column": 3,
+			"name": "Cet accomplissement n'existe pas III",
+			"description": "Reach 9.99999e999 Reality Machines.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 174,
+			"row": 17,
+			"column": 4,
+			"name": "Don't you already have two of these?",
+			"description": "Get a Singularity.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 175,
+			"row": 17,
+			"column": 5,
+			"name": "The First Antihistorian",
+			"description": null,
+			"descriptionSource": "get description() { return `Get ${formatInt(Ra.alchemyResourceCap)} of all Alchemy Resources.`; }",
+			"reward": "Synergism can go above 100% and Momentum increases ×10 faster.",
+			"rewardSource": null
+		},
+		{
+			"id": 176,
+			"row": 17,
+			"column": 6,
+			"name": "Mom counted to 3",
+			"description": "Annihilate your Dark Matter Dimensions.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 177,
+			"row": 17,
+			"column": 7,
+			"name": "This mile took a celestial",
+			"description": "Complete all Singularity Milestones at least once.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 178,
+			"row": 17,
+			"column": 8,
+			"name": "Destroyer of Worlds",
+			"description": "Get 100,000 Antimatter Galaxies.",
+			"descriptionSource": null,
+			"reward": "All Galaxies are 1% stronger.",
+			"rewardSource": null
+		},
+		{
+			"id": 181,
+			"row": 18,
+			"column": 1,
+			"name": "Antimatter Dimensions Eternal",
+			"description": "Doom your Reality.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 182,
+			"row": 18,
+			"column": 2,
+			"name": "One more time",
+			"description": "Permanently gain back all Antimatter Dimension autobuyers.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 183,
+			"row": 18,
+			"column": 3,
+			"name": "Déjà vOoM",
+			"description": "Complete Infinity Challenge 5 while Doomed.",
+			"descriptionSource": null,
+			"reward": "All Antimatter Dimensions are raised to ^1.081",
+			"rewardSource": null
+		},
+		{
+			"id": 184,
+			"row": 18,
+			"column": 4,
+			"name": "You're out!",
+			"description": "Encounter the third Pelle Strike.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 185,
+			"row": 18,
+			"column": 5,
+			"name": "Four score and seven years ago",
+			"description": "Encounter the fourth Pelle Strike.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 186,
+			"row": 18,
+			"column": 6,
+			"name": "An unhealthy obsession",
+			"description": "Purchase Time Study 181 while Doomed.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		},
+		{
+			"id": 187,
+			"row": 18,
+			"column": 7,
+			"name": "The One with Dilated Time",
+			"description": "Unlock Dilation while Doomed.",
+			"descriptionSource": null,
+			"reward": "Increase the multiplier per repeatable Dilated Time\nmultiplier upgrade by ×1.35.",
+			"rewardSource": null
+		},
+		{
+			"id": 188,
+			"row": 18,
+			"column": 8,
+			"name": "The End",
+			"description": "Beat the game.",
+			"descriptionSource": null,
+			"reward": null,
+			"rewardSource": null
+		}
+	],
+	"secret": [
+		{
+			"id": 11,
+			"row": 1,
+			"column": 1,
+			"name": "The first one's always free",
+			"description": "Click on this Achievement.",
+			"descriptionSource": null
+		},
+		{
+			"id": 12,
+			"row": 1,
+			"column": 2,
+			"name": "Just in case",
+			"description": "Save 100 times without refreshing.",
+			"descriptionSource": null
+		},
+		{
+			"id": 13,
+			"row": 1,
+			"column": 3,
+			"name": "It pays to have respect",
+			"description": "Pay respects.",
+			"descriptionSource": null
+		},
+		{
+			"id": 14,
+			"row": 1,
+			"column": 4,
+			"name": "So do I",
+			"description": "Say something naughty.",
+			"descriptionSource": null
+		},
+		{
+			"id": 15,
+			"row": 1,
+			"column": 5,
+			"name": "Do a barrel roll!",
+			"description": "Do a barrel roll.",
+			"descriptionSource": null
+		},
+		{
+			"id": 16,
+			"row": 1,
+			"column": 6,
+			"name": "Do you enjoy pain?",
+			"description": "Use a \"painful\" notation for 10 real-time minutes\nafter doing an Eternity.",
+			"descriptionSource": null
+		},
+		{
+			"id": 17,
+			"row": 1,
+			"column": 7,
+			"name": "30 Lives",
+			"description": "Input the konami code.",
+			"descriptionSource": null
+		},
+		{
+			"id": 18,
+			"row": 1,
+			"column": 8,
+			"name": "Do you feel lucky? Well do ya punk?",
+			"description": "You have a 1/100,000 chance of getting this achievement every second.",
+			"descriptionSource": null
+		},
+		{
+			"id": 21,
+			"row": 2,
+			"column": 1,
+			"name": "Go study in real life instead",
+			"description": "Purchase the secret Time Study.",
+			"descriptionSource": null
+		},
+		{
+			"id": 22,
+			"row": 2,
+			"column": 2,
+			"name": "Deep fried",
+			"description": "Buy 100,000 Antimatter Galaxies in total while using emoji notation.",
+			"descriptionSource": null
+		},
+		{
+			"id": 23,
+			"row": 2,
+			"column": 3,
+			"name": "Stop right there criminal scum!",
+			"description": "Open the console.",
+			"descriptionSource": null
+		},
+		{
+			"id": 24,
+			"row": 2,
+			"column": 4,
+			"name": "Real news",
+			"description": "Click on a news ticker message that does something when you click on it.",
+			"descriptionSource": null
+		},
+		{
+			"id": 25,
+			"row": 2,
+			"column": 5,
+			"name": "Shhh... It's a secret",
+			"description": "Discover a secret theme.",
+			"descriptionSource": null
+		},
+		{
+			"id": 26,
+			"row": 2,
+			"column": 6,
+			"name": "You're a failure",
+			"description": "Fail Eternity Challenges 10 times without refreshing.\nWhat are you doing with your life...",
+			"descriptionSource": null
+		},
+		{
+			"id": 27,
+			"row": 2,
+			"column": 7,
+			"name": "It's not called matter dimensions is it?",
+			"description": "Get Infinite matter.",
+			"descriptionSource": null
+		},
+		{
+			"id": 28,
+			"row": 2,
+			"column": 8,
+			"name": "Nice.",
+			"description": "Don't act like you don't know what you did.",
+			"descriptionSource": null
+		},
+		{
+			"id": 31,
+			"row": 3,
+			"column": 1,
+			"name": "You should download some more RAM",
+			"description": "Set your update rate to 200ms.",
+			"descriptionSource": null
+		},
+		{
+			"id": 32,
+			"row": 3,
+			"column": 2,
+			"name": "Less than or equal to 0.001",
+			"description": "Get a fastest infinity or eternity time of less than or equal to 0.001 seconds.",
+			"descriptionSource": null
+		},
+		{
+			"id": 33,
+			"row": 3,
+			"column": 3,
+			"name": "A sound financial decision",
+			"description": "Click on the button to purchase STD coins.",
+			"descriptionSource": null
+		},
+		{
+			"id": 34,
+			"row": 3,
+			"column": 4,
+			"name": "You do know how these work, right?",
+			"description": "Respec with an empty Time Study Tree.",
+			"descriptionSource": null
+		},
+		{
+			"id": 35,
+			"row": 3,
+			"column": 5,
+			"name": "Should we tell them about buy max...",
+			"description": "Buy single Tickspeed upgrades 100,000 times.",
+			"descriptionSource": null
+		},
+		{
+			"id": 36,
+			"row": 3,
+			"column": 6,
+			"name": "While you were away... Nothing happened.",
+			"description": "See nothing happen while you were away.",
+			"descriptionSource": null
+		},
+		{
+			"id": 37,
+			"row": 3,
+			"column": 7,
+			"name": "You followed the instructions",
+			"description": "Follow instructions.",
+			"descriptionSource": null
+		},
+		{
+			"id": 38,
+			"row": 3,
+			"column": 8,
+			"name": "Knife's edge",
+			"description": "Close the Hard Reset modal after typing in the confirmation.",
+			"descriptionSource": null
+		},
+		{
+			"id": 41,
+			"row": 4,
+			"column": 1,
+			"name": "That dimension doesn’t exist",
+			"description": "Try to purchase the 9th dimension.",
+			"descriptionSource": null
+		},
+		{
+			"id": 42,
+			"row": 4,
+			"column": 2,
+			"name": "SHAME ON ME",
+			"description": "Try to use EC12 to speed up time.",
+			"descriptionSource": null
+		},
+		{
+			"id": 43,
+			"row": 4,
+			"column": 3,
+			"name": "A cacophonous chorus",
+			"description": "Have all equipped Glyphs be Music Glyphs.",
+			"descriptionSource": null
+		},
+		{
+			"id": 44,
+			"row": 4,
+			"column": 4,
+			"name": "Are you statisfied now?",
+			"description": "Stare intently at the statistics tab for 15 real-time minutes.",
+			"descriptionSource": null
+		},
+		{
+			"id": 45,
+			"row": 4,
+			"column": 5,
+			"name": "This dragging is dragging on",
+			"description": "Drag the Perks around for a minute.",
+			"descriptionSource": null
+		},
+		{
+			"id": 46,
+			"row": 4,
+			"column": 6,
+			"name": "For a rainy day",
+			"description": "Store a day of real time.",
+			"descriptionSource": null
+		},
+		{
+			"id": 47,
+			"row": 4,
+			"column": 7,
+			"name": "ALT+",
+			"description": "Hide every possible tab.",
+			"descriptionSource": null
+		},
+		{
+			"id": 48,
+			"row": 4,
+			"column": 8,
+			"name": "Stack overflow",
+			"description": "Have more Automator errors than lines.",
+			"descriptionSource": null
+		}
+	]
+}

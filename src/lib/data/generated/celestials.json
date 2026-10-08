@@ -1,0 +1,1225 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/tabs.js",
+			"core/celestials/teresa.js",
+			"core/celestials/laitela/laitela.js",
+			"core/celestials/pelle/pelle.js",
+			"core/secret-formula/celestials/teresa.js",
+			"core/secret-formula/celestials/effarig.js",
+			"core/secret-formula/celestials/v.js",
+			"core/secret-formula/celestials/ra.js",
+			"core/secret-formula/celestials/pelle-upgrades.js",
+			"core/secret-formula/celestials/strikes.js",
+			"core/secret-formula/celestials/rifts.js"
+		]
+	},
+	"celestials": [
+		{
+			"id": "teresa",
+			"tabKey": "teresa",
+			"name": "Teresa",
+			"unlock": {
+				"kind": "achievement",
+				"id": 147
+			},
+			"unlockSource": "() => Teresa.isUnlocked\n// core/celestials/teresa.js: get isUnlocked() { return Achievement(147).isUnlocked; }"
+		},
+		{
+			"id": "effarig",
+			"tabKey": "effarig",
+			"name": "Effarig",
+			"unlock": {
+				"kind": "teresa-unlock",
+				"key": "effarig"
+			},
+			"unlockSource": "() => TeresaUnlocks.effarig.isUnlocked"
+		},
+		{
+			"id": "nameless",
+			"tabKey": "enslaved",
+			"name": "The Nameless Ones",
+			"unlock": {
+				"kind": "effarig-unlock",
+				"key": "eternity"
+			},
+			"unlockSource": "() => EffarigUnlock.eternity.isUnlocked"
+		},
+		{
+			"id": "v",
+			"tabKey": "v",
+			"name": "V",
+			"unlock": {
+				"kind": "achievement",
+				"id": 151
+			},
+			"unlockSource": "() => Achievement(151).isUnlocked"
+		},
+		{
+			"id": "ra",
+			"tabKey": "ra",
+			"name": "Ra",
+			"unlock": {
+				"kind": "v-unlock",
+				"key": "raUnlock"
+			},
+			"unlockSource": "() => VUnlocks.raUnlock.isUnlocked"
+		},
+		{
+			"id": "laitela",
+			"tabKey": "laitela",
+			"name": "Lai'tela",
+			"unlock": {
+				"kind": "imaginary-upgrade",
+				"id": 15
+			},
+			"unlockSource": "() => Laitela.isUnlocked\n// core/celestials/laitela/laitela.js: get isUnlocked() { return ImaginaryUpgrade(15).isBought; }"
+		},
+		{
+			"id": "pelle",
+			"tabKey": "pelle",
+			"name": "Pelle",
+			"unlock": {
+				"kind": "imaginary-upgrade",
+				"id": 25
+			},
+			"unlockSource": "() => Pelle.isUnlocked\n// core/celestials/pelle/pelle.js: get isUnlocked() { return ImaginaryUpgrade(25).isBought; }"
+		}
+	],
+	"teresa": {
+		"unlocks": [
+			{
+				"key": "run",
+				"id": 0,
+				"price": 100000000000000,
+				"description": "Unlock Teresa's Reality.",
+				"isDisabledInDoomed": false
+			},
+			{
+				"key": "epGen",
+				"id": 1,
+				"price": 1000000000000000000,
+				"description": "Unlock passive Eternity Point generation.",
+				"isDisabledInDoomed": true
+			},
+			{
+				"key": "effarig",
+				"id": 3,
+				"price": 1e+24,
+				"description": "Unlock Effarig, Celestial of Ancient Relics.",
+				"isDisabledInDoomed": false
+			},
+			{
+				"key": "shop",
+				"id": 2,
+				"price": 1e+21,
+				"description": "Unlock Teresa's Perk Point Shop.",
+				"isDisabledInDoomed": false
+			},
+			{
+				"key": "undo",
+				"id": 4,
+				"price": 10000000000,
+				"description": "Unlock \"Undo\" of equipping a Glyph.",
+				"isDisabledInDoomed": true
+			},
+			{
+				"key": "startEU",
+				"id": 5,
+				"price": 1000000,
+				"description": "You start Reality with all Eternity Upgrades unlocked.",
+				"isDisabledInDoomed": true
+			}
+		]
+	},
+	"effarig": {
+		"unlocks": [
+			{
+				"key": "adjuster",
+				"id": 0,
+				"cost": 10000000,
+				"label": null,
+				"description": "Adjustable Glyph level factor weights",
+				"descriptionSource": null
+			},
+			{
+				"key": "glyphFilter",
+				"id": 1,
+				"cost": 200000000,
+				"label": null,
+				"description": "Glyph Filtering",
+				"descriptionSource": null
+			},
+			{
+				"key": "setSaves",
+				"id": 2,
+				"cost": 3000000000,
+				"label": null,
+				"description": "Glyph Presets",
+				"descriptionSource": null
+			},
+			{
+				"key": "run",
+				"id": 3,
+				"cost": 500000000000,
+				"label": null,
+				"description": "Effarig's Reality",
+				"descriptionSource": null
+			},
+			{
+				"key": "infinity",
+				"id": 4,
+				"cost": null,
+				"label": "Infinity",
+				"description": "Replicanti cap is multiplied by a value based on Infinities\nInfinities increase your max Replicanti Galaxies\nBase Infinity Point gain is capped at 1e200 in Effarig's Reality\nEach type of Infinity Point multiplier is capped at 1e50 in Effarig's Reality",
+				"descriptionSource": null
+			},
+			{
+				"key": "eternity",
+				"id": 5,
+				"cost": null,
+				"label": "Eternity",
+				"description": "Eternities generates Infinities\nInfinity Points are no longer limited in any way in Effarig's Reality\nYou have unlocked The Nameless Ones",
+				"descriptionSource": null
+			},
+			{
+				"key": "reality",
+				"id": 6,
+				"cost": null,
+				"label": "Reality",
+				"description": "You have unlocked Effarig Glyphs (You may equip at most one and some effects are mutually exclusive)",
+				"descriptionSource": null
+			}
+		]
+	},
+	"v": {
+		"mainUnlock": [
+			{
+				"key": "realities",
+				"id": 1,
+				"name": "Realities",
+				"requirement": "10000"
+			},
+			{
+				"key": "eternities",
+				"id": 2,
+				"name": "Eternities",
+				"requirement": "1e70"
+			},
+			{
+				"key": "infinities",
+				"id": 3,
+				"name": "Infinities",
+				"requirement": "1e160"
+			},
+			{
+				"key": "dilatedTime",
+				"id": 4,
+				"name": "Dilated Time",
+				"requirement": "1e320"
+			},
+			{
+				"key": "replicanti",
+				"id": 5,
+				"name": "Replicanti",
+				"requirement": "1e320000"
+			},
+			{
+				"key": "realityMachines",
+				"id": 6,
+				"name": "Reality Machines",
+				"requirement": "1e60"
+			}
+		],
+		"unlocks": [
+			{
+				"key": "vAchievementUnlock",
+				"id": 0,
+				"reward": "Unlock V, The Celestial Of Achievements",
+				"rewardSource": null,
+				"description": "Meet all the above requirements simultaneously",
+				"descriptionSource": null
+			},
+			{
+				"key": "shardReduction",
+				"id": 1,
+				"reward": "You can spend Perk Points to reduce the goal requirement of all tiers of each V-Achievement.",
+				"rewardSource": null,
+				"description": "Have 2 V-Achievements",
+				"descriptionSource": null
+			},
+			{
+				"key": "adPow",
+				"id": 2,
+				"reward": "Antimatter Dimension power based on total Space Theorems.",
+				"rewardSource": null,
+				"description": "Have 5 V-Achievements",
+				"descriptionSource": null
+			},
+			{
+				"key": "fastAutoEC",
+				"id": 3,
+				"reward": "Achievement multiplier reduces Auto-EC completion time.",
+				"rewardSource": null,
+				"description": "Have 10 V-Achievements",
+				"descriptionSource": null
+			},
+			{
+				"key": "autoAutoClean",
+				"id": 4,
+				"reward": "Unlock the ability to Automatically Purge Glyphs on Reality.",
+				"rewardSource": null,
+				"description": "Have 16 V-Achievements",
+				"descriptionSource": null
+			},
+			{
+				"key": "achievementBH",
+				"id": 5,
+				"reward": "Achievement multiplier affects Black Hole power.",
+				"rewardSource": null,
+				"description": "Have 30 V-Achievements",
+				"descriptionSource": null
+			},
+			{
+				"key": "raUnlock",
+				"id": 6,
+				"reward": "Reduce the Space Theorem cost of Time Studies by 2.\nUnlock Ra, Celestial of the Forgotten.",
+				"rewardSource": null,
+				"description": "Have 36 V-Achievements",
+				"descriptionSource": null
+			}
+		],
+		"achievements": [
+			{
+				"id": 0,
+				"name": "Glyph Knight",
+				"descriptions": [
+					"Unlock Reality with at most 5 Glyphs equipped.",
+					"Unlock Reality with at most 4 Glyphs equipped.",
+					"Unlock Reality with at most 3 Glyphs equipped.",
+					"Unlock Reality with at most 2 Glyphs equipped.",
+					"Unlock Reality with at most 1 Glyph equipped.",
+					"Unlock Reality with at most 0 Glyphs equipped."
+				],
+				"descriptionSource": null,
+				"values": [
+					-5,
+					-4,
+					-3,
+					-2,
+					-1,
+					0
+				],
+				"isHard": false
+			},
+			{
+				"id": 1,
+				"name": "AntiStellar",
+				"descriptions": [
+					"Have 4,000 total Galaxies from all types.",
+					"Have 4,300 total Galaxies from all types.",
+					"Have 4,600 total Galaxies from all types.",
+					"Have 4,900 total Galaxies from all types.",
+					"Have 5,200 total Galaxies from all types.",
+					"Have 5,500 total Galaxies from all types."
+				],
+				"descriptionSource": null,
+				"values": [
+					4000,
+					4300,
+					4600,
+					4900,
+					5200,
+					5500
+				],
+				"isHard": false
+			},
+			{
+				"id": 2,
+				"name": "Se7en deadly matters",
+				"descriptions": [
+					"Get 1e600,000 Infinity Points in Eternity Challenge 7.",
+					"Get 1e720,000 Infinity Points in Eternity Challenge 7.",
+					"Get 1e840,000 Infinity Points in Eternity Challenge 7.",
+					"Get 1e960,000 Infinity Points in Eternity Challenge 7.",
+					"Get 1e1,080,000 Infinity Points in Eternity Challenge 7.",
+					"Get 1e1,200,000 Infinity Points in Eternity Challenge 7."
+				],
+				"descriptionSource": null,
+				"values": [
+					600000,
+					720000,
+					840000,
+					960000,
+					1080000,
+					1200000
+				],
+				"isHard": false
+			},
+			{
+				"id": 3,
+				"name": "Young Boy",
+				"descriptions": [
+					"Get 1e400,000,000 Antimatter in Eternity Challenge 12 without\nunlocking Time Dilation.",
+					"Get 1e450,000,000 Antimatter in Eternity Challenge 12 without\nunlocking Time Dilation.",
+					"Get 1e500,000,000 Antimatter in Eternity Challenge 12 without\nunlocking Time Dilation.",
+					"Get 1e600,000,000 Antimatter in Eternity Challenge 12 without\nunlocking Time Dilation.",
+					"Get 1e700,000,000 Antimatter in Eternity Challenge 12 without\nunlocking Time Dilation.",
+					"Get 1e800,000,000 Antimatter in Eternity Challenge 12 without\nunlocking Time Dilation."
+				],
+				"descriptionSource": null,
+				"values": [
+					400000000,
+					450000000,
+					500000000,
+					600000000,
+					700000000,
+					800000000
+				],
+				"isHard": false
+			},
+			{
+				"id": 4,
+				"name": "Eternal Sunshine",
+				"descriptions": [
+					"Get 1e7000 Eternity Points.",
+					"Get 1e7600 Eternity Points.",
+					"Get 1e8200 Eternity Points.",
+					"Get 1e8800 Eternity Points.",
+					"Get 1e9400 Eternity Points.",
+					"Get 1e10000 Eternity Points."
+				],
+				"descriptionSource": null,
+				"values": [
+					7000,
+					7600,
+					8200,
+					8800,
+					9400,
+					10000
+				],
+				"isHard": false
+			},
+			{
+				"id": 5,
+				"name": "Matterception",
+				"descriptions": [
+					"Get 51 Dimension Boosts while Dilated and inside Eternity Challenge 5.",
+					"Get 52 Dimension Boosts while Dilated and inside Eternity Challenge 5.",
+					"Get 53 Dimension Boosts while Dilated and inside Eternity Challenge 5.",
+					"Get 54 Dimension Boosts while Dilated and inside Eternity Challenge 5.",
+					"Get 55 Dimension Boosts while Dilated and inside Eternity Challenge 5.",
+					"Get 56 Dimension Boosts while Dilated and inside Eternity Challenge 5."
+				],
+				"descriptionSource": null,
+				"values": [
+					51,
+					52,
+					53,
+					54,
+					55,
+					56
+				],
+				"isHard": false
+			},
+			{
+				"id": 6,
+				"name": "Requiem for a Glyph",
+				"descriptions": [
+					"Unlock Reality with at most -1 Glyphs equipped for the entire Reality.",
+					"Unlock Reality with at most -4 Glyphs equipped for the entire Reality.",
+					"Unlock Reality with at most -7 Glyphs equipped for the entire Reality.",
+					"Unlock Reality with at most -10 Glyphs equipped for the entire Reality.",
+					"Unlock Reality with at most -13 Glyphs equipped for the entire Reality."
+				],
+				"descriptionSource": null,
+				"values": [
+					1,
+					4,
+					7,
+					10,
+					13
+				],
+				"isHard": true
+			},
+			{
+				"id": 7,
+				"name": "Post-destination",
+				"descriptions": [
+					"Get 400,000 Time Theorems with a /1.00e100\nBlack Hole or slower, without discharging or entering EC12.",
+					"Get 400,000 Time Theorems with a /1.00e150\nBlack Hole or slower, without discharging or entering EC12.",
+					"Get 400,000 Time Theorems with a /1.00e200\nBlack Hole or slower, without discharging or entering EC12.",
+					"Get 400,000 Time Theorems with a /1.00e250\nBlack Hole or slower, without discharging or entering EC12.",
+					"Get 400,000 Time Theorems with a /1.00e300\nBlack Hole or slower, without discharging or entering EC12."
+				],
+				"descriptionSource": null,
+				"values": [
+					100,
+					150,
+					200,
+					250,
+					300
+				],
+				"isHard": true
+			},
+			{
+				"id": 8,
+				"name": "Shutter Glyph",
+				"descriptions": [
+					"Reach a Glyph of level 6,500.",
+					"Reach a Glyph of level 7,000.",
+					"Reach a Glyph of level 8,000.",
+					"Reach a Glyph of level 9,000.",
+					"Reach a Glyph of level 10,000."
+				],
+				"descriptionSource": null,
+				"values": [
+					6500,
+					7000,
+					8000,
+					9000,
+					10000
+				],
+				"isHard": true
+			}
+		]
+	},
+	"ra": {
+		"pets": [
+			{
+				"id": "teresa",
+				"name": "Teresa",
+				"color": "#8596ea",
+				"chunkGain": "Eternity Points",
+				"memoryGain": "current RM"
+			},
+			{
+				"id": "effarig",
+				"name": "Effarig",
+				"color": "#ea8585",
+				"chunkGain": "Relic Shards gained",
+				"memoryGain": "best Glyph level"
+			},
+			{
+				"id": "enslaved",
+				"name": "The Nameless Ones",
+				"color": "#f1aa7f",
+				"chunkGain": "Time Shards",
+				"memoryGain": "total time played"
+			},
+			{
+				"id": "v",
+				"name": "V",
+				"color": "#ead584",
+				"chunkGain": "Infinity Power",
+				"memoryGain": "total Memory levels"
+			}
+		],
+		"unlocks": [
+			{
+				"key": "autoTP",
+				"id": 0,
+				"pet": "teresa",
+				"level": 1,
+				"reward": "Tachyon Particles are given immediately when Time Dilation is active",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "chargedInfinityUpgrades",
+				"id": 1,
+				"pet": "teresa",
+				"level": 2,
+				"reward": "Unlock Charged Infinity Upgrades. You get one more maximum\nCharged Infinity Upgrade every 2 levels",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "teresaXP",
+				"id": 2,
+				"pet": "teresa",
+				"level": 5,
+				"reward": "All Memory Chunks produce more Memories based on Reality Machines",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "alteredGlyphs",
+				"id": 3,
+				"pet": "teresa",
+				"level": 10,
+				"reward": "Unlock Altered Glyphs, which grant new effects to Glyphs based on Glyph Sacrifice",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "effarigUnlock",
+				"id": 4,
+				"pet": "teresa",
+				"level": 8,
+				"reward": "Unlock Effarig's Memories",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "perkShopIncrease",
+				"id": 5,
+				"pet": "teresa",
+				"level": 15,
+				"reward": "Purchase caps are raised in Teresa's Perk Point Shop",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "unlockDilationStartingTP",
+				"id": 6,
+				"pet": "teresa",
+				"level": 25,
+				"reward": "In non-Celestial Realities, gain Tachyon Particles as if you reached the square root of your total\nantimatter in Dilation. Any multipliers to TP gain are applied retroactively, even outside Dilation",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "extraGlyphChoicesAndRelicShardRarityAlwaysMax",
+				"id": 7,
+				"pet": "effarig",
+				"level": 1,
+				"reward": "Get ×2 Glyph choices and the bonus to Glyph rarity from Relic Shards\nis always its maximum value",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "unlockGlyphAlchemy",
+				"id": 8,
+				"pet": "effarig",
+				"level": 2,
+				"reward": "Unlock Glyph Alchemy, which adds alchemical resources you can increase by Refining Glyphs. You unlock\nmore resources through Effarig levels. Access through a new Reality tab.",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "effarigXP",
+				"id": 9,
+				"pet": "effarig",
+				"level": 5,
+				"reward": "All Memory Chunks produce more Memories based on highest Glyph level",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "glyphEffectCount",
+				"id": 10,
+				"pet": "effarig",
+				"level": 10,
+				"reward": "Glyphs always have 4 effects, and Effarig Glyphs can now have up to 7",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "enslavedUnlock",
+				"id": 11,
+				"pet": "effarig",
+				"level": 8,
+				"reward": "Unlock Nameless's Memories",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "relicShardGlyphLevelBoost",
+				"id": 12,
+				"pet": "effarig",
+				"level": 15,
+				"reward": "Glyph level is increased based on Relic Shards gained",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "maxGlyphRarityAndShardSacrificeBoost",
+				"id": 13,
+				"pet": "effarig",
+				"level": 25,
+				"reward": "Glyphs are always generated with 100% rarity and\nGlyph Sacrifice gain is raised to a power based on Relic Shards",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "blackHolePowerAutobuyers",
+				"id": 14,
+				"pet": "enslaved",
+				"level": 1,
+				"reward": "Unlock Black Hole power upgrade autobuyers",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "improvedStoredTime",
+				"id": 15,
+				"pet": "enslaved",
+				"level": 2,
+				"reward": "Stored game time is amplified and you can store more real time, increasing with Nameless levels",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "enslavedXP",
+				"id": 16,
+				"pet": "enslaved",
+				"level": 5,
+				"reward": "All Memory Chunks produce more Memories based on total time played",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "autoPulseTime",
+				"id": 17,
+				"pet": "enslaved",
+				"level": 10,
+				"reward": "Black Hole charging now only uses 99% of your game speed and you can\nautomatically discharge 1% of your stored game time every 5 ticks.",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "vUnlock",
+				"id": 18,
+				"pet": "enslaved",
+				"level": 8,
+				"reward": "Unlock V's Memories",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "peakGamespeedDT",
+				"id": 19,
+				"pet": "enslaved",
+				"level": 15,
+				"reward": "Gain more Dilated Time based on peak game speed in each Reality",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "allGamespeedGlyphs",
+				"id": 20,
+				"pet": "enslaved",
+				"level": 25,
+				"reward": "All basic Glyphs gain the increased game speed effect from Time Glyphs,\nand Time Glyphs gain an additional effect",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "instantECAndRealityUpgradeAutobuyers",
+				"id": 21,
+				"pet": "v",
+				"level": 1,
+				"reward": "Rebuyable Reality upgrades are bought automatically and Auto-Eternity Challenges happen instantly",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "autoUnlockDilation",
+				"id": 22,
+				"pet": "v",
+				"level": 2,
+				"reward": null,
+				"rewardSource": "() => `In non-Celestial Realities, Time Dilation is unlocked automatically for free at\n        ${formatInt(TimeStudy.dilation.totalTimeTheoremRequirement)} Time Theorems`",
+				"disabledByPelle": false
+			},
+			{
+				"key": "vXP",
+				"id": 23,
+				"pet": "v",
+				"level": 5,
+				"reward": "All Memory Chunks produce more Memories based on total Celestial levels.",
+				"rewardSource": null,
+				"disabledByPelle": false
+			},
+			{
+				"key": "unlockHardV",
+				"id": 24,
+				"pet": "v",
+				"level": 6,
+				"reward": "Unlock Hard V-Achievements and unlock a Triad Study every 6 levels.\nTriad Studies are located at the bottom of the Time Studies page",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "continuousTTBoost",
+				"id": 25,
+				"pet": "v",
+				"level": 10,
+				"reward": "Time Theorems boost all forms of continuous non-dimension production",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "achievementTTMult",
+				"id": 26,
+				"pet": "v",
+				"level": 15,
+				"reward": "Achievement multiplier applies to Time Theorem generation",
+				"rewardSource": null,
+				"disabledByPelle": true
+			},
+			{
+				"key": "achievementPower",
+				"id": 27,
+				"pet": "v",
+				"level": 25,
+				"reward": "Achievement multiplier is raised ^1.5",
+				"rewardSource": null,
+				"disabledByPelle": true
+			}
+		]
+	},
+	"pelle": {
+		"upgrades": [
+			{
+				"key": "antimatterDimensionMult",
+				"id": "antimatterDimensionMult",
+				"rebuyable": true,
+				"description": "Gain a multiplier to Antimatter Dimensions",
+				"descriptionSource": null,
+				"cost": null,
+				"cap": 44
+			},
+			{
+				"key": "timeSpeedMult",
+				"id": "timeSpeedMult",
+				"rebuyable": true,
+				"description": "Gain a multiplier to game speed",
+				"descriptionSource": null,
+				"cost": null,
+				"cap": 35
+			},
+			{
+				"key": "glyphLevels",
+				"id": "glyphLevels",
+				"rebuyable": true,
+				"description": "Increase the Glyph level allowed in Pelle",
+				"descriptionSource": null,
+				"cost": null,
+				"cap": 26
+			},
+			{
+				"key": "infConversion",
+				"id": "infConversion",
+				"rebuyable": true,
+				"description": "Increase Infinity Power conversion rate",
+				"descriptionSource": null,
+				"cost": null,
+				"cap": 21
+			},
+			{
+				"key": "galaxyPower",
+				"id": "galaxyPower",
+				"rebuyable": true,
+				"description": "Multiply Galaxy power",
+				"descriptionSource": null,
+				"cost": null,
+				"cap": 9
+			},
+			{
+				"key": "antimatterDimAutobuyers1",
+				"id": 0,
+				"rebuyable": false,
+				"description": "Get permanent Autobuyers for Antimatter Dimensions 1-4",
+				"descriptionSource": null,
+				"cost": "100000",
+				"cap": null
+			},
+			{
+				"key": "dimBoostAutobuyer",
+				"id": 1,
+				"rebuyable": false,
+				"description": "Get a permanent Autobuyer for Dimension Boosts",
+				"descriptionSource": null,
+				"cost": "500000",
+				"cap": null
+			},
+			{
+				"key": "keepAutobuyers",
+				"id": 2,
+				"rebuyable": false,
+				"description": "Autobuyer upgrades no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "5000000",
+				"cap": null
+			},
+			{
+				"key": "antimatterDimAutobuyers2",
+				"id": 3,
+				"rebuyable": false,
+				"description": "Get permanent Autobuyers for Antimatter Dimensions 5-8",
+				"descriptionSource": null,
+				"cost": "25000000",
+				"cap": null
+			},
+			{
+				"key": "galaxyAutobuyer",
+				"id": 4,
+				"rebuyable": false,
+				"description": "Get a permanent Autobuyer for Antimatter Galaxies",
+				"descriptionSource": null,
+				"cost": "100000000",
+				"cap": null
+			},
+			{
+				"key": "tickspeedAutobuyer",
+				"id": 5,
+				"rebuyable": false,
+				"description": "Get a permanent Autobuyer for Tickspeed upgrades",
+				"descriptionSource": null,
+				"cost": "1000000000",
+				"cap": null
+			},
+			{
+				"key": "keepInfinityUpgrades",
+				"id": 6,
+				"rebuyable": false,
+				"description": "Infinity Upgrades no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "10000000000",
+				"cap": null
+			},
+			{
+				"key": "dimBoostResetsNothing",
+				"id": 7,
+				"rebuyable": false,
+				"description": "Dimension Boosts no longer reset anything",
+				"descriptionSource": null,
+				"cost": "100000000000",
+				"cap": null
+			},
+			{
+				"key": "keepBreakInfinityUpgrades",
+				"id": 8,
+				"rebuyable": false,
+				"description": "Break Infinity Upgrades no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "1000000000000",
+				"cap": null
+			},
+			{
+				"key": "IDAutobuyers",
+				"id": 9,
+				"rebuyable": false,
+				"description": "Get permanent Autobuyers for Infinity Dimensions",
+				"descriptionSource": null,
+				"cost": "100000000000000",
+				"cap": null
+			},
+			{
+				"key": "keepInfinityChallenges",
+				"id": 10,
+				"rebuyable": false,
+				"description": "Infinity Challenge unlocks and completions no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "1000000000000000",
+				"cap": null
+			},
+			{
+				"key": "galaxyNoResetDimboost",
+				"id": 11,
+				"rebuyable": false,
+				"description": "Galaxies no longer reset Dimension Boosts",
+				"descriptionSource": null,
+				"cost": "10000000000000000",
+				"cap": null
+			},
+			{
+				"key": "replicantiAutobuyers",
+				"id": 12,
+				"rebuyable": false,
+				"description": "Get permanent Autobuyers for Replicanti Upgrades",
+				"descriptionSource": null,
+				"cost": "100000000000000000",
+				"cap": null
+			},
+			{
+				"key": "replicantiGalaxyNoReset",
+				"id": 13,
+				"rebuyable": false,
+				"description": "Replicanti Galaxies no longer reset on Infinity",
+				"descriptionSource": null,
+				"cost": "10000000000000000000",
+				"cap": null
+			},
+			{
+				"key": "eternitiesNoReset",
+				"id": 14,
+				"rebuyable": false,
+				"description": "Eternities no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "100000000000000000000",
+				"cap": null
+			},
+			{
+				"key": "timeStudiesNoReset",
+				"id": 15,
+				"rebuyable": false,
+				"description": "Time Studies and Theorems no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "1e21",
+				"cap": null
+			},
+			{
+				"key": "replicantiStayUnlocked",
+				"id": 16,
+				"rebuyable": false,
+				"description": "Replicanti is permanently unlocked",
+				"descriptionSource": null,
+				"cost": "1e22",
+				"cap": null
+			},
+			{
+				"key": "keepEternityUpgrades",
+				"id": 17,
+				"rebuyable": false,
+				"description": "Eternity Upgrades no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "1e24",
+				"cap": null
+			},
+			{
+				"key": "TDAutobuyers",
+				"id": 18,
+				"rebuyable": false,
+				"description": "Get permanent Autobuyers for Time Dimensions",
+				"descriptionSource": null,
+				"cost": "1e25",
+				"cap": null
+			},
+			{
+				"key": "keepEternityChallenges",
+				"id": 19,
+				"rebuyable": false,
+				"description": "Eternity Challenge completions no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "1e26",
+				"cap": null
+			},
+			{
+				"key": "dilationUpgradesNoReset",
+				"id": 20,
+				"rebuyable": false,
+				"description": "Dilation Upgrades no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "1e45",
+				"cap": null
+			},
+			{
+				"key": "tachyonParticlesNoReset",
+				"id": 21,
+				"rebuyable": false,
+				"description": "Tachyon Particles no longer reset on Armageddon",
+				"descriptionSource": null,
+				"cost": "1e50",
+				"cap": null
+			},
+			{
+				"key": "replicantiGalaxyEM40",
+				"id": 22,
+				"rebuyable": false,
+				"description": "Replicanti Galaxies no longer reset anything they normally reset",
+				"descriptionSource": null,
+				"cost": "1e30",
+				"cap": null
+			}
+		],
+		"strikes": [
+			{
+				"key": "infinity",
+				"id": 1,
+				"requirement": "Reach Infinity",
+				"requirementSource": null,
+				"penalty": "Antimatter Dimensions are raised to ^0.5",
+				"penaltySource": null,
+				"reward": null,
+				"rewardSource": "() => `Unlock ${wordShift.wordCycle(PelleRifts.vacuum.name)}\n      and get a permanent Infinity Autobuyer`",
+				"rift": "vacuum"
+			},
+			{
+				"key": "powerGalaxies",
+				"id": 2,
+				"requirement": "Power-up Galaxies",
+				"requirementSource": null,
+				"penalty": "Infinity Dimensions are raised to ^0.5",
+				"penaltySource": null,
+				"reward": null,
+				"rewardSource": "() => `Unlock ${wordShift.wordCycle(PelleRifts.decay.name)}`",
+				"rift": "decay"
+			},
+			{
+				"key": "eternity",
+				"id": 3,
+				"requirement": "Reach Eternity",
+				"requirementSource": null,
+				"penalty": "Replicanti speed slows down even more above 1e2000",
+				"penaltySource": null,
+				"reward": null,
+				"rewardSource": "() => `Unlock ${wordShift.wordCycle(PelleRifts.chaos.name)}`",
+				"rift": "chaos"
+			},
+			{
+				"key": "ECs",
+				"id": 4,
+				"requirement": "Reach 115 TT",
+				"requirementSource": null,
+				"penalty": null,
+				"penaltySource": "() => `In Eternity Challenges, ${wordShift.wordCycle(PelleRifts.vacuum.name)}\n      IP multiplier is only ${formatPercents(0.3)} as strong and capped at ${formatPercents(0.15)}\n      of the goal`",
+				"reward": null,
+				"rewardSource": "() => `Unlock ${wordShift.wordCycle(PelleRifts.recursion.name)}`",
+				"rift": "recursion"
+			},
+			{
+				"key": "dilation",
+				"id": 5,
+				"requirement": "Dilate Time",
+				"requirementSource": null,
+				"penalty": "Time Dilation is permanently active",
+				"penaltySource": null,
+				"reward": null,
+				"rewardSource": "() => `Keep the Time Dilation study across Armageddon, boost Remnant gain, and unlock\n      ${wordShift.wordCycle(PelleRifts.paradox.name)}`",
+				"rift": "paradox"
+			}
+		],
+		"rifts": [
+			{
+				"key": "vacuum",
+				"id": 1,
+				"names": [
+					"Vacuum",
+					"Hollow",
+					"Void"
+				],
+				"drainResource": "IP",
+				"milestones": [
+					{
+						"requirement": 0.04,
+						"description": "You can equip a single basic Glyph with decreased level and rarity",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 0.06,
+						"description": "Uncap Replicanti and make its unlock and upgrades ×1e130 cheaper",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 0.4,
+						"description": null,
+						"descriptionSource": "() => `${wordShift.wordCycle(PelleRifts.vacuum.name)} also affects EP gain`"
+					}
+				]
+			},
+			{
+				"key": "decay",
+				"id": 2,
+				"names": [
+					"Decay",
+					"Collapse",
+					"Disarray"
+				],
+				"drainResource": "Replicanti",
+				"milestones": [
+					{
+						"requirement": 0.2,
+						"description": "First rebuyable Pelle upgrade also affects 1st Infinity Dimension",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 0.6,
+						"description": "When Replicanti exceeds 1e1300,\nall Galaxies are 10% more effective",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 1,
+						"description": "Increase max Replicanti Galaxies based on total Rift milestones",
+						"descriptionSource": null
+					}
+				]
+			},
+			{
+				"key": "chaos",
+				"id": 3,
+				"names": [
+					"Chaos",
+					"Disorder",
+					"Impurity"
+				],
+				"drainResource": "Decay",
+				"milestones": [
+					{
+						"requirement": 0.09,
+						"description": null,
+						"descriptionSource": "() => `${wordShift.wordCycle(PelleRifts.decay.name)} \\\n        effect is always maxed and milestones always active`"
+					},
+					{
+						"requirement": 0.15,
+						"description": "Glyphs gain a new Pelle-specific effect",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 1,
+						"description": "You gain 1% of your EP gained on Eternity per second",
+						"descriptionSource": null
+					}
+				]
+			},
+			{
+				"key": "recursion",
+				"id": 4,
+				"names": [
+					"Recursion",
+					"Dispersion",
+					"Destruction"
+				],
+				"drainResource": "EP",
+				"milestones": [
+					{
+						"requirement": 0.1,
+						"description": "Dimensional Boosts are more powerful based on EC completions",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 0.15,
+						"description": "Infinity Dimensions are stronger based on EC completions",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 1,
+						"description": "Permanently unlock the Galaxy Generator",
+						"descriptionSource": null
+					}
+				]
+			},
+			{
+				"key": "paradox",
+				"id": 5,
+				"names": [
+					"Paradox",
+					"Contradiction",
+					"Fallacy"
+				],
+				"drainResource": "Dilated Time",
+				"milestones": [
+					{
+						"requirement": 0.15,
+						"description": "Time Dimensions 5-8 are much cheaper, unlock more Dilation upgrades",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 0.25,
+						"description": "Dilated Time gain becomes Tachyon Particles ^1.4",
+						"descriptionSource": null
+					},
+					{
+						"requirement": 0.5,
+						"description": "Dilation rebuyable purchase count improves Infinity Power conversion rate",
+						"descriptionSource": null
+					}
+				]
+			}
+		]
+	}
+}

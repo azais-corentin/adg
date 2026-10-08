@@ -1,0 +1,396 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/infinity/infinity-upgrades.js",
+			"core/secret-formula/infinity/break-infinity-upgrades.js"
+		]
+	},
+	"upgrades": [
+		{
+			"key": "totalTimeMult",
+			"id": "timeMult",
+			"cost": 1,
+			"costSource": null,
+			"description": "Antimatter Dimensions gain a multiplier based on time played",
+			"descriptionSource": null,
+			"requires": null,
+			"requirementSource": null,
+			"charged": {
+				"description": "Antimatter Dimensions gain a power effect based on time played and Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "dim18mult",
+			"id": "18Mult",
+			"cost": 1,
+			"costSource": null,
+			"description": "1st and 8th Antimatter Dimensions gain a multiplier based on Infinities",
+			"descriptionSource": null,
+			"requires": "totalTimeMult",
+			"requirementSource": "() => InfinityUpgrade.totalTimeMult.isBought",
+			"charged": {
+				"description": "1st and 8th Antimatter Dimensions gain a power effect based on Infinities and Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "dim27mult",
+			"id": "27Mult",
+			"cost": 1,
+			"costSource": null,
+			"description": "2nd and 7th Antimatter Dimensions gain a multiplier based on Infinities",
+			"descriptionSource": null,
+			"requires": "buy10Mult",
+			"requirementSource": "() => InfinityUpgrade.buy10Mult.isBought",
+			"charged": {
+				"description": "2nd and 7th Antimatter Dimensions gain a power effect based on Infinities and Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "dim36mult",
+			"id": "36Mult",
+			"cost": 1,
+			"costSource": null,
+			"description": "3rd and 6th Antimatter Dimensions gain a multiplier based on Infinities",
+			"descriptionSource": null,
+			"requires": "dim18mult",
+			"requirementSource": "() => InfinityUpgrade.dim18mult.isBought",
+			"charged": {
+				"description": "3rd and 6th Antimatter Dimensions gain a power effect based on Infinities and Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "dim45mult",
+			"id": "45Mult",
+			"cost": 1,
+			"costSource": null,
+			"description": "4th and 5th Antimatter Dimensions gain a multiplier based on Infinities",
+			"descriptionSource": null,
+			"requires": "dim27mult",
+			"requirementSource": "() => InfinityUpgrade.dim27mult.isBought",
+			"charged": {
+				"description": "4th and 5th Antimatter Dimensions gain a power effect based on Infinities and Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "resetBoost",
+			"id": "resetBoost",
+			"cost": 1,
+			"costSource": null,
+			"description": "Decrease the number of Dimensions needed for Dimension Boosts and Antimatter Galaxies by 9",
+			"descriptionSource": null,
+			"requires": "dim36mult",
+			"requirementSource": "() => InfinityUpgrade.dim36mult.isBought",
+			"charged": {
+				"description": "Decrease Dimension Boost requirement based on Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "buy10Mult",
+			"id": "dimMult",
+			"cost": 1,
+			"costSource": null,
+			"description": "Increase the multiplier for buying 10 Antimatter Dimensions",
+			"descriptionSource": null,
+			"requires": null,
+			"requirementSource": null,
+			"charged": {
+				"description": "The multiplier for buying 10 Antimatter Dimensions gains a power effect based on Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "galaxyBoost",
+			"id": "galaxyBoost",
+			"cost": 2,
+			"costSource": null,
+			"description": "All Galaxies are twice as strong",
+			"descriptionSource": null,
+			"requires": "dim45mult",
+			"requirementSource": "() => InfinityUpgrade.dim45mult.isBought",
+			"charged": {
+				"description": "All Galaxies are stronger based on Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "thisInfinityTimeMult",
+			"id": "timeMult2",
+			"cost": 3,
+			"costSource": null,
+			"description": "Antimatter Dimensions gain a multiplier based on time spent in current Infinity",
+			"descriptionSource": null,
+			"requires": null,
+			"requirementSource": null,
+			"charged": {
+				"description": "Antimatter Dimensions gain a power effect based on time spent in current Infinity and Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "unspentIPMult",
+			"id": "unspentBonus",
+			"cost": 5,
+			"costSource": null,
+			"description": "Multiplier to 1st Antimatter Dimension based on unspent Infinity Points",
+			"descriptionSource": null,
+			"requires": "thisInfinityTimeMult",
+			"requirementSource": "() => InfinityUpgrade.thisInfinityTimeMult.isBought",
+			"charged": {
+				"description": "Multiplier to 1st Antimatter Dimension based on unspent Infinity Points, powered by Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "dimboostMult",
+			"id": "resetMult",
+			"cost": 7,
+			"costSource": null,
+			"description": "Increase Dimension Boost multiplier",
+			"descriptionSource": null,
+			"requires": "unspentIPMult",
+			"requirementSource": "() => InfinityUpgrade.unspentIPMult.isBought",
+			"charged": {
+				"description": "Dimension Boost multiplier gains a power effect based on Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "ipGen",
+			"id": "passiveGen",
+			"cost": 10,
+			"costSource": null,
+			"description": "Passively generate Infinity Points 10 times slower than your fastest Infinity",
+			"descriptionSource": null,
+			"requires": "dimboostMult",
+			"requirementSource": "() => InfinityUpgrade.dimboostMult.isBought",
+			"charged": {
+				"description": "Gain Reality Machines each real-time second proportional to amount gained on Reality,\nincreasing with Teresa level",
+				"descriptionSource": null
+			}
+		},
+		{
+			"key": "skipReset1",
+			"id": "skipReset1",
+			"cost": 20,
+			"costSource": null,
+			"description": "Start every reset with 1 Dimension Boost, automatically unlocking the 5th Antimatter Dimension",
+			"descriptionSource": null,
+			"requires": null,
+			"requirementSource": null,
+			"charged": null
+		},
+		{
+			"key": "skipReset2",
+			"id": "skipReset2",
+			"cost": 40,
+			"costSource": null,
+			"description": "Start every reset with 2 Dimension Boosts, automatically unlocking the 6th Antimatter Dimension",
+			"descriptionSource": null,
+			"requires": "skipReset1",
+			"requirementSource": "() => InfinityUpgrade.skipReset1.isBought",
+			"charged": null
+		},
+		{
+			"key": "skipReset3",
+			"id": "skipReset3",
+			"cost": 80,
+			"costSource": null,
+			"description": "Start every reset with 3 Dimension Boosts, automatically unlocking the 7th Antimatter Dimension",
+			"descriptionSource": null,
+			"requires": "skipReset2",
+			"requirementSource": "() => InfinityUpgrade.skipReset2.isBought",
+			"charged": null
+		},
+		{
+			"key": "skipResetGalaxy",
+			"id": "skipResetGalaxy",
+			"cost": 300,
+			"costSource": null,
+			"description": "Start every reset with 4 Dimension Boosts, automatically unlocking the 8th Antimatter Dimension;\nand an Antimatter Galaxy",
+			"descriptionSource": null,
+			"requires": "skipReset3",
+			"requirementSource": "() => InfinityUpgrade.skipReset3.isBought",
+			"charged": null
+		},
+		{
+			"key": "ipOffline",
+			"id": "ipOffline",
+			"cost": 1000,
+			"costSource": null,
+			"description": null,
+			"descriptionSource": "() => (player.options.offlineProgress\n      ? `Only while offline, gain ${formatPercents(0.5)} of your best IP/min without using Max All`\n      : \"This upgrade would give offline Infinity Point generation, but offline progress is currently disabled\")",
+			"requires": null,
+			"requirementSource": "() => Achievement(41).isUnlocked",
+			"charged": null
+		},
+		{
+			"key": "ipMult",
+			"id": "ipMult",
+			"cost": null,
+			"costSource": "() => InfinityUpgrade.ipMult.cost",
+			"description": "Multiply Infinity Points from all sources by ×2",
+			"descriptionSource": null,
+			"requires": null,
+			"requirementSource": "() => Achievement(41).isUnlocked",
+			"charged": null
+		}
+	],
+	"breakUpgrades": [
+		{
+			"key": "totalAMMult",
+			"id": "totalMult",
+			"rebuyable": false,
+			"cost": 10000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "Antimatter Dimensions gain a multiplier based on total antimatter produced",
+			"descriptionSource": null
+		},
+		{
+			"key": "currentAMMult",
+			"id": "currentMult",
+			"rebuyable": false,
+			"cost": 50000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "Antimatter Dimensions gain a multiplier based on current antimatter",
+			"descriptionSource": null
+		},
+		{
+			"key": "galaxyBoost",
+			"id": "postGalaxy",
+			"rebuyable": false,
+			"cost": 500000000000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "All Galaxies are 50% stronger",
+			"descriptionSource": null
+		},
+		{
+			"key": "infinitiedMult",
+			"id": "infinitiedMult",
+			"rebuyable": false,
+			"cost": 100000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "Antimatter Dimensions gain a multiplier based on Infinities",
+			"descriptionSource": null
+		},
+		{
+			"key": "achievementMult",
+			"id": "achievementMult",
+			"rebuyable": false,
+			"cost": 1000000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "Antimatter Dimensions gain a multiplier based on Achievements completed",
+			"descriptionSource": null
+		},
+		{
+			"key": "slowestChallengeMult",
+			"id": "challengeMult",
+			"rebuyable": false,
+			"cost": 10000000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "Antimatter Dimensions gain a multiplier based on how fast your slowest challenge run is",
+			"descriptionSource": null
+		},
+		{
+			"key": "infinitiedGen",
+			"id": "infinitiedGeneration",
+			"rebuyable": false,
+			"cost": 20000000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "Passively generate Infinities based on your fastest Infinity",
+			"descriptionSource": null
+		},
+		{
+			"key": "autobuyMaxDimboosts",
+			"id": "autobuyMaxDimboosts",
+			"rebuyable": false,
+			"cost": 5000000000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "Unlock the buy max Dimension Boost Autobuyer mode",
+			"descriptionSource": null
+		},
+		{
+			"key": "autobuyerSpeed",
+			"id": "autoBuyerUpgrade",
+			"rebuyable": false,
+			"cost": 1000000000000000,
+			"costs": null,
+			"maxUpgrades": null,
+			"description": "Autobuyers unlocked or improved by Normal Challenges work twice as fast",
+			"descriptionSource": null
+		},
+		{
+			"key": "tickspeedCostMult",
+			"id": 0,
+			"rebuyable": true,
+			"cost": null,
+			"costs": [
+				"1000000",
+				"5000000",
+				"25000000",
+				"125000000",
+				"625000000",
+				"3125000000",
+				"15625000000",
+				"78125000000"
+			],
+			"maxUpgrades": 8,
+			"description": "Reduce post-infinity Tickspeed Upgrade cost multiplier scaling",
+			"descriptionSource": null
+		},
+		{
+			"key": "dimCostMult",
+			"id": 1,
+			"rebuyable": true,
+			"cost": null,
+			"costs": [
+				"10000000",
+				"50000000000",
+				"250000000000000",
+				"1250000000000000000",
+				"6.25e21",
+				"3.125e25",
+				"1.5625e29"
+			],
+			"maxUpgrades": 7,
+			"description": "Reduce post-infinity Antimatter Dimension cost multiplier scaling",
+			"descriptionSource": null
+		},
+		{
+			"key": "ipGen",
+			"id": 2,
+			"rebuyable": true,
+			"cost": null,
+			"costs": [
+				"10000000",
+				"100000000",
+				"1000000000",
+				"10000000000",
+				"100000000000",
+				"1000000000000",
+				"10000000000000",
+				"100000000000000",
+				"1000000000000000",
+				"10000000000000000"
+			],
+			"maxUpgrades": 10,
+			"description": null,
+			"descriptionSource": "() => {\n      let generation = `Generate ${formatInt(5 * player.infinityRebuyables[2])}%`;\n      if (!BreakInfinityUpgrade.ipGen.isCapped) {\n        generation += ` ➜ ${formatInt(5 * (1 + player.infinityRebuyables[2]))}%`;\n      }\n      return `${generation} of your best IP/min from your last 10 Infinities`;\n    }"
+		}
+	]
+}

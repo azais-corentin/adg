@@ -1,0 +1,674 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/challenges/normal-challenges.js",
+			"core/secret-formula/challenges/infinity-challenges.js",
+			"core/secret-formula/challenges/eternity-challenges.js",
+			"core/secret-formula/eternity/time-studies/ec-time-studies.js"
+		]
+	},
+	"normal": [
+		{
+			"id": 1,
+			"legacyId": 1,
+			"name": "1st Antimatter Dimension Autobuyer",
+			"description": null,
+			"descriptionSource": "description() {\n      return PlayerProgress.eternityUnlocked()\n        ? \"reach Infinity for the first time outside of a challenge.\"\n        : \"reach Infinity for the first time.\";\n    }",
+			"reward": "Upgradeable 1st Antimatter Dimension Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 2,
+			"legacyId": 2,
+			"name": "2nd Antimatter Dimension Autobuyer",
+			"description": "buying Antimatter Dimensions or Tickspeed upgrades halts production of all Antimatter Dimensions. Production gradually returns to normal over 3 minutes.",
+			"descriptionSource": null,
+			"reward": "Upgradeable 2nd Antimatter Dimension Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 3,
+			"legacyId": 3,
+			"name": "3rd Antimatter Dimension",
+			"description": "the 1st Antimatter Dimension is heavily weakened, but gets an uncapped exponentially increasing multiplier.\nThis multiplier resets after Dimension Boosts and Antimatter Galaxies.",
+			"descriptionSource": null,
+			"reward": "Upgradeable 3rd Antimatter Dimension Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 4,
+			"legacyId": 8,
+			"name": "4th Antimatter Dimension Autobuyer",
+			"description": "buying an Antimatter Dimension automatically erases all lower tier Antimatter Dimensions, like a sacrifice without the boost.",
+			"descriptionSource": null,
+			"reward": "Upgradeable 4th Antimatter Dimension Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 5,
+			"legacyId": 6,
+			"name": "5th Antimatter Dimension Autobuyer",
+			"description": "the Tickspeed purchase multiplier starts at ×1.080 instead of ×1.125.",
+			"descriptionSource": null,
+			"reward": "Upgradeable 5th Antimatter Dimension Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 6,
+			"legacyId": 10,
+			"name": "6th Antimatter Dimension Autobuyer",
+			"description": "upgrading each Antimatter Dimension costs the Antimatter Dimension 2 tiers below it instead of antimatter. Antimatter Dimension prices are modified.",
+			"descriptionSource": null,
+			"reward": "Upgradeable 6th Antimatter Dimension Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 7,
+			"legacyId": 9,
+			"name": "7th Antimatter Dimension Autobuyer",
+			"description": "the multiplier from buying 10 Antimatter Dimensions is reduced to ×1. This increases by\n×0.2 per Dimension Boost, to a maximum of ×2, and is unaffected by any upgrades.",
+			"descriptionSource": null,
+			"reward": "Upgradeable 7th Antimatter Dimension Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 8,
+			"legacyId": 11,
+			"name": "8th Antimatter Dimension Autobuyer",
+			"description": "Dimension Boosts provide no multiplier and Antimatter Galaxies cannot be bought. Dimensional\nSacrifice resets antimatter and all Antimatter Dimensions, but also gives a significantly stronger multiplier.",
+			"descriptionSource": null,
+			"reward": "Upgradeable 8th Antimatter Dimension Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 9,
+			"legacyId": 5,
+			"name": "Tickspeed Autobuyer",
+			"description": "whenever you buy Tickspeed upgrades or 10 of an Antimatter Dimension, everything else of equal cost will increase to its next cost step.",
+			"descriptionSource": null,
+			"reward": "Upgradeable Tickspeed Autobuyer",
+			"lockedAt": "0"
+		},
+		{
+			"id": 10,
+			"legacyId": 4,
+			"name": "Automated Dimension Boosts",
+			"description": "there are only 6 Antimatter Dimensions. Dimension Boost and Antimatter Galaxy costs are modified.",
+			"descriptionSource": null,
+			"reward": "Dimension Boosts Autobuyer",
+			"lockedAt": "16"
+		},
+		{
+			"id": 11,
+			"legacyId": 12,
+			"name": "Automated Antimatter Galaxies",
+			"description": "there is normal matter which rises once you have at least 1 2nd Antimatter Dimension. If it exceeds your antimatter, it will Dimension Boost without giving the bonus.",
+			"descriptionSource": null,
+			"reward": "Antimatter Galaxies Autobuyer",
+			"lockedAt": "16"
+		},
+		{
+			"id": 12,
+			"legacyId": 7,
+			"name": "Automated Big Crunches",
+			"description": "each Antimatter Dimension produces the Dimension 2 tiers below it\ninstead of 1. Both 1st and 2nd Dimensions produce antimatter.\nThe 2nd, 4th, and 6th Dimensions are made stronger to compensate.",
+			"descriptionSource": null,
+			"reward": "Big Crunches Autobuyer",
+			"lockedAt": "16"
+		}
+	],
+	"infinity": [
+		{
+			"id": 1,
+			"description": "all Normal Challenge restrictions are active at once, with the exception of the\nTickspeed (C9) and Big Crunch (C12) Challenges.",
+			"descriptionSource": null,
+			"goal": "1e650",
+			"unlockAntimatter": "1e2000",
+			"reward": "×1.3 on all Infinity Dimensions for each Infinity Challenge completed",
+			"rewardSource": null
+		},
+		{
+			"id": 2,
+			"description": "Dimensional Sacrifice happens automatically every 400 milliseconds once you have\nan 8th Antimatter Dimension.",
+			"descriptionSource": null,
+			"goal": "1e10500",
+			"unlockAntimatter": "1e11000",
+			"reward": null,
+			"rewardSource": "() => `Dimensional Sacrifice autobuyer and stronger Dimensional Sacrifice\n        ${Sacrifice.getSacrificeDescription({ \"InfinityChallenge2isCompleted\": false })} ➜\n        ${Sacrifice.getSacrificeDescription({ \"InfinityChallenge2isCompleted\": true })}`"
+		},
+		{
+			"id": 3,
+			"description": "Tickspeed upgrades are always ×1. For every Tickspeed upgrade purchase, you instead get a static\nmultiplier on all Antimatter Dimensions which increases based on Antimatter Galaxies.",
+			"descriptionSource": null,
+			"goal": "1e5000",
+			"unlockAntimatter": "1e12000",
+			"reward": "Antimatter Dimension multiplier based on Antimatter Galaxies and Tickspeed purchases",
+			"rewardSource": null
+		},
+		{
+			"id": 4,
+			"description": "only the latest bought Antimatter Dimension's production is normal. All other Antimatter Dimensions\nproduce less (^0.25).",
+			"descriptionSource": null,
+			"goal": "1e13000",
+			"unlockAntimatter": "1e14000",
+			"reward": "All Antimatter Dimension multipliers become multiplier^1.05",
+			"rewardSource": null
+		},
+		{
+			"id": 5,
+			"description": "buying Antimatter Dimensions 1-4 causes all cheaper AD costs to increase.\nBuying Antimatter Dimensions 5-8 causes all more expensive AD costs to increase.",
+			"descriptionSource": null,
+			"goal": "1e16500",
+			"unlockAntimatter": "1e18000",
+			"reward": "All Galaxies are 10% stronger and reduce the requirements for them\nand Dimension Boosts by 1",
+			"rewardSource": null
+		},
+		{
+			"id": 6,
+			"description": "exponentially rising matter divides the multiplier on all of your Antimatter Dimensions\nonce you have at least 1 2nd Antimatter Dimension.",
+			"descriptionSource": null,
+			"goal": "2e22222",
+			"unlockAntimatter": "1e22500",
+			"reward": "Infinity Dimension multiplier based on tickspeed",
+			"rewardSource": null
+		},
+		{
+			"id": 7,
+			"description": null,
+			"descriptionSource": "() => {\n      // Copied from DimBoost.power; this is the base amount before any multipliers. Post-eternity this isn't\n      // necessarily 2.5x by the time the player sees this challenge; it's probably most accurate to say what it\n      // currently is, and this phrasing avoids 10x ➜ 10x with the old description.\n      const mult = Effects.max(\n        2,\n        InfinityUpgrade.dimboostMult,\n        InfinityChallenge(7).reward,\n        TimeStudy(81)\n      );\n      return `you cannot buy Antimatter Galaxies. Base Dimension Boost multiplier is increased to a maximum\n        of ${formatX(10)}. (Current base multiplier: ${formatX(mult, 2, 1)})`;\n    }",
+			"goal": "1e10000",
+			"unlockAntimatter": "1e23000",
+			"reward": "Dimension Boost multiplier is increased to a minimum of ×4",
+			"rewardSource": null
+		},
+		{
+			"id": 8,
+			"description": "AD production rapidly and continually drops over time. Purchasing Antimatter Dimension or Tickspeed\nupgrades sets production back to 100% before it starts dropping again.",
+			"descriptionSource": null,
+			"goal": "1e27000",
+			"unlockAntimatter": "1e28000",
+			"reward": "You get a multiplier to AD 2-7 based on 1st and 8th AD multipliers.",
+			"rewardSource": null
+		}
+	],
+	"eternity": [
+		{
+			"id": 1,
+			"description": "Time Dimensions are disabled.",
+			"descriptionSource": null,
+			"goal": "1e1800",
+			"goalIncrease": "1e200",
+			"goals": [
+				"1e1800",
+				"1e2000",
+				"1e2200",
+				"1e2400",
+				"1e2600"
+			],
+			"pelleGoal": null,
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "Time Dimension multiplier based on time spent this Eternity",
+			"rewardSource": null,
+			"unlock": {
+				"id": 1,
+				"cost": 30,
+				"requires": [
+					171
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "Eternities",
+					"amounts": [
+						"20000",
+						"40000",
+						"60000",
+						"80000",
+						"100000"
+					]
+				}
+			}
+		},
+		{
+			"id": 2,
+			"description": "Infinity Dimensions are disabled.",
+			"descriptionSource": null,
+			"goal": "1e975",
+			"goalIncrease": "1e175",
+			"goals": [
+				"1e975",
+				"1e1150",
+				"1e1325",
+				"1e1500",
+				"1e1675"
+			],
+			"pelleGoal": "1e1750",
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "1st Infinity Dimension multiplier based on Infinity Power",
+			"rewardSource": null,
+			"unlock": {
+				"id": 2,
+				"cost": 35,
+				"requires": [
+					171
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "Tickspeed upgrades from Time Dimensions",
+					"amounts": [
+						"1300",
+						"1450",
+						"1600",
+						"1750",
+						"1900"
+					]
+				}
+			}
+		},
+		{
+			"id": 3,
+			"description": "Antimatter Dimensions 5-8 don't produce anything. Dimensional Sacrifice is disabled.",
+			"descriptionSource": null,
+			"goal": "1e600",
+			"goalIncrease": "1e75",
+			"goals": [
+				"1e600",
+				"1e675",
+				"1e750",
+				"1e825",
+				"1e900"
+			],
+			"pelleGoal": "1e925",
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "Increase the multiplier for buying 10 Antimatter Dimensions",
+			"rewardSource": null,
+			"unlock": {
+				"id": 3,
+				"cost": 40,
+				"requires": [
+					171
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "8th Antimatter Dimensions",
+					"amounts": [
+						"17300",
+						"18550",
+						"19800",
+						"21050",
+						"22300"
+					]
+				}
+			}
+		},
+		{
+			"id": 4,
+			"description": "all Infinity multipliers and generators are disabled. The goal must be reached within a certain\nnumber of Infinities or else you will fail the Challenge.",
+			"descriptionSource": null,
+			"goal": "1e2750",
+			"goalIncrease": "1e550",
+			"goals": [
+				"1e2750",
+				"1e3300",
+				"1e3850",
+				"1e4400",
+				"1e4950"
+			],
+			"pelleGoal": null,
+			"pelleGoalIncrease": null,
+			"restrictions": [
+				"in 16 Infinities or less",
+				"in 12 Infinities or less",
+				"in 8 Infinities or less",
+				"in 4 Infinities or less",
+				"without any Infinities"
+			],
+			"reward": "Infinity Dimension multiplier based on unspent IP",
+			"rewardSource": null,
+			"unlock": {
+				"id": 4,
+				"cost": 70,
+				"requires": [
+					143
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "Infinities",
+					"amounts": [
+						"100000000",
+						"125000000",
+						"150000000",
+						"175000000",
+						"200000000"
+					]
+				}
+			}
+		},
+		{
+			"id": 5,
+			"description": "Antimatter Galaxy cost increase scaling starts immediately (normally at 100\nGalaxies). Dimension Boost costs scaling is massively increased.",
+			"descriptionSource": null,
+			"goal": "1e750",
+			"goalIncrease": "1e400",
+			"goals": [
+				"1e750",
+				"1e1150",
+				"1e1550",
+				"1e1950",
+				"1e2350"
+			],
+			"pelleGoal": "1e1400",
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "Distant Galaxy cost scaling starts later",
+			"rewardSource": null,
+			"unlock": {
+				"id": 5,
+				"cost": 130,
+				"requires": [
+					42
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "Antimatter Galaxies",
+					"amounts": [
+						"160",
+						"174",
+						"188",
+						"202",
+						"216"
+					]
+				}
+			}
+		},
+		{
+			"id": 6,
+			"description": "you cannot gain Antimatter Galaxies normally. The cost of upgrading your max Replicanti Galaxies is massively reduced.",
+			"descriptionSource": null,
+			"goal": "1e850",
+			"goalIncrease": "1e250",
+			"goals": [
+				"1e850",
+				"1e1100",
+				"1e1350",
+				"1e1600",
+				"1e1850"
+			],
+			"pelleGoal": "1e1500",
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "Further reduce Antimatter Dimension cost multiplier growth",
+			"rewardSource": null,
+			"unlock": {
+				"id": 6,
+				"cost": 85,
+				"requires": [
+					121
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "Replicanti Galaxies",
+					"amounts": [
+						"40",
+						"45",
+						"50",
+						"55",
+						"60"
+					]
+				}
+			}
+		},
+		{
+			"id": 7,
+			"description": "1st Time Dimensions produce 8th Infinity Dimensions and 1st Infinity Dimensions produce 7th Antimatter Dimensions. Tickspeed also directly applies to Infinity and Time Dimensions.",
+			"descriptionSource": null,
+			"goal": "1e2000",
+			"goalIncrease": "1e530",
+			"goals": [
+				"1e2000",
+				"1e2530",
+				"1e3060",
+				"1e3590",
+				"1e4120"
+			],
+			"pelleGoal": "1e2700",
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "1st Time Dimension produces 8th Infinity Dimensions",
+			"rewardSource": null,
+			"unlock": {
+				"id": 7,
+				"cost": 115,
+				"requires": [
+					111
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "antimatter",
+					"amounts": [
+						"1e500000",
+						"1e800000",
+						"1e1100000",
+						"1e1400000",
+						"1e1700000"
+					]
+				}
+			}
+		},
+		{
+			"id": 8,
+			"description": "you can only upgrade Infinity Dimensions 50 times and Replicanti\nupgrades 40 times. Infinity Dimension and Replicanti upgrade autobuyers are disabled.",
+			"descriptionSource": null,
+			"goal": "1e1300",
+			"goalIncrease": "1e900",
+			"goals": [
+				"1e1300",
+				"1e2200",
+				"1e3100",
+				"1e4000",
+				"1e4900"
+			],
+			"pelleGoal": "1e2800",
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "Infinity Power strengthens Replicanti Galaxies",
+			"rewardSource": null,
+			"unlock": {
+				"id": 8,
+				"cost": 115,
+				"requires": [
+					123
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "Infinity Points",
+					"amounts": [
+						"1e4000",
+						"1e5000",
+						"1e6000",
+						"1e7000",
+						"1e8000"
+					]
+				}
+			}
+		},
+		{
+			"id": 9,
+			"description": null,
+			"descriptionSource": "() => `you cannot buy Tickspeed upgrades. Infinity Power instead multiplies\n      Time Dimensions with greatly reduced effect. ${specialInfinityGlyphDisabledEffectText()}`",
+			"goal": "1e1750",
+			"goalIncrease": "1e250",
+			"goals": [
+				"1e1750",
+				"1e2000",
+				"1e2250",
+				"1e2500",
+				"1e2750"
+			],
+			"pelleGoal": "1e2900",
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "Infinity Dimension multiplier based on Time Shards",
+			"rewardSource": null,
+			"unlock": {
+				"id": 9,
+				"cost": 415,
+				"requires": [
+					151
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "Infinity Power",
+					"amounts": [
+						"1e17500",
+						"1e19500",
+						"1e21500",
+						"1e23500",
+						"1e25500"
+					]
+				}
+			}
+		},
+		{
+			"id": 10,
+			"description": null,
+			"descriptionSource": "() => {\n      let description = `Time Dimensions and Infinity Dimensions are disabled. You gain an immense boost from\n        Infinities to Antimatter Dimensions (Infinities${formatPow(950)}). ${specialInfinityGlyphDisabledEffectText()}`;\n      EternityChallenge(10).applyEffect(v => description += ` Currently: ${formatX(v, 2, 1)}`);\n      return description;\n    }",
+			"goal": "1e3000",
+			"goalIncrease": "1e300",
+			"goals": [
+				"1e3000",
+				"1e3300",
+				"1e3600",
+				"1e3900",
+				"1e4200"
+			],
+			"pelleGoal": "1e3200",
+			"pelleGoalIncrease": null,
+			"restrictions": null,
+			"reward": "Time Dimension multiplier based on Infinities",
+			"rewardSource": null,
+			"unlock": {
+				"id": 10,
+				"cost": 550,
+				"requires": [
+					181
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "resource",
+					"resource": "Eternity Points",
+					"amounts": [
+						"1e100",
+						"1e120",
+						"1e140",
+						"1e160",
+						"1e180"
+					]
+				}
+			}
+		},
+		{
+			"id": 11,
+			"description": null,
+			"descriptionSource": "() => `all Dimension multipliers and powers are disabled except for the multipliers from\n      Infinity Power and Dimension Boosts (to Antimatter Dimensions). ${specialInfinityGlyphDisabledEffectText()}`",
+			"goal": "1e450",
+			"goalIncrease": "1e200",
+			"goals": [
+				"1e450",
+				"1e650",
+				"1e850",
+				"1e1050",
+				"1e1250"
+			],
+			"pelleGoal": "1e11200",
+			"pelleGoalIncrease": "1e1400",
+			"restrictions": null,
+			"reward": "Further reduce Tickspeed cost multiplier growth",
+			"rewardSource": null,
+			"unlock": {
+				"id": 11,
+				"cost": 1,
+				"requires": [
+					231,
+					232
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "path",
+					"path": "Antimatter Dimension",
+					"forbiddenStudies": [
+						72,
+						73
+					]
+				}
+			}
+		},
+		{
+			"id": 12,
+			"description": null,
+			"descriptionSource": "() => (PlayerProgress.realityUnlocked()\n      ? `the game runs ×${formatInt(1000)} slower; all other game speed effects are disabled. The goal must be reached\n        within a certain amount of time or you will fail the Challenge. ${specialInfinityGlyphDisabledEffectText()}`\n      : `the game runs ×${formatInt(1000)} slower. The goal must be reached\n        within a certain amount of time or you will fail the Challenge.`)",
+			"goal": "1e110000",
+			"goalIncrease": "1e12000",
+			"goals": [
+				"1e110000",
+				"1e122000",
+				"1e134000",
+				"1e146000",
+				"1e158000"
+			],
+			"pelleGoal": "1e208000",
+			"pelleGoalIncrease": null,
+			"restrictions": [
+				"in 1.0 in-game second or less.",
+				"in 0.8 in-game seconds or less.",
+				"in 0.6 in-game seconds or less.",
+				"in 0.4 in-game seconds or less.",
+				"in 0.2 in-game seconds or less."
+			],
+			"reward": "Infinity Dimension cost multipliers are reduced",
+			"rewardSource": null,
+			"unlock": {
+				"id": 12,
+				"cost": 1,
+				"requires": [
+					233,
+					234
+				],
+				"extraRequirementSources": [],
+				"requirementType": "at-least-one",
+				"secondary": {
+					"kind": "path",
+					"path": "Time Dimension",
+					"forbiddenStudies": [
+						71,
+						72
+					]
+				}
+			}
+		}
+	]
+}

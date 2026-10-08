@@ -1,0 +1,191 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/eternity/dilation-upgrades.js"
+		]
+	},
+	"upgrades": [
+		{
+			"key": "dtGain",
+			"id": 1,
+			"rebuyable": true,
+			"cost": null,
+			"initialCost": "10000",
+			"increment": "10",
+			"purchaseCap": null,
+			"description": null,
+			"descriptionSource": "() =>\n      ((SingularityMilestone.dilatedTimeFromSingularities.canBeApplied || Achievement(187).canBeApplied)\n        ? `${formatX(2 * Effects.product(\n          SingularityMilestone.dilatedTimeFromSingularities,\n          Achievement(187)\n        ), 2, 2)} Dilated Time gain`\n        : \"Double Dilated Time gain\")",
+			"pelleOnly": false
+		},
+		{
+			"key": "galaxyThreshold",
+			"id": 2,
+			"rebuyable": true,
+			"cost": null,
+			"initialCost": "1000000",
+			"increment": "100",
+			"purchaseCap": 38,
+			"description": null,
+			"descriptionSource": "() =>\n      (Perk.bypassTGReset.isBought && !Pelle.isDoomed\n        ? \"Reset Tachyon Galaxies, but lower their threshold\"\n        : \"Reset Dilated Time and Tachyon Galaxies, but lower their threshold\")",
+			"pelleOnly": false
+		},
+		{
+			"key": "tachyonGain",
+			"id": 3,
+			"rebuyable": true,
+			"cost": null,
+			"initialCost": "10000000",
+			"increment": "20",
+			"purchaseCap": null,
+			"description": "Triple the amount of Tachyon Particles gained",
+			"descriptionSource": null,
+			"pelleOnly": false
+		},
+		{
+			"key": "doubleGalaxies",
+			"id": 4,
+			"rebuyable": false,
+			"cost": "5000000",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": "Gain twice as many Tachyon Galaxies, up to 500 base Galaxies",
+			"descriptionSource": null,
+			"pelleOnly": false
+		},
+		{
+			"key": "tdMultReplicanti",
+			"id": 5,
+			"rebuyable": false,
+			"cost": "1000000000",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": null,
+			"descriptionSource": "() => {\n      const rep10 = replicantiMult().pLog10();\n      let multiplier = \"0.1\";\n      if (rep10 > 9000) {\n        const ratio = DilationUpgrade.tdMultReplicanti.effectValue.pLog10() / rep10;\n        if (ratio < 0.095) {\n          multiplier = ratio.toFixed(2);\n        }\n      }\n      return `Time Dimensions are affected by Replicanti multiplier ${formatPow(multiplier, 1, 3)}, reduced\n        effect above ${formatX(DC.E9000)}`;\n    }",
+			"pelleOnly": false
+		},
+		{
+			"key": "ndMultDT",
+			"id": 6,
+			"rebuyable": false,
+			"cost": "50000000",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": "Antimatter Dimension multiplier based on Dilated Time, unaffected by Time Dilation",
+			"descriptionSource": null,
+			"pelleOnly": false
+		},
+		{
+			"key": "ipMultDT",
+			"id": 7,
+			"rebuyable": false,
+			"cost": "2000000000000",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": "Gain a multiplier to Infinity Points based on Dilated Time",
+			"descriptionSource": null,
+			"pelleOnly": false
+		},
+		{
+			"key": "timeStudySplit",
+			"id": 8,
+			"rebuyable": false,
+			"cost": "10000000000",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": "You can buy all three Time Study paths from the Dimension Split",
+			"descriptionSource": null,
+			"pelleOnly": false
+		},
+		{
+			"key": "dilationPenalty",
+			"id": 9,
+			"rebuyable": false,
+			"cost": "100000000000",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": "Reduce the Dilation penalty (^1.05 after reduction)",
+			"descriptionSource": null,
+			"pelleOnly": false
+		},
+		{
+			"key": "ttGenerator",
+			"id": 10,
+			"rebuyable": false,
+			"cost": "1000000000000000",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": "Generate Time Theorems based on Tachyon Particles",
+			"descriptionSource": null,
+			"pelleOnly": false
+		},
+		{
+			"key": "dtGainPelle",
+			"id": 11,
+			"rebuyable": true,
+			"cost": null,
+			"initialCost": "100000000000000",
+			"increment": "100",
+			"purchaseCap": null,
+			"description": "×5 Dilated Time gain",
+			"descriptionSource": null,
+			"pelleOnly": true
+		},
+		{
+			"key": "galaxyMultiplier",
+			"id": 12,
+			"rebuyable": true,
+			"cost": null,
+			"initialCost": "1000000000000000",
+			"increment": "1000",
+			"purchaseCap": null,
+			"description": "Multiply Tachyon Galaxies gained, applies after TG doubling upgrade",
+			"descriptionSource": null,
+			"pelleOnly": true
+		},
+		{
+			"key": "tickspeedPower",
+			"id": 13,
+			"rebuyable": true,
+			"cost": null,
+			"initialCost": "10000000000000000",
+			"increment": "10000",
+			"purchaseCap": null,
+			"description": "Gain a power to Tickspeed",
+			"descriptionSource": null,
+			"pelleOnly": true
+		},
+		{
+			"key": "galaxyThresholdPelle",
+			"id": 14,
+			"rebuyable": false,
+			"cost": "1e45",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": "Apply a cube root to the Tachyon Galaxy threshold",
+			"descriptionSource": null,
+			"pelleOnly": true
+		},
+		{
+			"key": "flatDilationMult",
+			"id": 15,
+			"rebuyable": false,
+			"cost": "1e55",
+			"initialCost": null,
+			"increment": null,
+			"purchaseCap": null,
+			"description": "Gain more Dilated Time based on current EP",
+			"descriptionSource": null,
+			"pelleOnly": true
+		}
+	]
+}

@@ -1,0 +1,7533 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/eternity/time-studies/normal-time-studies.js",
+			"core/secret-formula/eternity/time-studies/ec-time-studies.js",
+			"core/secret-formula/eternity/time-studies/dilation-time-studies.js",
+			"core/time-studies/normal-time-study.js",
+			"core/time-studies/time-study-connections.js",
+			"components/tabs/time-studies/time-study-tree-layout.js"
+		]
+	},
+	"normal": [
+		{
+			"id": 11,
+			"cost": 1,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [],
+			"extraRequirementSources": [],
+			"requirementType": "all",
+			"description": "Tickspeed affects 1st Time Dimension with reduced effect",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 21,
+			"cost": 3,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				11
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Improve Replicanti multiplier formula to\n(log2(x)^2)+x^0.032",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 22,
+			"cost": 2,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				11
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Base Replicanti interval limit 50ms ➜ 1ms",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 31,
+			"cost": 3,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				21
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Powers up multipliers that are based on your Infinities (Bonuses^4)",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 32,
+			"cost": 2,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				22
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "You gain more Infinities based on Dimension Boosts",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 33,
+			"cost": 2,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				22
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "You keep half of your Replicanti Galaxies on Infinity",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 41,
+			"cost": 4,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				31
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "All Galaxies give a ×1.2 multiplier to Infinity Points gained",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 42,
+			"cost": 6,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				32
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Antimatter Galaxy requirement increases by 52\n8th Dimensions instead of 60",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 51,
+			"cost": 3,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				41,
+				42
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "You gain ×1 Qa more Infinity Points",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 61,
+			"cost": 3,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				51
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "You gain ×15 more Eternity Points",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 62,
+			"cost": 3,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				42
+			],
+			"extraRequirementSources": [
+				"() => Perk.bypassEC5Lock.isBought || EternityChallenge(5).completions > 0"
+			],
+			"requirementType": "all",
+			"description": "You gain Replicanti 3 times faster",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 71,
+			"cost": 4,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				61
+			],
+			"extraRequirementSources": [
+				"() => Perk.studyECRequirement.isBought || !EternityChallenge(12).isUnlocked"
+			],
+			"requirementType": "dimension-path",
+			"description": "Dimensional Sacrifice affects all other Antimatter Dimensions with reduced effect",
+			"descriptionSource": null,
+			"path": "antimatter-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 72,
+			"cost": 6,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				61
+			],
+			"extraRequirementSources": [
+				"() => Perk.studyECRequirement.isBought ||\n        (!EternityChallenge(11).isUnlocked && !EternityChallenge(12).isUnlocked)"
+			],
+			"requirementType": "dimension-path",
+			"description": "Dimensional Sacrifice affects 4th Infinity Dimension with greatly reduced effect",
+			"descriptionSource": null,
+			"path": "infinity-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 73,
+			"cost": 5,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				61
+			],
+			"extraRequirementSources": [
+				"() => Perk.studyECRequirement.isBought || !EternityChallenge(11).isUnlocked"
+			],
+			"requirementType": "dimension-path",
+			"description": "Dimensional Sacrifice affects 3rd Time Dimension with greatly reduced effect",
+			"descriptionSource": null,
+			"path": "time-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 81,
+			"cost": 4,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				71
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Base Dimension Boost power becomes ×10",
+			"descriptionSource": null,
+			"path": "antimatter-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 82,
+			"cost": 6,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				72
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Dimension Boosts affect Infinity Dimensions",
+			"descriptionSource": null,
+			"path": "infinity-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 83,
+			"cost": 5,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				73
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Dimension Boost multiplier based on tick upgrades gained from TDs",
+			"descriptionSource": null,
+			"path": "time-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 91,
+			"cost": 4,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				81
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Antimatter Dimension multiplier based on time spent in this Eternity",
+			"descriptionSource": null,
+			"path": "antimatter-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 92,
+			"cost": 5,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				82
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Infinity Dimension multiplier based on fastest Eternity time",
+			"descriptionSource": null,
+			"path": "infinity-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 93,
+			"cost": 7,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				83
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Time Dimension multiplier based on tick upgrades gained",
+			"descriptionSource": null,
+			"path": "time-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 101,
+			"cost": 4,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				91
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Antimatter Dimension multiplier equal to Replicanti amount",
+			"descriptionSource": null,
+			"path": "antimatter-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 102,
+			"cost": 6,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				92
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Replicanti Galaxies boost Replicanti multiplier",
+			"descriptionSource": null,
+			"path": "infinity-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 103,
+			"cost": 6,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				93
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Time Dimension multiplier equal to Replicanti Galaxy amount",
+			"descriptionSource": null,
+			"path": "time-dim",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 111,
+			"cost": 12,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				101,
+				102,
+				103
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => (Achievement(103).canBeApplied\n      ? `Make the Infinity Point formula better log(x)/${formatFloat(307.8, 1)} ➜ log(x)/${formatInt(285)}`\n      : `Make the Infinity Point formula better log(x)/${formatInt(308)} ➜ log(x)/${formatInt(285)}`)",
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 121,
+			"cost": 9,
+			"stCost": 2,
+			"requiresST": [
+				122,
+				123
+			],
+			"requires": [
+				111
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => (Perk.studyActiveEP.isBought\n      ? `You gain ${formatX(50)} more Eternity Points`\n      : `You gain more EP based on how fast your last ten Eternities\n      were${PlayerProgress.realityUnlocked() ? \" (real time)\" : \"\"}`)",
+			"path": "active",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 122,
+			"cost": 9,
+			"stCost": 2,
+			"requiresST": [
+				121,
+				123
+			],
+			"requires": [
+				111
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => (Perk.studyPassive.isBought\n      ? `You gain ${formatX(50)} more Eternity Points`\n      : `You gain ${formatX(35)} more Eternity Points`)",
+			"path": "passive",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 123,
+			"cost": 9,
+			"stCost": 2,
+			"requiresST": [
+				121,
+				122
+			],
+			"requires": [
+				111
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "You gain more Eternity Points based on time spent this Eternity",
+			"descriptionSource": null,
+			"path": "idle",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 131,
+			"cost": 5,
+			"stCost": 8,
+			"requiresST": [
+				132,
+				133
+			],
+			"requires": [
+				121
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => (Achievement(138).isUnlocked\n      ? `You can get ${formatPercents(0.5)} more Replicanti Galaxies`\n      : `Automatic Replicanti Galaxies are disabled, but you can get ${formatPercents(0.5)} more`)",
+			"path": "active",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 132,
+			"cost": 5,
+			"stCost": 8,
+			"requiresST": [
+				131,
+				133
+			],
+			"requires": [
+				122
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => (Pelle.isDoomed\n      ? `Replicanti Galaxies are ${formatPercents(0.4)} stronger`\n      : `Replicanti Galaxies are ${formatPercents(0.4)} stronger and Replicanti are \n        ${Perk.studyPassive.isBought ? formatX(3) : formatX(1.5, 1, 1)} faster`)",
+			"path": "passive",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 133,
+			"cost": 5,
+			"stCost": 8,
+			"requiresST": [
+				131,
+				132
+			],
+			"requires": [
+				123
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => (Achievement(138).isUnlocked\n      ? `Replicanti Galaxies are ${formatPercents(0.5)} stronger`\n      : `Replicanti are ${formatX(10)} slower until ${format(Number.MAX_VALUE, 2)}` +\n    `, but Replicanti Galaxies are ${formatPercents(0.5)} stronger`)",
+			"path": "idle",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 141,
+			"cost": 4,
+			"stCost": 2,
+			"requiresST": [
+				142,
+				143
+			],
+			"requires": [
+				131
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => (Perk.studyActiveEP.isBought\n      ? `You gain ${formatX(DC.E45)} more Infinity Points`\n      : \"Multiplier to Infinity Points, which decays over this Infinity\")",
+			"path": "active",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 142,
+			"cost": 4,
+			"stCost": 2,
+			"requiresST": [
+				141,
+				143
+			],
+			"requires": [
+				132
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => `You gain ${formatX(passiveIPMult())} more Infinity Points`",
+			"path": "passive",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 143,
+			"cost": 4,
+			"stCost": 2,
+			"requiresST": [
+				141,
+				142
+			],
+			"requires": [
+				133
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Multiplier to Infinity Points, which increases over this Infinity",
+			"descriptionSource": null,
+			"path": "idle",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 151,
+			"cost": 8,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				141,
+				142,
+				143
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "×10 K multiplier on all Time Dimensions",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 161,
+			"cost": 7,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				151
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "×1e616 multiplier on all Antimatter Dimensions",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 162,
+			"cost": 7,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				151
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "×100 B multiplier on all Infinity Dimensions",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 171,
+			"cost": 15,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				161,
+				162
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Time Shard requirement for the next Tickspeed upgrade goes up slower\n×1.33 ➜ ×1.25",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 181,
+			"cost": 200,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				171
+			],
+			"extraRequirementSources": [
+				"() => EternityChallenge(1).completions > 0 || Perk.bypassEC1Lock.isBought",
+				"() => EternityChallenge(2).completions > 0 || Perk.bypassEC2Lock.isBought",
+				"() => EternityChallenge(3).completions > 0 || Perk.bypassEC3Lock.isBought"
+			],
+			"requirementType": "all",
+			"description": "You gain 1% of your Infinity Points gained on crunch each second",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 191,
+			"cost": 400,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				181
+			],
+			"extraRequirementSources": [
+				"() => EternityChallenge(10).completions > 0"
+			],
+			"requirementType": "all",
+			"description": "After Eternity you permanently keep 5%\nof your Infinities as Banked Infinities",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 192,
+			"cost": 730,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				181
+			],
+			"extraRequirementSources": [
+				"() => EternityChallenge(10).completions > 0",
+				"() => !Enslaved.isRunning"
+			],
+			"requirementType": "all",
+			"description": null,
+			"descriptionSource": "() => (Enslaved.isRunning\n      ? \"There is not enough space in this Reality\"\n      : `Replicanti can go beyond ${format(replicantiCap(), 2, 1)}, but growth slows down at higher amounts`)",
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 193,
+			"cost": 300,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				181
+			],
+			"extraRequirementSources": [
+				"() => EternityChallenge(10).completions > 0"
+			],
+			"requirementType": "all",
+			"description": "Antimatter Dimension multiplier based on Eternities",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 201,
+			"cost": 900,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				192
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Pick a second path from the Dimension Split",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 211,
+			"cost": 120,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				191
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Dimension Boost requirement scaling is reduced by 5",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 212,
+			"cost": 150,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				191
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "All Galaxies are stronger based on your Time Shards",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 213,
+			"cost": 200,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				193
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "You gain Replicanti 20 times faster",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 214,
+			"cost": 120,
+			"stCost": null,
+			"requiresST": [],
+			"requires": [
+				193
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Dimensional Sacrifice boosts the 8th Antimatter Dimension even more",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 221,
+			"cost": 900,
+			"stCost": 4,
+			"requiresST": [
+				222
+			],
+			"requires": [
+				211
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Time Dimension multiplier based on Dimension Boosts",
+			"descriptionSource": null,
+			"path": "light",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 222,
+			"cost": 900,
+			"stCost": 4,
+			"requiresST": [
+				221
+			],
+			"requires": [
+				211
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Dimension Boost costs scale by another 2 less",
+			"descriptionSource": null,
+			"path": "dark",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 223,
+			"cost": 900,
+			"stCost": 4,
+			"requiresST": [
+				224
+			],
+			"requires": [
+				212
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Distant Galaxy cost scaling starts 7 Galaxies later",
+			"descriptionSource": null,
+			"path": "light",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 224,
+			"cost": 900,
+			"stCost": 4,
+			"requiresST": [
+				223
+			],
+			"requires": [
+				212
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "description() {\n      const effect = TimeStudy(224).effectValue;\n      return `Distant Galaxy cost scaling starts ${quantifyInt(\"Galaxy\", effect)} later\n        (${formatInt(1)} per ${formatInt(2000)} Dim Boosts)`;\n    }",
+			"path": "dark",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 225,
+			"cost": 900,
+			"stCost": 4,
+			"requiresST": [
+				226
+			],
+			"requires": [
+				213
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "You gain extra Replicanti Galaxies based on Replicanti amount",
+			"descriptionSource": null,
+			"path": "light",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 226,
+			"cost": 900,
+			"stCost": 4,
+			"requiresST": [
+				225
+			],
+			"requires": [
+				213
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "You gain extra Replicanti Galaxies based on their max",
+			"descriptionSource": null,
+			"path": "dark",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 227,
+			"cost": 900,
+			"stCost": 4,
+			"requiresST": [
+				228
+			],
+			"requires": [
+				214
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Dimensional Sacrifice affects 4th Time Dimension with reduced effect",
+			"descriptionSource": null,
+			"path": "light",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 228,
+			"cost": 900,
+			"stCost": 4,
+			"requiresST": [
+				227
+			],
+			"requires": [
+				214
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": null,
+			"descriptionSource": "() => `Dimensional Sacrifice formula scales better\n      ${Sacrifice.getSacrificeDescription({ \"TimeStudy228\": false })} ➜\n      ${Sacrifice.getSacrificeDescription({ \"TimeStudy228\": true })}`",
+			"path": "dark",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 231,
+			"cost": 500,
+			"stCost": 5,
+			"requiresST": [
+				232
+			],
+			"requires": [
+				221,
+				222
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Dimension Boosts are stronger based on their amount",
+			"descriptionSource": null,
+			"path": "light",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 232,
+			"cost": 500,
+			"stCost": 5,
+			"requiresST": [
+				231
+			],
+			"requires": [
+				223,
+				224
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "All Galaxies are stronger based on Antimatter Galaxies",
+			"descriptionSource": null,
+			"path": "dark",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 233,
+			"cost": 500,
+			"stCost": 5,
+			"requiresST": [
+				234
+			],
+			"requires": [
+				225,
+				226
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Max Replicanti Galaxy upgrade is cheaper based on current Replicanti",
+			"descriptionSource": null,
+			"path": "light",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 234,
+			"cost": 500,
+			"stCost": 5,
+			"requiresST": [
+				233
+			],
+			"requires": [
+				227,
+				228
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"description": "Dimensional Sacrifice applies to 1st Antimatter Dimension",
+			"descriptionSource": null,
+			"path": "dark",
+			"isTriad": false,
+			"unlockedSource": null
+		},
+		{
+			"id": 301,
+			"cost": 0,
+			"stCost": 12,
+			"requiresST": [
+				221,
+				222,
+				231
+			],
+			"requires": [
+				221,
+				222,
+				231
+			],
+			"extraRequirementSources": [
+				"() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 1"
+			],
+			"requirementType": "all",
+			"description": "Time Study 231 improves the effect of Time Study 221",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": true,
+			"unlockedSource": "() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 1"
+		},
+		{
+			"id": 302,
+			"cost": 0,
+			"stCost": 12,
+			"requiresST": [
+				223,
+				224,
+				232
+			],
+			"requires": [
+				223,
+				224,
+				232
+			],
+			"extraRequirementSources": [
+				"() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 2"
+			],
+			"requirementType": "all",
+			"description": "Distant Galaxy scaling threshold starts another 3,000 Antimatter Galaxies later",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": true,
+			"unlockedSource": "() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 2"
+		},
+		{
+			"id": 303,
+			"cost": 0,
+			"stCost": 12,
+			"requiresST": [
+				225,
+				226,
+				233
+			],
+			"requires": [
+				225,
+				226,
+				233
+			],
+			"extraRequirementSources": [
+				"() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3"
+			],
+			"requirementType": "all",
+			"description": "Gain 50% more extra Replicanti Galaxies from Time Studies 225 and 226,\nand from Effarig's Infinity",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": true,
+			"unlockedSource": "() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 3"
+		},
+		{
+			"id": 304,
+			"cost": 0,
+			"stCost": 12,
+			"requiresST": [
+				227,
+				228,
+				234
+			],
+			"requires": [
+				227,
+				228,
+				234
+			],
+			"extraRequirementSources": [
+				"() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 4"
+			],
+			"requirementType": "all",
+			"description": "Dimensional Sacrifice multiplier is squared",
+			"descriptionSource": null,
+			"path": null,
+			"isTriad": true,
+			"unlockedSource": "() => Ra.unlocks.unlockHardV.effectOrDefault(0) >= 4"
+		}
+	],
+	"eternityChallenges": [
+		{
+			"id": 1,
+			"cost": 30,
+			"requires": [
+				171
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "Eternities",
+				"amounts": [
+					"20000",
+					"40000",
+					"60000",
+					"80000",
+					"100000"
+				]
+			}
+		},
+		{
+			"id": 2,
+			"cost": 35,
+			"requires": [
+				171
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "Tickspeed upgrades from Time Dimensions",
+				"amounts": [
+					"1300",
+					"1450",
+					"1600",
+					"1750",
+					"1900"
+				]
+			}
+		},
+		{
+			"id": 3,
+			"cost": 40,
+			"requires": [
+				171
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "8th Antimatter Dimensions",
+				"amounts": [
+					"17300",
+					"18550",
+					"19800",
+					"21050",
+					"22300"
+				]
+			}
+		},
+		{
+			"id": 4,
+			"cost": 70,
+			"requires": [
+				143
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "Infinities",
+				"amounts": [
+					"100000000",
+					"125000000",
+					"150000000",
+					"175000000",
+					"200000000"
+				]
+			}
+		},
+		{
+			"id": 5,
+			"cost": 130,
+			"requires": [
+				42
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "Antimatter Galaxies",
+				"amounts": [
+					"160",
+					"174",
+					"188",
+					"202",
+					"216"
+				]
+			}
+		},
+		{
+			"id": 6,
+			"cost": 85,
+			"requires": [
+				121
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "Replicanti Galaxies",
+				"amounts": [
+					"40",
+					"45",
+					"50",
+					"55",
+					"60"
+				]
+			}
+		},
+		{
+			"id": 7,
+			"cost": 115,
+			"requires": [
+				111
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "antimatter",
+				"amounts": [
+					"1e500000",
+					"1e800000",
+					"1e1100000",
+					"1e1400000",
+					"1e1700000"
+				]
+			}
+		},
+		{
+			"id": 8,
+			"cost": 115,
+			"requires": [
+				123
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "Infinity Points",
+				"amounts": [
+					"1e4000",
+					"1e5000",
+					"1e6000",
+					"1e7000",
+					"1e8000"
+				]
+			}
+		},
+		{
+			"id": 9,
+			"cost": 415,
+			"requires": [
+				151
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "Infinity Power",
+				"amounts": [
+					"1e17500",
+					"1e19500",
+					"1e21500",
+					"1e23500",
+					"1e25500"
+				]
+			}
+		},
+		{
+			"id": 10,
+			"cost": 550,
+			"requires": [
+				181
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "resource",
+				"resource": "Eternity Points",
+				"amounts": [
+					"1e100",
+					"1e120",
+					"1e140",
+					"1e160",
+					"1e180"
+				]
+			}
+		},
+		{
+			"id": 11,
+			"cost": 1,
+			"requires": [
+				231,
+				232
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "path",
+				"path": "Antimatter Dimension",
+				"forbiddenStudies": [
+					72,
+					73
+				]
+			}
+		},
+		{
+			"id": 12,
+			"cost": 1,
+			"requires": [
+				233,
+				234
+			],
+			"extraRequirementSources": [],
+			"requirementType": "at-least-one",
+			"secondary": {
+				"kind": "path",
+				"path": "Time Dimension",
+				"forbiddenStudies": [
+					71,
+					72
+				]
+			}
+		}
+	],
+	"dilation": [
+		{
+			"id": 1,
+			"key": "dilation",
+			"cost": 5000,
+			"description": "Unlock Time Dilation",
+			"descriptionSource": null,
+			"requirementSource": "() => {\n      const ttRequirement = Currency.timeTheorems.max.gte(TimeStudy.dilation.totalTimeTheoremRequirement);\n      if (Ra.unlocks.autoUnlockDilation.canBeApplied &&\n          ttRequirement &&\n          !isInCelestialReality() && !Pelle.isDoomed\n      ) {\n        return true;\n      }\n      const tsRequirement = [231, 232, 233, 234].some(id => TimeStudy(id).isBought);\n      if (Perk.bypassECDilation.canBeApplied) return tsRequirement;\n      const ecRequirement = EternityChallenge(11).isFullyCompleted && EternityChallenge(12).isFullyCompleted;\n      return tsRequirement && ecRequirement && ttRequirement;\n    }"
+		},
+		{
+			"id": 2,
+			"key": "td5",
+			"cost": 1000000,
+			"description": "Unlock the 5th Time Dimension",
+			"descriptionSource": null,
+			"requirementSource": "() => PlayerProgress.dilationUnlocked()"
+		},
+		{
+			"id": 3,
+			"key": "td6",
+			"cost": 10000000,
+			"description": "Unlock the 6th Time Dimension",
+			"descriptionSource": null,
+			"requirementSource": "() => TimeStudy.timeDimension(5).isBought"
+		},
+		{
+			"id": 4,
+			"key": "td7",
+			"cost": 100000000,
+			"description": "Unlock the 7th Time Dimension",
+			"descriptionSource": null,
+			"requirementSource": "() => TimeStudy.timeDimension(6).isBought"
+		},
+		{
+			"id": 5,
+			"key": "td8",
+			"cost": 1000000000,
+			"description": "Unlock the 8th Time Dimension",
+			"descriptionSource": null,
+			"requirementSource": "() => TimeStudy.timeDimension(7).isBought"
+		},
+		{
+			"id": 6,
+			"key": "reality",
+			"cost": 1,
+			"description": "Unlock Reality",
+			"descriptionSource": null,
+			"requirementSource": "() => TimeStudy.timeDimension(8).isBought &&\n      player.records.thisReality.maxEP.exponent >= 4000 &&\n      (Perk.firstPerk.isBought || Achievements.preReality.every(a => a.isUnlocked)) &&\n      !Pelle.isDoomed"
+		}
+	],
+	"paths": [
+		{
+			"path": "antimatter-dim",
+			"name": "Antimatter Dims",
+			"studies": [
+				71,
+				81,
+				91,
+				101
+			]
+		},
+		{
+			"path": "infinity-dim",
+			"name": "Infinity Dims",
+			"studies": [
+				72,
+				82,
+				92,
+				102
+			]
+		},
+		{
+			"path": "time-dim",
+			"name": "Time Dims",
+			"studies": [
+				73,
+				83,
+				93,
+				103
+			]
+		},
+		{
+			"path": "active",
+			"name": "Active",
+			"studies": [
+				121,
+				131,
+				141
+			]
+		},
+		{
+			"path": "passive",
+			"name": "Passive",
+			"studies": [
+				122,
+				132,
+				142
+			]
+		},
+		{
+			"path": "idle",
+			"name": "Idle",
+			"studies": [
+				123,
+				133,
+				143
+			]
+		},
+		{
+			"path": "light",
+			"name": "Light",
+			"studies": [
+				221,
+				223,
+				225,
+				227,
+				231,
+				233
+			]
+		},
+		{
+			"path": "dark",
+			"name": "Dark",
+			"studies": [
+				222,
+				224,
+				226,
+				228,
+				232,
+				234
+			]
+		}
+	],
+	"layouts": [
+		{
+			"type": "NORMAL",
+			"width": 102,
+			"height": 416,
+			"cells": [
+				{
+					"study": {
+						"kind": "normal",
+						"id": 11
+					},
+					"row": 0,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 0,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 21
+					},
+					"row": 1,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 22
+					},
+					"row": 1,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 31
+					},
+					"row": 2,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 32
+					},
+					"row": 2,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 33
+					},
+					"row": 2,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 41
+					},
+					"row": 3,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 42
+					},
+					"row": 3,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 51
+					},
+					"row": 4,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 56,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 5
+					},
+					"row": 4,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 56,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 61
+					},
+					"row": 5,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 62
+					},
+					"row": 5,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 71
+					},
+					"row": 6,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 72
+					},
+					"row": 6,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 73
+					},
+					"row": 6,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 81
+					},
+					"row": 7,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 82
+					},
+					"row": 7,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 83
+					},
+					"row": 7,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 91
+					},
+					"row": 8,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 92
+					},
+					"row": 8,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 93
+					},
+					"row": 8,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 101
+					},
+					"row": 9,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 102
+					},
+					"row": 9,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 103
+					},
+					"row": 9,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 7
+					},
+					"row": 10,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 111
+					},
+					"row": 10,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 121
+					},
+					"row": 11,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 122
+					},
+					"row": 11,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 123
+					},
+					"row": 11,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 6
+					},
+					"row": 12,
+					"column": 0,
+					"isSmall": false,
+					"x": 0,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 131
+					},
+					"row": 12,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 132
+					},
+					"row": 12,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 133
+					},
+					"row": 12,
+					"column": 3,
+					"isSmall": false,
+					"x": 63,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 8
+					},
+					"row": 12,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 141
+					},
+					"row": 13,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 142
+					},
+					"row": 13,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 143
+					},
+					"row": 13,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 9
+					},
+					"row": 14,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 151
+					},
+					"row": 14,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 4
+					},
+					"row": 14,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 161
+					},
+					"row": 15,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 162
+					},
+					"row": 15,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 171
+					},
+					"row": 16,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 224,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 1
+					},
+					"row": 17,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 2
+					},
+					"row": 17,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 3
+					},
+					"row": 17,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 181
+					},
+					"row": 18,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 252,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 10
+					},
+					"row": 19,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 191
+					},
+					"row": 20,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 192
+					},
+					"row": 20,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 193
+					},
+					"row": 20,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 201
+					},
+					"row": 21,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 211
+					},
+					"row": 22,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 308,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 212
+					},
+					"row": 22,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 308,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 213
+					},
+					"row": 22,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 308,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 214
+					},
+					"row": 22,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 308,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 221
+					},
+					"row": 23,
+					"column": 0,
+					"isSmall": true,
+					"x": 0.9,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 222
+					},
+					"row": 23,
+					"column": 1,
+					"isSmall": true,
+					"x": 13.5,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 223
+					},
+					"row": 23,
+					"column": 2,
+					"isSmall": true,
+					"x": 26.1,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 224
+					},
+					"row": 23,
+					"column": 3,
+					"isSmall": true,
+					"x": 38.7,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 225
+					},
+					"row": 23,
+					"column": 4,
+					"isSmall": true,
+					"x": 51.3,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 226
+					},
+					"row": 23,
+					"column": 5,
+					"isSmall": true,
+					"x": 63.9,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 227
+					},
+					"row": 23,
+					"column": 6,
+					"isSmall": true,
+					"x": 76.5,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 228
+					},
+					"row": 23,
+					"column": 7,
+					"isSmall": true,
+					"x": 89.1,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 231
+					},
+					"row": 24,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 232
+					},
+					"row": 24,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 233
+					},
+					"row": 24,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 234
+					},
+					"row": 24,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 11
+					},
+					"row": 25,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 350,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 12
+					},
+					"row": 25,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 350,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 1
+					},
+					"row": 26,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 364,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 2
+					},
+					"row": 27,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 3
+					},
+					"row": 27,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 4
+					},
+					"row": 28,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 392,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 5
+					},
+					"row": 28,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 392,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 6
+					},
+					"row": 29,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 406,
+					"width": 18,
+					"height": 10
+				}
+			]
+		},
+		{
+			"type": "ALTERNATIVE_62",
+			"width": 102,
+			"height": 416,
+			"cells": [
+				{
+					"study": {
+						"kind": "normal",
+						"id": 11
+					},
+					"row": 0,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 0,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 21
+					},
+					"row": 1,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 22
+					},
+					"row": 1,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 31
+					},
+					"row": 2,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 32
+					},
+					"row": 2,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 33
+					},
+					"row": 2,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 41
+					},
+					"row": 3,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 42
+					},
+					"row": 3,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 5
+					},
+					"row": 3,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 51
+					},
+					"row": 4,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 56,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 61
+					},
+					"row": 5,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 62
+					},
+					"row": 5,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 71
+					},
+					"row": 6,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 72
+					},
+					"row": 6,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 73
+					},
+					"row": 6,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 81
+					},
+					"row": 7,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 82
+					},
+					"row": 7,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 83
+					},
+					"row": 7,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 91
+					},
+					"row": 8,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 92
+					},
+					"row": 8,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 93
+					},
+					"row": 8,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 101
+					},
+					"row": 9,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 102
+					},
+					"row": 9,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 103
+					},
+					"row": 9,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 7
+					},
+					"row": 10,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 111
+					},
+					"row": 10,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 121
+					},
+					"row": 11,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 122
+					},
+					"row": 11,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 123
+					},
+					"row": 11,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 6
+					},
+					"row": 12,
+					"column": 0,
+					"isSmall": false,
+					"x": 0,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 131
+					},
+					"row": 12,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 132
+					},
+					"row": 12,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 133
+					},
+					"row": 12,
+					"column": 3,
+					"isSmall": false,
+					"x": 63,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 8
+					},
+					"row": 12,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 141
+					},
+					"row": 13,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 142
+					},
+					"row": 13,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 143
+					},
+					"row": 13,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 9
+					},
+					"row": 14,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 151
+					},
+					"row": 14,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 4
+					},
+					"row": 14,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 161
+					},
+					"row": 15,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 162
+					},
+					"row": 15,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 171
+					},
+					"row": 16,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 224,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 1
+					},
+					"row": 17,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 2
+					},
+					"row": 17,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 3
+					},
+					"row": 17,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 181
+					},
+					"row": 18,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 252,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 10
+					},
+					"row": 19,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 191
+					},
+					"row": 20,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 192
+					},
+					"row": 20,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 193
+					},
+					"row": 20,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 201
+					},
+					"row": 21,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 211
+					},
+					"row": 22,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 308,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 212
+					},
+					"row": 22,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 308,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 213
+					},
+					"row": 22,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 308,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 214
+					},
+					"row": 22,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 308,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 221
+					},
+					"row": 23,
+					"column": 0,
+					"isSmall": true,
+					"x": 0.9,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 222
+					},
+					"row": 23,
+					"column": 1,
+					"isSmall": true,
+					"x": 13.5,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 223
+					},
+					"row": 23,
+					"column": 2,
+					"isSmall": true,
+					"x": 26.1,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 224
+					},
+					"row": 23,
+					"column": 3,
+					"isSmall": true,
+					"x": 38.7,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 225
+					},
+					"row": 23,
+					"column": 4,
+					"isSmall": true,
+					"x": 51.3,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 226
+					},
+					"row": 23,
+					"column": 5,
+					"isSmall": true,
+					"x": 63.9,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 227
+					},
+					"row": 23,
+					"column": 6,
+					"isSmall": true,
+					"x": 76.5,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 228
+					},
+					"row": 23,
+					"column": 7,
+					"isSmall": true,
+					"x": 89.1,
+					"y": 322,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 231
+					},
+					"row": 24,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 232
+					},
+					"row": 24,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 233
+					},
+					"row": 24,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 234
+					},
+					"row": 24,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 11
+					},
+					"row": 25,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 350,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 12
+					},
+					"row": 25,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 350,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 1
+					},
+					"row": 26,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 364,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 2
+					},
+					"row": 27,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 3
+					},
+					"row": 27,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 4
+					},
+					"row": 28,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 392,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 5
+					},
+					"row": 28,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 392,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 6
+					},
+					"row": 29,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 406,
+					"width": 18,
+					"height": 10
+				}
+			]
+		},
+		{
+			"type": "ALTERNATIVE_181",
+			"width": 102,
+			"height": 402,
+			"cells": [
+				{
+					"study": {
+						"kind": "normal",
+						"id": 11
+					},
+					"row": 0,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 0,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 21
+					},
+					"row": 1,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 22
+					},
+					"row": 1,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 31
+					},
+					"row": 2,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 32
+					},
+					"row": 2,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 33
+					},
+					"row": 2,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 41
+					},
+					"row": 3,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 42
+					},
+					"row": 3,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 51
+					},
+					"row": 4,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 56,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 5
+					},
+					"row": 4,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 56,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 61
+					},
+					"row": 5,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 62
+					},
+					"row": 5,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 71
+					},
+					"row": 6,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 72
+					},
+					"row": 6,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 73
+					},
+					"row": 6,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 81
+					},
+					"row": 7,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 82
+					},
+					"row": 7,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 83
+					},
+					"row": 7,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 91
+					},
+					"row": 8,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 92
+					},
+					"row": 8,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 93
+					},
+					"row": 8,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 101
+					},
+					"row": 9,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 102
+					},
+					"row": 9,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 103
+					},
+					"row": 9,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 7
+					},
+					"row": 10,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 111
+					},
+					"row": 10,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 121
+					},
+					"row": 11,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 122
+					},
+					"row": 11,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 123
+					},
+					"row": 11,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 6
+					},
+					"row": 12,
+					"column": 0,
+					"isSmall": false,
+					"x": 0,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 131
+					},
+					"row": 12,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 132
+					},
+					"row": 12,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 133
+					},
+					"row": 12,
+					"column": 3,
+					"isSmall": false,
+					"x": 63,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 8
+					},
+					"row": 12,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 141
+					},
+					"row": 13,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 142
+					},
+					"row": 13,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 143
+					},
+					"row": 13,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 9
+					},
+					"row": 14,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 151
+					},
+					"row": 14,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 4
+					},
+					"row": 14,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 161
+					},
+					"row": 15,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 162
+					},
+					"row": 15,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 171
+					},
+					"row": 16,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 224,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 2
+					},
+					"row": 16,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 224,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 1
+					},
+					"row": 17,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 181
+					},
+					"row": 17,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 3
+					},
+					"row": 17,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 10
+					},
+					"row": 18,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 252,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 191
+					},
+					"row": 19,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 192
+					},
+					"row": 19,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 193
+					},
+					"row": 19,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 201
+					},
+					"row": 20,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 211
+					},
+					"row": 21,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 212
+					},
+					"row": 21,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 213
+					},
+					"row": 21,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 214
+					},
+					"row": 21,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 221
+					},
+					"row": 22,
+					"column": 0,
+					"isSmall": true,
+					"x": 0.9,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 222
+					},
+					"row": 22,
+					"column": 1,
+					"isSmall": true,
+					"x": 13.5,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 223
+					},
+					"row": 22,
+					"column": 2,
+					"isSmall": true,
+					"x": 26.1,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 224
+					},
+					"row": 22,
+					"column": 3,
+					"isSmall": true,
+					"x": 38.7,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 225
+					},
+					"row": 22,
+					"column": 4,
+					"isSmall": true,
+					"x": 51.3,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 226
+					},
+					"row": 22,
+					"column": 5,
+					"isSmall": true,
+					"x": 63.9,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 227
+					},
+					"row": 22,
+					"column": 6,
+					"isSmall": true,
+					"x": 76.5,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 228
+					},
+					"row": 22,
+					"column": 7,
+					"isSmall": true,
+					"x": 89.1,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 231
+					},
+					"row": 23,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 232
+					},
+					"row": 23,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 233
+					},
+					"row": 23,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 234
+					},
+					"row": 23,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 11
+					},
+					"row": 24,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 12
+					},
+					"row": 24,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 1
+					},
+					"row": 25,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 350,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 2
+					},
+					"row": 26,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 364,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 3
+					},
+					"row": 26,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 364,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 4
+					},
+					"row": 27,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 5
+					},
+					"row": 27,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 6
+					},
+					"row": 28,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 392,
+					"width": 18,
+					"height": 10
+				}
+			]
+		},
+		{
+			"type": "ALTERNATIVE_62_181",
+			"width": 102,
+			"height": 402,
+			"cells": [
+				{
+					"study": {
+						"kind": "normal",
+						"id": 11
+					},
+					"row": 0,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 0,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 21
+					},
+					"row": 1,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 22
+					},
+					"row": 1,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 31
+					},
+					"row": 2,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 32
+					},
+					"row": 2,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 33
+					},
+					"row": 2,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 41
+					},
+					"row": 3,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 42
+					},
+					"row": 3,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 5
+					},
+					"row": 3,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 51
+					},
+					"row": 4,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 56,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 61
+					},
+					"row": 5,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 62
+					},
+					"row": 5,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 71
+					},
+					"row": 6,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 72
+					},
+					"row": 6,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 73
+					},
+					"row": 6,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 81
+					},
+					"row": 7,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 82
+					},
+					"row": 7,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 83
+					},
+					"row": 7,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 91
+					},
+					"row": 8,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 92
+					},
+					"row": 8,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 93
+					},
+					"row": 8,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 101
+					},
+					"row": 9,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 102
+					},
+					"row": 9,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 103
+					},
+					"row": 9,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 7
+					},
+					"row": 10,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 111
+					},
+					"row": 10,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 121
+					},
+					"row": 11,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 122
+					},
+					"row": 11,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 123
+					},
+					"row": 11,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 6
+					},
+					"row": 12,
+					"column": 0,
+					"isSmall": false,
+					"x": 0,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 131
+					},
+					"row": 12,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 132
+					},
+					"row": 12,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 133
+					},
+					"row": 12,
+					"column": 3,
+					"isSmall": false,
+					"x": 63,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 8
+					},
+					"row": 12,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 141
+					},
+					"row": 13,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 142
+					},
+					"row": 13,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 143
+					},
+					"row": 13,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 9
+					},
+					"row": 14,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 151
+					},
+					"row": 14,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 4
+					},
+					"row": 14,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 161
+					},
+					"row": 15,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 162
+					},
+					"row": 15,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 171
+					},
+					"row": 16,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 224,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 2
+					},
+					"row": 16,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 224,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 1
+					},
+					"row": 17,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 181
+					},
+					"row": 17,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 3
+					},
+					"row": 17,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 10
+					},
+					"row": 18,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 252,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 191
+					},
+					"row": 19,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 192
+					},
+					"row": 19,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 193
+					},
+					"row": 19,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 201
+					},
+					"row": 20,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 211
+					},
+					"row": 21,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 212
+					},
+					"row": 21,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 213
+					},
+					"row": 21,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 214
+					},
+					"row": 21,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 221
+					},
+					"row": 22,
+					"column": 0,
+					"isSmall": true,
+					"x": 0.9,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 222
+					},
+					"row": 22,
+					"column": 1,
+					"isSmall": true,
+					"x": 13.5,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 223
+					},
+					"row": 22,
+					"column": 2,
+					"isSmall": true,
+					"x": 26.1,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 224
+					},
+					"row": 22,
+					"column": 3,
+					"isSmall": true,
+					"x": 38.7,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 225
+					},
+					"row": 22,
+					"column": 4,
+					"isSmall": true,
+					"x": 51.3,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 226
+					},
+					"row": 22,
+					"column": 5,
+					"isSmall": true,
+					"x": 63.9,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 227
+					},
+					"row": 22,
+					"column": 6,
+					"isSmall": true,
+					"x": 76.5,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 228
+					},
+					"row": 22,
+					"column": 7,
+					"isSmall": true,
+					"x": 89.1,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 231
+					},
+					"row": 23,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 232
+					},
+					"row": 23,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 233
+					},
+					"row": 23,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 234
+					},
+					"row": 23,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 11
+					},
+					"row": 24,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 12
+					},
+					"row": 24,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 1
+					},
+					"row": 25,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 350,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 2
+					},
+					"row": 26,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 364,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 3
+					},
+					"row": 26,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 364,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 4
+					},
+					"row": 27,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 5
+					},
+					"row": 27,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 6
+					},
+					"row": 28,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 392,
+					"width": 18,
+					"height": 10
+				}
+			]
+		},
+		{
+			"type": "ALTERNATIVE_TRIAD_STUDIES",
+			"width": 102,
+			"height": 416,
+			"cells": [
+				{
+					"study": {
+						"kind": "normal",
+						"id": 11
+					},
+					"row": 0,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 0,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 21
+					},
+					"row": 1,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 22
+					},
+					"row": 1,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 14,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 31
+					},
+					"row": 2,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 32
+					},
+					"row": 2,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 33
+					},
+					"row": 2,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 28,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 41
+					},
+					"row": 3,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 42
+					},
+					"row": 3,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 5
+					},
+					"row": 3,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 42,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 51
+					},
+					"row": 4,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 56,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 61
+					},
+					"row": 5,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 62
+					},
+					"row": 5,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 70,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 71
+					},
+					"row": 6,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 72
+					},
+					"row": 6,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 73
+					},
+					"row": 6,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 84,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 81
+					},
+					"row": 7,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 82
+					},
+					"row": 7,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 83
+					},
+					"row": 7,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 98,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 91
+					},
+					"row": 8,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 92
+					},
+					"row": 8,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 93
+					},
+					"row": 8,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 112,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 101
+					},
+					"row": 9,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 102
+					},
+					"row": 9,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 103
+					},
+					"row": 9,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 126,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 7
+					},
+					"row": 10,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 111
+					},
+					"row": 10,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 140,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 121
+					},
+					"row": 11,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 122
+					},
+					"row": 11,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 123
+					},
+					"row": 11,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 154,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 6
+					},
+					"row": 12,
+					"column": 0,
+					"isSmall": false,
+					"x": 0,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 131
+					},
+					"row": 12,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 132
+					},
+					"row": 12,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 133
+					},
+					"row": 12,
+					"column": 3,
+					"isSmall": false,
+					"x": 63,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 8
+					},
+					"row": 12,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 168,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 141
+					},
+					"row": 13,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 142
+					},
+					"row": 13,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 143
+					},
+					"row": 13,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 182,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 9
+					},
+					"row": 14,
+					"column": 1,
+					"isSmall": false,
+					"x": 21,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 151
+					},
+					"row": 14,
+					"column": 2,
+					"isSmall": false,
+					"x": 42,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 4
+					},
+					"row": 14,
+					"column": 4,
+					"isSmall": false,
+					"x": 84,
+					"y": 196,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 161
+					},
+					"row": 15,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 162
+					},
+					"row": 15,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 210,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 171
+					},
+					"row": 16,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 224,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 2
+					},
+					"row": 16,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 224,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 1
+					},
+					"row": 17,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 181
+					},
+					"row": 17,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 3
+					},
+					"row": 17,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 238,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 10
+					},
+					"row": 18,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 252,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 191
+					},
+					"row": 19,
+					"column": 0,
+					"isSmall": false,
+					"x": 21,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 192
+					},
+					"row": 19,
+					"column": 1,
+					"isSmall": false,
+					"x": 42,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 193
+					},
+					"row": 19,
+					"column": 2,
+					"isSmall": false,
+					"x": 63,
+					"y": 266,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 201
+					},
+					"row": 20,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 280,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 211
+					},
+					"row": 21,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 212
+					},
+					"row": 21,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 213
+					},
+					"row": 21,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 214
+					},
+					"row": 21,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 294,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 221
+					},
+					"row": 22,
+					"column": 0,
+					"isSmall": true,
+					"x": 0.9,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 222
+					},
+					"row": 22,
+					"column": 1,
+					"isSmall": true,
+					"x": 13.5,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 223
+					},
+					"row": 22,
+					"column": 2,
+					"isSmall": true,
+					"x": 26.1,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 224
+					},
+					"row": 22,
+					"column": 3,
+					"isSmall": true,
+					"x": 38.7,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 225
+					},
+					"row": 22,
+					"column": 4,
+					"isSmall": true,
+					"x": 51.3,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 226
+					},
+					"row": 22,
+					"column": 5,
+					"isSmall": true,
+					"x": 63.9,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 227
+					},
+					"row": 22,
+					"column": 6,
+					"isSmall": true,
+					"x": 76.5,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 228
+					},
+					"row": 22,
+					"column": 7,
+					"isSmall": true,
+					"x": 89.1,
+					"y": 308,
+					"width": 12,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 301
+					},
+					"row": 23,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 302
+					},
+					"row": 23,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 303
+					},
+					"row": 23,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 304
+					},
+					"row": 23,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 322,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 231
+					},
+					"row": 24,
+					"column": 0,
+					"isSmall": false,
+					"x": 10.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 232
+					},
+					"row": 24,
+					"column": 1,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 233
+					},
+					"row": 24,
+					"column": 2,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "normal",
+						"id": 234
+					},
+					"row": 24,
+					"column": 3,
+					"isSmall": false,
+					"x": 73.5,
+					"y": 336,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 11
+					},
+					"row": 25,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 350,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "ec",
+						"id": 12
+					},
+					"row": 25,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 350,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 1
+					},
+					"row": 26,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 364,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 2
+					},
+					"row": 27,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 3
+					},
+					"row": 27,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 378,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 4
+					},
+					"row": 28,
+					"column": 0,
+					"isSmall": false,
+					"x": 31.5,
+					"y": 392,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 5
+					},
+					"row": 28,
+					"column": 1,
+					"isSmall": false,
+					"x": 52.5,
+					"y": 392,
+					"width": 18,
+					"height": 10
+				},
+				{
+					"study": {
+						"kind": "dilation",
+						"id": 6
+					},
+					"row": 29,
+					"column": 0,
+					"isSmall": false,
+					"x": 42,
+					"y": 406,
+					"width": 18,
+					"height": 10
+				}
+			]
+		}
+	],
+	"connections": [
+		{
+			"from": {
+				"kind": "normal",
+				"id": 11
+			},
+			"to": {
+				"kind": "normal",
+				"id": 21
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 11
+			},
+			"to": {
+				"kind": "normal",
+				"id": 22
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 21
+			},
+			"to": {
+				"kind": "normal",
+				"id": 31
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 22
+			},
+			"to": {
+				"kind": "normal",
+				"id": 33
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 22
+			},
+			"to": {
+				"kind": "normal",
+				"id": 32
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 31
+			},
+			"to": {
+				"kind": "normal",
+				"id": 41
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 32
+			},
+			"to": {
+				"kind": "normal",
+				"id": 42
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 41
+			},
+			"to": {
+				"kind": "normal",
+				"id": 51
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 42
+			},
+			"to": {
+				"kind": "normal",
+				"id": 51
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 42
+			},
+			"to": {
+				"kind": "ec",
+				"id": 5
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 42
+			},
+			"to": {
+				"kind": "normal",
+				"id": 62
+			},
+			"overrideSource": "() => !Perk.bypassEC5Lock.isBought"
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 51
+			},
+			"to": {
+				"kind": "normal",
+				"id": 61
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 5
+			},
+			"to": {
+				"kind": "normal",
+				"id": 62
+			},
+			"overrideSource": "() => Perk.bypassEC5Lock.isBought"
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 61
+			},
+			"to": {
+				"kind": "normal",
+				"id": 71
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 61
+			},
+			"to": {
+				"kind": "normal",
+				"id": 72
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 61
+			},
+			"to": {
+				"kind": "normal",
+				"id": 73
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 71
+			},
+			"to": {
+				"kind": "normal",
+				"id": 81
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 72
+			},
+			"to": {
+				"kind": "normal",
+				"id": 82
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 73
+			},
+			"to": {
+				"kind": "normal",
+				"id": 83
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 81
+			},
+			"to": {
+				"kind": "normal",
+				"id": 91
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 82
+			},
+			"to": {
+				"kind": "normal",
+				"id": 92
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 83
+			},
+			"to": {
+				"kind": "normal",
+				"id": 93
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 91
+			},
+			"to": {
+				"kind": "normal",
+				"id": 101
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 92
+			},
+			"to": {
+				"kind": "normal",
+				"id": 102
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 93
+			},
+			"to": {
+				"kind": "normal",
+				"id": 103
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 101
+			},
+			"to": {
+				"kind": "normal",
+				"id": 111
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 102
+			},
+			"to": {
+				"kind": "normal",
+				"id": 111
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 103
+			},
+			"to": {
+				"kind": "normal",
+				"id": 111
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 111
+			},
+			"to": {
+				"kind": "ec",
+				"id": 7
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 111
+			},
+			"to": {
+				"kind": "normal",
+				"id": 121
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 111
+			},
+			"to": {
+				"kind": "normal",
+				"id": 122
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 111
+			},
+			"to": {
+				"kind": "normal",
+				"id": 123
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 121
+			},
+			"to": {
+				"kind": "normal",
+				"id": 131
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 122
+			},
+			"to": {
+				"kind": "normal",
+				"id": 132
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 123
+			},
+			"to": {
+				"kind": "normal",
+				"id": 133
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 121
+			},
+			"to": {
+				"kind": "ec",
+				"id": 6
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 123
+			},
+			"to": {
+				"kind": "ec",
+				"id": 8
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 131
+			},
+			"to": {
+				"kind": "normal",
+				"id": 141
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 132
+			},
+			"to": {
+				"kind": "normal",
+				"id": 142
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 133
+			},
+			"to": {
+				"kind": "normal",
+				"id": 143
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 141
+			},
+			"to": {
+				"kind": "normal",
+				"id": 151
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 142
+			},
+			"to": {
+				"kind": "normal",
+				"id": 151
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 143
+			},
+			"to": {
+				"kind": "normal",
+				"id": 151
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 143
+			},
+			"to": {
+				"kind": "ec",
+				"id": 4
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 151
+			},
+			"to": {
+				"kind": "ec",
+				"id": 9
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 151
+			},
+			"to": {
+				"kind": "normal",
+				"id": 161
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 151
+			},
+			"to": {
+				"kind": "normal",
+				"id": 162
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 161
+			},
+			"to": {
+				"kind": "normal",
+				"id": 171
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 162
+			},
+			"to": {
+				"kind": "normal",
+				"id": 171
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 171
+			},
+			"to": {
+				"kind": "ec",
+				"id": 1
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 171
+			},
+			"to": {
+				"kind": "ec",
+				"id": 2
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 171
+			},
+			"to": {
+				"kind": "ec",
+				"id": 3
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 171
+			},
+			"to": {
+				"kind": "normal",
+				"id": 181
+			},
+			"overrideSource": "() => !Perk.bypassEC1Lock.isBought || !Perk.bypassEC2Lock.isBought || !Perk.bypassEC3Lock.isBought"
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 1
+			},
+			"to": {
+				"kind": "normal",
+				"id": 181
+			},
+			"overrideSource": "() => Perk.bypassEC1Lock.isBought"
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 2
+			},
+			"to": {
+				"kind": "normal",
+				"id": 181
+			},
+			"overrideSource": "() => Perk.bypassEC2Lock.isBought"
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 3
+			},
+			"to": {
+				"kind": "normal",
+				"id": 181
+			},
+			"overrideSource": "() => Perk.bypassEC3Lock.isBought"
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 181
+			},
+			"to": {
+				"kind": "ec",
+				"id": 10
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 10
+			},
+			"to": {
+				"kind": "normal",
+				"id": 191
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 10
+			},
+			"to": {
+				"kind": "normal",
+				"id": 192
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 10
+			},
+			"to": {
+				"kind": "normal",
+				"id": 193
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 192
+			},
+			"to": {
+				"kind": "normal",
+				"id": 201
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 191
+			},
+			"to": {
+				"kind": "normal",
+				"id": 211
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 191
+			},
+			"to": {
+				"kind": "normal",
+				"id": 212
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 193
+			},
+			"to": {
+				"kind": "normal",
+				"id": 213
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 193
+			},
+			"to": {
+				"kind": "normal",
+				"id": 214
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 211
+			},
+			"to": {
+				"kind": "normal",
+				"id": 221
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 211
+			},
+			"to": {
+				"kind": "normal",
+				"id": 222
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 212
+			},
+			"to": {
+				"kind": "normal",
+				"id": 223
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 212
+			},
+			"to": {
+				"kind": "normal",
+				"id": 224
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 213
+			},
+			"to": {
+				"kind": "normal",
+				"id": 225
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 213
+			},
+			"to": {
+				"kind": "normal",
+				"id": 226
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 214
+			},
+			"to": {
+				"kind": "normal",
+				"id": 227
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 214
+			},
+			"to": {
+				"kind": "normal",
+				"id": 228
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 221
+			},
+			"to": {
+				"kind": "normal",
+				"id": 231
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 222
+			},
+			"to": {
+				"kind": "normal",
+				"id": 231
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 223
+			},
+			"to": {
+				"kind": "normal",
+				"id": 232
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 224
+			},
+			"to": {
+				"kind": "normal",
+				"id": 232
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 225
+			},
+			"to": {
+				"kind": "normal",
+				"id": 233
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 226
+			},
+			"to": {
+				"kind": "normal",
+				"id": 233
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 227
+			},
+			"to": {
+				"kind": "normal",
+				"id": 234
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 228
+			},
+			"to": {
+				"kind": "normal",
+				"id": 234
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 231
+			},
+			"to": {
+				"kind": "ec",
+				"id": 11
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 232
+			},
+			"to": {
+				"kind": "ec",
+				"id": 11
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 233
+			},
+			"to": {
+				"kind": "ec",
+				"id": 12
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "normal",
+				"id": 234
+			},
+			"to": {
+				"kind": "ec",
+				"id": 12
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 11
+			},
+			"to": {
+				"kind": "dilation",
+				"id": 1
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "ec",
+				"id": 12
+			},
+			"to": {
+				"kind": "dilation",
+				"id": 1
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "dilation",
+				"id": 1
+			},
+			"to": {
+				"kind": "dilation",
+				"id": 2
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "dilation",
+				"id": 2
+			},
+			"to": {
+				"kind": "dilation",
+				"id": 3
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "dilation",
+				"id": 3
+			},
+			"to": {
+				"kind": "dilation",
+				"id": 4
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "dilation",
+				"id": 4
+			},
+			"to": {
+				"kind": "dilation",
+				"id": 5
+			},
+			"overrideSource": null
+		},
+		{
+			"from": {
+				"kind": "dilation",
+				"id": 5
+			},
+			"to": {
+				"kind": "dilation",
+				"id": 6
+			},
+			"overrideSource": null
+		}
+	],
+	"layoutSelectionSource": "get current() {\n    const alt62 = Perk.bypassEC5Lock.isBought;\n    const alt181 = Perk.bypassEC1Lock.isBought && Perk.bypassEC2Lock.isBought && Perk.bypassEC3Lock.isBought;\n    if (Ra.canBuyTriad) return this.ALTERNATIVE_TRIAD_STUDIES;\n    if (alt62 && alt181) return this.ALTERNATIVE_62_181;\n    if (alt62) return this.ALTERNATIVE_62;\n    if (alt181) return this.ALTERNATIVE_181;\n    return this.NORMAL;\n  }"
+}

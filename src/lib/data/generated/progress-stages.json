@@ -1,0 +1,165 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/progress-checker.js",
+			"core/constants.js"
+		]
+	},
+	"stages": [
+		{
+			"id": 1,
+			"key": "PRE_INFINITY",
+			"stageId": "pre-infinity",
+			"name": "Antimatter Production",
+			"suggestedResource": "Antimatter",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "() => true"
+		},
+		{
+			"id": 2,
+			"key": "EARLY_INFINITY",
+			"stageId": "early-infinity",
+			"name": "Infinity",
+			"suggestedResource": "Infinity Points",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => new Decimal(save.infinities).gt(0)"
+		},
+		{
+			"id": 3,
+			"key": "BREAK_INFINITY",
+			"stageId": "break-infinity",
+			"name": "Broken Infinity",
+			"suggestedResource": "Infinity Points",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.auto.bigCrunch.interval <= 100"
+		},
+		{
+			"id": 4,
+			"key": "REPLICANTI",
+			"stageId": "replicanti",
+			"name": "Replicanti",
+			"suggestedResource": "Infinity Points",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.replicanti.unl"
+		},
+		{
+			"id": 5,
+			"key": "EARLY_ETERNITY",
+			"stageId": "early-eternity",
+			"name": "Eternity",
+			"suggestedResource": "Eternity Points and Eternity count",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => new Decimal(save.eternities).gt(0)"
+		},
+		{
+			"id": 6,
+			"key": "ETERNITY_CHALLENGES",
+			"stageId": "eternity-challenges",
+			"name": "Eternity Challenges",
+			"suggestedResource": "Eternity Challenge Completions and Eternity Points",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.eternityChalls.eterc1 > 0"
+		},
+		{
+			"id": 7,
+			"key": "EARLY_DILATION",
+			"stageId": "early-dilation",
+			"name": "Time Dilation",
+			"suggestedResource": "Dilated Time",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => new Decimal(save.dilation.dilatedTime).gt(0)"
+		},
+		{
+			"id": 8,
+			"key": "LATE_ETERNITY",
+			"stageId": "late-eternity",
+			"name": "Late Eternity",
+			"suggestedResource": null,
+			"suggestedResourceSource": "() => (new Decimal(player.eternityPoints).log10() > 4000\n      ? \"Eternity Points and/or Dilated Time. Alternatively, you can unlock and perform your first Reality\"\n      : \"Eternity Points and/or Dilated Time\"\n    )",
+			"hasReachedSource": "save => new Decimal(save.dilation.dilatedTime).gt(1e15)"
+		},
+		{
+			"id": 9,
+			"key": "EARLY_REALITY",
+			"stageId": "early-reality",
+			"name": "Reality",
+			"suggestedResource": null,
+			"suggestedResourceSource": "() => {\n      if (player.realities > 5) return \"Reality Machines\";\n      const suffix = \"in your current Reality, and your Reality Machines in the long term\";\n      if (player.eternities.eq(0)) return `Infinity Points ${suffix}`;\n      if (player.dilation.dilatedTime.eq(0)) return `Eternity Points ${suffix}`;\n      return `Eternity Points and/or Dilated Time ${suffix}`;\n    }",
+			"hasReachedSource": "save => save.realities > 0"
+		},
+		{
+			"id": 10,
+			"key": "TERESA",
+			"stageId": "teresa",
+			"name": "Teresa (1st Celestial)",
+			"suggestedResource": "Reality Machines",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.celestials?.teresa?.quoteBits > 0"
+		},
+		{
+			"id": 11,
+			"key": "EFFARIG",
+			"stageId": "effarig",
+			"name": "Effarig (2nd Celestial)",
+			"suggestedResource": "Reality Machines and Relic Shards",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.celestials?.effarig?.quoteBits > 0"
+		},
+		{
+			"id": 12,
+			"key": "ENSLAVED",
+			"stageId": "nameless",
+			"name": "The Nameless Ones (3rd Celestial)",
+			"suggestedResource": "Reality Machines and Glyph Level",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.celestials?.enslaved?.quoteBits > 0"
+		},
+		{
+			"id": 13,
+			"key": "V",
+			"stageId": "v",
+			"name": "V (4th Celestial)",
+			"suggestedResource": "Number of V-Achievements",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.celestials?.v?.quoteBits > 0"
+		},
+		{
+			"id": 14,
+			"key": "RA",
+			"stageId": "ra",
+			"name": "Ra (5th Celestial)",
+			"suggestedResource": "Celestial Memories",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.celestials?.ra?.quoteBits > 0"
+		},
+		{
+			"id": 15,
+			"key": "IMAGINARY_MACHINES",
+			"stageId": "imaginary-machines",
+			"name": "Imaginary Machines",
+			"suggestedResource": "Imaginary Machines",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.reality?.iMCap > 0"
+		},
+		{
+			"id": 16,
+			"key": "LAITELA",
+			"stageId": "laitela",
+			"name": "Lai'tela (6th Celestial)",
+			"suggestedResource": "Dark Matter and Singularities",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.celestials?.laitela?.quoteBits > 0"
+		},
+		{
+			"id": 17,
+			"key": "PELLE",
+			"stageId": "pelle",
+			"name": "Pelle (7th Celestial)",
+			"suggestedResource": "Remnants",
+			"suggestedResourceSource": null,
+			"hasReachedSource": "save => save.celestials?.pelle?.doomed"
+		}
+	]
+}

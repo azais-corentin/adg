@@ -1,0 +1,2181 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/reality/perks.js",
+			"components/tabs/perks/PerksTab.vue"
+		]
+	},
+	"layouts": [
+		{
+			"index": 0,
+			"name": "Default Untangled",
+			"isFixed": true
+		},
+		{
+			"index": 1,
+			"name": "Random Positions",
+			"isFixed": false
+		},
+		{
+			"index": 2,
+			"name": "Android Layout",
+			"isFixed": true
+		},
+		{
+			"index": 3,
+			"name": "Square",
+			"isFixed": true
+		},
+		{
+			"index": 4,
+			"name": "Horizontal Grid",
+			"isFixed": true
+		},
+		{
+			"index": 5,
+			"name": "Distance from START",
+			"isFixed": true
+		},
+		{
+			"index": 6,
+			"name": "Blob",
+			"isFixed": true
+		}
+	],
+	"perks": [
+		{
+			"key": "firstPerk",
+			"id": 0,
+			"label": "START",
+			"family": "REALITY",
+			"description": "Remove the achievement requirement from the Reality Study\nand allow you to choose from 4 different Glyphs on Reality.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				10,
+				40,
+				57,
+				201
+			],
+			"positions": [
+				{
+					"x": -20,
+					"y": -45
+				},
+				null,
+				{
+					"x": 0,
+					"y": 0
+				},
+				{
+					"x": 0,
+					"y": 137.5
+				},
+				{
+					"x": 0,
+					"y": 0
+				},
+				{
+					"x": -1050,
+					"y": 0
+				},
+				{
+					"x": -155,
+					"y": -155
+				}
+			]
+		},
+		{
+			"key": "startAM",
+			"id": 10,
+			"label": "SAM",
+			"family": "ANTIMATTER",
+			"description": "Start every reset with 5e130 antimatter.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				0,
+				12,
+				30
+			],
+			"positions": [
+				{
+					"x": -205,
+					"y": -45
+				},
+				null,
+				{
+					"x": 0,
+					"y": 100
+				},
+				{
+					"x": -137.5,
+					"y": 0
+				},
+				{
+					"x": 0,
+					"y": 162.5
+				},
+				{
+					"x": -787.5,
+					"y": 437.5
+				},
+				{
+					"x": -275,
+					"y": -55
+				}
+			]
+		},
+		{
+			"key": "startIP1",
+			"id": 12,
+			"label": "SIP1",
+			"family": "INFINITY",
+			"description": "Start every Eternity and Reality with 5 Qa Infinity Points.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				10,
+				13,
+				14,
+				101
+			],
+			"positions": [
+				{
+					"x": -385,
+					"y": -70
+				},
+				null,
+				{
+					"x": -150,
+					"y": 100
+				},
+				{
+					"x": -275,
+					"y": -137.5
+				},
+				{
+					"x": -162.5,
+					"y": 162.5
+				},
+				{
+					"x": -525,
+					"y": 525
+				},
+				{
+					"x": -390,
+					"y": 140
+				}
+			]
+		},
+		{
+			"key": "startIP2",
+			"id": 13,
+			"label": "SIP2",
+			"family": "INFINITY",
+			"description": "Start every Eternity and Reality with 5e130 Infinity Points.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				12,
+				51,
+				102
+			],
+			"positions": [
+				{
+					"x": -445,
+					"y": -225
+				},
+				null,
+				{
+					"x": -300,
+					"y": 100
+				},
+				{
+					"x": -412.5,
+					"y": -137.5
+				},
+				{
+					"x": -325,
+					"y": 325
+				},
+				{
+					"x": -262.5,
+					"y": 525
+				},
+				{
+					"x": -550,
+					"y": 145
+				}
+			]
+		},
+		{
+			"key": "startEP1",
+			"id": 14,
+			"label": "SEP1",
+			"family": "ETERNITY",
+			"description": "Start every Reality with 10 Eternity Points.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				12,
+				15,
+				17,
+				30
+			],
+			"positions": [
+				{
+					"x": -425,
+					"y": 110
+				},
+				null,
+				{
+					"x": -150,
+					"y": 200
+				},
+				{
+					"x": -275,
+					"y": -275
+				},
+				{
+					"x": -325,
+					"y": 162.5
+				},
+				{
+					"x": -262.5,
+					"y": 437.5
+				},
+				{
+					"x": -330,
+					"y": 295
+				}
+			]
+		},
+		{
+			"key": "startEP2",
+			"id": 15,
+			"label": "SEP2",
+			"family": "ETERNITY",
+			"description": "Start every Reality with 5 K Eternity Points.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				14,
+				16
+			],
+			"positions": [
+				{
+					"x": -580,
+					"y": 155
+				},
+				null,
+				{
+					"x": -300,
+					"y": 300
+				},
+				{
+					"x": -275,
+					"y": -412.5
+				},
+				{
+					"x": -487.5,
+					"y": 162.5
+				},
+				{
+					"x": 0,
+					"y": 437.5
+				},
+				{
+					"x": -35,
+					"y": 275
+				}
+			]
+		},
+		{
+			"key": "startEP3",
+			"id": 16,
+			"label": "SEP3",
+			"family": "ETERNITY",
+			"description": "Start every Reality with 5 B Eternity Points.",
+			"descriptionSource": null,
+			"automatorPoints": 10,
+			"connections": [
+				15
+			],
+			"positions": [
+				{
+					"x": -705,
+					"y": 205
+				},
+				null,
+				{
+					"x": -300,
+					"y": 400
+				},
+				{
+					"x": -412.5,
+					"y": -412.5
+				},
+				{
+					"x": -650,
+					"y": 162.5
+				},
+				{
+					"x": 262.5,
+					"y": 437.5
+				},
+				{
+					"x": 120,
+					"y": 325
+				}
+			]
+		},
+		{
+			"key": "startTP",
+			"id": 17,
+			"label": "STP",
+			"family": "DILATION",
+			"description": "After unlocking Dilation, gain 10 Tachyon Particles.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				14,
+				80
+			],
+			"positions": [
+				{
+					"x": -400,
+					"y": 275
+				},
+				null,
+				{
+					"x": -150,
+					"y": 300
+				},
+				{
+					"x": -137.5,
+					"y": -275
+				},
+				{
+					"x": -487.5,
+					"y": 0
+				},
+				{
+					"x": 0,
+					"y": 350
+				},
+				{
+					"x": -120,
+					"y": 365
+				}
+			]
+		},
+		{
+			"key": "antimatterNoReset",
+			"id": 30,
+			"label": "ANR",
+			"family": "ANTIMATTER",
+			"description": "Dimension Boosts and Antimatter Galaxies no longer reset\nAntimatter, Antimatter Dimensions, Tickspeed, or Dimensional Sacrifice.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				10,
+				14
+			],
+			"positions": [
+				{
+					"x": -285,
+					"y": 65
+				},
+				null,
+				{
+					"x": 0,
+					"y": 200
+				},
+				{
+					"x": -137.5,
+					"y": -137.5
+				},
+				{
+					"x": -162.5,
+					"y": 0
+				},
+				{
+					"x": -525,
+					"y": 437.5
+				},
+				{
+					"x": -235,
+					"y": 155
+				}
+			]
+		},
+		{
+			"key": "studyPassive",
+			"id": 31,
+			"label": "PASS",
+			"family": "ETERNITY",
+			"description": "Improve Time Study 122 to ×50 Eternity Points and\nTime Study 142 to ×1e50 Infinity Points.\nIn addition, Time Study 132 also makes Replicanti 3 times faster.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				54,
+				57
+			],
+			"positions": [
+				{
+					"x": 270,
+					"y": -165
+				},
+				null,
+				{
+					"x": 0,
+					"y": -200
+				},
+				{
+					"x": -137.5,
+					"y": 275
+				},
+				{
+					"x": 325,
+					"y": 0
+				},
+				{
+					"x": -525,
+					"y": -350
+				},
+				{
+					"x": -55,
+					"y": -345
+				}
+			]
+		},
+		{
+			"key": "autounlockEU1",
+			"id": 40,
+			"label": "EU1",
+			"family": "ETERNITY",
+			"description": "Automatically unlock the first row of Eternity Upgrades for free once you have Eternities.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				0,
+				41
+			],
+			"positions": [
+				{
+					"x": 35,
+					"y": 115
+				},
+				null,
+				{
+					"x": 150,
+					"y": 100
+				},
+				{
+					"x": 137.5,
+					"y": 0
+				},
+				{
+					"x": 0,
+					"y": -162.5
+				},
+				{
+					"x": -787.5,
+					"y": 87.5
+				},
+				{
+					"x": 35,
+					"y": -90
+				}
+			]
+		},
+		{
+			"key": "autounlockEU2",
+			"id": 41,
+			"label": "EU2",
+			"family": "ETERNITY",
+			"description": "The second row of Eternity Upgrades is automatically purchased\nat ×10 B times less than their original price.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				40,
+				100
+			],
+			"positions": [
+				{
+					"x": 40,
+					"y": 285
+				},
+				null,
+				{
+					"x": 150,
+					"y": 200
+				},
+				{
+					"x": 275,
+					"y": 0
+				},
+				{
+					"x": 0,
+					"y": -325
+				},
+				{
+					"x": -525,
+					"y": 87.5
+				},
+				{
+					"x": 335,
+					"y": 20
+				}
+			]
+		},
+		{
+			"key": "autounlockDilation1",
+			"id": 42,
+			"label": "DU1",
+			"family": "DILATION",
+			"description": "After unlocking Dilation, automatically unlock the second row of Dilation Upgrades for free.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				43,
+				100
+			],
+			"positions": [
+				{
+					"x": 165,
+					"y": 495
+				},
+				null,
+				{
+					"x": 150,
+					"y": 400
+				},
+				{
+					"x": 412.5,
+					"y": -275
+				},
+				{
+					"x": -325,
+					"y": -325
+				},
+				{
+					"x": 0,
+					"y": 0
+				},
+				{
+					"x": 550,
+					"y": 215
+				}
+			]
+		},
+		{
+			"key": "autounlockDilation2",
+			"id": 43,
+			"label": "DU2",
+			"family": "DILATION",
+			"description": "After unlocking Dilation, automatically unlock the third row of Dilation Upgrades for free.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				42,
+				44
+			],
+			"positions": [
+				{
+					"x": 300,
+					"y": 550
+				},
+				null,
+				{
+					"x": 150,
+					"y": 500
+				},
+				{
+					"x": 412.5,
+					"y": -412.5
+				},
+				{
+					"x": -487.5,
+					"y": -325
+				},
+				{
+					"x": 262.5,
+					"y": 0
+				},
+				{
+					"x": 565,
+					"y": 65
+				}
+			]
+		},
+		{
+			"key": "autounlockDilation3",
+			"id": 44,
+			"label": "ATT",
+			"family": "DILATION",
+			"description": "Automatically purchase the passive Time Theorem generation Dilation Upgrade once you can afford it.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				43,
+				45,
+				103
+			],
+			"positions": [
+				{
+					"x": 445,
+					"y": 550
+				},
+				null,
+				{
+					"x": 150,
+					"y": 600
+				},
+				{
+					"x": 275,
+					"y": -412.5
+				},
+				{
+					"x": -650,
+					"y": -325
+				},
+				{
+					"x": 525,
+					"y": 0
+				},
+				{
+					"x": 410,
+					"y": -100
+				}
+			]
+		},
+		{
+			"key": "autounlockTD",
+			"id": 45,
+			"label": "ATD",
+			"family": "DILATION",
+			"description": "Auto-unlock Time Dimensions 5-8 once you can afford them.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				44,
+				46
+			],
+			"positions": [
+				{
+					"x": 585,
+					"y": 585
+				},
+				null,
+				{
+					"x": 0,
+					"y": 600
+				},
+				{
+					"x": 137.5,
+					"y": -412.5
+				},
+				{
+					"x": -650,
+					"y": -162.5
+				},
+				{
+					"x": 787.5,
+					"y": 0
+				},
+				{
+					"x": 345,
+					"y": -230
+				}
+			]
+		},
+		{
+			"key": "autounlockReality",
+			"id": 46,
+			"label": "REAL",
+			"family": "REALITY",
+			"description": "Auto-unlocks Reality once you have 1e4000 Eternity Points\nand have unlocked Time Dimension 8.",
+			"descriptionSource": null,
+			"automatorPoints": 10,
+			"connections": [
+				45
+			],
+			"positions": [
+				{
+					"x": 715,
+					"y": 550
+				},
+				null,
+				{
+					"x": 0,
+					"y": 700
+				},
+				{
+					"x": 0,
+					"y": -412.5
+				},
+				{
+					"x": -812.5,
+					"y": -162.5
+				},
+				{
+					"x": 1050,
+					"y": 0
+				},
+				{
+					"x": 230,
+					"y": -115
+				}
+			]
+		},
+		{
+			"key": "bypassIDAntimatter",
+			"id": 51,
+			"label": "IDR",
+			"family": "INFINITY",
+			"description": "Infinity Dimensions no longer have antimatter requirements.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				13
+			],
+			"positions": [
+				{
+					"x": -415,
+					"y": -360
+				},
+				null,
+				{
+					"x": -300,
+					"y": 200
+				},
+				{
+					"x": -412.5,
+					"y": -275
+				},
+				{
+					"x": -487.5,
+					"y": 325
+				},
+				{
+					"x": 0,
+					"y": 525
+				},
+				{
+					"x": -555,
+					"y": 305
+				}
+			]
+		},
+		{
+			"key": "bypassTGReset",
+			"id": 52,
+			"label": "TGR",
+			"family": "DILATION",
+			"description": "The 2nd rebuyable Dilation Upgrade no longer resets your Dilated Time.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				80,
+				100
+			],
+			"positions": [
+				{
+					"x": -160,
+					"y": 455
+				},
+				null,
+				{
+					"x": 0,
+					"y": 400
+				},
+				{
+					"x": 137.5,
+					"y": -137.5
+				},
+				{
+					"x": -325,
+					"y": -162.5
+				},
+				{
+					"x": 0,
+					"y": 262.5
+				},
+				{
+					"x": 385,
+					"y": 405
+				}
+			]
+		},
+		{
+			"key": "bypassECDilation",
+			"id": 53,
+			"label": "DILR",
+			"family": "DILATION",
+			"description": "Remove the Eternity Challenge 11, Eternity Challenge 12, and total Time Theorem requirements from Time Dilation unlock.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				100
+			],
+			"positions": [
+				{
+					"x": 55,
+					"y": 610
+				},
+				null,
+				{
+					"x": 300,
+					"y": 400
+				},
+				{
+					"x": 412.5,
+					"y": 0
+				},
+				{
+					"x": -325,
+					"y": 0
+				},
+				{
+					"x": 0,
+					"y": 87.5
+				},
+				{
+					"x": 580,
+					"y": 360
+				}
+			]
+		},
+		{
+			"key": "bypassEC1Lock",
+			"id": 54,
+			"label": "EC1R",
+			"family": "ETERNITY",
+			"description": "Remove the Eternity Challenge 1 requirement from Time Study 181.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				31,
+				55,
+				56,
+				72
+			],
+			"positions": [
+				{
+					"x": 420,
+					"y": -200
+				},
+				null,
+				{
+					"x": 0,
+					"y": -300
+				},
+				{
+					"x": -137.5,
+					"y": 412.5
+				},
+				{
+					"x": 487.5,
+					"y": 162.5
+				},
+				{
+					"x": -262.5,
+					"y": -350
+				},
+				{
+					"x": -165,
+					"y": -450
+				}
+			]
+		},
+		{
+			"key": "bypassEC2Lock",
+			"id": 55,
+			"label": "EC2R",
+			"family": "ETERNITY",
+			"description": "Remove the Eternity Challenge 2 requirement from Time Study 181.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				54,
+				70
+			],
+			"positions": [
+				{
+					"x": 315,
+					"y": -310
+				},
+				null,
+				{
+					"x": -150,
+					"y": -300
+				},
+				{
+					"x": -275,
+					"y": 275
+				},
+				{
+					"x": 325,
+					"y": 162.5
+				},
+				{
+					"x": -262.5,
+					"y": -437.5
+				},
+				{
+					"x": -280,
+					"y": -390
+				}
+			]
+		},
+		{
+			"key": "bypassEC3Lock",
+			"id": 56,
+			"label": "EC3R",
+			"family": "ETERNITY",
+			"description": "Remove the Eternity Challenge 3 requirement from Time Study 181.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				54,
+				71
+			],
+			"positions": [
+				{
+					"x": 375,
+					"y": -60
+				},
+				null,
+				{
+					"x": 150,
+					"y": -300
+				},
+				{
+					"x": 0,
+					"y": 412.5
+				},
+				{
+					"x": 487.5,
+					"y": 0
+				},
+				{
+					"x": -262.5,
+					"y": -262.5
+				},
+				{
+					"x": 110,
+					"y": -405
+				}
+			]
+		},
+		{
+			"key": "bypassEC5Lock",
+			"id": 57,
+			"label": "EC5R",
+			"family": "ETERNITY",
+			"description": "Remove the Eternity Challenge 5 requirement from Time Study 62.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				0,
+				31,
+				70,
+				71
+			],
+			"positions": [
+				{
+					"x": 130,
+					"y": -120
+				},
+				null,
+				{
+					"x": 0,
+					"y": -100
+				},
+				{
+					"x": 0,
+					"y": 275
+				},
+				{
+					"x": 162.5,
+					"y": 0
+				},
+				{
+					"x": -787.5,
+					"y": -350
+				},
+				{
+					"x": 35,
+					"y": -220
+				}
+			]
+		},
+		{
+			"key": "autocompleteEC1",
+			"id": 60,
+			"label": "PEC1",
+			"family": "AUTOMATION",
+			"description": "Auto-complete one Eternity Challenge every 60 minutes (real-time).\nECs will be completed sequentially, requiring all previous\nECs to be fully completed before progressing to the next EC.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				61,
+				71
+			],
+			"positions": [
+				{
+					"x": 300,
+					"y": 130
+				},
+				null,
+				{
+					"x": 300,
+					"y": -200
+				},
+				{
+					"x": 275,
+					"y": 275
+				},
+				{
+					"x": 487.5,
+					"y": -162.5
+				},
+				{
+					"x": -262.5,
+					"y": -175
+				},
+				{
+					"x": 320,
+					"y": -420
+				}
+			]
+		},
+		{
+			"key": "autocompleteEC2",
+			"id": 61,
+			"label": "PEC2",
+			"family": "AUTOMATION",
+			"description": "Auto-complete one Eternity Challenge every 40 minutes (real-time).\n(20 minute decrease)",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				60,
+				62
+			],
+			"positions": [
+				{
+					"x": 425,
+					"y": 190
+				},
+				null,
+				{
+					"x": 300,
+					"y": -300
+				},
+				{
+					"x": 275,
+					"y": 412.5
+				},
+				{
+					"x": 650,
+					"y": -162.5
+				},
+				{
+					"x": 0,
+					"y": -175
+				},
+				{
+					"x": 430,
+					"y": -335
+				}
+			]
+		},
+		{
+			"key": "autocompleteEC3",
+			"id": 62,
+			"label": "PEC3",
+			"family": "AUTOMATION",
+			"description": "Auto-complete one Eternity Challenge every 20 minutes (real-time).\n(20 minute decrease)",
+			"descriptionSource": null,
+			"automatorPoints": 10,
+			"connections": [
+				61
+			],
+			"positions": [
+				{
+					"x": 555,
+					"y": 200
+				},
+				null,
+				{
+					"x": 300,
+					"y": -400
+				},
+				{
+					"x": 137.5,
+					"y": 412.5
+				},
+				{
+					"x": 650,
+					"y": 0
+				},
+				{
+					"x": 262.5,
+					"y": -175
+				},
+				{
+					"x": 515,
+					"y": -230
+				}
+			]
+		},
+		{
+			"key": "studyActiveEP",
+			"id": 70,
+			"label": "ACT",
+			"family": "ETERNITY",
+			"description": "Active path multipliers are always maximized.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				55,
+				57,
+				104
+			],
+			"positions": [
+				{
+					"x": 165,
+					"y": -295
+				},
+				null,
+				{
+					"x": -150,
+					"y": -200
+				},
+				{
+					"x": -137.5,
+					"y": 137.5
+				},
+				{
+					"x": 162.5,
+					"y": 162.5
+				},
+				{
+					"x": -525,
+					"y": -437.5
+				},
+				{
+					"x": -175,
+					"y": -270
+				}
+			]
+		},
+		{
+			"key": "studyIdleEP",
+			"id": 71,
+			"label": "IDL",
+			"family": "ETERNITY",
+			"description": "Idle path multipliers start as if you have spent 15 minutes in this Infinity/Eternity.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				56,
+				57,
+				60
+			],
+			"positions": [
+				{
+					"x": 240,
+					"y": 0
+				},
+				null,
+				{
+					"x": 150,
+					"y": -200
+				},
+				{
+					"x": 137.5,
+					"y": 275
+				},
+				{
+					"x": 325,
+					"y": -162.5
+				},
+				{
+					"x": -525,
+					"y": -262.5
+				},
+				{
+					"x": 195,
+					"y": -300
+				}
+			]
+		},
+		{
+			"key": "studyECRequirement",
+			"id": 72,
+			"label": "ECR",
+			"family": "ETERNITY",
+			"description": "Remove non-Time Theorem requirements for unlocking Eternity Challenges.",
+			"descriptionSource": null,
+			"automatorPoints": 10,
+			"connections": [
+				54,
+				73
+			],
+			"positions": [
+				{
+					"x": 570,
+					"y": -220
+				},
+				null,
+				{
+					"x": 0,
+					"y": -400
+				},
+				{
+					"x": -275,
+					"y": 412.5
+				},
+				{
+					"x": 650,
+					"y": 162.5
+				},
+				{
+					"x": 0,
+					"y": -350
+				},
+				{
+					"x": -5,
+					"y": -495
+				}
+			]
+		},
+		{
+			"key": "studyECBulk",
+			"id": 73,
+			"label": "ECB",
+			"family": "ETERNITY",
+			"description": "You can complete multiple tiers of Eternity Challenges at once if\nyou reach the goal for a higher completion of that challenge.",
+			"descriptionSource": null,
+			"automatorPoints": 15,
+			"connections": [
+				72
+			],
+			"positions": [
+				{
+					"x": 705,
+					"y": -220
+				},
+				null,
+				{
+					"x": 0,
+					"y": -500
+				},
+				{
+					"x": -412.5,
+					"y": 412.5
+				},
+				{
+					"x": 650,
+					"y": 325
+				},
+				{
+					"x": 262.5,
+					"y": -350
+				},
+				{
+					"x": 175,
+					"y": -485
+				}
+			]
+		},
+		{
+			"key": "retroactiveTP1",
+			"id": 80,
+			"label": "TP1",
+			"family": "DILATION",
+			"description": "When buying the 3rd rebuyable Dilation Upgrade,\nmultiply your current Tachyon Particle amount by 1.5.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				17,
+				52,
+				81
+			],
+			"positions": [
+				{
+					"x": -305,
+					"y": 395
+				},
+				null,
+				{
+					"x": -150,
+					"y": 400
+				},
+				{
+					"x": 0,
+					"y": -137.5
+				},
+				{
+					"x": -487.5,
+					"y": -162.5
+				},
+				{
+					"x": 262.5,
+					"y": 262.5
+				},
+				{
+					"x": 170,
+					"y": 440
+				}
+			]
+		},
+		{
+			"key": "retroactiveTP2",
+			"id": 81,
+			"label": "TP2",
+			"family": "DILATION",
+			"description": "When buying the 3rd rebuyable Dilation Upgrade,\nmultiply your current Tachyon Particle amount by 2.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				80,
+				82
+			],
+			"positions": [
+				{
+					"x": -215,
+					"y": 295
+				},
+				null,
+				{
+					"x": -150,
+					"y": 500
+				},
+				{
+					"x": 137.5,
+					"y": -275
+				},
+				{
+					"x": -650,
+					"y": 0
+				},
+				{
+					"x": 525,
+					"y": 262.5
+				},
+				{
+					"x": -90,
+					"y": 465
+				}
+			]
+		},
+		{
+			"key": "retroactiveTP3",
+			"id": 82,
+			"label": "TP3",
+			"family": "DILATION",
+			"description": "When buying the 3rd rebuyable Dilation Upgrade,\nmultiply your current Tachyon Particle amount by 2.5.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				81,
+				83
+			],
+			"positions": [
+				{
+					"x": -125,
+					"y": 200
+				},
+				null,
+				{
+					"x": -150,
+					"y": 600
+				},
+				{
+					"x": 0,
+					"y": -275
+				},
+				{
+					"x": -812.5,
+					"y": 0
+				},
+				{
+					"x": 787.5,
+					"y": 262.5
+				},
+				{
+					"x": -300,
+					"y": 455
+				}
+			]
+		},
+		{
+			"key": "retroactiveTP4",
+			"id": 83,
+			"label": "TP4",
+			"family": "DILATION",
+			"description": "When buying the 3rd rebuyable Dilation Upgrade,\nmultiply your current Tachyon Particle amount by 3.",
+			"descriptionSource": null,
+			"automatorPoints": 10,
+			"connections": [
+				82
+			],
+			"positions": [
+				{
+					"x": -80,
+					"y": 85
+				},
+				null,
+				{
+					"x": -300,
+					"y": 600
+				},
+				{
+					"x": -137.5,
+					"y": -412.5
+				},
+				{
+					"x": -812.5,
+					"y": 162.5
+				},
+				{
+					"x": 1050,
+					"y": 262.5
+				},
+				{
+					"x": -485,
+					"y": 425
+				}
+			]
+		},
+		{
+			"key": "autobuyerDilation",
+			"id": 100,
+			"label": "DAU",
+			"family": "AUTOMATION",
+			"description": "Unlock autobuyers for the repeatable Dilation Upgrades.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				41,
+				42,
+				52,
+				53,
+				107
+			],
+			"positions": [
+				{
+					"x": 5,
+					"y": 465
+				},
+				null,
+				{
+					"x": 150,
+					"y": 300
+				},
+				{
+					"x": 275,
+					"y": -137.5
+				},
+				{
+					"x": -162.5,
+					"y": -162.5
+				},
+				{
+					"x": -262.5,
+					"y": 87.5
+				},
+				{
+					"x": 360,
+					"y": 205
+				}
+			]
+		},
+		{
+			"key": "autobuyerFasterID",
+			"id": 101,
+			"label": "IDAS",
+			"family": "AUTOMATION",
+			"description": "Infinity Dimension autobuyers work ×3 faster.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				12
+			],
+			"positions": [
+				{
+					"x": -525,
+					"y": -75
+				},
+				null,
+				{
+					"x": -150,
+					"y": 0
+				},
+				{
+					"x": -275,
+					"y": 0
+				},
+				{
+					"x": 0,
+					"y": 325
+				},
+				{
+					"x": -262.5,
+					"y": 612.5
+				},
+				{
+					"x": -400,
+					"y": -30
+				}
+			]
+		},
+		{
+			"key": "autobuyerFasterReplicanti",
+			"id": 102,
+			"label": "REPAS",
+			"family": "AUTOMATION",
+			"description": "Replicanti autobuyers work ×3 faster.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				13
+			],
+			"positions": [
+				{
+					"x": -575,
+					"y": -280
+				},
+				null,
+				{
+					"x": -300,
+					"y": 0
+				},
+				{
+					"x": -412.5,
+					"y": 0
+				},
+				{
+					"x": -162.5,
+					"y": 325
+				},
+				{
+					"x": 0,
+					"y": 612.5
+				},
+				{
+					"x": -515,
+					"y": -10
+				}
+			]
+		},
+		{
+			"key": "autobuyerFasterDilation",
+			"id": 103,
+			"label": "DAS",
+			"family": "AUTOMATION",
+			"description": "Dilation Upgrade autobuyers work ×3 faster.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				44
+			],
+			"positions": [
+				{
+					"x": 475,
+					"y": 420
+				},
+				null,
+				{
+					"x": 300,
+					"y": 600
+				},
+				{
+					"x": 275,
+					"y": -275
+				},
+				{
+					"x": -812.5,
+					"y": -325
+				},
+				{
+					"x": 787.5,
+					"y": 87.5
+				},
+				{
+					"x": 575,
+					"y": -95
+				}
+			]
+		},
+		{
+			"key": "ttBuySingle",
+			"id": 104,
+			"label": "TTS",
+			"family": "AUTOMATION",
+			"description": "Unlock a Time Theorem Autobuyer which buys single Time Theorems every tick.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				70,
+				105
+			],
+			"positions": [
+				{
+					"x": 155,
+					"y": -445
+				},
+				null,
+				{
+					"x": -300,
+					"y": -200
+				},
+				{
+					"x": -275,
+					"y": 137.5
+				},
+				{
+					"x": 162.5,
+					"y": 325
+				},
+				{
+					"x": -262.5,
+					"y": -525
+				},
+				{
+					"x": -375,
+					"y": -285
+				}
+			]
+		},
+		{
+			"key": "ttFree",
+			"id": 105,
+			"label": "TTF",
+			"family": "AUTOMATION",
+			"description": "Purchasing Time Theorems no longer spends your Antimatter, Infinity Points, or Eternity Points.",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				104,
+				106
+			],
+			"positions": [
+				{
+					"x": 200,
+					"y": -580
+				},
+				null,
+				{
+					"x": -300,
+					"y": -300
+				},
+				{
+					"x": -412.5,
+					"y": 137.5
+				},
+				{
+					"x": 325,
+					"y": 325
+				},
+				{
+					"x": 0,
+					"y": -525
+				},
+				{
+					"x": -455,
+					"y": -160
+				}
+			]
+		},
+		{
+			"key": "ttBuyMax",
+			"id": 106,
+			"label": "TTM",
+			"family": "AUTOMATION",
+			"description": "Upgrade the Time Theorem Autobuyer to buy max Time Theorems.",
+			"descriptionSource": null,
+			"automatorPoints": 10,
+			"connections": [
+				105
+			],
+			"positions": [
+				{
+					"x": 275,
+					"y": -690
+				},
+				null,
+				{
+					"x": -300,
+					"y": -400
+				},
+				{
+					"x": -412.5,
+					"y": 275
+				},
+				{
+					"x": 487.5,
+					"y": 325
+				},
+				{
+					"x": 262.5,
+					"y": -525
+				},
+				{
+					"x": -305,
+					"y": -180
+				}
+			]
+		},
+		{
+			"key": "dilationAutobuyerBulk",
+			"id": 107,
+			"label": "DAB",
+			"family": "AUTOMATION",
+			"description": "Dilation Upgrade autobuyers buy three times as many Dilation Upgrades at once.",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				100
+			],
+			"positions": [
+				{
+					"x": -80,
+					"y": 590
+				},
+				null,
+				{
+					"x": 0,
+					"y": 300
+				},
+				{
+					"x": 412.5,
+					"y": -137.5
+				},
+				{
+					"x": -162.5,
+					"y": -325
+				},
+				{
+					"x": 0,
+					"y": 175
+				},
+				{
+					"x": 240,
+					"y": 285
+				}
+			]
+		},
+		{
+			"key": "achievementGroup1",
+			"id": 201,
+			"label": "ACH1",
+			"family": "ACHIEVEMENT",
+			"description": "Reduce the Achievement timer to 20 minutes per\nAchievement (10 minute decrease).",
+			"descriptionSource": null,
+			"automatorPoints": 5,
+			"connections": [
+				0,
+				202
+			],
+			"positions": [
+				{
+					"x": -70,
+					"y": -185
+				},
+				null,
+				{
+					"x": 150,
+					"y": 0
+				},
+				{
+					"x": 137.5,
+					"y": 137.5
+				},
+				{
+					"x": 162.5,
+					"y": -162.5
+				},
+				{
+					"x": -787.5,
+					"y": -87.5
+				},
+				{
+					"x": -145,
+					"y": 15
+				}
+			]
+		},
+		{
+			"key": "achievementGroup2",
+			"id": 202,
+			"label": "ACH2",
+			"family": "ACHIEVEMENT",
+			"description": "Reduce the Achievement timer to 12 minutes per\nAchievement (8 minute decrease).",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				201,
+				203
+			],
+			"positions": [
+				{
+					"x": -120,
+					"y": -315
+				},
+				null,
+				{
+					"x": 300,
+					"y": 0
+				},
+				{
+					"x": 275,
+					"y": 137.5
+				},
+				{
+					"x": 162.5,
+					"y": -325
+				},
+				{
+					"x": -525,
+					"y": -87.5
+				},
+				{
+					"x": -100,
+					"y": 170
+				}
+			]
+		},
+		{
+			"key": "achievementGroup3",
+			"id": 203,
+			"label": "ACH3",
+			"family": "ACHIEVEMENT",
+			"description": "Reduce the Achievement timer to 6 minutes per\nAchievement (6 minute decrease).",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				202,
+				204
+			],
+			"positions": [
+				{
+					"x": -160,
+					"y": -450
+				},
+				null,
+				{
+					"x": 300,
+					"y": 100
+				},
+				{
+					"x": 412.5,
+					"y": 137.5
+				},
+				{
+					"x": 325,
+					"y": -325
+				},
+				{
+					"x": -262.5,
+					"y": -87.5
+				},
+				{
+					"x": 25,
+					"y": 35
+				}
+			]
+		},
+		{
+			"key": "achievementGroup4",
+			"id": 204,
+			"label": "ACH4",
+			"family": "ACHIEVEMENT",
+			"description": "Reduce the Achievement timer to 2 minutes per\nAchievement (4 minute decrease).",
+			"descriptionSource": null,
+			"automatorPoints": null,
+			"connections": [
+				203,
+				205
+			],
+			"positions": [
+				{
+					"x": -200,
+					"y": -580
+				},
+				null,
+				{
+					"x": 300,
+					"y": 200
+				},
+				{
+					"x": 412.5,
+					"y": 275
+				},
+				{
+					"x": 487.5,
+					"y": -325
+				},
+				{
+					"x": 0,
+					"y": -87.5
+				},
+				{
+					"x": 110,
+					"y": 190
+				}
+			]
+		},
+		{
+			"key": "achievementGroup5",
+			"id": 205,
+			"label": "ACHNR",
+			"family": "ACHIEVEMENT",
+			"description": "Immediately unlock the first 13 rows of Achievements\nand Reality no longer resets them.",
+			"descriptionSource": null,
+			"automatorPoints": 10,
+			"connections": [
+				204
+			],
+			"positions": [
+				{
+					"x": -235,
+					"y": -710
+				},
+				null,
+				{
+					"x": 300,
+					"y": 300
+				},
+				{
+					"x": 412.5,
+					"y": 412.5
+				},
+				{
+					"x": 650,
+					"y": -325
+				},
+				{
+					"x": 262.5,
+					"y": -87.5
+				},
+				{
+					"x": 195,
+					"y": 55
+				}
+			]
+		}
+	],
+	"edges": [
+		[
+			0,
+			10
+		],
+		[
+			0,
+			40
+		],
+		[
+			0,
+			57
+		],
+		[
+			0,
+			201
+		],
+		[
+			10,
+			12
+		],
+		[
+			10,
+			30
+		],
+		[
+			12,
+			13
+		],
+		[
+			12,
+			14
+		],
+		[
+			12,
+			101
+		],
+		[
+			13,
+			51
+		],
+		[
+			13,
+			102
+		],
+		[
+			14,
+			15
+		],
+		[
+			14,
+			17
+		],
+		[
+			14,
+			30
+		],
+		[
+			15,
+			16
+		],
+		[
+			17,
+			80
+		],
+		[
+			31,
+			54
+		],
+		[
+			31,
+			57
+		],
+		[
+			40,
+			41
+		],
+		[
+			41,
+			100
+		],
+		[
+			42,
+			43
+		],
+		[
+			42,
+			100
+		],
+		[
+			43,
+			44
+		],
+		[
+			44,
+			45
+		],
+		[
+			44,
+			103
+		],
+		[
+			45,
+			46
+		],
+		[
+			52,
+			80
+		],
+		[
+			52,
+			100
+		],
+		[
+			53,
+			100
+		],
+		[
+			54,
+			55
+		],
+		[
+			54,
+			56
+		],
+		[
+			54,
+			72
+		],
+		[
+			55,
+			70
+		],
+		[
+			56,
+			71
+		],
+		[
+			57,
+			70
+		],
+		[
+			57,
+			71
+		],
+		[
+			60,
+			61
+		],
+		[
+			60,
+			71
+		],
+		[
+			61,
+			62
+		],
+		[
+			70,
+			104
+		],
+		[
+			72,
+			73
+		],
+		[
+			80,
+			81
+		],
+		[
+			81,
+			82
+		],
+		[
+			82,
+			83
+		],
+		[
+			100,
+			107
+		],
+		[
+			104,
+			105
+		],
+		[
+			105,
+			106
+		],
+		[
+			201,
+			202
+		],
+		[
+			202,
+			203
+		],
+		[
+			203,
+			204
+		],
+		[
+			204,
+			205
+		]
+	]
+}

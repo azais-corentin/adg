@@ -1,0 +1,777 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/reality/glyph-types.js",
+			"core/secret-formula/reality/glyph-effects.js"
+		]
+	},
+	"types": [
+		{
+			"id": "time",
+			"symbol": "Δ",
+			"color": "#b241e3",
+			"primaryEffect": "timepow",
+			"alchemyResource": 2,
+			"hasRarity": true,
+			"isUnlockedSource": null
+		},
+		{
+			"id": "dilation",
+			"symbol": "Ψ",
+			"color": "#64dd17",
+			"primaryEffect": null,
+			"alchemyResource": 4,
+			"hasRarity": true,
+			"isUnlockedSource": null
+		},
+		{
+			"id": "replication",
+			"symbol": "Ξ",
+			"color": "#03a9f4",
+			"primaryEffect": null,
+			"alchemyResource": 3,
+			"hasRarity": true,
+			"isUnlockedSource": null
+		},
+		{
+			"id": "infinity",
+			"symbol": "∞",
+			"color": "#b67f33",
+			"primaryEffect": "infinitypow",
+			"alchemyResource": 1,
+			"hasRarity": true,
+			"isUnlockedSource": null
+		},
+		{
+			"id": "power",
+			"symbol": "Ω",
+			"color": "#22aa48",
+			"primaryEffect": "powerpow",
+			"alchemyResource": 0,
+			"hasRarity": true,
+			"isUnlockedSource": null
+		},
+		{
+			"id": "effarig",
+			"symbol": "Ϙ",
+			"color": "#e21717",
+			"primaryEffect": null,
+			"alchemyResource": 10,
+			"hasRarity": true,
+			"isUnlockedSource": "() => EffarigUnlock.reality.isUnlocked"
+		},
+		{
+			"id": "reality",
+			"symbol": "Ϟ",
+			"color": null,
+			"primaryEffect": null,
+			"alchemyResource": 20,
+			"hasRarity": false,
+			"isUnlockedSource": "() => false"
+		},
+		{
+			"id": "cursed",
+			"symbol": "⸸",
+			"color": "#000000",
+			"primaryEffect": null,
+			"alchemyResource": null,
+			"hasRarity": false,
+			"isUnlockedSource": "() => false"
+		},
+		{
+			"id": "companion",
+			"symbol": "♥",
+			"color": "#feaec9",
+			"primaryEffect": null,
+			"alchemyResource": null,
+			"hasRarity": false,
+			"isUnlockedSource": "() => false"
+		}
+	],
+	"effects": [
+		{
+			"id": "timepow",
+			"bitmaskIndex": 0,
+			"glyphTypes": [
+				"time"
+			],
+			"isGenerated": true,
+			"singleDesc": "Time Dimension power +{value}",
+			"singleDescSource": null,
+			"totalDesc": "Time Dimension multipliers ^{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "TD power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": null
+		},
+		{
+			"id": "timespeed",
+			"bitmaskIndex": 1,
+			"glyphTypes": [
+				"time"
+			],
+			"isGenerated": true,
+			"singleDesc": "Multiply game speed by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Game runs ×{value} faster",
+			"totalDescSource": null,
+			"genericDesc": "Game speed multiplier",
+			"genericDescSource": null,
+			"shortDesc": "Game speed ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": 2
+		},
+		{
+			"id": "timeetermult",
+			"bitmaskIndex": 2,
+			"glyphTypes": [
+				"time"
+			],
+			"isGenerated": true,
+			"singleDesc": "Multiply Eternity gain by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Eternity gain ×{value}",
+			"totalDescSource": null,
+			"genericDesc": "Eternity gain multiplier",
+			"genericDescSource": null,
+			"shortDesc": "Eternities ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 3
+		},
+		{
+			"id": "timeEP",
+			"bitmaskIndex": 3,
+			"glyphTypes": [
+				"time"
+			],
+			"isGenerated": true,
+			"singleDesc": "Multiply Eternity Point gain by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Eternity Point gain ×{value}",
+			"totalDescSource": null,
+			"genericDesc": "Eternity Point gain multiplier",
+			"genericDescSource": null,
+			"shortDesc": "EP ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 1
+		},
+		{
+			"id": "dilationDT",
+			"bitmaskIndex": 4,
+			"glyphTypes": [
+				"dilation"
+			],
+			"isGenerated": true,
+			"singleDesc": "Multiply Dilated Time gain by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Dilated Time gain ×{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "DT ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 2
+		},
+		{
+			"id": "dilationgalaxyThreshold",
+			"bitmaskIndex": 5,
+			"glyphTypes": [
+				"dilation"
+			],
+			"isGenerated": true,
+			"singleDesc": "Tachyon Galaxy threshold multiplier ×{value}",
+			"singleDescSource": null,
+			"totalDesc": null,
+			"totalDescSource": null,
+			"genericDesc": "Tachyon Galaxy cost multiplier",
+			"genericDescSource": null,
+			"shortDesc": "TG threshold ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": 3
+		},
+		{
+			"id": "dilationTTgen",
+			"bitmaskIndex": 6,
+			"glyphTypes": [
+				"dilation"
+			],
+			"isGenerated": true,
+			"singleDesc": "Generates {value} Time Theorems per hour",
+			"singleDescSource": null,
+			"totalDesc": "Generating {value} Time Theorems per hour",
+			"totalDescSource": null,
+			"genericDesc": "Time Theorem generation",
+			"genericDescSource": null,
+			"shortDesc": "{value} TT/hr",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 1
+		},
+		{
+			"id": "dilationpow",
+			"bitmaskIndex": 7,
+			"glyphTypes": [
+				"dilation"
+			],
+			"isGenerated": true,
+			"singleDesc": "Antimatter Dimension power +{value} while Dilated",
+			"singleDescSource": null,
+			"totalDesc": "Antimatter Dimension multipliers ^{value} while Dilated",
+			"totalDescSource": null,
+			"genericDesc": "Antimatter Dimensions ^x while Dilated",
+			"genericDescSource": null,
+			"shortDesc": "Dilated AD power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": null
+		},
+		{
+			"id": "replicationspeed",
+			"bitmaskIndex": 8,
+			"glyphTypes": [
+				"replication"
+			],
+			"isGenerated": true,
+			"singleDesc": "Multiply Replication speed by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Replication speed ×{value}",
+			"totalDescSource": null,
+			"genericDesc": "Replication speed multiplier",
+			"genericDescSource": null,
+			"shortDesc": "Replication speed ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 2
+		},
+		{
+			"id": "replicationpow",
+			"bitmaskIndex": 9,
+			"glyphTypes": [
+				"replication"
+			],
+			"isGenerated": true,
+			"singleDesc": "Replicanti multiplier power +{value}",
+			"singleDescSource": null,
+			"totalDesc": "Replicanti multiplier ^{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "Replicanti mult. power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": 3
+		},
+		{
+			"id": "replicationdtgain",
+			"bitmaskIndex": 10,
+			"glyphTypes": [
+				"replication"
+			],
+			"isGenerated": true,
+			"singleDesc": "Multiply Dilated Time gain by\n+{value} per 1e10000 replicanti",
+			"singleDescSource": null,
+			"totalDesc": "Multiply Dilated Time gain by +{value} per 1e10000 replicanti",
+			"totalDescSource": null,
+			"genericDesc": "Dilated Time gain multiplier from replicanti",
+			"genericDescSource": null,
+			"shortDesc": "×DT by +{value} per 1e10000 replicanti",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 1
+		},
+		{
+			"id": "replicationglyphlevel",
+			"bitmaskIndex": 11,
+			"glyphTypes": [
+				"replication"
+			],
+			"isGenerated": true,
+			"singleDesc": "Replicanti factor for Glyph level:\n^0.4\n➜ ^(0.4 + {value})",
+			"singleDescSource": null,
+			"totalDesc": "Replicanti factor for Glyph level: ^0.4\n➜ ^(0.4 + {value})",
+			"totalDescSource": null,
+			"genericDesc": "Replicanti factor for Glyph level",
+			"genericDescSource": null,
+			"shortDesc": "Replicanti pow. for level +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": null
+		},
+		{
+			"id": "infinitypow",
+			"bitmaskIndex": 12,
+			"glyphTypes": [
+				"infinity"
+			],
+			"isGenerated": true,
+			"singleDesc": "Infinity Dimension power +{value}",
+			"singleDescSource": null,
+			"totalDesc": "Infinity Dimension multipliers ^{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "ID power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": 3
+		},
+		{
+			"id": "infinityrate",
+			"bitmaskIndex": 13,
+			"glyphTypes": [
+				"infinity"
+			],
+			"isGenerated": true,
+			"singleDesc": "Infinity Power conversion rate:\n^7\n➜ ^(7 + {value})",
+			"singleDescSource": null,
+			"totalDesc": "Infinity Power conversion rate: ^7\n➜ ^(7 + {value})",
+			"totalDescSource": null,
+			"genericDesc": "Infinity Power conversion rate",
+			"genericDescSource": null,
+			"shortDesc": "Infinity Power conversion +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": null
+		},
+		{
+			"id": "infinityIP",
+			"bitmaskIndex": 14,
+			"glyphTypes": [
+				"infinity"
+			],
+			"isGenerated": true,
+			"singleDesc": "Multiply Infinity Point gain by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Infinity Point gain ×{value}",
+			"totalDescSource": null,
+			"genericDesc": "Infinity Point gain multiplier",
+			"genericDescSource": null,
+			"shortDesc": "IP ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 1
+		},
+		{
+			"id": "infinityinfmult",
+			"bitmaskIndex": 15,
+			"glyphTypes": [
+				"infinity"
+			],
+			"isGenerated": true,
+			"singleDesc": "Multiply Infinity gain by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Infinity gain ×{value}",
+			"totalDescSource": null,
+			"genericDesc": "Infinity gain multiplier",
+			"genericDescSource": null,
+			"shortDesc": "Infinities ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 2
+		},
+		{
+			"id": "powerpow",
+			"bitmaskIndex": 16,
+			"glyphTypes": [
+				"power"
+			],
+			"isGenerated": true,
+			"singleDesc": "Antimatter Dimension power +{value}",
+			"singleDescSource": null,
+			"totalDesc": "Antimatter Dimension multipliers ^{value}",
+			"totalDescSource": null,
+			"genericDesc": "Antimatter Dimension multipliers ^x",
+			"genericDescSource": null,
+			"shortDesc": "AD power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": 1
+		},
+		{
+			"id": "powermult",
+			"bitmaskIndex": 17,
+			"glyphTypes": [
+				"power"
+			],
+			"isGenerated": true,
+			"singleDesc": "Antimatter Dimension multipliers ×{value}",
+			"singleDescSource": null,
+			"totalDesc": null,
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "AD ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": 2
+		},
+		{
+			"id": "powerdimboost",
+			"bitmaskIndex": 18,
+			"glyphTypes": [
+				"power"
+			],
+			"isGenerated": true,
+			"singleDesc": "Dimension Boost multiplier ×{value}",
+			"singleDescSource": null,
+			"totalDesc": null,
+			"totalDescSource": null,
+			"genericDesc": "Dimension Boost multiplier",
+			"genericDescSource": null,
+			"shortDesc": "Dimboost mult. ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": 3
+		},
+		{
+			"id": "powerbuy10",
+			"bitmaskIndex": 19,
+			"glyphTypes": [
+				"power"
+			],
+			"isGenerated": true,
+			"singleDesc": "Increase the bonus from buying 10 Antimatter Dimensions by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Multiplier from \"Buy 10\" ×{value}",
+			"totalDescSource": null,
+			"genericDesc": "\"Buy 10\" bonus increase",
+			"genericDescSource": null,
+			"shortDesc": "AD \"Buy 10\" mult. ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": null
+		},
+		{
+			"id": "effarigrm",
+			"bitmaskIndex": 20,
+			"glyphTypes": [
+				"effarig"
+			],
+			"isGenerated": true,
+			"singleDesc": "Reality Machine multiplier ×{value}",
+			"singleDescSource": null,
+			"totalDesc": null,
+			"totalDescSource": null,
+			"genericDesc": "Reality Machine multiplier",
+			"genericDescSource": null,
+			"shortDesc": "RM ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 2
+		},
+		{
+			"id": "effarigglyph",
+			"bitmaskIndex": 21,
+			"glyphTypes": [
+				"effarig"
+			],
+			"isGenerated": true,
+			"singleDesc": "Glyph Instability starting level +{value}",
+			"singleDescSource": null,
+			"totalDesc": null,
+			"totalDescSource": null,
+			"genericDesc": "Glyph Instability delay",
+			"genericDescSource": null,
+			"shortDesc": "Instability delay +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "effarigblackhole",
+			"bitmaskIndex": 22,
+			"glyphTypes": [
+				"effarig"
+			],
+			"isGenerated": true,
+			"singleDesc": "Game speed power +{value}",
+			"singleDescSource": null,
+			"totalDesc": "Game speed ^{value}",
+			"totalDescSource": null,
+			"genericDesc": "Game speed ^x",
+			"genericDescSource": null,
+			"shortDesc": "Game speed power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "effarigachievement",
+			"bitmaskIndex": 23,
+			"glyphTypes": [
+				"effarig"
+			],
+			"isGenerated": true,
+			"singleDesc": "Achievement multiplier power +{value}",
+			"singleDescSource": null,
+			"totalDesc": "Achievement multiplier ^{value}",
+			"totalDescSource": null,
+			"genericDesc": "Achievement multiplier ^x",
+			"genericDescSource": null,
+			"shortDesc": "Achievement mult. power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 3
+		},
+		{
+			"id": "effarigforgotten",
+			"bitmaskIndex": 24,
+			"glyphTypes": [
+				"effarig"
+			],
+			"isGenerated": true,
+			"singleDesc": "Bonus from buying 10 Dimensions ^{value}",
+			"singleDescSource": null,
+			"totalDesc": "Multiplier from \"Buy 10\" ^{value}",
+			"totalDescSource": null,
+			"genericDesc": "\"Buy 10\" multiplier ^x",
+			"genericDescSource": null,
+			"shortDesc": "Buy 10 mult. ^{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": 1
+		},
+		{
+			"id": "effarigdimensions",
+			"bitmaskIndex": 25,
+			"glyphTypes": [
+				"effarig"
+			],
+			"isGenerated": true,
+			"singleDesc": "All Dimension power +{value}",
+			"singleDescSource": null,
+			"totalDesc": "All Dimension multipliers ^{value}",
+			"totalDescSource": null,
+			"genericDesc": "All Dimension multipliers ^x",
+			"genericDescSource": null,
+			"shortDesc": "All Dimension power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "effarigantimatter",
+			"bitmaskIndex": 26,
+			"glyphTypes": [
+				"effarig"
+			],
+			"isGenerated": true,
+			"singleDesc": "Antimatter production:\n10^x ➜ 10^(x^{value})",
+			"singleDescSource": null,
+			"totalDesc": null,
+			"totalDescSource": null,
+			"genericDesc": "Antimatter production exponent power",
+			"genericDescSource": null,
+			"shortDesc": "AM production exponent ^{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "timeshardpow",
+			"bitmaskIndex": 27,
+			"glyphTypes": [],
+			"isGenerated": true,
+			"singleDesc": "Time Shard power +{value}",
+			"singleDescSource": null,
+			"totalDesc": "Time Shard gain ^{value}",
+			"totalDescSource": null,
+			"genericDesc": "Time Shards ^x",
+			"genericDescSource": null,
+			"shortDesc": "Time Shard power +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": null
+		},
+		{
+			"id": "cursedgalaxies",
+			"bitmaskIndex": 0,
+			"glyphTypes": [
+				"cursed"
+			],
+			"isGenerated": false,
+			"singleDesc": "All Galaxies are {value} weaker",
+			"singleDescSource": null,
+			"totalDesc": "All Galaxy strength -{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "Galaxy Strength -{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "curseddimensions",
+			"bitmaskIndex": 1,
+			"glyphTypes": [
+				"cursed"
+			],
+			"isGenerated": false,
+			"singleDesc": "All Dimension multipliers ^{value}",
+			"singleDescSource": null,
+			"totalDesc": null,
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "All Dimensions ^{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "cursedtickspeed",
+			"bitmaskIndex": 2,
+			"glyphTypes": [
+				"cursed"
+			],
+			"isGenerated": false,
+			"singleDesc": "The threshold for Tickspeed Upgrades from Time Dimensions is multiplied by ×{value}",
+			"singleDescSource": null,
+			"totalDesc": "The threshold for Tickspeed Upgrades from Time Dimensions is increased by ×{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "TD Tickspeed threshold ×{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "cursedEP",
+			"bitmaskIndex": 3,
+			"glyphTypes": [
+				"cursed"
+			],
+			"isGenerated": false,
+			"singleDesc": "Divide Eternity Point gain by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Eternity Point gain / {value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "EP / {value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "realityglyphlevel",
+			"bitmaskIndex": 4,
+			"glyphTypes": [
+				"reality"
+			],
+			"isGenerated": false,
+			"singleDesc": "Increase the effective level of equipped basic Glyphs by {value}",
+			"singleDescSource": null,
+			"totalDesc": "Equipped basic Glyph level +{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "Basic Glyph Level +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "realitygalaxies",
+			"bitmaskIndex": 5,
+			"glyphTypes": [
+				"reality"
+			],
+			"isGenerated": false,
+			"singleDesc": "All Galaxies are {value} stronger",
+			"singleDescSource": null,
+			"totalDesc": "All Galaxy strength +{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "Galaxy Strength +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "realityrow1pow",
+			"bitmaskIndex": 6,
+			"glyphTypes": [
+				"reality"
+			],
+			"isGenerated": false,
+			"singleDesc": "Multiplier from Reality Upgrade Amplifiers ^{value}",
+			"singleDescSource": null,
+			"totalDesc": "Reality Upgrade Amplifier multiplier ^{value}",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "Amplifier Multiplier ^{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "realityDTglyph",
+			"bitmaskIndex": 7,
+			"glyphTypes": [
+				"reality"
+			],
+			"isGenerated": false,
+			"singleDesc": "Dilated Time factor for Glyph level:\n^1.3\n➜ ^(1.3 + {value})",
+			"singleDescSource": null,
+			"totalDesc": "Dilated Time factor for Glyph level: ^1.3\n➜ ^(1.3 + {value})",
+			"totalDescSource": null,
+			"genericDesc": "Dilated Time factor for Glyph level",
+			"genericDescSource": null,
+			"shortDesc": "DT pow. for level +{value}",
+			"shortDescSource": null,
+			"enabledInDoomed": false,
+			"alterationType": null
+		},
+		{
+			"id": "companiondescription",
+			"bitmaskIndex": 8,
+			"glyphTypes": [
+				"companion"
+			],
+			"isGenerated": false,
+			"singleDesc": "It does nothing but sit there and cutely smile at you, whisper into your dreams politely, and plot the demise of all who stand against you. This one-of-a-kind Glyph will never leave you.",
+			"singleDescSource": null,
+			"totalDesc": "+{value} happiness",
+			"totalDescSource": null,
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "Doesn't want to hurt you",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": null
+		},
+		{
+			"id": "companionEP",
+			"bitmaskIndex": 9,
+			"glyphTypes": [
+				"companion"
+			],
+			"isGenerated": false,
+			"singleDesc": "Thanks for your dedication for the game! You reached {value} Eternity Points on your first Reality.",
+			"singleDescSource": null,
+			"totalDesc": null,
+			"totalDescSource": "() => ((Enslaved.isRunning || Glyphs.active.countWhere(g => g?.type === \"cursed\")) ? \"Help me\" : \"Yay!\")",
+			"genericDesc": null,
+			"genericDescSource": null,
+			"shortDesc": "It loves you very, very much",
+			"shortDescSource": null,
+			"enabledInDoomed": true,
+			"alterationType": null
+		}
+	]
+}

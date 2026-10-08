@@ -1,0 +1,542 @@
+{
+	"source": {
+		"repo": "IvarK/AntimatterDimensionsSourceCode",
+		"sha": "5409e320cecef96a917cca1dfb68f1f183e499ca",
+		"files": [
+			"core/secret-formula/reality/automator.js",
+			"core/secret-formula/script-templates.js"
+		]
+	},
+	"categories": [
+		"Time Studies",
+		"Event Triggers",
+		"Alter Settings",
+		"Information",
+		"Script Flow"
+	],
+	"commands": [
+		{
+			"id": 0,
+			"keyword": "STUDIES RESPEC",
+			"category": 0,
+			"categoryName": "Time Studies",
+			"syntax": "<b>studies respec</b>",
+			"description": "This command turns on the respec option, which will respec your Time Studies on the next manual or\nautomatic Eternity. Note that this does not actually perform an Eternity on its own; make sure your Autobuyer\nis on or you manually run the ETERNITY command (although ETERNITY has its own built-in respec option).",
+			"descriptionSource": null,
+			"examples": [
+				"studies respec"
+			],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 1,
+			"keyword": "STUDIES LOAD",
+			"category": 0,
+			"categoryName": "Time Studies",
+			"syntax": "<b>studies</b> [nowait] <b>load id</b> <u>selector</u><br>\n<b>studies</b> [nowait] <b>load name</b> <u>name</u>",
+			"description": "Loads a Time Study preset, as if you had clicked on the button in the Time Study tab.",
+			"descriptionSource": null,
+			"examples": [
+				"studies load id 2",
+				"studies load name ANTI",
+				"studies nowait load name dil"
+			],
+			"sections": [
+				{
+					"name": "INPUTS",
+					"items": [
+						{
+							"header": "<i>nowait</i>",
+							"description": "If present, the Automator will purchase as many studies as possible before continuing onward. By default\n(ie. without \"nowait\") this command will repeat this line indefinitely until all of the studies in the\npreset are bought; this may cause the Automator to get stuck indefinitely if you are not careful.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>selector</i>",
+							"description": "Finds and loads the specified Time Study preset by its slot number. This is numbered one through six,\nordered from left to right.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>name</i>",
+							"description": "Finds and loads the specified Time Study preset by its given name. This is case-sensitive.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 2,
+			"keyword": "STUDIES PURCHASE",
+			"category": 0,
+			"categoryName": "Time Studies",
+			"syntax": "<b>studies</b> [nowait] <b>purchase <u>study_list</u></b>",
+			"description": "Purchase Time Studies specified from a list of Time Studies.",
+			"descriptionSource": null,
+			"examples": [
+				"studies nowait purchase 11,21,31",
+				"studies purchase 11-62, antimatter, 111, idle",
+				"studies nowait purchase ec6Studies"
+			],
+			"sections": [
+				{
+					"name": "INPUTS",
+					"items": [
+						{
+							"header": "<i>nowait</i>",
+							"description": "If present, the Automator will purchase as many studies as possible before continuing onward. By default\n(ie. without \"nowait\") this command will repeat this line indefinitely until all of the studies in the\npreset are bought; this may cause the Automator to get stuck indefinitely if you are not careful.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>study_list</i>",
+							"description": "The exported Time Study tree format is supported here, which is simply a list of Time Study IDs\nseparated by commas. This command also supports a more flexible formatting, additionally allowing\nranges of studies (for example, <u>11-62</u>) and the following aliases:<br>\n<blockquote><b>antimatter, infinity, time, active, passive, idle, light, dark</b></blockquote>\nA variable name may be used in place of the entire Time Study list as well (see the definition panel),\nalthough in that case the shorthand ranges and aliases are not allowed.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 3,
+			"keyword": "PRESTIGE",
+			"category": 1,
+			"categoryName": "Event Triggers",
+			"syntax": "<b>infinity</b> [nowait]<br>\n<b>eternity</b> [nowait] [respec]<br>\n<b>reality</b> [nowait] [respec]",
+			"description": "Triggers an Infinity, Eternity, or Reality reset if possible, otherwise the automator will wait at\nthis command until it becomes possible. If you find that your script often gets stuck on this command, an\nAutobuyer may be triggering a prestige before the Automator reaches this line - consider using <i>nowait</i> or\nadjusting your Autobuyer settings using AUTO.",
+			"descriptionSource": null,
+			"examples": [
+				"infinity",
+				"eternity respec",
+				"reality nowait"
+			],
+			"sections": [
+				{
+					"name": "MODIFIERS",
+					"items": [
+						{
+							"header": "<i>nowait</i>",
+							"description": "If present, the Automator will move on to the next command instead of repeatedly trying on this\ncommand in situations where the prestige is not possible (eg. within an EC below the goal).",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>respec</i>",
+							"description": "For non-Infinity prestiges, also does the related respec action when triggering prestige.\nEternity: Respec Time Studies and Eternity.<br>\nReality: Unequip Glyphs and Reality.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 4,
+			"keyword": "UNLOCK",
+			"category": 1,
+			"categoryName": "Event Triggers",
+			"syntax": "<b>unlock</b> [nowait] <u>feature</u>",
+			"description": "Unlocks the specified Eternity Challenge or Time Dilation.",
+			"descriptionSource": null,
+			"examples": [
+				"unlock dilation",
+				"unlock ec7"
+			],
+			"sections": [
+				{
+					"name": "MODIFIERS",
+					"items": [
+						{
+							"header": "<i>nowait</i>",
+							"description": "If present, the Automator will move on to the next command even if unlocking the feature fails. By\ndefault, the Automator will keep running this command until the unlock succeeds.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 5,
+			"keyword": "START",
+			"category": 1,
+			"categoryName": "Event Triggers",
+			"syntax": "<b>start</b> ec<u>N</u><br>\n<b>start</b> dilation",
+			"description": "Start a specified Eternity Challenge or a Dilated Eternity. This command will also attempt\nto unlock the EC if not unlocked, but will not do the same for Dilation (use UNLOCK command to do that).\nIf you are already in the specified EC or Dilated Eternity, running this command again will do nothing;\notherwise, the Automator will keep attempting to start the Eternity until it succeeds.",
+			"descriptionSource": null,
+			"examples": [
+				"start ec12",
+				"start dilation"
+			],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 6,
+			"keyword": "AUTO",
+			"category": 2,
+			"categoryName": "Alter Settings",
+			"syntax": "<b>auto infinity</b> [setting]<br>\n<b>auto eternity</b> [setting]<br>\n<b>auto reality</b> [setting]",
+			"description": "Turns prestige Autobuyers on or off and allows you to change their settings. If the setting option\nis not present, this command will toggle the Autobuyer state, turning it off if it is on and turning it on if\nit is off. <b>This command will not work if you try to modify an Autobuyer or setting you do not have.</b>",
+			"descriptionSource": null,
+			"examples": [
+				"auto infinity on",
+				"auto eternity off",
+				"auto infinity 30s",
+				"auto eternity 10 seconds",
+				"auto eternity 1e100 x highest"
+			],
+			"sections": [
+				{
+					"name": "SETTINGS",
+					"items": [
+						{
+							"header": "<i>on</i> | <i>off</i>",
+							"description": "Turns specified Autobuyer on or off.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<u><i>number</i></u> <u><i>time units</i></u>",
+							"description": "Usable with Infinity and Eternity only.\nTurns the Autobuyer on and set it to trigger at the given interval.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<u><i>number</i></u> x highest",
+							"description": "Usable with Infinity and Eternity only. Turns the Autobuyer on and sets it to\n\"X times highest\" mode.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i><u>number</u> <u>currency</u></i>",
+							"description": "Turns the Autobuyer on and sets it to trigger at a specific amount. The currency must\nmatch the autobuyer type (IP, EP, or RM). This will select \"Reality Machines\" mode for the Reality\nAutobuyer. Glyph Level mode cannot be changed or set via the Automator, only manually.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 7,
+			"keyword": "BLACK HOLE",
+			"category": 2,
+			"categoryName": "Alter Settings",
+			"syntax": "<b>black hole</b> <u>state</u>",
+			"description": "Toggles the speedup effect from the Black Hole on or off. Turning the Black Hole on via the\nAutomator does not bypass the gradual acceleration from off to max speed which occurs before they are\npermanent.",
+			"descriptionSource": null,
+			"examples": [
+				"black hole on",
+				"black hole off"
+			],
+			"sections": [],
+			"isUnlockedSource": "() => BlackHole(1).isUnlocked"
+		},
+		{
+			"id": 8,
+			"keyword": "STORE GAME TIME",
+			"category": 2,
+			"categoryName": "Alter Settings",
+			"syntax": "<b>store game time</b> <u>action</u>",
+			"description": "Changes whether or not the Black Hole is storing time. Also allows usage of stored time.",
+			"descriptionSource": null,
+			"examples": [
+				"store game time on",
+				"store game time off",
+				"store game time use"
+			],
+			"sections": [
+				{
+					"name": "ACTIONS",
+					"items": [
+						{
+							"header": "<i>on</i> | <i>off</i>",
+							"description": "Turns storing game time on or off.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>use</i>",
+							"description": "Uses all stored game time. Does not alter the on/off state of time storage.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => Enslaved.isUnlocked"
+		},
+		{
+			"id": 9,
+			"keyword": "NOTIFY",
+			"category": 3,
+			"categoryName": "Information",
+			"syntax": "<b>notify</b> \"<u>text</u>\"",
+			"description": "Takes the specified text and posts it in the top-right corner as\na text notification, in the same spot and style as other notifications such as auto-save\nand achievement/upgrade unlocks. Can be useful for seeing automator status while\non tabs other than the Automator tab.",
+			"descriptionSource": null,
+			"examples": [
+				"notify \"Dilation reached\"",
+				"notify \"ECs completed\""
+			],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 10,
+			"keyword": "Adding Comments",
+			"category": 3,
+			"categoryName": "Information",
+			"syntax": "<b>#</b> text<br><b>//</b> text",
+			"description": "Allows you to leave a note to yourself within your script. This may be\nuseful for organizing or keeping track of which parts of your script do various things,\nin a way that appears more readable than just the commands. These commands mainly serve as a tool to\nhelp you keep the steps of your scripts easier to follow if desired.",
+			"descriptionSource": null,
+			"examples": [
+				"# get 1e20 before starting ec1",
+				"// this loop alternates dilation and pushing"
+			],
+			"sections": [
+				{
+					"name": "NOTES",
+					"items": [
+						{
+							"header": "<i>Inline comments</i>",
+							"description": "The Automator does not support comments which are placed after an already functional\nline of code, on the same line. As an example, the single line \"studies load name TDI // Load push\"\nwill be an invalid command. In this case, you will need to move the comment to a separate line\nin the automator.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>Execution speed</i>",
+							"description": "Having comments will not slow down your script, as they are completely skipped during\nexecution and do not count as a command for the purposes of running. For example, even if you have\na really long explanation in the form of comments on lines 20-40, the Automator will still\n<i>immediately</i> skip from line 19 to 41 during execution.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 11,
+			"keyword": "WAIT",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<b>wait</b> <u>condition</u>",
+			"description": "Forces Automator to wait for some condition or event. To wait for a certain duration of time,\nuse the PAUSE command instead.",
+			"descriptionSource": null,
+			"examples": [
+				"wait am >= 1e308",
+				"wait pending completions >= 5",
+				"wait ec9 completions >= 4",
+				"wait infinity",
+				"wait black hole bh1"
+			],
+			"sections": [
+				{
+					"name": "POSSIBLE CONDITIONS",
+					"items": [
+						{
+							"header": "<i>comparison</i>",
+							"description": "Wait until the comparison statement is true. Check the entry for \"Formatting Comparisons\" for details\non how to properly input this option.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>prestige</i>",
+							"description": "Wait until the specified prestige (Infinity, Eternity, or Reality) has been triggered by its respective\nAutobuyer. This must happen <i>after</i> this command is reached; if the Autobuyer triggers\n<i>before</i> the command is reached, your script may get stuck.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>black hole (state)</i>",
+							"description": "Wait until the Black Hole(s) are in the specified state. Valid inputs for state are\n\"off\", \"bh1\", and \"bh2\", corresponding to no active Black Hole(s), at least the first Black Hole active,\nand both Black Holes active.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 12,
+			"keyword": "PAUSE",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<b>pause</b> <u>interval</u>",
+			"description": "Tells the automator to stop moving forward and executing commands for a certain amount of time.\nNote that if the pause duration is shorter than the automator's execution speed, the automator will wait until\nthe next execution tick before moving on.",
+			"descriptionSource": null,
+			"examples": [
+				"pause 10s",
+				"pause 1 minute",
+				"pause 34 seconds"
+			],
+			"sections": [
+				{
+					"name": "INTERVAL FORMATTING",
+					"items": [
+						{
+							"header": "<i>Specified Interval</i>",
+							"description": "This command accepts time units of milliseconds (\"ms\"), seconds (\"s\", \"sec\", or \"seconds\"),\nminutes (\"m\", \"min\", or \"minutes\"), and hours (\"h\" or \"hours\"). You cannot provide just a number and\nnothing else; a unit of time must be specified.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>Defined Constant</i>",
+							"description": "A defined constant may be used instead, see the definition panel. The defined value will\nbe assumed to be in units of seconds.",
+							"descriptionSource": null
+						}
+					]
+				},
+				{
+					"name": "OTHER",
+					"items": [
+						{
+							"header": "<i>Offline Side-effects</i>",
+							"description": "This command may behave undesirably when it runs during offline progress due to limited\ntick count. A 1-second pause that is usually 20-30 ticks might be only 1 game tick when processing\nhours of offline progress, which might not be enough for the resources needed for the rest of the\nscript.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>Alternatives</i>",
+							"description": "Using another command like 'WAIT' will allow you to set it for a certain resource amount,\nin order to ensure that the game has the proper state before moving onward.",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>Manual Skip</i>",
+							"description": "You can manually force the Automator to continue execution past a PAUSE command without\nwaiting the entire specified time by stepping forward one line (to put it on the next one) and then\nresuming execution. If you find yourself doing this regularly, consider modifying your script.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 13,
+			"keyword": "IF",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<b>if</b> <u>condition</u> {<br>\n<blockquote>commands</blockquote>\n}",
+			"description": "Defines an inner block of block of the automator script which will only be executed if the specified\ncomparison is true when this line is reached. If the comparison is false, the automator will instead skip to the\nfirst line after the block and continue execution from there.",
+			"descriptionSource": null,
+			"examples": [
+				"if ec10 completions < 5",
+				"if ep > 1e6000"
+			],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 14,
+			"keyword": "UNTIL",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<b>until</b> <u>comparison</u> {<br>\n<blockquote>commands</blockquote>\n}<br><b>until</b> <u>prestige_event</u> {<br>\n<blockquote>commands</blockquote>\n}",
+			"description": "Defines an inner block of the script where commands are repeated; the comparison is checked at the\nstart and every time the loop repeats. If the condition is true when the UNTIL statement is first reached, the\ninner block of commands will be skipped entirely.\n<br><br>\nIf an prestige event (ie. Infinity, Eternity, or Reality) is specified instead of a condition, then the block\nwill always be entered and the commands within the block will repeat until the event occurs for the first time\n<i>after</i> entering the block. Note that the Automator will finish the rest of the loop and then exit after\nthe prestige event occurs - it will not immediately exit the loop in the middle.",
+			"descriptionSource": null,
+			"examples": [
+				"until ep > 1e500",
+				"until reality"
+			],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 15,
+			"keyword": "WHILE",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<b>while</b> <u>comparison</u> {<br>\n<blockquote>commands</blockquote>\n}",
+			"description": "Defines an inner block of the script where commands are repeated; the comparison is checked at the\nstart and every time the loop repeats. If the condition is false when the WHILE statement is first reached, the\ninner block of commands will be skipped entirely.",
+			"descriptionSource": null,
+			"examples": [
+				"while ep < 1e500",
+				"while myThreshold > am"
+			],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 16,
+			"keyword": "STOP",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<b>stop</b>",
+			"description": "When the Automator runs this line, it will stop execution as if you clicked the\n<i class=\"fas fa-stop\"></i> button on the control panel in the top-left of the Automator. This\ndoes not need to be placed at the end of every script in order to stop them, as turning off the\n<i class=\"fas fa-sync-alt\"></i> option on the left panel will do this automatically.\nThis command may be useful when used inside of an IF command, in order to stop execution\nonly under certain conditions.",
+			"descriptionSource": null,
+			"examples": [
+				"stop"
+			],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 17,
+			"keyword": "Currency List",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<i>You can use these in any IF, WHILE, UNTIL, or WAIT command</i>",
+			"description": null,
+			"descriptionSource": "() => {\n        const filterText = EffarigUnlock.glyphFilter.isUnlocked\n          ? `<b>filter score</b> - Glyph filter score of the Glyph which your filter will select this Reality<br>`\n          : \"\";\n        const stText = V.spaceTheorems > 0\n          ? `<b>space theorems</b> - Current unspent Space Theorem amount<br>\n            <b>total space theorems</b> - TOTAL Space Theorems, including ones spent on current Studies<br>`\n          : \"\";\n        return `This is a list of \"currencies\" or numbers that you can use within the Automator.<br>\n          Note that when used, most currencies will need to be in scientific notation.<br>\n          <b>am</b> - Current Antimatter amount  <br>\n          <b>ip</b> - Current Infinity Point amount  <br>\n          <b>ep</b> - Current Eternity Point amount  <br>\n          <b>rm</b> - Current Reality Machine amount  <br>\n          <b>infinities</b> - Current Infinity amount <br>\n          <b>banked infinities</b> - Current Banked Infinity amount <br>\n          <b>eternities</b> - Current Eternity amount <br>\n          <b>realities</b> - Current Reality amount <br>\n          <b>pending ip</b> - IP gained on Infinity (0 if not available)<br>\n          <b>pending ep</b> - EP gained on Eternity (0 if not available)<br>\n          <b>pending tp</b> - TP gained on exiting Dilation<br>\n          <b>pending rm</b> - RM gained on Reality (0 if not available)<br>\n          <b>pending glyph level</b> - Glyph Level gained on Reality (0 if not available)<br>\n          <b>dt</b> - Current Dilated Time amount <br>\n          <b>tp</b> - Current Tachyon Particle amount<br>\n          <b>rg</b> - Current Replicanti Galaxy amount (does not use scientific)<br>\n          <b>rep</b> - Current Replicanti amount <br>\n          <b>tt</b> - Current Time Theorem amount <br>\n          <b>total tt</b> - TOTAL Time Theorems, includes all forms of generated TT and any spent on Studies <br>\n          <b>spent tt</b> - Time Theorems currently spent on all Time Studies <br>\n          <b>total completions</b> - Total completions of all Eternity Challenges <br>\n          <b>pending completions</b> - Total completions of current EC at Eternity <br>\n          <b>ec<u>X</u> completions</b> - Amount of EC completions for a certain EC (eg. \"ec6 completions\")<br>\n          ${filterText}\n          ${stText}\n        `;\n      }",
+			"examples": [],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 18,
+			"keyword": "Formatting Comparisons",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<u>resource1</u> <u>condition</u> <u>resource2</u>",
+			"description": "Comparisons are used within certain commands, which allow you to control the behavior of the automator based\non the game's current state. They have a standard format with two value inputs and a comparison operator, but\nthe value inputs can be anything as long as it is formatted correctly overall.",
+			"descriptionSource": null,
+			"examples": [
+				"ep < 1e20",
+				"total tt > 14000"
+			],
+			"sections": [
+				{
+					"name": "CONDITIONS",
+					"items": [
+						{
+							"header": "<i>resource</i>",
+							"description": "This can be any Automator Currency, a defined constant, or a number which must be formatted in\nscientific notation (eg. 1000, 1e100, 1.8e308). Unlike more general programming languages, this must\nbe a single value (ie. math expressions such as \"ip + pending ip\" are not allowed).",
+							"descriptionSource": null
+						},
+						{
+							"header": "<i>condition</i>",
+							"description": "This must be an inequality operator (<, <=, >, >=), which takes on its typical mathematical meaning.\nEquality operators (==, !=) are not allowed, as the nature of the game means that numbers will often\nnever be exactly equal and thus checking based on direct equality may lead to unexpected script\nbehavior.",
+							"descriptionSource": null
+						}
+					]
+				}
+			],
+			"isUnlockedSource": "() => true"
+		},
+		{
+			"id": 19,
+			"keyword": "Commands with inner blocks",
+			"category": 4,
+			"categoryName": "Script Flow",
+			"syntax": "<b>header_command</b> {<br>\n<blockquote>inner_commands</blockquote>\n}",
+			"description": "Some commands are associated with an \"inner block\" of commands. This inner block can contain still\ncontain any other valid command, but may or may not actually get executed based on what the state of the game is\nwhen <b>header_command</b> is executed. This allows you to repeat some commands over and over (eg. Time Study\npurchasing), or to skip them entirely (eg. not entering an EC if it already has full completions). These blocks\ncan be nested if desired, with inner blocks being placed within one another.\n<br><br>\nIn the text editor mode: Specify the inner block with curly braces, with the opening brace { on the same line as\nthe comparison and the closing brace } on its own line after the last line you want inside the block. Inner\ncommands do not need to be indented, although it may be visually helpful to do so.\n<br><br>\nIn the block editor mode: These commands come with an empty dotted rectangle which indicates which commands are\nwithin the inner block. Subsequent blocks can then be dragged inside the dotted rectangle.",
+			"descriptionSource": null,
+			"examples": [
+				"if ec10 completions < 5 {<br>\n          <blockquote>\n          unlock ec10<br>\n          start ec10</blockquote>\n        }",
+				"until ep > 1e8 {<br>\n          <blockquote>\n          studies nowait purchase 11-62<br>\n          pause 10s<br>\n          eternity respec</blockquote>\n        }"
+			],
+			"sections": [],
+			"isUnlockedSource": "() => true"
+		}
+	],
+	"templates": [
+		{
+			"name": "Climb EP",
+			"description": "This script performs repeated Eternities, attempting to re-purchase a Time Study Tree every\nEternity. Autobuyer settings must be supplied for the Infinity and Eternity Autobuyers. The script will\nrepeat until a final Eternity Point value is reached."
+		},
+		{
+			"name": "Grind Eternities",
+			"description": "This script performs repeated fast Eternities after buying a specified Time Study Tree.\nAuto-Infinity will be set to \"Times Highest\" with a specified number of crunches and Auto-Eternity will\ntrigger as soon as possible. The script will repeat until a final Eternity count is reached."
+		},
+		{
+			"name": "Grind Infinities",
+			"description": "This script buys a specified Time Study Tree and then configures your Autobuyers for gaining\nInfinities. It will repeat until a final Infinity count is reached; the count can be for Banked Infinities,\nin which case it will get all Infinities before performing a single Eternity."
+		},
+		{
+			"name": "Complete Eternity Challenge",
+			"description": "This script buys a specified Time Study Tree and then unlocks a specified Eternity Challenge.\nThen it will set your Infinity Autobuyer to your specified settings and enter the Eternity Challenge.\nFinally, it will wait until at least the desired number of completions before triggering an Eternity to\ncomplete the Challenge."
+		},
+		{
+			"name": "Unlock Dilation",
+			"description": "This script performs repeated Eternities, attempting to re-purchase a Time Study Tree every\nEternity. Settings must be supplied for the Eternity Autobuyer; your Infinity Autobuyer will be\nturned off. The script loops until you have the total Time Theorem requirement to unlock Dilation, and then\nit will unlock Dilation once it does."
+		}
+	]
+}
