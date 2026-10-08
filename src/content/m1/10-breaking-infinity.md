@@ -1,8 +1,8 @@
 ---
-title: Breaking Infinity
+title: 'Breaking Infinity'
 stage: break-infinity
 order: 10
-summary: How to break Infinity, what changes afterwards, and which Break Infinity upgrades to buy first.
+summary: 'How to break Infinity, what changes afterwards, and which Break Infinity upgrades to buy first.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
