@@ -25,6 +25,8 @@ Research reports (sourced, dated): [`docs/research/`](research/).
 | D9 | Repo & license | **Public GitHub, MIT:** [azais-corentin/adg](https://github.com/azais-corentin/adg). `NOTICE` credits IvarK (upstream MIT ©2017) plus an "unofficial, not affiliated" disclaimer. Prose is original: Fandom text (CC BY-SA) is reworded and linked, Fandom images are never bundled, and third-party guides are summarized and linked. |
 | D10 | Automator scripts | **We write our own.** Each script is verified in-game before it ships. Third-party scripts are only linked. |
 | D11 | Git hooks | **hk + gitleaks, installed per project by mise** (`mise.toml`, `hk.pkl`, `hk install --mise`). The app toolchain stays in `flake.nix`. |
+| D12 | Save import formats | **Accept both envelopes; recommend "Export to web/steam"** in all instructions. The upstream schema is canonical for stage detection. Android-native exports are translated through a mapping layer, verified against the paired fixture (one state exported both ways). |
+| D13 | Screens for unreached stages | **Local Android emulator.** The installed APK is pulled from the user's phone and kept outside the repo, then run in a Nix-provided emulator, where saves from any stage are loaded and screenshotted. The user's phone save is never touched. |
 
 ## Stack (verified against the npm registry / nixpkgs, 2026-10-08)
 
@@ -57,8 +59,8 @@ Research reports (sourced, dated): [`docs/research/`](research/).
 3. ~~Hosting~~: Cloudflare Pages, `ad.nelieru.cc` (D6). Repo created (D9).
 4. Page authoring format. **mdsvex** (guide pages as Markdown files with embedded interactive components) or **plain Svelte pages**. This is an engineering choice, not a product one; it gets decided by a short compatibility test against SvelteKit 3. Default is mdsvex.
 5. Exact upstream pin SHA (master == release @ `5409e32`, 2026-07-17, per research) and how the extractor evaluates `secret-formula` closures. Decided by a spike.
-6. Which save format(s) adg accepts. Pending a user decision.
-7. Screens for stages the user hasn't reached yet (Eternity Challenges, Dilation, Reality, Celestials). Pending a user decision.
+6. ~~Save formats~~: both, web/steam recommended (D12).
+7. ~~Unreached-stage screens~~: local emulator (D13).
 
 ## Process
 
