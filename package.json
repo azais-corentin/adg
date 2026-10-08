@@ -12,7 +12,7 @@
 		"deploy": "bun run build && wrangler deploy",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "bun run check:ts && bun run check:svelte",
-		"check:ts": "svelte-kit sync && node node_modules/@typescript/native/bin/tsc -p tsconfig.json --noEmit",
+		"check:ts": "svelte-kit sync && for p in . src/service-worker scripts/extract scripts/device; do node node_modules/@typescript/native/bin/tsc -p $p --noEmit || exit 1; done",
 		"check:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"test": "bun run test:unit --run && bun run test:e2e",
 		"test:unit": "vitest",
