@@ -38,10 +38,14 @@ be ticked by hand. `header={false}` drops the title row (/checklists shows its o
 		{#each rows as { item, status } (item.id)}
 			<li class:done={status !== 'open'}>
 				<label>
+					<!-- aria-disabled, not disabled: a disabled box loses the stage colour. -->
 					<input
 						type="checkbox"
 						checked={status !== 'open'}
-						disabled={status === 'auto'}
+						aria-disabled={status === 'auto'}
+						onclick={(event) => {
+							if (status === 'auto') event.preventDefault();
+						}}
 						onchange={() => progress.toggleCheck(item.id)}
 						aria-describedby={item.detail ? `${uid}-${item.id}-detail` : undefined}
 					/>
@@ -57,7 +61,7 @@ be ticked by hand. `header={false}` drops the title row (/checklists shows its o
 		{/each}
 	</ul>
 	{#if header}
-		<p class="more"><a href={resolve('/checklists')}>All milestone checklists</a></p>
+		<p class="more"><a href="{resolve('/checklists')}#{stage}">All milestone checklists</a></p>
 	{/if}
 </section>
 
@@ -135,11 +139,8 @@ be ticked by hand. `header={false}` drops the title row (/checklists shows its o
 		cursor: pointer;
 	}
 
-	input:disabled {
-		cursor: default;
-	}
-
-	label:has(input:disabled) {
+	input[aria-disabled='true'],
+	label:has(input[aria-disabled='true']) {
 		cursor: default;
 	}
 
