@@ -11,6 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## The two currencies
@@ -27,6 +28,12 @@ When a higher Dark Matter Dimension unlocks you get 1 of it; the rest must be pr
 Each tier's production interval can be upgraded down to a floor of 10 ms. At the floor, **Ascend** the tier: its interval resets to a much longer value (×1200 per Ascension) but its DM and DE production each jump by a permanent ×500. You can Ascend the same tier repeatedly — upgrade back to 10 ms, Ascend again. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1644-1692 vendor/ad-source/src/core/celestials/laitela/dark-matter-dimension.js -->
 
 Practical order: keep all unlocked tiers' intervals falling, Ascend whichever tier sits at 10 ms, and buy power upgrades with whatever DM is left. Interval cuts beat power early because every tier multiplies the ones below it.
+
+<Screen
+	src="laitela/celestials-laitela-2.webp"
+	alt="The Dark Matter Dimension rows: each tier with its interval, DM and DE production, cost buttons, and the Ascend control at the floor."
+	caption="The Dimension rows. Upgrade intervals to the floor, Ascend, and spend leftover DM on the power buttons."
+/>
 
 ## Annihilation
 

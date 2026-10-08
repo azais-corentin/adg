@@ -11,6 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## Condensing
@@ -20,6 +21,12 @@ When Dark Energy reaches the cap — 200 to start — the Lai'tela tab offers **
 After your first 10 total Singularities you unlock the cap controls: each step raises or lowers the DE needed per condense by ×10 (never below 200). Raising the cap yields *more than* ×10 Singularities per condense, so big caps pay off if you can afford to wait; small caps cycle faster. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1720-1754 -->
 
 How many you get per condense grows with cap-increase steps, the repeatable Singularity-gain milestones, and Entropic Condensing (Imaginary Upgrade 10) — buy that upgrade before leaning into long condenses. <!-- vendor/ad-source/src/core/celestials/laitela/singularity.js:222-230 -->
+
+<Screen
+	src="laitela/celestials-laitela-1.webp"
+	alt="The condense section of the Lai'tela tab: the DE bar against its cap, the pending Singularity preview, the cap step controls, and the auto-condense and milestone rows."
+	caption="The condense panel. The preview shows what one condense pays; the step controls trade cycle speed against yield."
+/>
 
 ## Managing the cap
 

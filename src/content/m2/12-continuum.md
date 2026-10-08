@@ -27,9 +27,9 @@ Nothing is lost in the conversion: Continuum gives the same effect your purchase
 - The Lai'tela tab shows your Continuum bonus from Dark Matter (the "matter extra purchase" percentage), which is the number upgrade 20's task and upgrade 21's run care about.
 
 <Screen
-	src="early-eternity/dimensions-antimatter-top.webp"
-	alt="The Antimatter subtab of the Dimensions tab: Dimension amounts and multipliers with the buy buttons and the Max button above the tab bar."
-	caption="The Dimensions tab before Continuum. After upgrade 15, these buy buttons go quiet and the multipliers track antimatter automatically."
+	src="laitela/dimensions-antimatter-0.webp"
+	alt="The Antimatter Dimensions tab with Continuum active: fractional Continuum counts on every row and the Tickspeed Continuum line instead of buy buttons."
+	caption="The Dimensions tab after Continuum. The Continuum values track antimatter automatically; there is nothing left to buy."
 />
 
 ## The one setting to know

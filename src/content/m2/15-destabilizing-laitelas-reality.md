@@ -11,11 +11,18 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## Entering the Reality
 
 The Lai'tela tab has a **Start Lai'tela's Reality** button. Inside, the normal Reality goal is replaced: your antimatter generates **Entropy**, and at 100% Entropy the Reality destabilizes on its own — do not press the Reality button, just let it fill. Finishing improves a Dark Matter Dimension multiplier shown on the run button; repeating with faster times improves it further. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1644-1692 vendor/ad-source/src/core/celestials/laitela/laitela.js:51-58 -->
+
+<Screen
+	src="laitela/celestials-laitela-4.webp"
+	alt="The Start Lai'tela's Reality panel: its restriction text, the fastest-completion and highest-dimension records, and the equipped glyph set."
+	caption="The Reality panel. The records underneath show how far the destabilization has gone."
+/>
 
 Two things surprise first-timers:
 
