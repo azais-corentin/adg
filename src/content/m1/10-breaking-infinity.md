@@ -39,9 +39,9 @@ Two things happen the moment you break:
 There is a side benefit that saves you a fortune: breaking instantly drops **every autobuyer interval to its minimum, for free**. The IP you would otherwise spend grinding intervals down to 0.1 seconds stays in your pocket for upgrades. <!-- src/game.js:78-80 (maxIntervalForFree on break) -->
 
 <Screen
-	src="early-eternity/infinity-break-0.webp"
-	alt="The Break subtab of the Infinity tab: the Eternity and IP gain boxes at the top, then the first rows of Break Infinity upgrades with their costs."
-	caption="The Break subtab. The top boxes show what an Eternity or a crunch would pay right now."
+	src="break-infinity/infinity-break-0.webp"
+	alt="The top of the Break subtab: the new-ID unlock tracker and IP gain boxes, then the first rows of Break Infinity upgrades with their 1e4 to 1e6 IP costs."
+	caption="The Break subtab right after breaking. The top boxes track the next Infinity Dimension unlock and the current crunch payout."
 />
 
 ## The Break Infinity upgrades

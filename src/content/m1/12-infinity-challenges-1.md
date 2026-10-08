@@ -36,9 +36,9 @@ Each IC also has an **unlock threshold**: it only appears once your peak antimat
 <!-- Unlocks, goals and rewards from src/core/secret-formula/challenges/infinity-challenges.js:1-133; community-tested IP levels from Tables61's stuck-post and r/AD threads (see part 2's reading list). -->
 
 <Screen
-	src="early-eternity/challenges-infinity-2.webp"
-	alt="The Infinity subtab of the Challenges tab: the eight Infinity Challenge cards showing goals, rewards and Completed badges."
-	caption="The eight Infinity Challenges. Each card shows its goal and reward; finished ones get a green badge."
+	src="break-infinity/challenges-infinity-0.webp"
+	alt="The Infinity subtab of the Challenges tab at this stage: the IC1 card with its all-Normal-Challenges restriction, 1e650 goal and ×1.3 reward, plus the auto-retry and Big Crunch notes."
+	caption="The Infinity Challenges list. Each card shows its restriction, goal and reward; the notes at the top cover auto-retry and crunching."
 />
 
 <Callout kind="android">

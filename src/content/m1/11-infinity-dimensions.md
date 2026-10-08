@@ -34,16 +34,16 @@ Each tier unlocks at a fixed antimatter threshold and is bought with Infinity Po
 <!-- Unlock thresholds (UNLOCK_REQUIREMENTS) and base costs (BASE_COSTS) from src/core/dimensions/infinity-dimension.js:41-57. ID1's unlock is also the checklist's break-first-id gate. -->
 
 <Screen
-	src="early-eternity/dimensions-infinity-top.webp"
-	alt="The Infinity subtab of the Dimensions tab: the eight Infinity Dimensions with amounts, multipliers and costs, and the Infinity Power total."
-	caption="The Infinity Dimensions subtab. Each tier feeds the one above it; ID1 feeds Infinity Power."
+	src="break-infinity/dimensions-infinity-top.webp"
+	alt="The Infinity subtab of the Dimensions tab at this stage: the Infinity Power total and rate, the ID purchase cap note, Max all, and the first Infinity Dimension rows with IP costs."
+	caption="The Infinity Dimensions subtab. Each tier feeds the one above it; ID1 feeds Infinity Power at the top."
 />
 
 Notice the gap: ID4 wants <Num value="1e20" /> IP but ID5 wants <Num value="1e140" />. That gap is the whole middle of this stage — you cross it with Infinity Challenges, which is why the Challenges tab starts glowing.
 
 ## How Infinity Power works
 
-Infinity Power sits at the top of the subtab as a running total. Your Antimatter Dimension multiplier from it is roughly your Infinity Power raised to 7, plus small bonuses from later sources — so doubling your power multiplies your Dimensions by 128. In practice the number looks absurd within a day: the screenshot above shows power already at <Num value="1e20007" />.
+Infinity Power sits at the top of the subtab as a running total. Your Antimatter Dimension multiplier from it is roughly your Infinity Power raised to 7, plus small bonuses from later sources — so doubling your power multiplies your Dimensions by 128. In practice the number looks absurd within a day: the screenshot above shows power already at 3.80e37 and climbing at 5.88e35 per second.
 
 A few details worth knowing:
 

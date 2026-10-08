@@ -72,9 +72,9 @@ If one IC resists at the recommended level, skip it and push IP instead. The cha
 </Callout>
 
 <Screen
-	src="early-eternity/challenges-infinity-1.webp"
-	alt="Infinity Challenge cards IC3 through IC6 with their restriction text, goals and Completed badges."
-	caption="Mid-list IC cards. The restriction text on each card is the whole ruleset — there is nothing hidden."
+	src="break-infinity/challenges-infinity-1.webp"
+	alt="A finished Infinity Challenge card: the green Completed badge, the 1e650 antimatter goal, the ×1.30-on-Infinity-Dimensions reward and the running ×1.30 total."
+	caption="A completed IC card. The green badge, goal and stacked ×1.3 total are all on the card — the restriction text above it is the whole ruleset."
 />
 
 Further reading:
