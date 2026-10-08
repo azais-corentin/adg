@@ -19,7 +19,7 @@ export const TOOLS = [
 	{
 		href: '/tools/eternity-challenges',
 		name: 'Eternity Challenge planner',
-		summary: 'Plan which Eternity Challenge to run next and how many completions to aim for.'
+		summary: 'The usual order for all 60 completions, with the next one to do and its goal.'
 	},
 	{
 		href: '/tools/automator',
