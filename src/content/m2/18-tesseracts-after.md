@@ -1,8 +1,8 @@
 ---
-title: Tesseracts and after the Nameless
+title: 'Tesseracts and after the Nameless'
 stage: nameless
 order: 18
-summary: What Tesseracts cost, what they raise, and how to push toward V.
+summary: 'What Tesseracts cost, what they raise, and how to push toward V.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

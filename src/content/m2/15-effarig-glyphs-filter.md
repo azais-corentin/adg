@@ -1,8 +1,8 @@
 ---
-title: Effarig Glyphs and the Glyph filter
+title: 'Effarig Glyphs and the Glyph filter'
 stage: effarig
 order: 15
-summary: What Effarig Glyphs do, which effects to hunt, and how to set up the Glyph filter.
+summary: 'What Effarig Glyphs do, which effects to hunt, and how to set up the Glyph filter.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

@@ -1,8 +1,8 @@
 ---
-title: The Nameless Ones' Reality
+title: 'The Nameless Ones'' Reality'
 stage: nameless
 order: 17
-summary: The restrictions inside the Nameless Reality, the loopholes that beat them, and the discharge finish.
+summary: 'The restrictions inside the Nameless Reality, the loopholes that beat them, and how the discharge finish works.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

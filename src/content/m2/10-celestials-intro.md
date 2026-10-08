@@ -1,8 +1,8 @@
 ---
-title: The Celestials
+title: 'The Celestials'
 stage: teresa
 order: 10
-summary: What the seven Celestials are, where to find their tab, and how Celestial Realities work.
+summary: 'What the seven Celestials are, where to find their tab, and how Celestial Realities work.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

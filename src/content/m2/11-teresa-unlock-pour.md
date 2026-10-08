@@ -1,8 +1,8 @@
 ---
-title: Teresa, Celestial of Reality
+title: 'Teresa, Celestial of Reality'
 stage: teresa
 order: 11
-summary: How Teresa unlocks, how pouring RM works, and the unlock ladder up to Effarig.
+summary: 'How Teresa unlocks, how pouring RM works, and the unlock ladder up to Effarig.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

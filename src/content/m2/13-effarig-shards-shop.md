@@ -1,8 +1,8 @@
 ---
-title: Effarig and Relic Shards
+title: 'Effarig and Relic Shards'
 stage: effarig
 order: 13
-summary: How Effarig unlocks, how Relic Shards are earned, and which shop unlocks to buy first.
+summary: 'How Effarig unlocks, how Relic Shards are earned, and which shop unlocks to buy first.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

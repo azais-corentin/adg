@@ -1,8 +1,8 @@
 ---
-title: Teresa's Reality
+title: 'Teresa''s Reality'
 stage: teresa
 order: 12
-summary: The restrictions inside Teresa's Reality, a setup that clears it, and how the sacrifice reward scales.
+summary: 'The restrictions inside Teresa''s Reality, a setup that clears it, and how the sacrifice reward scales.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

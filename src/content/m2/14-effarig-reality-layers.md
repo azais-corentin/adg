@@ -1,8 +1,8 @@
 ---
-title: Effarig's Reality in three layers
+title: 'Effarig''s Reality in three layers'
 stage: effarig
 order: 14
-summary: What each layer of Effarig's Reality restricts, which glyphs to bring, and how to finish all three.
+summary: 'What each layer of Effarig''s Reality restricts, which glyphs to bring, and how to finish all three.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

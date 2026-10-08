@@ -1,8 +1,8 @@
 ---
-title: The Nameless Ones and stored time
+title: 'The Nameless Ones and stored time'
 stage: nameless
 order: 16
-summary: How the Nameless Ones unlock, how storing and discharging time works, and what to buy with it.
+summary: 'How the Nameless Ones unlock, how storing and discharging time works, and what to buy with it.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
