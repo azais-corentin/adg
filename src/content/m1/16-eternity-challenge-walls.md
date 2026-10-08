@@ -44,7 +44,7 @@ Do not clear each challenge 1→5 in a row. That linear order hard-walls around 
 
 ## Finishing the stage
 
-Once EC11 and EC12 are each complete 5 times, and you own a row-23 study (231–234) with enough lifetime Time Theorems, the Dilation study (5,000 TT) unlocks in the tree. That is the gate to [the next stage](/guide/m1/time-dilation) — see the checklists below and the planner's final steps.
+Once EC11 and EC12 are each complete 5 times, and you own a row-23 study (231–234) with enough lifetime Time Theorems, the Dilation study (5,000 TT) unlocks in the tree. That is the gate to Time Dilation, the next stage — see the checklist below and the planner's final steps.
 
 <Checklist stage="eternity-challenges" />
 
