@@ -1,8 +1,8 @@
 ---
-title: Your first Eternity
+title: 'Your first Eternity'
 stage: early-eternity
 order: 10
-summary: What the Eternity reset wipes and keeps, how Eternity Points are earned, and which Eternity Upgrades to buy first.
+summary: 'What the Eternity reset wipes and keeps, how Eternity Points are earned, and which Eternity Upgrades to buy first.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

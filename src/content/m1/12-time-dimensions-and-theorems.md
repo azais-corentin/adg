@@ -1,8 +1,8 @@
 ---
-title: Time Dimensions and Time Theorems
+title: 'Time Dimensions and Time Theorems'
 stage: early-eternity
 order: 12
-summary: How Time Dimensions produce Time Shards, and how to buy Time Theorems with antimatter, Infinity Points and Eternity Points.
+summary: 'How Time Dimensions produce Time Shards, and how to buy Time Theorems with antimatter, Infinity Points and Eternity Points.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

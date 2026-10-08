@@ -1,8 +1,8 @@
 ---
-title: Eternity Upgrades and Replicanti
+title: 'Eternity Upgrades and Replicanti'
 stage: early-eternity
 order: 14
-summary: The six Eternity Upgrades in buy order, and how Replicanti and Replicanti Galaxies work once Eternity is routine.
+summary: 'The six Eternity Upgrades in buy order, and how Replicanti and Replicanti Galaxies work once Eternity is routine.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

@@ -1,8 +1,8 @@
 ---
-title: Time Studies
+title: 'Time Studies'
 stage: early-eternity
 order: 13
-summary: The study tree's dimension and pace paths, the active/passive/idle choice, study import strings, and how to plan a tree.
+summary: 'The dimension and pace paths of the study tree, the active/passive/idle choice, study import strings, and how to plan a tree.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

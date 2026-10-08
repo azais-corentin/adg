@@ -1,8 +1,8 @@
 ---
-title: Unlocking Eternity Challenges
+title: 'Unlocking Eternity Challenges'
 stage: eternity-challenges
 order: 10
-summary: How EC studies, secondary requirements and the 5-completion track work, and which early challenges to open first.
+summary: 'How EC studies, secondary requirements and the 5-completion track work, and which early challenges to open first.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

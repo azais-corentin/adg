@@ -1,8 +1,8 @@
 ---
-title: Eternity Challenge walls
+title: 'Eternity Challenge walls'
 stage: eternity-challenges
 order: 11
-summary: How to approach EC4, EC9, EC10, EC11 and EC12 — the five challenges that stop most runs — and what finishes the stage.
+summary: 'How to approach EC4, EC9, EC10, EC11 and EC12 — the five challenges that stop most runs — and what finishes the stage.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

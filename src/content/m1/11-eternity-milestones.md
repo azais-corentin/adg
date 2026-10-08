@@ -1,8 +1,8 @@
 ---
-title: Eternity milestones
+title: 'Eternity milestones'
 stage: early-eternity
 order: 11
-summary: What each Eternity-count milestone automates, and the fast farming loop that reaches them.
+summary: 'What each Eternity-count milestone automates, and the fast farming loop that reaches them.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
