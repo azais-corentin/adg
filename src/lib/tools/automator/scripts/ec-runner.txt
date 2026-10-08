@@ -1,0 +1,10 @@
+# EC runner: takes Eternity Challenge 1 up to 5 completions.
+# For another EC, change the 1 in every ec1/EC1/|1! and the studies before the |.
+studies respec
+eternity
+until ec1 completions >= 5 {
+  studies purchase 11-61, antimatter, 111, passive, 151-171|1!
+  wait pending completions > ec1 completions
+  eternity
+}
+notify "EC1 finished"

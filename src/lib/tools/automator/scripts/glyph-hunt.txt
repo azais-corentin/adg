@@ -1,0 +1,16 @@
+# Glyph hunt: quick Realities until the Glyph filter scores the glyph on offer
+# at 90 or more, then stops so you can push that Reality further yourself.
+auto reality off
+auto eternity off
+studies nowait load id 1
+until pending rm > 0 {
+  wait pending ep > ep
+  eternity
+  studies nowait load id 1
+  unlock nowait dilation
+}
+if filter score >= 90 {
+  notify "A glyph that passes your filter is on offer"
+  stop
+}
+reality

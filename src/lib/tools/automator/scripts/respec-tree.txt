@@ -1,0 +1,5 @@
+# Respec: clears your Time Studies at the next Eternity and buys preset 2 instead.
+eternity respec
+studies load id 2
+notify "Switched to Time Study preset 2"
+stop

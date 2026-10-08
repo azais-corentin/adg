@@ -1,0 +1,7 @@
+# Stored time: stores Black Hole game time for 10 minutes, then uses it all at once.
+black hole on
+store game time on
+pause 10 min
+store game time off
+store game time use
+notify "Stored game time used"

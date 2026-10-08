@@ -1,0 +1,12 @@
+# Reality loop: Eternities that double your EP until a Reality pays the RM below.
+# The Automator starts this script again after every Reality.
+auto reality off
+auto eternity off
+studies nowait load id 1
+until pending rm >= 1e12 {
+  wait pending ep > ep
+  eternity
+  studies nowait load id 1
+  unlock nowait dilation
+}
+reality
