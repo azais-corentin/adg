@@ -23,9 +23,9 @@ The Challenges tab (triangle icon) offers **Normal Challenges**. Entering one st
 Every challenge reward unlocks or improves an autobuyer, so challenges are not optional content — they are how your automation grows. You can retry freely, and leaving a challenge keeps nothing but costs nothing either. If the Big Crunch autobuyer is on when you enter, it will crunch for you the moment you hit the goal.
 
 <Screen
-	src="early-eternity/challenges-normal-0.webp"
-	alt="The Challenges tab Normal subtab: challenge cards C1 to C4 with restriction text, Completed buttons and reward lines."
-	caption="Normal Challenges. Each card states its restriction and its autobuyer reward."
+	src="early-infinity/challenges-main-0.webp"
+	alt="The Normal Challenges list on a fresh-Infinity save: the C1 card showing Reach Infinity for the first time with its 1st-Dimension-autobuyer reward, C2 beside it, and the retry and Big Crunch notes above."
+	caption="Normal Challenges on your first visit. Each card states its restriction and its autobuyer reward — start with C1."
 />
 
 ## The nine, in suggested order

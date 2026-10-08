@@ -31,13 +31,13 @@ Two milestones change the rules: the "Bulked Up" achievement (set every Dimensio
 
 1. **Dimension autobuyers (interval first, then bulk).** They do the moment-to-moment buying that every run is made of. Cheap and immediately felt.
 2. **Tickspeed autobuyer.** Same logic — it fires constantly, so interval pays off fast.
-3. **Dimboost/Galaxy autobuyers.** Set the Dimboost buyer to "only boost to unlock Dimensions until 4 Galaxies" early (the screenshot's setting): that keeps it from over-boosting while you still need Galaxies. Leave the galaxy cap **off** — capping galaxies to ~1000 to "avoid stalling" is stale advice; uncapped with buy-max is the modern standard.
+3. **Dimboost/Galaxy autobuyers.** Unlock them via C10/C11, then set the Dimboost buyer to "only boost to unlock Dimensions until 4 Galaxies" early: that keeps it from over-boosting while you still need Galaxies. Leave the galaxy cap **off** — capping galaxies to ~1000 to "avoid stalling" is stale advice; uncapped with buy-max is the modern standard.
 4. **Big Crunch autobuyer.** This one is special — see below.
 
 <Screen
-	src="early-eternity/autobuyers-main-0.webp"
-	alt="The Autobuyers tab: Automatic Big Crunch with a seconds box, Dimboosts and Galaxies cards with interval boxes, the Tickspeed autobuyer row and the Dimension autobuyer group."
-	caption="The Autobuyers tab. Intervals and the crunch-seconds box are all set here."
+	src="early-infinity/autobuyers-main-0.webp"
+	alt="The Autobuyers tab on a fresh-Infinity save: the Tickspeed autobuyer at 0.500 seconds and Dimension autobuyers below, each row reading Complete the challenge to upgrade interval."
+	caption="The Autobuyers tab at this stage. Finishing each Normal Challenge is what unlocks upgrading that row's interval."
 />
 
 ## Maxing the Big Crunch interval

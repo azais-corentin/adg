@@ -41,9 +41,9 @@ Once the 1-IP rows are done (about ten Infinities in), the next targets cost rea
 | <Num value="10" /> IP | Passively generate IP | 10× slower than your fastest run; first real idle income |
 
 <Screen
-	src="early-eternity/infinity-upgrades-0.webp"
-	alt="The Infinity tab Upgrades subtab: two columns of upgrade buttons with costs in IP, the Autobuy IP mult toggle, and the IP mult rebuyable at the top."
-	caption="The Infinity Upgrades grid. Columns unlock top to bottom."
+	src="early-infinity/infinity-upgrades-0.webp"
+	alt="The Upgrades subtab of the Infinity tab at 0 IP: the two 1-IP columns with their top-to-bottom unlock rule stated at the top."
+	caption="The Infinity Upgrades grid on your first visit. Each column unlocks top to bottom — spend that first IP at the top of either column."
 />
 
 Further up the right side sit the start-with-Boosts/Galaxy upgrades (<Num value="20" />–<Num value="300" /> IP) that skip the opening minutes of every run. They are quality of life first and speed second: buy them when runs feel slow to start, not before the multipliers above.

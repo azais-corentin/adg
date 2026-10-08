@@ -12,11 +12,16 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Checklist from '#lib/components/Checklist.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## Unlocking them
 
-Challenges 10, 11 and 12 stay locked until you have completed **16 Infinities**. The count, not IP, is the gate — fast small crunches get you there sooner than slow big ones. At 16 the three cards light up in the Challenges tab alongside the first nine.
+<Screen
+	src="early-infinity/challenges-main-2.webp"
+	alt="The bottom of the Normal Challenges list: C10, C11 and C12 cards each reading Infinity 16 times to unlock, with the Dimension Boost, Galaxy and Big Crunch autobuyer rewards."
+	caption="C10 to C12 still locked behind 16 Infinities. Each names its autobuyer reward — C12's Big Crunch buyer is the prize."
+/>
 
 <!-- lockedAt 16 Infinities: src/lib/data/generated/challenges.json -->
 
