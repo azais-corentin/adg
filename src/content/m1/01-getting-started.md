@@ -49,7 +49,7 @@ Tabs for layers you haven't reached yet, such as Infinity and Eternity, stay hid
 The subtabs of the current tab are listed below the bar. Each tab remembers the subtab you last opened, so the Dimensions tab may not open on Antimatter.
 
 <Screen
-	src="early-eternity/dimensions-antimatter-0.webp"
+	src="early-eternity/dimensions-antimatter-top.webp"
 	alt="The Antimatter subtab of the Dimensions tab: antimatter and Dimension amounts, prestige buttons above the tab bar, and the Antimatter, Infinity and Time subtabs below it."
 	caption="The Dimensions tab at early Eternity. The round prestige buttons sit above the tab bar, and the subtabs below it."
 />

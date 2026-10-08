@@ -2,7 +2,7 @@
 
 Later-stage saves for loading into the emulator (`bun run device:load fixtures/saves/community/<file>`, see `docs/device/EMULATOR.md`).
 All of them come from **AD Save Bank** by Buck4437: <https://github.com/Buck4437/save-bank> (site: <https://buck4437.github.io/save-bank/>), **MIT License**, pinned at commit [`60b77a0`](https://github.com/Buck4437/save-bank/tree/60b77a00b1901a8345f450cf1896c5ab51b104f6) (2026-05-31). Retrieved 2026-10-08.
-Each file holds the save's `data` string exactly as published, with no trailing newline.
+Each file holds the save's `data` string exactly as published, with no trailing newline. The exceptions are the five pre-Reality saves marked _converted_ below.
 
 The bank's README credits the original save archive by earthernsence and its donors (Hira, Lars, GSUI5051, Alex9127, and others). The pre-Reality saves carry no per-save donor.
 
@@ -10,9 +10,11 @@ File names are stage ids from `src/lib/stages.ts`. The exception is `early-reali
 
 | File | Source (file and save name in the bank) | What it shows |
 | ---- | ---------------------------------------- | ------------- |
-| `eternity-challenges.txt` | [`src/eternity-challenge.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/eternity-challenge.js): "1e27 EP/219 TT" | Eternity Challenges in progress: EC1×5, EC2×4, EC3×5, EC4–6×3, EC7×2, EC8×1; 1e27 EP, 219 Time Theorems. Pre-Reality legacy save (plain base64 JSON, `version` 12.1). |
-| `early-dilation.txt` | [`src/time-dilation-dilation.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/time-dilation-dilation.js): "e1347 EP/3e3 TP" | Time Dilation unlocked and run: all dilation upgrades up to 1e7 Dilated Time; e1347 EP, 3e3 Tachyon Particles. Legacy save (`version` 12.3). |
-| `late-eternity.txt` | [`src/time-dilation-dilation.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/time-dilation-dilation.js): "e3451 EP" | Late Eternity: all dilation upgrades, Time Dimensions 5–8 unlocked and bought; e3451 EP. Legacy save (`version` 12.3). |
+| `pre-infinity.txt` | [`src/pre-infinity.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/pre-infinity.js): "2 Galaxies" | Pre-Infinity: 2 Antimatter Galaxies, just after the Galaxy reset. _Converted._ |
+| `break-infinity.txt` | [`src/post-break.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/post-break.js): "1e40 IP" | Broken Infinity, Infinity Challenge 1 completed: 1e40 IP, 8,584 Infinities, 29 Galaxies. _Converted._ |
+| `eternity-challenges.txt` | [`src/eternity-challenge.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/eternity-challenge.js): "1e27 EP/219 TT" | Eternity Challenges in progress: EC1×5, EC2×4, EC3×5, EC4–6×3, EC7×2, EC8×1; 1e27 EP, 219 Time Theorems. _Converted._ |
+| `early-dilation.txt` | [`src/time-dilation-dilation.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/time-dilation-dilation.js): "e1347 EP/3e3 TP" | Time Dilation unlocked and run: dilation upgrades up to 1e7 Dilated Time; e1347 EP, 3e3 Tachyon Particles. _Converted._ |
+| `late-eternity.txt` | [`src/time-dilation-dilation.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/time-dilation-dilation.js): "e3451 EP" | Late Eternity: all dilation upgrades, Time Dimensions 5–8 unlocked and bought; e3451 EP. _Converted._ |
 | `early-reality-first.txt` | [`src/reality.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/reality.js): "1 Reality/Pre-Infinity/2 RM" (donor: Buck) | Right after the first Reality: 1 Reality, 2 RM, back in Pre-Infinity. |
 | `early-reality.txt` | [`src/reality.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/reality.js): "6 Realities" (donor: Buck) | 6 Realities, Black Hole unlocked. |
 | `teresa.txt` | [`src/celestial-1.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/celestial-1.js): "1e14 RM" (donor: Buck) | Teresa (Celestial 1) Reality completed; 1e14 RM, 426 Realities. |
@@ -24,7 +26,7 @@ File names are stage ids from `src/lib/stages.ts`. The exception is `early-reali
 | `laitela.txt` | [`src/imaginary.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/imaginary.js): "1e10 iM" (donor: Buck) | Lai'tela (Celestial 6) destabilized ×4, 4th Dark Matter Dimension unlocked; 1e10 iM. |
 | `pelle.txt` | [`src/celestial-7-eternity-challenge.js`](https://github.com/Buck4437/save-bank/blob/60b77a00b1901a8345f450cf1896c5ab51b104f6/src/celestial-7-eternity-challenge.js): "8e6 Remnants/1750 TT" (donor: Buck) | Pelle (Celestial 7, Doomed): 8e6 Remnants, 1750 TT, EC1–9×5, EC10×1. |
 
-Formats: the three pre-Reality saves are the legacy plain-base64 JSON (`eyJ…`), which Android 3.18.0 accepts in **Import save** (verified in the emulator). The others are web/Steam `AntimatterDimensionsSavefileFormatAAB…EndOfSavefile` strings.
+_Converted_: the bank publishes these as legacy pre-Reality saves (plain base64 JSON `eyJ…`, `version` 12.x). On 2026-10-08 each was imported into Android 3.18.0 in the emulator with `bun run device:load`, which resets only `lastUpdate`. It was then re-exported with **Export to web/steam** (`bun run device:export`). The file therefore holds the app's own web/Steam export (`version` 25) of that state, taken under a minute after the import. All other files are web/Steam `AntimatterDimensionsSavefileFormatAAB…EndOfSavefile` strings as published.
 
 ## License
 
