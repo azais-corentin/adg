@@ -58,6 +58,12 @@ The run back up feels familiar but faster: Autobuyers, challenges and milestones
 
 Your first Glyph is fixed: a Power glyph with Antimatter Dimension power, plus a Companion glyph that records the EP you Realitied with. Equip both on the Glyphs tab. Your first Perk Point starts the perk tree on the Perks subtab.
 
+<Screen
+	src="early-reality/reality-glyphs-0.webp"
+	alt="The Glyphs subtab after the first Reality: the Duplicated-Power equipped effects, the Reality study prompt, equipped circles and the Start-this-Reality-over button."
+	caption="The Glyphs tab after your first Reality. Equip the starting Power glyph and Companion here; the Perks subtab takes your first Perk Point."
+/>
+
 ## Further reading
 
 - In-game How to Play: Reality (Info tab → How to play) — the exact reset and RM rules for your build.

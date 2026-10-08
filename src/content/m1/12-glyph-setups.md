@@ -11,7 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
-</script>
+	import Screen from '#lib/components/Screen.svelte';
 
 ## How to read an effect
 
@@ -48,6 +48,12 @@ Once you have 3–4 slots and a leveled Black Hole, runs live or die on Tachyon 
 With 5 slots and fast runs, Dilation stops helping RM pushes. Set up two saved sets (the Glyph Presets button stores them) and swap per goal: an **RM push set** (Power/Infinity mix with the best raw multipliers) for beating your max-EP record, and a **glyph-level farming set** (Time plus Dilation/Replication with Tachyon Galaxy threshold) for raising future glyph levels. Tables61's guide works through the exact effect picks per set — use its reasoning, not a fixed list, since your best rolls decide.
 
 Do not chase perfect rolls — a full set of good-enough glyphs at high level beats two perfect ones at low level. Level comes from pushing EP, Replicanti and Dilated Time each Reality, which the Black Hole and Reality Upgrades accelerate.
+
+<Screen
+	src="early-reality/statistics-glyphsets-top.webp"
+	alt="The Statistics tab Glyph Sets subtab: saved glyph records including Transient and Duplicated Power sets, best glyph level, and fastest Reality."
+	caption="Saved glyph sets in Statistics. Store the RM push set and the glyph-level farming set here and swap per goal."
+/>
 
 <Callout kind="tip">
 

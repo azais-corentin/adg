@@ -11,7 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
-</script>
+	import Screen from '#lib/components/Screen.svelte';
 
 ## Unlock it, then sacrifice everything spare
 
@@ -36,7 +36,11 @@ Power and Replication sacrifice push galaxy scalings back — the same walls tha
 
 ## How to do it on Android
 
-Tap the sacrifice control on the unwanted glyph and confirm. With the unlock bought, the Reality button also offers to sacrifice the newly gained glyph instead of keeping it — say yes for anything that does not beat your worn set. The Sacrifice Type panel shows each type's current bonus; the Glyph Filter panel can auto-sacrifice new glyphs below your standards when the filter unlocks later.
+<Screen
+	src="early-reality/reality-glyphs-0.webp"
+	alt="The Glyphs subtab: the Current Glyph effects and Glyph Sacrifice totals panels above the equipped circles."
+	caption="Sacrifice totals live on the Glyphs subtab next to the equipped effects. Each type's permanent bonus grows every time you sacrifice that glyph."
+/>
 
 <Callout kind="warning">
 

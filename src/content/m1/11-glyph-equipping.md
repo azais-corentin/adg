@@ -29,9 +29,9 @@ Your first glyph is fixed: a Power glyph with Antimatter Dimension power at slig
 Open the **Reality** tab (rocket icon) and the **Glyphs** subtab. Your inventory is the grid; your equipped glyphs are the circles in the middle; their combined effects list on the right.
 
 <Screen
-	src="ra/reality-glyphs-0.webp"
-	alt="The Glyphs subtab: equipped glyph circles in the middle, the inventory grid below, and the combined effects list."
-	caption="The Glyphs subtab. Circles in the middle are equipped; the grid below is inventory."
+	src="early-reality/reality-glyphs-0.webp"
+	alt="The Glyphs subtab after the first Reality: the Current Glyph effects panel showing Duplicated Power, the Reality study prompt, and equipped circles with the restart button."
+	caption="The Glyphs subtab on your first Reality. Circles in the middle are equipped; combined effects list above them."
 />
 
 - **Equip:** drag a glyph from the inventory into an empty circle, or tap it for the equip option. It applies immediately.
@@ -42,9 +42,9 @@ Open the **Reality** tab (rocket icon) and the **Glyphs** subtab. Your inventory
 You start with **3 active slots** (plus the Companion, which rides along free). The Reality Upgrades Linguistically Expand and Synthetic Symbolism each add one more, for 5 total. <!-- vendor/ad-source/src/core/glyphs/glyph-core.js (activeSlotCount) -->
 
 <Screen
-	src="ra/reality-glyphs-1.webp"
-	alt="A glyph detail sheet: type, level, rarity, effects and sacrifice value."
-	caption="Tapping a glyph shows its stats. Compare level and rarity before choosing."
+	src="early-reality/reality-glyphs-3.webp"
+	alt="The Glyphs UI options panel: Sort Glyphs, Protected Slots row controls, Auto Glyph Sort mode and Auto-collapse space."
+	caption="Protected rows and auto-sort live in the options panel. New glyphs never land in protected rows — keep your worn set there."
 />
 
 <Callout kind="android">
