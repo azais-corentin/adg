@@ -41,9 +41,9 @@ If an upgrade looks unaffordable, check the cap, not your wallet. Time fills cur
 Unlocking iM adds an **Imaginary Upgrades** subtab to the Reality tab, next to Glyphs, Upgrades, Perks, Black Hole and Alchemy. It works like the Reality Upgrades list: each upgrade has an unlock condition you must meet first, then an iM price. The first two rows are repeatable (rebuyable); the rest are one-time purchases. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1614-1643 -->
 
 <Screen
-	src="ra/reality-alchemy-0.webp"
-	alt="The Alchemy subtab of the Reality tab: resource amounts against their caps, prestige buttons above the tab bar, and the Glyphs, Upgrades, Perks, Black Hole and Alchemy subtabs below it."
-	caption="The Reality tab on Android. Imaginary Upgrades appears as another subtab here once iM unlock."
+	src="imaginary-machines/reality-imaginary-0.webp"
+	alt="The top of the Imaginary Upgrades subtab: the Machine cap line, the passive refill explanation, the requirement-lock note, and the first repeatable upgrade rows."
+	caption="The Imaginary Upgrades subtab. The header states the cap and the refill rule; the repeatables sit at the top."
 />
 
 Upgrades whose requirement you could fail by accident (buying something you should not, entering the wrong challenge) can be **locked** from the upgrade button: locking blocks the failing action until you unlock it again. Use it. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:168,223-224 -->

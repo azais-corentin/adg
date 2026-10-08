@@ -11,6 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## How this list works
@@ -30,6 +31,12 @@ Every upgrade below is one-time: meet its task, pay its iM price, and its effect
 | 23 | Planar Purification | 6e14 | Make a level-20000 glyph in Ra's Reality with no glyphs equipped | Free Dimboosts from Tesseract count |
 | 24 | Absolute Annulment | 6e14 | Hold 13,000 Galaxies in Ra's Reality with a fully inverted Black Hole | Free Dimboost strength from Singularity count |
 | 25 | Omnipresent Obliteration | <Num value="1.6e15" /> | Reality inside Lai'tela's Reality with all Dimensions disabled and 4+ empty glyph slots | Unlock Pelle |
+
+<Screen
+	src="imaginary-machines/reality-imaginary-5.webp"
+	alt="The lower Imaginary Upgrades list: upgrades 19 through 25 with their tasks, prices, and requirement-lock toggles."
+	caption="The one-time upgrades 19 to 25. Lock each one before its attempt so a stray purchase cannot fail the task."
+/>
 
 ## Notes on the awkward ones
 
