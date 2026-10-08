@@ -1,8 +1,8 @@
 ---
-title: Infinity Dimensions and Infinity Power
+title: 'Infinity Dimensions and Infinity Power'
 stage: break-infinity
 order: 11
-summary: What Infinity Dimensions cost, how Infinity Power boosts everything, and the push order to all eight.
+summary: 'What Infinity Dimensions cost, how Infinity Power boosts everything, and the push order to all eight.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
