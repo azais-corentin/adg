@@ -27,12 +27,12 @@ Chunk income per pet, from the game's own definitions: <!-- vendor/ad-source/src
 
 | Pet | Chunk rate grows with | Memory rate grows with |
 | --- | --- | --- |
-| Teresa | Eternity Points inside Ra's Reality | Current Reality Machines |
-| Effarig | Relic Shards gained | Best Glyph level |
-| Nameless Ones | Time Shards | Total time played |
-| V | Infinity Power | Total pet levels |
+| Teresa | Eternity Points inside Ra's Reality | Current Reality Machines (via the Teresa-5 unlock once bought) |
+| Effarig | Relic Shards gained on Reality | Best Glyph level (via the Effarig-5 unlock once bought) |
+| Nameless Ones | Time Shards | Total time played (via the Nameless-5 unlock once bought) |
+| V | Infinity Power | Total pet levels (via the V-5 unlock once bought) |
 
-In practice: push EP hard for Teresa chunks, push shard gain and Glyph level for Effarig, keep the Black Hole charged and the game running for Nameless, and hold as many Space Theorems as possible for V.
+In practice: push EP hard for Teresa chunks, push shard gain and Glyph level for Effarig, keep the Black Hole charged and the game running for Nameless, and hold as many Theorems as you can; V's memory multiplier scales with total pet levels.
 
 <Screen
 	src="ra/celestials-ra-3.webp"
@@ -55,11 +55,11 @@ Before each gate, that pet's panels show locked. Do not spread Memories thin ear
 
 Every pet has unlocks at levels 1, 2, 5, 8 or 6, 10, 15 and 25. The ones that change how you play: <!-- vendor/ad-source/src/core/secret-formula/celestials/ra.js `unlocks` -->
 
-**Teresa** — 1: instant Tachyon Particles in Dilation. 2: Charged Infinity Upgrades (one more slot every 2 Teresa levels, up to 12). 5: memories scale with RM. 10: Altered Glyphs (new Glyph effects from sacrifice). 15: bigger Perk Shop caps. 25: free starting Tachyon Particles in normal Realities.
+**Teresa** — 1: instant Tachyon Particles in Dilation. 2: Charged Infinity Upgrades (one more slot every 2 Teresa levels, up to 12). 5: memories scale with RM. 8: Effarig's memories. 10: Altered Glyphs (new Glyph effects from sacrifice). 15: bigger Perk Shop caps. 25: free starting Tachyon Particles in normal Realities.
 
-**Effarig** — 1: double Glyph choices, maxed shard rarity bonus. 2: **Glyph Alchemy** (see [Glyph Alchemy](/guide/m2/glyph-alchemy)). 5: memories scale with best Glyph level. 10: Glyphs always have 4 effects. 15: Glyph level bonus from shards. 25: always max rarity, sacrifice boosts alchemy.
+**Effarig** — 1: double Glyph choices, maxed shard rarity bonus. 2: **Glyph Alchemy** (see [Glyph Alchemy](/guide/m2/glyph-alchemy)). 5: memories scale with best Glyph level. 8: the Nameless Ones' memories. 10: Glyphs always have 4 effects (and Effarig Glyphs can roll up to 7). 15: Glyph level bonus from shards. 25: always max rarity, sacrifice boosts alchemy.
 
-**Nameless** — 1: Black Hole power autobuyers. 2: amplified stored game time, more real-time storage per level. 5: memories scale with playtime. 10: near-free Black Hole charging plus auto-discharge. 15: Dilated Time from peak game speed. 25: every basic Glyph gains the Time Glyph's speed effect.
+**Nameless** — 1: Black Hole power autobuyers. 2: amplified stored game time, more real-time storage per level. 5: memories scale with playtime. 8: V's memories. 10: near-free Black Hole charging plus auto-discharge. 15: Dilated Time from peak game speed. 25: every basic Glyph gains the Time Glyph's speed effect.
 
 **V** — 1: auto-bought rebuyable Reality upgrades, instant auto-ECs. 2: free auto-Dilation in normal Realities. 5: memories scale with total pet levels. 6: hard V + triads, one per 6 V levels. 10: Time Theorems boost all continuous production (up to 10× at very high TT). 15: achievement multiplier on TT gain. 25: achievement multiplier raised to 1.5.
 

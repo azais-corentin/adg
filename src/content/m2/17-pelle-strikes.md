@@ -21,7 +21,7 @@ Toggle a Rift to Idle when you need its resource for something else (buying upgr
 
 ## The five Strikes
 
-**Strike 1 — first Infinity.** Antimatter Dimensions are raised to the 0.5th power (square-rooted). Unlocks the **Vacuum** Rift, which drains Infinity Points and multiplies IP gain. Its first milestones re-allow one basic glyph (4% fill) and slash Replicanti unlock costs (6%), so push it early. Trigger: Big Crunch inside Doom. <!-- vendor/ad-source/src/core/secret-formula/celestials/strikes.js:5-12 vendor/ad-source/src/core/big-crunch.js:58 -->
+**Strike 1 — first Infinity.** Antimatter Dimensions are raised to the 0.5th power (square-rooted). Unlocks the **Vacuum** Rift, which drains Infinity Points and multiplies IP gain. Its first milestones re-allow one basic glyph (4% fill) and slash Replicanti unlock costs (6%), so push it early. Trigger: Crunch inside Doom. <!-- vendor/ad-source/src/core/secret-formula/celestials/strikes.js:5-12 vendor/ad-source/src/core/big-crunch.js:58 -->
 
 **Strike 2 — the Galaxy-strength Break Infinity upgrade.** Infinity Dimensions are raised to the 0.5th power. Unlocks the **Decay** Rift, draining Replicanti and boosting Replicanti speed. Its milestones feed your 1st Infinity Dimension and add Replicanti Galaxies. Because Infinity Dimensions are halved, skip the Infinity-Dimension Time Study path in Doom — Antimatter or Time paths pull ahead. Trigger: buying that Break upgrade inside Doom. <!-- vendor/ad-source/src/core/secret-formula/celestials/strikes.js:13-19 vendor/ad-source/src/core/break-infinity-upgrades.js:11-17 -->
 

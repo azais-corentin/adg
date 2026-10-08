@@ -15,7 +15,7 @@ verified:
 
 ## Filling Rifts to full
 
-Each Rift's effect scales with its total fill, and its three milestones sit at fixed percentages — Vacuum at 4%, 6% and 40%; Decay at 20%, 60% and 100%; Chaos at 9%, 15% and 100%; Recursion at 10%, 15% and 100%; Paradox at 15%, 25% and 50%. The last milestone of each is the prize (passive EP income, extra Replicanti Galaxies, Galaxy Generator access, conversion-rate boosts), so plan fills around them. <!-- vendor/ad-source/src/core/secret-formula/celestials/rifts.js:27-46,66-94,124-141,157-178,194-220 -->
+Each Rift's effect scales with its total fill, and its three milestones sit at fixed percentages — Vacuum at 4%, 6% and 40%; Decay at 20%, 60% and 100%; Chaos at 9%, 15% and 100%; Recursion at 10%, 15% and 100%; Paradox at 15%, 25% and 50%. The 100%-fill milestones are the big prizes (extra Replicanti Galaxies, passive EP income, Galaxy Generator access), so plan fills around them. <!-- vendor/ad-source/src/core/secret-formula/celestials/rifts.js:27-46,66-94,124-141,157-178,194-220 -->
 
 Filling drains 3% of the linked resource per second per active Rift, two at most. Practical consequences:
 

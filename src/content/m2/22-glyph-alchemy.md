@@ -34,10 +34,10 @@ The catch is the cap: each resource's cap equals the best refinement you have ev
 
 Base resources combine through reactions into higher tiers. Each reaction consumes fixed amounts of its reagents and produces the next resource up: <!-- vendor/ad-source/src/core/secret-formula/celestials/alchemy.js -->
 
-- **Base (tier 1):** Power (AD power), Infinity (ID power), Time (TD power), Replication (replication speed), Dilation (DT gain), Effarig (shard gain). Unlocked across Effarig levels 2–7.
+- **Base (tier 1):** Power (AD power), Infinity (ID power), Time (TD power), Replication (replication speed), Dilation (DT gain), Effarig (shard gain). Unlocked across Effarig levels 2–7 (Effarig itself at 7).
 - **Tier 2:** Cardinality (softer Replicanti cap), Eternity (Eternity generation power), Dimensionality (all-Dimensions multiplier), Inflation (huge multipliers get extra power), Alternation (stronger Tachyon Galaxies). Unlocked across Effarig levels 8–12.
-- **Tier 3:** Synergism (better reaction yields), Momentum (all-Dimensions power that grows hourly in real time), Decoherence (refining also feeds every other base resource). Unlocked around Effarig levels 13–15.
-- **Tier 4:** Exponential (IP from Replicanti), Force (ADs from RM), Uncountability (passive Realities and Perk Points), Boundless (stronger Tesseracts), Multiversal (each Reality simulates extras), Unpredictability (reactions can fire twice). Unlocked across Effarig levels 16–21.
+- **Tier 3:** Synergism (better reaction yields), Momentum (all-Dimensions power that grows hourly in real time), Decoherence (refining also feeds every other base resource). Unlocked at Effarig levels 13 (Synergism), 14 (Decoherence) and 15 (Momentum).
+- **Tier 4:** Multiversal (each Reality simulates extras), Force (ADs from RM), Exponential (IP from Replicanti), Uncountability (passive Realities and Perk Points), Boundless (stronger Tesseracts), Unpredictability (reactions can fire twice). Unlocked across Effarig levels 16–21.
 - **Tier 5:** Reality itself — consume one of each tier-4 resource to forge a Reality Glyph whose level equals the amount consumed. Unlocked at Effarig level 25.
 
 <Screen

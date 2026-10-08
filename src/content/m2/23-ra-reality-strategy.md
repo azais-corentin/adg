@@ -48,7 +48,7 @@ Teresa 2 opens Charged Infinity Upgrades: pick a limited set of Infinity Upgrade
 
 <Callout kind="warning">
 
-Ra's Reality gives only 4 Dimension Boosts and no more inside. If a run's climb stalls at the same spot repeatedly, the answer is account power (Glyphs, alchemy, triads, charges) — not longer runs.
+Ra's Reality allows zero Dimension Boosts inside. If a run's climb stalls at the same spot repeatedly, the answer is account power (Glyphs, alchemy, triads, charges) — not longer runs.
 
 </Callout>
 

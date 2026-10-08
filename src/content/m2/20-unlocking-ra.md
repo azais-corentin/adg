@@ -23,7 +23,7 @@ On the Celestial map, Ra's node sits apart from the rest. Tap it once for detail
 
 The tab has three parts, top to bottom:
 
-1. **Start Ra's Reality** with its restriction text: you keep only 4 Dimension Boosts, gain no more inside, and the tickspeed purchase multiplier sticks at ×1.125. <!-- screenshots + vendor/ad-source/src/core/dimboost.js:56-60, tickspeed.js:24 -->
+1. **Start Ra's Reality** with its restriction text: no Dimension Boosts can be bought inside at all (the max is 0), and the tickspeed purchase multiplier sticks at ×1 ÷ 1.1245. <!-- vendor/ad-source/src/core/dimboost.js:56-60 (maxBoosts 0 in Ra), tickspeed.js:24,41 (÷1.1245 in Ra) -->
 2. **Remembrance**, locked until your four pets total level 20. One Celestial holds it at a time: ×5 Memory Chunk gain for that one, ×0.5 for the other three. <!-- vendor/ad-source/src/core/celestials/ra/ra.js `remembrance`: multiplier 5, nerf 0.5, requiredLevels 20 -->
 3. **One panel per pet** — Teresa, Effarig, the Nameless Ones, V — each with a level bar (cap 25), Memory Chunk and Memories counters, upgrade arrows, and its unlock icons underneath. Level-ups and unlocks are bought with Memories by tapping the arrows and icons.
 
@@ -47,7 +47,7 @@ Expect the first few runs to feel slow. Chunk rates scale with how far you push 
 
 <Callout kind="tip">
 
-Ra's Reality locks Dimension Boosts at 4 total — bank any free or purchasable Boosts before entering, since you cannot buy more inside. Tickspeed is fixed too, so lean on galaxies and glyphs for scaling.
+Ra's Reality buys no Dimension Boosts at all — the big early-game multipliers that come free or cheap (including the starting ones) are all you get inside. Tickspeed is fixed too, so lean on galaxies and glyphs for scaling.
 
 </Callout>
 
