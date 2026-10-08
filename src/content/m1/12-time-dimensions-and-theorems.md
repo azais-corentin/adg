@@ -24,8 +24,8 @@ Time Shards give free Tickspeed upgrades as they accumulate, so Time Dimensions 
 
 <Screen
 	src="early-eternity/dimensions-time-top.webp"
-	alt="The Time subtab of the Dimensions tab: Time Shards and Tickspeed at the top, Time Dimensions 1 to 4 with EP costs, the Time Theorems button, and the Buy max Time Dimensions toggle."
-	caption="The Time subtab. Time Dimensions cost EP, and the Time Theorems button sits near the top."
+	alt="The Time subtab at 13 Eternities: Time Shards and Tickspeed at the top, Time Dimensions 1 to 4 with their EP costs, and the 5th Time Dimension showing its 1e6-TT unlock."
+	caption="The Time subtab. Time Dimensions cost EP, and locked rows name the study that unlocks them."
 />
 
 <Callout kind="tip">

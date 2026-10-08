@@ -20,9 +20,9 @@ verified:
 Eternity unlocks when a single run's peak reaches <Num value="1.79e308" /> IP — the same digits-of-Infinity figure as the first Big Crunch, one layer up. The Eternity button appears above the tab bar (its purple hourglass joins the floating prestige row) and the top box of the Break subtab starts counting down to it. <!-- src/core/player.js:949-951 (`canEternity`), src/game.js:156-159 (`requiredIPForEP`, floor of 1.79e308 IP) -->
 
 <Screen
-	src="early-eternity/infinity-break-0.webp"
-	alt="Top of the Break subtab showing the Eternity gain box with the next-EP threshold and the IP gain box."
-	caption="The top of the Break subtab near Eternity: the purple box tracks progress to the next EP."
+	src="replicanti/infinity-break-0.webp"
+	alt="The top of the Break subtab late in the push: the total and current antimatter multipliers, the Infinities and achievement multipliers, and the challenge-time multiplier rows."
+	caption="The Break subtab near the Eternity push. Spend everything here before tapping Eternity — unspent IP does not carry over."
 />
 
 From the Replicanti unlock at <Num value="1e140" /> IP this takes a while — the community's longest Infinity stretch, on the order of days. The shape of it:

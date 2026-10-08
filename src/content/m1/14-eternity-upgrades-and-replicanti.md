@@ -22,8 +22,8 @@ The **Upgrades** subtab of the Eternity tab holds six one-time upgrades plus the
 
 <Screen
 	src="early-eternity/eternity-upgrades-top.webp"
-	alt="The Upgrades subtab of the Eternity tab: the EP multiplier at the top, then upgrades costing 5, 10, 50,000, 1e16, 1e40 and 1e50 EP."
-	caption="The Eternity Upgrades subtab. Costs run from 5 EP to 1e50 EP."
+	alt="The Upgrades subtab at 10 EP: the ×5 EP multiplier at 500 EP on top, then the 5-EP unspent-EP upgrade and the challenge-times upgrade below."
+	caption="The Eternity Upgrades subtab. Costs run from 5 EP to 1e50 EP — the multiplier on top first."
 />
 
 | Cost | Effect |
@@ -48,8 +48,8 @@ Replicanti survive into Eternity play and stay important: their multiplier boost
 
 <Screen
 	src="early-eternity/infinity-replicanti-top.webp"
-	alt="The Replicanti subtab of the Infinity tab: Replicanti amount and growth, chance, interval and max-galaxy upgrade buttons, the galaxy count, and the reset-for-galaxy and auto-galaxy buttons."
-	caption="Replicanti mid-Eternity: chance, interval and max-galaxy upgrades, with auto-galaxy on."
+	alt="The Replicanti subtab in early Eternity: Replicanti amount and growth, the Chance, Interval and Max Galaxies upgrade buttons, and the galaxy button with auto-galaxy."
+	caption="Replicanti mid-Eternity: Chance, Interval and Max Galaxies across the top, the galaxy button below — keep auto-galaxy on."
 />
 
 Keep the **auto-galaxy** toggle on and feed chance, interval and max-galaxy upgrades from the Infinity tab. Study 62 triples Replicanti speed for 3 TT and is worth an early slot; the pace-split studies behind 121/122/123 add galaxy bonuses later.

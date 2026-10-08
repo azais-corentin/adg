@@ -24,8 +24,8 @@ Eternity Points grow with your best IP this Eternity, but slowly: roughly, each 
 
 <Screen
 	src="early-eternity/dimensions-antimatter-top.webp"
-	alt="The Antimatter subtab of the Dimensions tab: the Eternity and Infinity Point boxes at the top, and the prestige buttons above the tab bar."
-	caption="The top of the Dimensions tab shows what an Eternity would give you right now."
+	alt="The Antimatter subtab at 13 Eternities: the Eternity-for-5-EP and next-EP-at-3.10e558-IP box, the IP gain box, the Sacrifice ×2.00 row and the Dimension rows below."
+	caption="The top of the Dimensions tab shows what an Eternity would give you right now — here, 5 EP with the next EP at 3.10e558 IP."
 />
 
 ## What resets and what stays

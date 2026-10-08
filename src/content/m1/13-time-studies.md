@@ -19,14 +19,14 @@ The **Studies** subtab of the Eternity tab shows the Time Study tree: rows of nu
 
 <Screen
 	src="early-eternity/eternity-studies-0.webp"
-	alt="The top of the Studies subtab: a Buy max Theorems button and Time Theorem counts, a study loadout selector, the import and export buttons, a respec button, and the Time Study presets row."
-	caption="The top of the Studies subtab: theorem counts, loadouts, import/export, respec — and presets below."
+	alt="The top of the Studies subtab: Buy max Theorems, the three Buy Time Theorems buttons with antimatter, IP and EP costs, Respec, Export and Import tree, and the study presets row."
+	caption="The top of the Studies subtab: Buy max Theorems, the three currency rows, respec and import/export — presets below."
 />
 
 <Screen
 	src="early-eternity/eternity-studies-1.webp"
-	alt="The study tree: study 11 at the top, rows for studies 21 to 62 below, EC study boxes on the right edge, and the prestige buttons above the tab bar."
-	caption="The tree itself. Tap a study to buy it; hold a study to buy every study up to that point."
+	alt="The study tree: numbered study rows from 11 down through the 60s, EC study boxes on the right edge, and the prestige buttons above the tab bar."
+	caption="The tree itself. Tap a study to buy it; touch and hold a study to buy every study up to that point."
 />
 
 <Callout kind="android">

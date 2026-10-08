@@ -19,9 +19,9 @@ verified:
 Replicanti unlock on the **Infinity tab's Replicanti subtab** for a one-time payment of <Num value="1e140" /> IP. The button appears once you can nearly afford it; tapping it starts you with 1 Replicanti. (On later Eternities a milestone hands you Replicanti unlocked from the start — first time through, you pay.) <!-- src/core/replicanti.js:517-528 (`Replicanti.unlock`, cost 1e140 IP) -->
 
 <Screen
-	src="early-eternity/infinity-replicanti-top.webp"
-	alt="The Replicanti subtab: Replicanti count and growth readout, the Chance, Interval and Max Galaxies upgrade buttons with costs, and the galaxy button."
-	caption="The Replicanti subtab. Three upgrade buttons at the top, the galaxy button below them."
+	src="replicanti/infinity-replicanti-top.webp"
+	alt="The Replicanti subtab at this stage: 1.47e129 Replicanti boosting IDs by ×1.84e5, Chance 12%, Interval 167 ms, Max RGs 5, one Replicanti Galaxy, and the galaxy countdown."
+	caption="The Replicanti subtab mid-growth. Chance, Interval and Max Galaxies across the top; the galaxy button and countdown below."
 />
 
 Replicanti are a self-copying currency. Each tick (each "replication interval") every Replicanti has a chance to copy itself, so the total grows exponentially — slowly at first, then explosively. Two numbers control the growth, and a third controls what the growth buys:

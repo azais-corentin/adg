@@ -21,7 +21,7 @@ The **Milestones** subtab of the Eternity tab lists rewards that unlock permanen
 
 <Screen
 	src="early-eternity/eternity-milestones-0.webp"
-	alt="The Milestones subtab of the Eternity tab: milestone cards for 1 through 5 Eternities, each showing its reward."
+	alt="The Milestones subtab at 13 Eternities: the 1-through-5 Eternity cards — IP multiplier autobuyer, start-with-challenges-and-broken-Infinity, Replicanti Galaxy autobuyer, start-with-all-Infinity-Upgrades."
 	caption="The start of the milestone ladder. Each card unlocks permanently at the shown Eternity count."
 />
 
@@ -48,8 +48,8 @@ Beyond these, milestones at 50, 60 and 80 unlock the Replicanti upgrade autobuye
 
 <Screen
 	src="early-eternity/eternity-milestones-1.webp"
-	alt="Milestone cards for 7 through 50 Eternities, including auto Infinity Challenges, Break Infinity Upgrades, and Replicanti unlocked."
-	caption="Milestones 7 to 50 remove the rest of the per-run setup."
+	alt="Milestone cards for 5 through 12 Eternities: crunch options, offline EP, auto Infinity Challenges, start-with-Break-upgrades, buy-max Galaxies, start-with-Replicanti, and the first ID autobuyers."
+	caption="Milestones 5 to 12 remove the rest of the per-run setup — offline EP, auto ICs, Break upgrades, Replicanti from the start."
 />
 
 <Callout kind="android">
