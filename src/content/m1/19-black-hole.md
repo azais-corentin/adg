@@ -19,8 +19,8 @@ verified:
 The Black Hole cycles: the game runs at normal speed for a while (interval), then bursts to a multiple of normal speed for a short time (duration), then repeats. Game-speed bursts beat tickspeed because they speed up **everything equally** — Infinity and Time Dimensions, Dilated Time and Theorem generation, even idle-path multipliers that tickspeed barely touches. Only effects the game explicitly calls real time (like the auto-EC perks) ignore it; everything else counts game time. <!-- in-game How to Play, "Black Hole" -->
 
 <Screen
-	src="ra/reality-blackhole-0.webp"
-	alt="The Black Hole subtab: interval, power and duration upgrades with costs and the cycle status."
+	src="early-reality/reality-blackhole-0.webp"
+	alt="The Black Hole subtab on an early Reality: the interval, power and duration upgrades with RM costs and the cycle status."
 	caption="The Black Hole. Interval, power and duration each upgrade separately with RM."
 />
 
@@ -39,9 +39,9 @@ Unlock costs <Num value="100" /> RM (achievement: Is this an Interstellar refere
 Buy **power first, then duration, then interval**: a stronger burst helps every cycle, a longer burst stretches it, and a shorter interval only matters once bursts are worth having often. Power's gentle ×2 cost scaling means it stays affordable the longest; duration's ×4 scaling bites fast, so alternate once power leads by a few levels. Keep the hole running during pushes — toggle it off only for timing-sensitive unlocks like fastest-Reality runs, where you want the clock slow, not fast.
 
 <Screen
-	src="ra/reality-blackhole-1.webp"
-	alt="Black Hole upgrades further down: higher levels, rising costs and the active/inactive status."
-	caption="Power first, then duration, then interval. Costs scale per upgrade."
+	src="early-reality/reality-blackhole-1.webp"
+	alt="Black Hole cycle status further down: the Inactive state with activation countdown, the 99.99% permanent-active note, and the upgrades list."
+	caption="Power first, then duration, then interval. The hole bursts inside its cycle — permanent activity is a long-term goal."
 />
 
 ## The second Black Hole

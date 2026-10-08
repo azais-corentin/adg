@@ -31,8 +31,8 @@ Five upgrades at <Num value="50" /> RM. Two change how the game plays; three are
 The Knowing Existence is the trap: completing EC1 even once locks it for that run, so do this Eternity before touching EC1. The Paradoxical Forever is the opposite — deliberately hold off the ×5 EP upgrade for one Eternity, then buy it.
 
 <Screen
-	src="ra/reality-upgrades-3.webp"
-	alt="Row 3 of the Reality Upgrades list: the five 50-RM upgrades."
+	src="early-reality/reality-upgrades-3.webp"
+	alt="Row 3 of the Reality Upgrades list at this stage: the 50-RM upgrades including Knowing Existence with its never-complete-EC1 requirement."
 	caption="Row 3: do Knowing Existence before your first EC1 clear."
 />
 
@@ -51,8 +51,8 @@ The Knowing Existence is the trap: completing EC1 even once locks it for that ru
 Scour to Empower changes the game: every spare glyph becomes permanent per-type bonuses (see Glyph sacrifice). Stop deleting glyphs once this row is in sight — you need 30 at once for its unlock. Parity of Singularity needs the Black Hole first, so days only start counting after that unlock.
 
 <Screen
-	src="ra/reality-upgrades-4.webp"
-	alt="Row 4 of the Reality Upgrades list: rarity, potency, forever, sacrifice and second Black Hole."
+	src="early-reality/reality-upgrades-5.webp"
+	alt="Row 4 of the Reality Upgrades list: Duplicity of Potency with its 4-glyph requirement, Scour to Empower with the 30-glyph requirement, and Measure of Forever."
 	caption="Row 4: rush Scour to Empower; Parity of Singularity needs Black Hole time."
 />
 
@@ -71,8 +71,8 @@ Scour to Empower changes the game: every spare glyph becomes permanent per-type 
 Buying all five (plus everything above) completes the set of 20 one-time upgrades and earns the Master of Reality achievement — which unlocks Teresa. Synthetic Symbolism's glyphless Reality is easier than it sounds: unequip everything, run with sacrifice bonuses and upgrades only, and Reality at 5,000 RM.
 
 <Screen
-	src="ra/reality-upgrades-5.webp"
-	alt="Row 5 of the Reality Upgrades list: the five 100,000-RM upgrades."
+	src="early-reality/reality-upgrades-6.webp"
+	alt="Row 5 of the Reality Upgrades list at this stage: the 100,000-RM upgrades with their galaxy, shard, speed, glyphless and EP-best unlocks."
 	caption="Row 5: buying all of these unlocks Teresa."
 />
 

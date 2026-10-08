@@ -29,8 +29,8 @@ In practice the Automator arrives in the first dozen Realities: Realities plus a
 The Automator lives in the **Automation** tab (gears icon), **Automator** subtab — the tab is called Autobuyers only before Reality unlocks. It runs scripts — lists of commands like `eternity`, `studies purchase`, `wait`, `unlock dilation` — that play the game for you.
 
 <Screen
-	src="ra/autobuyers-automator-0.webp"
-	alt="The Automator subtab: script list, transport buttons, the editor pane and the documentation panels."
+	src="early-reality/autobuyers-automator-0.webp"
+	alt="The Automator subtab on an early Reality: the script list, transport buttons, editor pane and documentation panels."
 	caption="The Automator. Buttons across the top run, pause and stop; the editor is in the middle."
 />
 
@@ -44,8 +44,8 @@ The transport row: play runs the script, pause freezes it, stop ends it, circula
 Start from the built-in templates (Climb EP, Grind Eternities, Grind Infinities, Complete Eternity Challenge, Unlock Dilation) or adg's verified library on the [Automator scripts](/tools/automator) page. A minimal early loop looks like: buy studies, wait for EP to beat its record, Eternity, reload studies, repeat. Keep scripts short — each is capped at 10,000 characters, 20 scripts and 30 constants total, with names capped at 15 characters. <!-- in-game How to Play, "Automator Technical Details"; vendor/ad-source/src/core/automator/automator-backend.js -->
 
 <Screen
-	src="ra/autobuyers-automator-1.webp"
-	alt="An Automator text script with studies, wait and eternity commands, and the Script Constants panel below."
+	src="early-reality/autobuyers-automator-1.webp"
+	alt="An Automator text-mode script on an early Reality: studies, wait and eternity commands with the Script Constants panel below."
 	caption="A text-mode script. if/until blocks and constants keep longer runs tidy."
 />
 

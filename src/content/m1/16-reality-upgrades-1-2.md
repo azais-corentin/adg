@@ -27,8 +27,8 @@ Row 1 holds five repeatable upgrades. Each level multiplies one currency's gain 
 | Boundless Amplifier | <Num value="3" /> RM | ×5 Infinities |
 
 <Screen
-	src="ra/reality-upgrades-1.webp"
-	alt="Row 1 of the Reality Upgrades list: the five amplifiers with their costs and levels."
+	src="early-reality/reality-upgrades-1.webp"
+	alt="Row 1 of the Reality Upgrades list at 3 RM: the Temporal, Replicative and Eternal amplifiers with costs and levels."
 	caption="Row 1: the five repeatable amplifiers. Buy Dilated Time and Tachyon first."
 />
 
@@ -49,8 +49,8 @@ Row 2 upgrades cost <Num value="15" /> RM each, but each must first be **unlocke
 Existentially Prolong is the prize: start every Reality with 100 Eternities, which fires the EU1 perk's free Eternity Upgrades immediately. Linguistically Expand adds a glyph slot. The other three feed Infinity, Replicanti and Tachyon gain.
 
 <Screen
-	src="ra/reality-upgrades-2.webp"
-	alt="Row 2 of the Reality Upgrades list: the five named upgrades with their unlock conditions."
+	src="early-reality/reality-upgrades-2.webp"
+	alt="Row 2 of the Reality Upgrades list at this stage: the named 15-RM upgrades with their unlock conditions and requirement locks."
 	caption="Row 2: each upgrade shows its unlock condition. Attain and Prolong first."
 />
 

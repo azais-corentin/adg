@@ -34,8 +34,8 @@ The moment the last upgrade buys, a **Celestials** tab appears next to Reality, 
 
 <Screen
 	src="ra/celestials-teresa-1.webp"
-	alt="Teresa's panel: the pour bar, her Reality button and the unlock ladder up to Effarig."
-	caption="Teresa's panel. Pour RM for permanent unlocks; her Reality multiplies sacrifice."
+	alt="Teresa's panel in the Celestials tab: the pour bar, her Reality button and the unlock ladder from Eternity-Upgrades start up to Effarig."
+	caption="Teresa's panel. Pour RM for permanent unlocks; her Reality multiplies sacrifice — but finish the last upgrades before pouring."
 />
 
 Her Reality's reward multiplies all glyph sacrifice values by your best antimatter in the run (scaling as (log10(AM)/1.5e8)^12) — the sacrifice stockpile from Scour to Empower pays off a second time.

@@ -20,9 +20,9 @@ Each Reality gives exactly **1 Perk Point**, and each perk costs 1 point. You ca
 Most perks are convenience rather than raw power: autobuyers, auto-unlocks, removed requirements. A few diamond-shaped perks also grant **Automator Points**, which count toward the 100 needed for the Automator. The tree is pannable on Android — drag to move around it, pinch or the zoom buttons to zoom; tapping a perk buys it if it is adjacent.
 
 <Screen
-	src="ra/reality-perks-top.webp"
-	alt="The Perks subtab: the perk tree with START at the top, adjacent perks highlighted."
-	caption="The perk tree. Drag to pan; you can only buy perks next to ones you own."
+	src="early-reality/reality-perks-top.webp"
+	alt="The Perks subtab on an early Reality: the perk tree around START with adjacent perks highlighted and the diamond Automator-Point perks visible."
+	caption="The perk tree. Drag to pan; you can only buy perks next to ones you own — diamond perks also grant Automator Points."
 />
 
 ## Recommended order
