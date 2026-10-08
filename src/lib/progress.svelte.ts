@@ -1,3 +1,5 @@
+import { detectStage } from '#lib/save/stage.ts';
+import type { NormalizedSave } from '#lib/save/types.ts';
 import { isStageId, type StageId } from '#lib/stages.ts';
 
 export const PROGRESS_KEY = 'adg:progress:v1';
@@ -13,16 +15,134 @@ export interface ProgressState {
 	checklist: Record<string, boolean>;
 	/** Opaque per-tool state, keyed by tool id. */
 	planner: Record<string, unknown>;
+	/** The last imported save, kept for tools to read. Survives manual stage changes. */
+	save: NormalizedSave | null;
 }
 
 type Fields = { [key: string]: unknown };
+type Check = (value: unknown) => boolean;
+
+const isObject = (value: unknown): value is Fields =>
+	typeof value === 'object' && value !== null && !Array.isArray(value);
+const isNumber: Check = (value) => typeof value === 'number';
+const isBoolean: Check = (value) => typeof value === 'boolean';
+const isNumbers: Check = (value) => Array.isArray(value) && value.every(isNumber);
+const optional =
+	(check: Check): Check =>
+	(value) =>
+		value === undefined || check(value);
+function shape<T>(spec: { [K in keyof T]-?: Check }): Check {
+	const checks: [string, Check][] = Object.entries(spec);
+	return (value) => isObject(value) && checks.every(([key, check]) => check(value[key]));
+}
+const isBigNum = shape<NormalizedSave['antimatter']>({ mantissa: isNumber, exponent: isNumber });
+const isCelestial = shape<NormalizedSave['celestials']['teresa']>({
+	quoteBits: isNumber,
+	unlockBits: optional(isNumber)
+});
+
+/**
+ * Exhaustive over `NormalizedSave`, so a field added there fails to compile here until it
+ * is checked; a stored save from before such a change is then dropped instead of handing
+ * tools a save with a missing field.
+ */
+const isNormalizedSave = shape<NormalizedSave>({
+	source: shape<NormalizedSave['source']>({
+		format: (value) => value === 'android-native' || value === 'web',
+		transport: (value) => typeof value === 'string'
+	}),
+	version: shape<NormalizedSave['version']>({
+		save: optional(isNumber),
+		appVersionCode: optional(isNumber),
+		app: optional((value) => typeof value === 'string')
+	}),
+	lastUpdate: isNumber,
+	antimatter: isBigNum,
+	infinities: isBigNum,
+	bankedInfinities: isBigNum,
+	eternities: isBigNum,
+	realities: isNumber,
+	infinityPoints: isBigNum,
+	eternityPoints: isBigNum,
+	realityMachines: isBigNum,
+	galaxies: isNumber,
+	dimensionBoosts: isNumber,
+	replicanti: shape<NormalizedSave['replicanti']>({ unlocked: isBoolean, galaxies: isNumber }),
+	breakInfinity: isBoolean,
+	crunchAutobuyerInterval: isNumber,
+	achievements: isNumbers,
+	secretAchievements: isNumbers,
+	normalChallenges: isNumbers,
+	infinityChallenges: isNumbers,
+	eternityChallenges: isNumbers,
+	timeStudies: isNumbers,
+	dilation: shape<NormalizedSave['dilation']>({
+		unlocked: isBoolean,
+		studies: isNumbers,
+		dilatedTime: isBigNum,
+		tachyonParticles: isBigNum
+	}),
+	realityUpgrades: isNumbers,
+	perks: isNumbers,
+	celestials: shape<NormalizedSave['celestials']>({
+		teresa: isCelestial,
+		effarig: isCelestial,
+		nameless: isCelestial,
+		v: isCelestial,
+		ra: isCelestial,
+		laitela: isCelestial,
+		pelle: isCelestial
+	}),
+	teresaPouredAmount: isNumber,
+	effarigRelicShards: isBigNum,
+	vRunUnlocks: isNumbers,
+	raPetLevels: isNumber,
+	laitelaDarkMatter: isBigNum,
+	pelleRemnants: isNumber,
+	imaginaryMachineCap: isNumber,
+	pelleDoomed: isBoolean,
+	records: shape<NormalizedSave['records']>({
+		totalTimePlayed: isNumber,
+		bestInfinityTime: isNumber,
+		bestEternityTime: isNumber,
+		fullGameCompletions: isNumber
+	})
+}) as (value: unknown) => value is NormalizedSave;
+
+// A save is stored as its own JSON string so its non-finite numbers (an infinite BigNum has
+// `exponent: Infinity`) can round-trip as strings without touching other fields.
+const NON_FINITE: Record<string, number> = { Infinity, '-Infinity': -Infinity, NaN };
+
+function encodeSave(save: NormalizedSave): string {
+	return JSON.stringify(save, (_key, value: unknown) =>
+		typeof value === 'number' && !Number.isFinite(value) ? String(value) : value
+	);
+}
+
+function decodeSave(raw: unknown): NormalizedSave | null {
+	if (typeof raw !== 'string') return null;
+	try {
+		const save: unknown = JSON.parse(raw, (_key, value: unknown) =>
+			typeof value === 'string' && Object.hasOwn(NON_FINITE, value) ? NON_FINITE[value] : value
+		);
+		return isNormalizedSave(save) ? save : null;
+	} catch {
+		return null;
+	}
+}
 
 /**
  * Reads persisted progress. Anything unreadable falls back to the empty state field by
  * field, so one corrupt entry never wipes the rest.
  */
 export function parseProgress(raw: string | null): ProgressState {
-	const empty: ProgressState = { stage: null, stageSource: null, checklist: {}, planner: {} };
+	const empty: ProgressState = {
+		stage: null,
+		stageSource: null,
+		checklist: {},
+		planner: {},
+		save: null
+	};
 	if (raw === null) return empty;
 	let data: unknown;
 	try {
@@ -30,8 +150,8 @@ export function parseProgress(raw: string | null): ProgressState {
 	} catch {
 		return empty;
 	}
-	if (typeof data !== 'object' || data === null || Array.isArray(data)) return empty;
-	const { version, stage, stageSource, importedAt, checklist, planner } = data as Fields;
+	if (!isObject(data)) return empty;
+	const { version, stage, stageSource, importedAt, checklist, planner, save } = data;
 	if (version !== VERSION) return empty;
 
 	const state = { ...empty };
@@ -40,14 +160,13 @@ export function parseProgress(raw: string | null): ProgressState {
 		state.stageSource = stageSource;
 		if (stageSource === 'import' && typeof importedAt === 'string') state.importedAt = importedAt;
 	}
-	if (typeof checklist === 'object' && checklist !== null && !Array.isArray(checklist)) {
+	if (isObject(checklist)) {
 		state.checklist = Object.fromEntries(
 			Object.entries(checklist).filter((entry): entry is [string, boolean] => entry[1] === true)
 		);
 	}
-	if (typeof planner === 'object' && planner !== null && !Array.isArray(planner)) {
-		state.planner = { ...planner };
-	}
+	if (isObject(planner)) state.planner = { ...planner };
+	state.save = decodeSave(save);
 	return state;
 }
 
@@ -57,6 +176,7 @@ class Progress implements ProgressState {
 	importedAt = $state<string | undefined>(undefined);
 	checklist = $state<Record<string, boolean>>({});
 	planner = $state<Record<string, unknown>>({});
+	save = $state.raw<NormalizedSave | null>(null);
 	/**
 	 * False during SSR/prerender and hydration. Stage-dependent markup should render its
 	 * neutral state until this flips, so the prerendered HTML hydrates cleanly.
@@ -82,6 +202,28 @@ class Progress implements ProgressState {
 		this.stage = stage;
 		this.stageSource = stage === null ? null : source;
 		this.importedAt = stage !== null && source === 'import' ? new Date().toISOString() : undefined;
+		this.#save();
+	}
+
+	/** Keeps `save` for tools and sets the stage it reaches, with source `import`. */
+	setImported(save: NormalizedSave): void {
+		this.init();
+		this.save = save;
+		this.stage = detectStage(save).stage;
+		this.stageSource = 'import';
+		this.importedAt = new Date().toISOString();
+		this.#save();
+	}
+
+	/** Drops the imported save, and the stage too if the import set it. */
+	forgetSave(): void {
+		this.init();
+		this.save = null;
+		if (this.stageSource === 'import') {
+			this.stage = null;
+			this.stageSource = null;
+			this.importedAt = undefined;
+		}
 		this.#save();
 	}
 
@@ -114,6 +256,7 @@ class Progress implements ProgressState {
 		this.importedAt = state.importedAt;
 		this.checklist = state.checklist;
 		this.planner = state.planner;
+		this.save = state.save;
 	}
 
 	#read(): string | null {
@@ -131,7 +274,8 @@ class Progress implements ProgressState {
 			stageSource: this.stageSource,
 			importedAt: this.importedAt,
 			checklist: $state.snapshot(this.checklist),
-			planner: $state.snapshot(this.planner)
+			planner: $state.snapshot(this.planner),
+			save: this.save && encodeSave(this.save)
 		};
 		try {
 			localStorage.setItem(PROGRESS_KEY, JSON.stringify(data));
