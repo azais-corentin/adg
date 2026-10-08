@@ -18,7 +18,7 @@ the image loads. Tapping the image opens it full size.
 	}: { src: string; alt: string; caption?: string; width?: number; height?: number } = $props();
 
 	// Paths come from article Markdown, which isn't type-checked; the e2e crawl checks they load.
-	const url = $derived(asset(`screens/${src}` as AssetPath));
+	const url = $derived(asset(`/screens/${src}` as AssetPath));
 </script>
 
 <figure class="screen">
