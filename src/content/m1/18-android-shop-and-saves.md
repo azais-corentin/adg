@@ -1,8 +1,8 @@
 ---
-title: Android features, shop and saves
+title: 'Android features, shop and saves'
 stage: pre-infinity
 order: 20
-summary: The Shop and STD coins, ads, offline progress and Max offline ticks, cloud saves versus exports, and battery notes.
+summary: 'The Shop and STD coins, ads, offline progress and Max offline ticks, cloud saves versus exports, and battery notes.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

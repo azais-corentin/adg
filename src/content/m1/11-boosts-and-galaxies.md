@@ -1,8 +1,8 @@
 ---
-title: Dimension Boosts and Antimatter Galaxies
+title: 'Dimension Boosts and Antimatter Galaxies'
 stage: pre-infinity
 order: 11
-summary: When to reset for a Boost or a Galaxy, what each costs, and why two Galaxies beat one for the first Infinity.
+summary: 'When to reset for a Boost or a Galaxy, what each costs, and why two Galaxies beat one for the first Infinity.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

@@ -1,8 +1,8 @@
 ---
-title: Normal Challenges 10 to 12
+title: 'Normal Challenges 10 to 12'
 stage: early-infinity
 order: 12
-summary: What unlocks at 16 Infinities, how the last three challenges play, and why C12's reward matters most.
+summary: 'What unlocks at 16 Infinities, how the last three challenges play, and why C12''s reward matters most.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

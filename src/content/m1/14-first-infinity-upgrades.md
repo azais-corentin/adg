@@ -1,8 +1,8 @@
 ---
-title: Spending your first Infinity Points
+title: 'Spending your first Infinity Points'
 stage: early-infinity
 order: 10
-summary: Which Infinity Upgrades to buy first, and the route through the 1-IP columns.
+summary: 'Which Infinity Upgrades to buy first, and the route through the 1-IP columns.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

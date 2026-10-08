@@ -1,8 +1,8 @@
 ---
-title: Your first Infinity
+title: 'Your first Infinity'
 stage: pre-infinity
 order: 13
-summary: Reaching 1.79e308 antimatter, what the first Big Crunch gives you, and what to do in the first minutes after it.
+summary: 'Reaching 1.79e308 antimatter, what the first Big Crunch gives you, and what to do in the first minutes after it.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

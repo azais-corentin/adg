@@ -1,8 +1,8 @@
 ---
-title: Your first Dimensions
+title: 'Your first Dimensions'
 stage: pre-infinity
 order: 10
-summary: How the eight Antimatter Dimensions, buying in tens, Tickspeed and the first autobuyers work.
+summary: 'How the eight Antimatter Dimensions, buying in tens, Tickspeed and the first autobuyers work.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

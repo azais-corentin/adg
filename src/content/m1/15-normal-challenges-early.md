@@ -1,8 +1,8 @@
 ---
-title: Normal Challenges 1 to 9
+title: 'Normal Challenges 1 to 9'
 stage: early-infinity
 order: 11
-summary: What each of the first nine challenges changes, the order to clear them, and the C3 and C9 tactics.
+summary: 'What each of the first nine challenges changes, the order to clear them, and the C3 and C9 tactics.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

@@ -1,8 +1,8 @@
 ---
-title: Upgrading autobuyers and the road to Break Infinity
+title: 'Upgrading autobuyers and the road to Break Infinity'
 stage: early-infinity
 order: 13
-summary: What interval and bulk do, the upgrade order, and how maxing the Big Crunch interval unlocks Break Infinity.
+summary: 'What interval and bulk do, the upgrade order, and how maxing the Big Crunch interval unlocks Break Infinity.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

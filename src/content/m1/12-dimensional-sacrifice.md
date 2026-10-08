@@ -1,8 +1,8 @@
 ---
-title: Dimensional Sacrifice
+title: 'Dimensional Sacrifice'
 stage: pre-infinity
 order: 12
-summary: What Sacrifice resets, what it multiplies, and the ×2 rule for when to press it.
+summary: 'What Sacrifice resets, what it multiplies, and the ×2 rule for when to press it.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
