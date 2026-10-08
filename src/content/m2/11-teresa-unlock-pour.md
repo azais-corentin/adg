@@ -21,9 +21,9 @@ Teresa unlocks when you earn achievement 147, which means owning all 25 Reality 
 <!-- src/core/celestials/teresa.js: get isUnlocked() { return Achievement(147).isUnlocked; }; vendor/ad-source/src/core/secret-formula/h2p.js (Teresa entry) -->
 
 <Screen
-	src="ra/celestials-teresa-0.webp"
-	alt="The Teresa subtab: the Pour RM button with the RM multiplier, an arrow down to the six unlock entries, and Teresa's Quotes button."
-	caption="The Teresa tab before pouring much. The container bar at the bottom shows what your RM would unlock."
+	src="teresa/celestials-teresa-0.webp"
+	alt="The Teresa subtab: the container bar in the middle with the Pour RM button beside it, the six unlock entries from 1e6 to 1e24 on the right, and the Start Teresa's Reality panel below."
+	caption="The Teresa tab. Pour RM feeds the container; the list on the right shows what each poured total unlocks."
 />
 
 The tab has three parts: a bar showing how full the container is, a **Pour RM** button, and the list of unlocks. Pouring is one-directional: RM that goes into the container never comes back, so pour only what you can spare from Reality Upgrades and Black Hole upgrades.
@@ -73,9 +73,9 @@ At <Num value="1e21" /> poured, the top of the Teresa tab opens the Perk Point S
 Buy the RM doubler first, then Glyph levels. The Music Glyph button is handy on touch: one tap gives a decent Glyph without a run, and a later button fills every empty inventory slot with them. Music Glyphs have a single (random-type) effect and are meant for sacrificing, so spend spare Perk Points there when the repeatables get expensive.
 
 <Screen
-	src="ra/celestials-teresa-1.webp"
-	alt="The Teresa tab with a full container: the Perk Point Shop upgrades at the top, the filled bar with the 1e6 to 1e24 unlock list, and the Teresa's Reality panel with its restrictions."
-	caption="A filled container: shop at the top, the full unlock list, and the Reality panel with its penalties."
+	src="teresa/celestials-teresa-1.webp"
+	alt="The bottom of the Teresa tab: the Start Teresa's Reality panel with its restriction text, the last-run antimatter record, and the finished unlock list above it."
+	caption="The Reality panel at the bottom of the tab. Its text lists the run's penalties before you enter."
 />
 
 ## What to aim for

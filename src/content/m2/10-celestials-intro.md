@@ -36,16 +36,16 @@ Celestials are timeless: unless a description says otherwise, their new mechanic
 When Teresa unlocks, a new tab appears next to the Reality tab. On Android it is the starfield icon in the tab bar, and inside it the subtabs run along the bottom: Nav, Teresa, Effarig, Nameless, V, Ra. Tabs for Celestials you have not reached yet stay hidden, so you will only see Nav and Teresa at first.
 
 <Screen
-	src="ra/celestials-nav-0.webp"
-	alt="The Celestials tab on the Nav subtab: a star map with nodes for Teresa's Reality, Effarig's Reality, V's Reality and the Nameless Ones' Reality."
-	caption="The Nav subtab: the Celestial Navigation map. Only the part near your progress is lit up."
+	src="teresa/celestials-nav-0.webp"
+	alt="The Celestials tab on the Nav subtab in the Teresa stage: the Celestial Navigation map with the first two nodes lit, and the Nav and Teresa subtabs along the bottom."
+	caption="The Nav subtab when Teresa unlocks: only Nav and Teresa are visible; later Celestials appear as you reach them."
 />
 
 The first subtab, Nav, shows the Celestial Navigation map. It fills in as you progress, with a marker showing roughly what to aim for next. Tap a node to show its details, then tap it again to open that Celestial's tab. You can pinch to zoom and drag to pan around the map.
 
 <Screen
-	src="ra/celestials-nav-1.webp"
-	alt="A zoomed part of the Celestial Navigation map showing connected nodes for several Celestial Realities, with the hint text about tapping nodes below it."
+	src="teresa/celestials-nav-1.webp"
+	alt="A zoomed part of the Celestial Navigation map: connected nodes for the early Celestial Realities, with the tap-to-open hint text below the map."
 	caption="Zoom into the map to read the small nodes. The text below it explains the tap-tap navigation."
 />
 

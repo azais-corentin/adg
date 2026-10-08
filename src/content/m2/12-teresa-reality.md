@@ -21,7 +21,13 @@ The **Start Teresa's Reality** panel sits at the bottom of the Teresa tab once y
 
 ## The restrictions
 
-The panel lists them, and they stay for the whole run:
+The panel lists them, and they stay for the whole run. It sits at the bottom of the Teresa tab, under the unlock list, with your last-run antimatter and the equipped glyph set recorded underneath:
+
+<Screen
+	src="teresa/celestials-teresa-1.webp"
+	alt="The Start Teresa's Reality panel: its restriction text, the last-run record, and the equipped glyph set shown underneath."
+	caption="The Reality panel records your best antimatter and glyph set, so repeats only need to beat the previous total."
+/>
 
 - Glyph Time Theorem generation is disabled.
 - Infinity Point and Eternity Point gain are raised to the power <Num value="0.55" /> — each is roughly square-rooted.
