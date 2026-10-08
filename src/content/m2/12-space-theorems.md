@@ -10,7 +10,9 @@ verified:
 
 <script>
 	import Callout from '#lib/components/Callout.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
+
 ## How Space Theorems work
 
 Each V-Achievement tier earns Space Theorems: one per normal tier, two per hard tier once those unlock. <!-- vendor/ad-source/src/core/celestials/V.js `updateTotalRunUnlocks`: normal tiers count once, hard tiers twice --> Theorems are a second currency for the Time Study tree. When two studies are normally exclusive (active vs passive vs idle, or the light/dark and split pairs), owning both costs Space Theorems on top of the Time Theorem price. Buying such a study spends Theorems for the rest of the Reality; a respec refunds them. <!-- vendor/ad-source/src/core/time-studies/normal-time-study.js `costsST`, `checkSetRequirement`, `purchase` -->
@@ -48,6 +50,12 @@ The tree charges Theorems only when you hold studies from both sides of an exclu
 - **Triad studies (301–304): 12 each.** These need Ra progress; see [Hard V](/guide/m2/hard-v).
 
 Because the discount at 36 Achievements lowers every price by 2, the cheap pairs become nearly free. Before that, spend where the multiplier is biggest for your current wall: the 121+122 combo first, then the 14x pairs, then one 22x pair at a time.
+
+<Screen
+	src="v/eternity-studies-0.webp"
+	alt="The Time Study tree on Android: the study grid with owned studies lit, the Space Theorem count at the top, and the Eternity prestige button above the tab bar."
+	caption="The Studies subtab. Doubled-up exclusive studies show their extra Space Theorem cost on top of the Time Theorem price."
+/>
 
 ## Suggested spending order
 

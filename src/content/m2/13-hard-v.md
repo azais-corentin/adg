@@ -21,9 +21,9 @@ The last three V-Achievements stay hidden until V's memory in Ra reaches level 6
 Each hard tier counts as **two** V-Achievements and awards **two** Space Theorems. Flip the tab between normal and hard with the Hide/Show Hard V button. <!-- vendor/ad-source/src/components/tabs/celestial-v/VTab.vue, vendor/ad-source/src/core/celestials/V.js `updateTotalRunUnlocks` -->
 
 <Screen
-	src="ra/celestials-v-0.webp"
-	alt="The V tab with Hide Hard V and Create a Cursed Glyph buttons above the Start V's Reality hexagon."
-	caption="Hard V controls sit above the Reality hexagon: toggle the list, and create Cursed Glyphs for Requiem."
+	src="v/celestials-v-1.webp"
+	alt="The lower V tab: more achievement rows with goal text and progress counters, and the Space Theorem reward ladder below them."
+	caption="The achievement rows and the Theorem ladder. Flip to hard V from the buttons above the Reality hexagon."
 />
 
 ## The three hard achievements

@@ -19,9 +19,9 @@ verified:
 The V tab's big hexagon starts V's Reality. Inside it, almost everything is weakened: all Dimension multipliers, EP gain, IP gain and Dilated Time gain are square-rooted, the Replicanti interval is squared, and the Exponential alchemy effect is switched off. The tab states this up front, so read it before your first run. <!-- vendor/ad-source/src/core/dimensions/antimatter-dimension.js:79-81, infinity-dimension.js:172-174, time-dimension.js:229-231, src/core/dilation.js:141, src/core/replicanti.js:118-121, src/core/celestials/ra/alchemy.js:79 -->
 
 <Screen
-	src="ra/celestials-v-0.webp"
-	alt="The top of the V tab: prestige boxes, V's quotes button, Hide Hard V and Create a Cursed Glyph buttons, and the Start V's Reality hexagon with its weakening description."
-	caption="V's tab. The hexagon in the middle starts the Reality; its text lists every weakening."
+	src="v/celestials-v-0.webp"
+	alt="The top of the V tab: the Start V's Reality weakening text, and the first achievement rows with their goal text and progress counters."
+	caption="V's tab. The text under the hexagon lists every weakening; the rows below track each achievement."
 />
 
 V-Achievements can only be completed inside V's Reality, but progress is permanent: leaving and re-entering keeps your best records and earned tiers. <!-- vendor/ad-source/src/components/tabs/celestial-v/VTab.vue:299-300 --> So treat each run as a focused attempt at one or two goals, not as a place to live.

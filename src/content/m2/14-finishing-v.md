@@ -11,6 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Checklist from '#lib/components/Checklist.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 	import StageGate from '#lib/components/StageGate.svelte';
 </script>
 
@@ -31,6 +32,12 @@ Use Perk-Point goal reduction aggressively in steps 3–5. A few reductions on a
 Do not hoard Theorems waiting for a perfect tree. Count-based rewards (AD power at 5, auto-EC speed at 10, auto-purge at 16, Black Hole power at 30) fire on Theorems *earned*, but their value only materializes when you spend. Earn, spend, push, repeat.
 
 </Callout>
+
+<Screen
+	src="v/celestials-v-1.webp"
+	alt="The bottom of the V tab: the Space Theorem reward ladder from 2 to 36 achievements, with the Ra unlock at the end."
+	caption="The reward ladder. Each count threshold fires once; 36 opens Ra and discounts every tree purchase."
+/>
 
 ## Entering Ra
 

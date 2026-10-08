@@ -21,8 +21,8 @@ V is the fourth Celestial, the Celestial of Achievements. Where Teresa, Effarig 
 You reach V through the Celestials tab, which shows a map of every Celestial. Tap V's hexagon once to see its requirements, twice to open its tab.
 
 <Screen
-	src="ra/celestials-nav-0.webp"
-	alt="The Celestial navigation map: prestige boxes at the top, a network of Celestial nodes including Teresa's, Effarig's, Nameless and V's Realities, and the Nav, Teresa, Effarig, Nameless, V and Ra subtabs."
+	src="v/celestials-nav-0.webp"
+	alt="The Celestial navigation map in the V stage: lit nodes for the unlocked Celestials with the tap-to-open hint below the map."
 	caption="The Celestial map. Each node opens that Celestial's tab on a second tap."
 />
 
@@ -42,9 +42,9 @@ V unlocks when you meet all six of these **at the same time**. The V tab shows a
 The split matters: Infinities, Eternities and Realities accumulate forever, but Dilated Time and Replicanti are judged on your **current Reality's records**, and Reality Machines on what you hold right now. So the practical route is to grind the lifetime totals first, then do one long Reality where you push Dilated Time and Replicanti to their records while holding <Num value="1e60" /> RM.
 
 <Screen
-	src="ra/celestials-v-2.webp"
-	alt="The V tab's main unlock ladder with six requirement rows, followed by the Space Theorem reward ladder."
-	caption="V's tab tracks all six requirements, then the Space Theorem rewards below."
+	src="nameless/celestials-v-top.webp"
+	alt="The V subtab before unlocking: the six requirement rows with progress counters and the unlock reward line at the bottom."
+	caption="V's tab tracks all six requirements. The unlock fires as soon as the last one fills."
 />
 
 ## How to push each one
