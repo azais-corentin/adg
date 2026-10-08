@@ -1,8 +1,8 @@
 ---
-title: Your first Reality
+title: 'Your first Reality'
 stage: early-reality
 order: 10
-summary: What the Reality reset keeps and wipes, how Reality Machines scale, and how to make the first one count.
+summary: 'What the Reality reset keeps and wipes, how Reality Machines scale, and how to make the first one count.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

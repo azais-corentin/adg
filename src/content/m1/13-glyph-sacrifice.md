@@ -1,8 +1,8 @@
 ---
-title: Glyph sacrifice
+title: 'Glyph sacrifice'
 stage: early-reality
 order: 22
-summary: When to unlock sacrificing, what each glyph type pays permanently, and how to spend the bonuses.
+summary: 'When to unlock sacrificing, what each glyph type pays permanently, and how to spend the bonuses.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'

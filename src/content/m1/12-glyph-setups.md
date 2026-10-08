@@ -1,8 +1,8 @@
 ---
-title: Which glyphs to wear
+title: 'Which glyphs to wear'
 stage: early-reality
 order: 18
-summary: Effect priorities per glyph type and the setups to run from your second Reality to Teresa.
+summary: 'Effect priorities per glyph type and the setups to run from your second Reality to Teresa.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
