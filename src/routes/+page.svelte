@@ -3,9 +3,12 @@
 	import { articlesForStage } from '#lib/content/index.ts';
 	import { TOOLS } from '#lib/content/tools.ts';
 	import StagePicker from '#lib/components/StagePicker.svelte';
+	import GoalList from '#lib/components/save/GoalList.svelte';
+	import { formatTimeAgo } from '#lib/components/save/time.ts';
 	import StageStrip from '#lib/components/StageStrip.svelte';
 	import { layerStyle } from '#lib/components/stage-colors.ts';
 	import { progress } from '#lib/progress.svelte.ts';
+	import { nextGoals } from '#lib/save/index.ts';
 	import { STAGES, getStage, stageIndex } from '#lib/stages.ts';
 	import type { PageProps } from './$types';
 
@@ -14,6 +17,20 @@
 	const stage = $derived(progress.ready ? progress.stage : null);
 	const reading = $derived(stage ? articlesForStage(data.articles, stage) : undefined);
 	const firstArticle = $derived(data.articles[0]);
+	// The stage card speaks for the save only while the stage still comes from it.
+	const imported = $derived(stage && progress.stageSource === 'import' ? progress.save : null);
+	const topGoals = $derived(
+		imported && stage
+			? nextGoals(imported, stage)
+					.filter((goal) => !goal.done)
+					.slice(0, 3)
+			: []
+	);
+	let now = $state(Date.now());
+	$effect(() => {
+		const timer = setInterval(() => (now = Date.now()), 30_000);
+		return () => clearInterval(timer);
+	});
 	const importedOn = $derived(
 		progress.importedAt
 			? new Date(progress.importedAt).toLocaleDateString(undefined, { dateStyle: 'medium' })
@@ -43,7 +60,14 @@
 		aria-labelledby="stage-heading"
 	>
 		<h2 id="stage-heading" class="visually-hidden">Your stage</h2>
-		{#if stage}
+		{#if stage && imported}
+			<p class="stage-name">{getStage(stage).name}</p>
+			<p class="stage-meta">
+				Stage {stageIndex(stage) + 1} of {STAGES.length}. From your save{progress.importedAt
+					? ` (imported ${formatTimeAgo(Date.parse(progress.importedAt), now)})`
+					: ''}.
+			</p>
+		{:else if stage}
 			<p class="stage-name">{getStage(stage).name}</p>
 			<p class="stage-meta">
 				Stage {stageIndex(stage) + 1} of {STAGES.length},
@@ -58,8 +82,22 @@
 			<p class="stage-meta">Pick it below, or import a save to detect it.</p>
 		{/if}
 		<StageStrip current={stage} />
-		<StagePicker />
-		<a class="button" href={resolve('/import')}>Import a save</a>
+		{#if imported}
+			{#if topGoals.length > 0}
+				<div class="goals">
+					<h3>Next goals</h3>
+					<GoalList goals={topGoals} />
+				</div>
+			{/if}
+			<a class="button" href={resolve('/import')}>Your save in detail</a>
+			<details class="by-hand">
+				<summary>Pick your stage by hand instead</summary>
+				<StagePicker />
+			</details>
+		{:else}
+			<StagePicker />
+			<a class="button" href={resolve('/import')}>Import a save</a>
+		{/if}
 	</section>
 
 	<section aria-labelledby="reading-heading">
@@ -145,6 +183,23 @@
 
 	.stage .button {
 		justify-self: start;
+	}
+
+	.goals h3 {
+		margin: 0 0 var(--space-2);
+		font-size: var(--step-0);
+	}
+
+	.by-hand summary {
+		display: flex;
+		align-items: center;
+		min-height: var(--tap);
+		color: var(--muted);
+		cursor: pointer;
+	}
+
+	.by-hand[open] summary {
+		margin-bottom: var(--space-2);
 	}
 
 	.reading {

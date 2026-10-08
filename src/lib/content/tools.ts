@@ -4,7 +4,7 @@ export const TOOLS = [
 		href: '/import',
 		name: 'Save import',
 		summary:
-			'Paste an export from Options, Save & Load. adg decodes it on your phone and detects your stage.'
+			'Open the save you export from Options, Save & Load. adg decodes it on your phone, detects your stage and lists your next goals.'
 	},
 	{
 		href: '/checklists',
