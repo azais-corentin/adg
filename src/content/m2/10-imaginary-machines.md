@@ -56,20 +56,19 @@ Upgrades 6–10 cost much more per level and each does something specific:
 
 | # | Name | Effect | Priority |
 | - | ---- | ------ | -------- |
-| 6 | Elliptic Materiality | Raises the RM cap by <Num value="1e100" /> per level | Buy early: a higher RM cap means a higher iM cap |
+| 6 | Elliptic Materiality | Raises the RM cap by ×<Num value="1e100" /> per level | Buy early: a higher RM cap means a higher iM cap |
 | 7 | Runic Assurance | Delays Glyph Instability by 200 levels per level | Buy when instability starts eating your glyph levels |
 | 8 | Hyperbolic Apeirogon | Multiplies Infinity Dimensions by <Num value="1e100000" /> per level | Big push power; buy as affordable |
-| 9 | Cosmic Filament | Galaxies stronger per level | Steady value |
-| 10 | Entropic Condensing | More Singularities per condense per level | Buy before you start condensing seriously in Lai'tela |
-
+| 9 | Cosmic Filament | Galaxy strength +3% per level | Steady value |
+| 10 | Entropic Condensing | Singularity gain ×(1 + level) (each level adds ×1) | Buy before you start condensing seriously in Lai'tela |
 Upgrade 6 deserves emphasis: because the iM cap grows with uncapped RM past the cap, raising the RM cap raises everything downstream. <!-- vendor/ad-source/src/core/machines.js:6-8 -->
 
 ## The first one-time upgrades (11–14)
 
 These four cost 5e7–3.5e8 iM each and each has a task attached. They are worth doing in order, since each boosts the push that funds the next:
 
-- **11, Suspicion of Interference** (5e7 iM): hold <Num value="1e90" /> total Relic Shards. This accumulates across Effarig runs, so keep running Effarig's Reality until the button lights up. Its reward powers Time Dimensions off total antimatter. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:101-114 -->
-- **12, Consequences of Illusions** (5e7 iM): make a level-9000 glyph with a single level factor weight set to 100. Set every other factor weight to its minimum in Effarig's glyph-weight adjuster, push glyph level as high as you can, and Reality. Reward: free Dimboosts per repeatable bought. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:115-129 -->
+- **11, Suspicion of Interference** (5e7 iM): hold <Num value="1e90" /> total Relic Shards. This accumulates across Realities, so keep running Realities until the button lights up. Its reward powers Time Dimensions off total antimatter. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:101-114 -->
+- **12, Consequences of Illusions** (5e7 iM): make a level-9000 glyph with a single level factor weight set to 100. Set every other factor weight to its minimum in Effarig's glyph-weight adjuster, push glyph level as high as you can, and Reality. Reward: free Dimboosts per Imaginary rebuyable bought. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:115-129 -->
 - **13, Transience of Information** (5e7 iM): project past <Num value="1.79e308" /> (Number.MAX_VALUE) RM inside the Nameless Ones' Reality. Store real time, amplify a Reality, and the amplified projection counts. Reward: bigger iM cap per upgrade owned, which compounds the whole stage. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:130-145 -->
 - **14, Recollection of Intrusion** (3.5e8 iM): reach <Num value="1e75000000000" /> tickspeed per second inside Eternity Challenge 5. Enter EC5 with a tickspeed-focused study tree and let it run; the check is passive. Reward: all per-purchase Dimension multipliers raised to the 1.5th power. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:146-158 -->
 

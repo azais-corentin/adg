@@ -35,7 +35,7 @@ Every upgrade below is one-time: meet its task, pay its iM price, and its effect
 
 **15 — Fabrication of Ideals.** Enter Eternity Challenge 2 with Infinity Dimension autobuyers off. EC2 forbids Infinity Dimensions, so you cannot fail the "never owned ID1" check inside it; just push antimatter to <Num value="1e1500000000000" />. Use the upgrade lock to block buying IDs as well. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:159-177 -->
 
-**16 — Massless Momentum.** See [Destabilizing Lai'tela's Reality](/guide/m2/destabilizing-laitelas-reality): the first two sub-30-second runs are easy with a Dilation-heavy glyph set and a manual Dilation. The check only needs your highest dimension count at 6 or fewer. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:178-188 -->
+**16 — Massless Momentum.** See [Destabilizing Lai'tela's Reality](/guide/m2/destabilizing-laitelas-reality): the check only needs your highest still-enabled Dimension tier at 6 or fewer (two sub-30-second destabilizations). The first two fast runs come cheaply; later tiers need bigger multipliers. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:178-188 -->
 
 **17 — Chiral Oscillation.** Raise your Singularity cap (the +/− controls on the Lai'tela tab) until one condense yields 20+ Singularities, then condense with auto-condense above the cap threshold. Entropic Condensing levels (upgrade 10) raise the yield per condense. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:189-199 -->
 
@@ -57,7 +57,7 @@ Every upgrade below is one-time: meet its task, pay its iM price, and its effect
 
 <Callout kind="warning">
 
-Upgrades 11–14 and 20–24 stop working inside Doomed Reality (Pelle), but 15 (Lai'tela/Continuum) and 25 (Pelle) keep theirs — the game never takes your Celestials away. Buy everything you can before Dooming. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js -->
+Upgrades 11–14 and 20–23 stop working inside Doomed Reality (Pelle); upgrade 24 keeps working, and so do 15 (Lai'tela/Continuum) and 25 (Pelle) — the game never takes your Celestials away. Buy everything you can before Dooming. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js: isDisabledInDoomed on 11–14, 20–23 only -->
 
 </Callout>
 
