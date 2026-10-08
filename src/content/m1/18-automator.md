@@ -15,10 +15,10 @@ verified:
 
 ## Unlocking it: 100 Automator Points
 
-The Automator unlocks at **100 total Automator Points** (achievement: How does this work?). Points come from three places: <!-- vendor/ad-source/src/core/automator/automator-points.js; vendor/ad-source/src/core/secret-formula/reality/automator.js -->
+The Automator unlocks at **100 total Automator Points** (achievement: How does this work?). Points come from several places: <!-- vendor/ad-source/src/core/automator/automator-points.js; vendor/ad-source/src/core/secret-formula/reality/automator.js; reality-upgrades.js; perks.js -->
 
 - **Realities:** 2 per Reality, up to 50 Realities (100 max, but you will unlock long before that).
-- **Diamond perks:** most grant 5–15 each (ECB gives 15, Existentially Prolong-style unlocks vary).
+- **Diamond perks:** most grant 5–15 each (ECB gives 15, PEC3 gives 10, ACHNR gives 10).
 - **Reality Upgrades:** Existentially Prolong (15), Boundless Flow (5), Telemechanical Process (10), Eternal Flow (5), Parity of Singularity (10), Effortless Existence (100).
 - **Black Hole:** unlocking it gives 10.
 
@@ -26,7 +26,7 @@ In practice the Automator arrives in the first dozen Realities: Realities plus a
 
 ## Block mode vs text mode
 
-The Automator lives in the Autobuyers tab (gears icon), Automator subtab. It runs scripts — lists of commands like `eternity`, `studies purchase`, `wait`, `unlock dilation` — that play the game for you.
+The Automator lives in the **Automation** tab (gears icon), **Automator** subtab — the tab is called Autobuyers only before Reality unlocks. It runs scripts — lists of commands like `eternity`, `studies purchase`, `wait`, `unlock dilation` — that play the game for you.
 
 <Screen
 	src="ra/autobuyers-automator-0.webp"
@@ -41,7 +41,7 @@ The transport row: play runs the script, pause freezes it, stop ends it, circula
 
 ## Your first scripts
 
-Start from the built-in templates (Climb EP, Grind Eternities, Complete EC, Unlock Dilation) or adg's verified library on the [Automator scripts](/tools/automator) page. A minimal early loop looks like: buy studies, wait for EP to beat its record, Eternity, reload studies, repeat. Keep scripts short — each is capped at 10,000 characters, 20 scripts and 30 constants total. <!-- in-game How to Play, "Automator Technical Details" -->
+Start from the built-in templates (Climb EP, Grind Eternities, Grind Infinities, Complete Eternity Challenge, Unlock Dilation) or adg's verified library on the [Automator scripts](/tools/automator) page. A minimal early loop looks like: buy studies, wait for EP to beat its record, Eternity, reload studies, repeat. Keep scripts short — each is capped at 10,000 characters, 20 scripts and 30 constants total, with names capped at 15 characters. <!-- in-game How to Play, "Automator Technical Details"; vendor/ad-source/src/core/automator/automator-backend.js -->
 
 <Screen
 	src="ra/autobuyers-automator-1.webp"

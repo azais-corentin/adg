@@ -40,8 +40,8 @@ Every purchase also inflates that upgrade's next price enormously (×1e15 for ch
 
 Growing Replicanti pays in two ways:
 
-- **More Replicanti multiply your Infinity Dimensions.** The bonus is the square of the log of your count, so it starts small and becomes one of your biggest multipliers by the time you hold thousands of digits of them. <!-- src/core/replicanti.js:266-272 (`replicantiMult`) -->
-- **Reaching <Num value="1.79e308" /> Replicanti buys a Replicanti Galaxy.** Each galaxy counts like an Antimatter Galaxy for production (roughly ×10 to Dimensions per galaxy through the shared galaxy strength), up to your Max Galaxies cap. The galaxy purchase divides your Replicanti back down (or resets them to 1 early on), and growth resumes. <!-- src/core/replicanti.js:34-48 (`replicantiGalaxy`), multiplier-tab/galaxies.js:20-30 -->
+- **More Replicanti multiply your Infinity Dimensions.** The bonus is the squared log-base-2 of your count (log2(amount)²), so it starts small and becomes one of your biggest multipliers by the time you hold thousands of digits of them. <!-- src/core/replicanti.js:266-272 (`replicantiMult`) -->
+- **Reaching <Num value="1.79e308" /> Replicanti buys a Replicanti Galaxy.** Each galaxy adds to your shared galaxy strength alongside Antimatter Galaxies, up to your Max Galaxies cap. The galaxy purchase divides your Replicanti back down (or resets them to 1 early on), and growth resumes. <!-- src/core/replicanti.js:34-48 (`replicantiGalaxy`), multiplier-tab/galaxies.js:20-30 -->
 
 So the loop is: grow → galaxy → grow faster → galaxy, with the chance/interval upgrades speeding each cycle and the Max Galaxies upgrade raising the ceiling.
 
@@ -51,8 +51,7 @@ Early priorities, in order:
 
 1. **Interval first.** It starts at full price parity with the unlock and each level visibly shortens cycles. The first handful of levels are the cheapest speed you will ever buy.
 2. **Chance to ~30–50%, then alternate.** Chance levels cost ×1e15 more each, so they overtake interval quickly; push chance while it is the cheaper of the two, then alternate.
-3. **Max Galaxies as soon as galaxies stall.** The first galaxy arrives on its own once growth takes off; buy Max Galaxies when your count sits at the cap. The galaxy cost scaling is the steepest of the three, so buy exactly what the run can use — plus one for headroom — and no more.
-4. **Cap chance at 100%, floor interval at 50 ms.** After that every IP goes to Max Galaxies.
+4. **Cap chance at 100%, floor interval at 50 ms** (lower with study 22's Time Study effect). After that every IP goes to Max Galaxies.
 
 <Callout kind="tip">
 

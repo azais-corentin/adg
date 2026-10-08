@@ -32,8 +32,7 @@ Buy these as each becomes affordable — each is a permanent multiplier, so none
 1. **Double Tachyon Galaxies** — <Num value="5e6" /> DT. Doubles the Galaxies your DT has earned (up to 500 base). An immediate Tickspeed jump; buy the moment it is affordable.
 2. **Antimatter Dimensions from Dilated Time** — <Num value="5e7" /> DT. Multiplies Antimatter Dimensions by DT to the power 308. This is what un-stalls your dilated pushes.
 3. **Time Dimensions from Replicanti** — <Num value="1e9" /> DT. Time Dimensions scale with a slice of your Replicanti multiplier, softening at very high values.
-4. **All three Dimension-split paths at once** — <Num value="1e10" /> DT. Lets one tree hold the Antimatter, Infinity and Time Dimension paths simultaneously instead of picking one. The single biggest tree power spike in the stage.
-5. **Weaker Dilation penalty** — <Num value="1e11" /> DT. Softens the dilated exponent from <Num value="0.75" /> toward <Num value="0.7875" />, so every number inside dilation gets bigger.
+5. **Weaker Dilation penalty** — <Num value="1e11" /> DT. Applies a ^1.05 power to the dilated 0.75 exponent (softening it toward 0.7875), so every number inside dilation gets bigger.
 6. **Infinity Points from Dilated Time** — <Num value="2e12" /> DT. Multiplies IP gain by DT to the power 1000, which speeds up the whole Eternity climb inside each run.
 7. **Free Time Theorems from Tachyon Particles** — <Num value="1e15" /> DT. Generates Theorems per second from your TP (TP divided by 20000). From here on you stop spending antimatter, IP and EP on Theorems, which is what funds the million-Theorem Time Dimension studies in the next article.
 

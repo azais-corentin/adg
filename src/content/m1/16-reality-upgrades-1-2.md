@@ -40,10 +40,10 @@ Row 2 upgrades cost <Num value="15" /> RM each, but each must first be **unlocke
 
 | Upgrade | Unlock condition | How to do it |
 | ------- | ---------------- | ------------ |
-| Paradoxically Attain | Eternity with no automatic achievements | Turn off auto-achievements before the Eternity; grab any needed challenge achievements by hand; turn it back on after |
-| Existentially Prolong | First Eternity with <Num value="1e400" /> IP | Happens naturally on a long push run — do not combine with no-galaxy challenges |
-| Cosmically Duplicate | First Eternity with no Replicanti Galaxies | Disable the Replicanti Galaxy autobuyer; glyph-boosted Dimensions carry you |
-| Innumerably Construct | First Infinity with at most 1 Antimatter Galaxy | Do your first Infinity inside Normal Challenge 8, or just avoid the second galaxy |
+| Paradoxically Attain | Manually Eternity without any automatic Achievements (first-Eternity-of-Reality check) | Turn off auto-achievements in Options before the Eternity; grab any needed challenge achievements by hand; turn it back on after |
+| Existentially Prolong | First manual Eternity of the Reality with <Num value="1e400" />+ IP | Happens naturally on a long push run — do not combine with no-galaxy challenges |
+| Cosmically Duplicate | First manual Eternity of the Reality without using Replicanti Galaxies | Disable the Replicanti Galaxy autobuyer; glyph-boosted Dimensions carry you |
+| Innumerably Construct | First Infinity of the Reality with at most 1 Antimatter Galaxy | Do your first Infinity inside Normal Challenge 8, or just avoid the second galaxy |
 | Linguistically Expand | <Num value="1e4000" /> EP Eternity wearing exactly one glyph, level 3+ | Equip a single good glyph and push; lowest priority of the five |
 
 Existentially Prolong is the prize: start every Reality with 100 Eternities, which fires the EU1 perk's free Eternity Upgrades immediately. Linguistically Expand adds a glyph slot. The other three feed Infinity, Replicanti and Tachyon gain.

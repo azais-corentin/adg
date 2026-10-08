@@ -29,14 +29,12 @@ Most perks are convenience rather than raw power: autobuyers, auto-unlocks, remo
 
 This follows the community perk route (Tables61's perk guide with later refinements). Perks mostly save time rather than multiply power, so treat any order as guidance — but this one removes the biggest early walls first.
 
-1. **EU1, EU2.** EU1 auto-unlocks the first row of Eternity Upgrades free once you have Eternities; paired with the Existentially Prolong upgrade (start with 100 Eternities) it fires on every Reality and speeds up early Eternities enormously. EU2 discounts the second row.
-2. **DAU, DILR.** DAU unlocks autobuyers for the repeatable Dilation Upgrades. DILR removes the EC11/EC12 and Theorem requirements from the Dilation unlock — it skips the grueling EC11 slog inside every early Reality.
-3. **EC5R, ACT.** EC5R drops one study requirement; ACT maxes the Active path, turning it into a high-power route with no ramp-up.
-4. **PASS, EC1R, ECR, ECB, TTS.** PASS boosts the Idle-side multipliers and Replicanti speed; EC1R/ECR strip Eternity Challenge unlock requirements; ECB lets you clear several EC tiers at once when you overshoot a goal; TTS adds the Time Theorem autobuyer the Automator scripts rely on.
-5. **The ACH line to ACHNR.** ACH1–ACH4 shorten the 30-minute auto-achievement timer; ACHNR keeps all pre-Reality achievements across Realities, ending the re-earn chore entirely. Grab ACH1 early if the timer annoys you; otherwise take the whole line here.
-6. **TGR and TP1–TP4.** Passive Tachyon Particle generation, so you stop babysitting Dilation runs.
-
-After that, branch by playstyle: active players take the STP/SEP1/ANR/SIP1/IDAS/SIP2/REPAS side (faster recovery after each reset), idlers take DU1/DU2/ATT/ATD/DAS (Dilation autobuyers for hands-off runs). The PEC auto-EC perks and the rest are cleanup — buy in any order until the tree is full, which earns an achievement.
+1. **EU1, EU2.** EU1 auto-unlocks the first row of Eternity Upgrades free (all three once you have any Eternities); paired with the Existentially Prolong upgrade (start with 100 Eternities) it fires on every Reality and speeds up early Eternities enormously. EU2 buys the second row at 1e10× discount.
+2. **DAU, DILR.** DAU unlocks autobuyers for the repeatable Dilation Upgrades. DILR removes the EC11/EC12 and Theorem-count requirements from the Dilation unlock — it skips the grueling EC11 slog inside every early Reality.
+3. **EC5R, ACT.** EC5R drops the EC5-completion requirement from study 62 (faster Replicanti); ACT pins Active-path EP at a flat ×50, turning it into a high-power route with no ramp-up.
+4. **PASS, EC1R, ECR, ECB, TTS.** PASS sets Passive-path EP to ×50, perks up study 142, and triples Replicanti speed via study 132; EC1R/ECR strip Eternity Challenge unlock requirements; ECB lets you clear several EC tiers at once when you overshoot a goal; TTS adds the Time Theorem autobuyer the Automator scripts rely on.
+5. **The ACH line to ACHNR.** ACH1–ACH4 shorten the 30-minute auto-achievement timer stepwise (20 → 12 → 6 → 2 minutes); ACHNR keeps all pre-Reality achievements across Realities, ending the re-earn chore entirely. Grab ACH1 early if the timer annoys you; otherwise take the whole line here.
+6. **TGR and TP1–TP4.** TGR stops the 2nd rebuyable Dilation Upgrade from wiping Dilated Time; TP1–TP4 retroactively multiply Tachyon Particles (×1.5, ×2, ×2.5, ×3 on the 3rd rebuyable), so you stop babysitting Dilation runs.
 
 ## Alternative opening
 

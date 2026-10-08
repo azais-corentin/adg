@@ -16,15 +16,15 @@ verified:
 
 ## What Reality does
 
-Reality is a full-layer prestige: everything from the Eternity layer down resets — antimatter, Infinity and Eternity Points, Dimensions, studies, upgrades — and you start over with permanent additions. What you keep across the reset: <!-- vendor/ad-source/src/core/reality.js (finishProcessReality) -->
+Reality is a full-layer prestige: everything from the Eternity layer down resets — antimatter, Infinity and Eternity Points, Dimensions, studies, upgrades — and you start over with permanent additions. What actually survives (from `finishProcessReality`): <!-- vendor/ad-source/src/core/reality.js -->
 
-- **Eternity Challenge completions** are wiped back to zero — but their stacked reward effects are re-earned as you re-complete them, and post-Reality multipliers make that fast.
+- **Eternity Challenge *studies* reset, not completions.** Your EC study tree empties and the `unlockedEC` flags clear, but the `eternityChalls` completion counts stay — the stacked rewards apply from the start, and re-unlocking studies is the only replay needed. Post-Reality multipliers make that fast.
 - **Dilation studies, dilation upgrades, Tachyon Particles and Dilated Time** reset. You will re-unlock Dilation in every Reality; later perks automate this.
-- **Achievements stay unlocked.** The 104 you cleaned up keep their multiplier, and post-Reality rows start fresh.
+- **Achievements are the one thing Reality takes away.** The 104 pre-Reality rows go dark (rewards and all) and must be re-earned — by hand or via the 30-minute auto-achievement timer. Everything else above (records, challenge times, General-tab statistics) stays.
 - **Records** (best EP, best times) start a new Reality row; the this-Reality max EP that unlocked the study begins climbing again from zero.
-- **What you gain:** Reality Machines from the run, a choice of Glyphs (the new equipment layer), and access to the Reality Upgrades, Perks, Automator and Black Hole tabs.
+- **What you gain:** Reality Machines from the run, Glyphs (the new equipment layer), and access to the Reality Upgrades, Perks, Automator and Black Hole tabs.
 
-Nothing about the reset can strand you: with achievements and the study requirement behind you, re-climbing through Eternity takes a fraction of the first trip.
+Nothing about the reset can strand you: with the study requirement behind you, re-climbing through Eternity takes a fraction of the first trip.
 
 ## How many Reality Machines to expect
 
@@ -41,7 +41,7 @@ A good rule: once progress clearly slows past <Num value="1e4000" />, do a final
 1. **Export your save** (Options → Save & Load → hold Share save → Export to web/steam). Keep the file — it is your Eternity-era souvenir and your rollback.
 2. **Spend everything.** Unspent DT, TP-banked records, unbought Theorems — none of it crosses over in a useful form. Buy every dilation upgrade affordable and every Theorem available.
 3. **Confirm the three gates** — TD8 owned, max EP ≥ <Num value="1e4000" />, rows 1–13 complete — and buy the 1-Theorem Reality study.
-4. **Free Glyph space.** Reality grants Glyphs on arrival; the inflow blocks if your inventory is full, so clear room if you have been collecting.
+4. **Free Glyph space.** The first Reality grants your starting Power glyph plus a Companion; later ones offer choices. A full inventory deletes the overflow, so clear room if you have been collecting.
 
 <Callout kind="android">
 

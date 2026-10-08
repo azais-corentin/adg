@@ -15,17 +15,18 @@ verified:
 
 ## The Shop ($ tab) and STD coins
 
-The **$ tab** holds the Shop, which sells permanent boosts for **STD coins** ("Support The Developer"). STDs are bought with real money through the Play Store. What the screenshots show on offer:
+The **$ tab** holds the Shop, which sells permanent boosts for **STD coins** ("Support The Developer"). STDs are bought with real money through the Play Store. Base prices from upstream (`secret-formula/shop-purchases.js`); sale or bundle pricing on-device may differ, so treat these as the reference list:
 
 - **30 STD** — double production of all Antimatter Dimensions (2× AD mult).
-- **60 STD** — double production of all Dimensions (2× all dims, stacking toward the shown ×32).
+- **60 STD** — double production of all Dimensions (stacking per row toward the aggregate shown).
+- **60 STD** — +50% Replicanti speed.
 - **40 STD** — double Infinity Point gain.
 - **50 STD** — triple Eternity Point gain.
 - **40 STD** — +50% Dilated Time gain.
-- **60 STD** — +100% Reality Shard (RM) gain on Reality.
+- **60 STD** — +100% Reality Machine gain on Reality.
 - **10 / 20 STD** — blocks of offline progress (6 h / 24 h).
-- **20 STD** — a cosmetic glyph set (shown: "Glyph skins: Uplifting").
-- **420 STD** — unlocking full sets ("Unlock 24 Glyph skins").
+- **20 STD** — a cosmetic glyph set of your choice.
+- **~420 STD** — unlocking all remaining sets at once (scales down as you own more).
 
 <Screen
 	src="early-eternity/shop-main-0.webp"
@@ -60,7 +61,7 @@ Closing the app costs no battery: the game does not run in the background. When 
 
 <Callout kind="android">
 
-Never pick "Skip" thinking it speeds things up — the popup only *reports* simulated progress. The speed comes from Max offline ticks and from autobuyers (especially the offline-IP Infinity Upgrade later). There is also a per-tick cap of about a day, so multi-day absences simulate at most that per tick.
+The popup only *reports* simulated progress, and its Skip/Speed-up buttons trade accuracy for a faster return to the game — never pick Skip thinking it earns more. The speed comes from Max offline ticks and from autobuyers (especially the offline-IP Infinity Upgrade later). Ticks never exceed one-million total and each caps at ~30 s of game time, so very long absences still simulate faithfully in chunks.
 
 </Callout>
 
@@ -76,7 +77,7 @@ Keep both: cloud for convenience, a manual export somewhere safe (Drive, email t
 ## Battery, background and display
 
 - **Battery saver** (Options) reduces visual effects; **Sleep NEVER** controls whether the screen stays on. The game simulates rather than running, so closing it is always the battery-friendly move.
-- **UI update rate** trades smoothness for CPU/battery; the default 25 ms is fine on modern phones.
+- **UI update rate** trades smoothness for CPU/battery; the default 33 ms is fine on modern phones.
 - **Orientation PORTRAIT** locks the layout — recommended, since rotation during heavy screens (Graphs, offline calc) has caused crashes on some devices.
 - **Theme**: if the app ever crashes on every launch after a theme change, do not reinstall (see above) — clear the app's cache or wait for the fix; the 3.13.0 System-theme boot crash was fixed in 3.13.1.
 

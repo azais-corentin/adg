@@ -30,7 +30,7 @@ The Automator with run-after-Reality plus the Reality autobuyer (from Effortless
 
 ## What changes at Teresa
 
-The moment the last upgrade buys, a **Celestials** tab appears next to Reality, with a navigation map and Teresa's panel: pour RM into her container (up to <Num value="1e24" /> RM) to unlock her Reality at <Num value="1e14" />, passive EP generation at <Num value="1e18" />, the Perk Point Shop at <Num value="1e21" /> and Effarig at <Num value="1e24" />. Pouring is one-way — poured RM is gone — but each threshold is permanent. <!-- vendor/ad-source/src/core/secret-formula/celestials/teresa.js -->
+The moment the last upgrade buys, a **Celestials** tab appears next to Reality, with a navigation map and Teresa's panel: pour RM into her container (up to <Num value="1e24" /> RM) to unlock the Eternity-Upgrades start at <Num value="1e6" />, glyph Undo at <Num value="1e10" />, her Reality at <Num value="1e14" />, passive EP generation at <Num value="1e18" />, the Perk Point Shop at <Num value="1e21" /> and Effarig at <Num value="1e24" />. Pouring is one-way — poured RM is gone — but each threshold is permanent. <!-- vendor/ad-source/src/core/secret-formula/celestials/teresa.js -->
 
 <Screen
 	src="ra/celestials-teresa-1.webp"
@@ -38,7 +38,7 @@ The moment the last upgrade buys, a **Celestials** tab appears next to Reality, 
 	caption="Teresa's panel. Pour RM for permanent unlocks; her Reality multiplies sacrifice."
 />
 
-Her Reality's reward multiplies all glyph sacrifice values by your best antimatter in the run — the sacrifice stockpile from Scour to Empower pays off a second time.
+Her Reality's reward multiplies all glyph sacrifice values by your best antimatter in the run (scaling as (log10(AM)/1.5e8)^12) — the sacrifice stockpile from Scour to Empower pays off a second time.
 
 <Callout kind="tip">
 
