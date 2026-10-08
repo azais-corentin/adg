@@ -12,6 +12,7 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Checklist from '#lib/components/Checklist.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## What Tesseracts do
@@ -25,6 +26,12 @@ Tesseracts unlock on completing the Nameless Reality. Each one permanently raise
 Tesseracts are bought on the Infinity Dimensions tab with Infinity Points. Costs rise steeply (the first costs <Num value="1e20000000" /> IP — the cost formula is 10^(1e7 × base), with bases starting at 2 — and each next one climbs far faster), but each Tesseract is much stronger than the last, widening the cap by a growing amount.
 
 <!-- src/core/celestials/enslaved.js: Tesseracts.BASE_COSTS / costs(index) = 10^(1e7 × cost); capIncrease -->
+
+<Screen
+	src="nameless/dimensions-infinity-1.webp"
+	alt="The Infinity Dimensions tab: the Buy a Tesseract button with its IP cost and cap increase, and the capped ID purchase rows below."
+	caption="The Tesseract button sits above the ID rows. Buy the moment one lights up; the cap jump outweighs any other use of the IP."
+/>
 
 <Callout kind="tip">
 

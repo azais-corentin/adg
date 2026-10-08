@@ -21,8 +21,8 @@ The Nameless Ones unlock when you finish **Effarig's Eternity** — the second l
 <!-- src/core/celestials/enslaved.js: isUnlocked = EffarigUnlock.eternity.isUnlocked; vendor/ad-source/src/core/secret-formula/h2p.js (Nameless entry: "will not directly unlock the next Celestial") -->
 
 <Screen
-	src="ra/celestials-nameless-0.webp"
-	alt="The Nameless tab: the two store-time buttons, discharge, offline-time setting, the reality panel and the two time-cost unlocks."
+	src="nameless/celestials-nameless-0.webp"
+	alt="The Nameless tab: the charge and discharge buttons with the stored game-time and real-time banks, and the Reality unlock panel below."
 	caption="The Nameless tab. Charging, discharging and both unlocks live on this one screen."
 />
 

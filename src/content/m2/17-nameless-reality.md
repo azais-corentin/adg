@@ -21,8 +21,8 @@ Start the Reality from the Nameless tab once the unlock is bought. The goal is a
 <!-- vendor/ad-source/src/core/secret-formula/h2p.js (Nameless entry); vendor/ad-source/src/core/secret-formula/celestials/enslaved.js (glyphHints: Power/Time strong, Replication helpful) -->
 
 <Screen
-	src="ra/celestials-nameless-1.webp"
-	alt="The Start The Nameless Ones' Reality panel listing its restrictions: glyph minimum level, purchase limits, disabled Black Hole and the Tesseract reward."
+	src="nameless/celestials-nameless-1.webp"
+	alt="The lower Nameless tab: the charge and discharge buttons, the stored time banks, and the Start The Nameless Ones' Reality panel with its restrictions."
 	caption="Read the whole panel before entering. The Black Hole stays disabled inside, so banked time is your only burst."
 />
 
