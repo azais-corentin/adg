@@ -1,4 +1,5 @@
 import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 /** The single place the upstream pin lives. Bump `sha` (and `date`) to re-extract. */
 export const UPSTREAM = {
@@ -8,7 +9,8 @@ export const UPSTREAM = {
 	date: '2026-07-17'
 } as const;
 
-export const ROOT_DIR = resolve(import.meta.dir, '../..');
+// `import.meta.url` (not Bun's `import.meta.dir`) so Vitest under Node can reuse the environment.
+export const ROOT_DIR = fileURLToPath(new URL('../..', import.meta.url));
 export const VENDOR_DIR = resolve(ROOT_DIR, 'vendor/ad-source');
 export const UPSTREAM_SRC_DIR = resolve(VENDOR_DIR, 'src');
 export const OUTPUT_DIR = resolve(ROOT_DIR, 'src/lib/data/generated');
