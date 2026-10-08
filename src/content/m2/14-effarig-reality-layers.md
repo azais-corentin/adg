@@ -21,9 +21,9 @@ Effarig's Reality costs <Num value="5e11" /> Relic Shards and plays as **three r
 <!-- vendor/ad-source/src/core/celestials/effarig.js: currentStage Infinity→Eternity→Reality; glyphLevelCap 100/1500/2000; nerfFactor/tickDilation/multDilation -->
 
 <Screen
-	src="ra/celestials-effarig-1.webp"
-	alt="The Start Effarig's Reality panel with its penalty text, and the three layer reward lines for Infinity, Eternity and Reality below it."
-	caption="The Reality panel states the penalties; the three lines below show what each layer pays."
+	src="effarig/celestials-effarig-1.webp"
+	alt="The lower Effarig tab: the Start Effarig's Reality panel with its penalty text, and the Infinity, Eternity and Reality layer reward lines below it."
+	caption="The Reality panel states the penalties; the layer lines below show what each finished layer pays."
 />
 
 Infinity Power softens the production and game-speed penalties, and Time Shards soften the tickspeed penalty — both are worth pushing before you enter. <!-- src/core/celestials/effarig.js: tickDilation/multDilation; h2p Effarig entry -->

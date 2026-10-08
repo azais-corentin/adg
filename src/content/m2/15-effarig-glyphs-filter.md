@@ -12,6 +12,7 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Checklist from '#lib/components/Checklist.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## Effarig Glyphs
@@ -45,6 +46,12 @@ Set the filter (below) to keep Effarig Glyphs at a low rarity threshold with 3+ 
 
 </Callout>
 
+<Screen
+	src="effarig/reality-glyphs-1.webp"
+	alt="The Glyphs tab: the upcoming Reality preview with glyph level, the equipped set, the inventory grid, and the Glyph level factors panel."
+	caption="The Glyphs tab. The weights adjuster from the shard shop lives behind the Glyph level factors panel."
+/>
+
 ## The Glyph filter
 
 The filter (second shard-shop unlock, <Num value="2e8" /> shards) scores each new Glyph choice and either keeps the best one or sacrifices it. One mode applies to all types at once, and each mode keeps its own settings when you switch. The modes, simplest first:
@@ -66,6 +73,12 @@ Unlocking the filter also gives the Automator a filter-score currency and an opt
 **Hunting a level-pushing Effarig Glyph (Effect score mode):** threshold out the basic types (an unreachable score), then weight instability delay, game speed and exponents high, filler effects low, and the RM multiplier strongly negative. Only a 3–4 favoured-effect Glyph clears the bar.
 
 **Auto-recycle:** leave automatic sacrifice on so rejected Glyphs feed your sacrifice totals instead of clogging the inventory.
+
+<Screen
+	src="effarig/reality-glyphs-3.webp"
+	alt="The Glyph Presets panel: saved set slots with Save, Load and Delete buttons and the match-attribute toggles above them."
+	caption="Glyph Presets. Save one slot per layer or farming set and switching sets becomes one tap."
+/>
 
 <Checklist stage="effarig" />
 

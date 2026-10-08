@@ -21,8 +21,8 @@ Effarig, Celestial of Ancient Relics, unlocks when your poured total in Teresa's
 <!-- vendor/ad-source/src/core/secret-formula/celestials/teresa.js: effarig price 1e24; src/core/celestials/enslaved.js chain via EffarigUnlock.eternity -->
 
 <Screen
-	src="ra/celestials-effarig-0.webp"
-	alt="The Effarig subtab: shard count and rarity bonus, the next-Reality shard preview, and the four shard-cost buttons for weights, filter, presets and the Reality."
+	src="effarig/celestials-effarig-0.webp"
+	alt="The Effarig subtab: the shard count and rarity bonus, the next-Reality shard preview, and the four shard-cost buttons for weights, filter, presets and the Reality."
 	caption="The Effarig tab. The four red buttons are the shard shop; the Reality button unlocks last."
 />
 
