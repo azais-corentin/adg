@@ -13,6 +13,7 @@ verified:
 	import Checklist from '#lib/components/Checklist.svelte';
 	import Num from '#lib/components/Num.svelte';
 	import Screen from '#lib/components/Screen.svelte';
+</script>
 
 ## Reaching Infinity
 

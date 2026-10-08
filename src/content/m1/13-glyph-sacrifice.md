@@ -12,6 +12,7 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
 	import Screen from '#lib/components/Screen.svelte';
+</script>
 
 ## Unlock it, then sacrifice everything spare
 
