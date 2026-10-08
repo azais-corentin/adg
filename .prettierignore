@@ -1,0 +1,7 @@
+bun.lock
+/static/
+/fixtures/
+/docs/research/
+/src/lib/data/generated/
+/vendor/
+flake.lock

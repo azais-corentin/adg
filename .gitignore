@@ -1,9 +1,14 @@
 .direnv/
 result
 node_modules/
-.svelte-kit/
-build/
+/.svelte-kit
+/build
 .wrangler/
+test-results/
+playwright-report/
+vendor/
+.DS_Store
 .env
 .env.*
 !.env.example
+vite.config.ts.timestamp-*

@@ -12,35 +12,35 @@ Research reports (sourced, dated): [`docs/research/`](research/).
 
 ## Decisions
 
-| # | Topic | Decision |
-|---|---|---|
-| D1 | Core model | **Save-aware with a manual fallback.** The player pastes an Android export. adg decodes it locally, detects the stage, and shows next goals and the relevant sections. A manual stage picker and checklists cover players who don't import. |
-| D2 | Content scope order | **Milestone 1:** Pre-Infinity → first Reality (incl. Glyphs, Perks, Automator basics). **Milestone 2:** Celestials (Teresa → Effarig → Nameless → V → Ra → Lai'tela → Pelle → END). |
-| D3 | Interactive tools | All five are in scope: save import + stage detector, Time Study tree planner (in-game import/export strings), Eternity Challenge planner, Automator script library, milestone checklists. |
-| D4 | Android ground truth | Captured directly from the user's phone over wireless adb: 3.18.0 screenshots and real exports. See [`device/README.md`](device/README.md) and `/fixtures/saves/`. Articles state "verified against Android 3.18.x". |
-| D5 | Game data | **Build-time extraction** from upstream at a pinned SHA. A Bun script evaluates `src/core/secret-formula/*` and emits typed JSON. Bumping the pin produces a reviewable diff. |
-| D6 | Deploy | **Static + offline PWA on Cloudflare Pages at `ad.nelieru.cc`.** Uses `@sveltejs/adapter-static` 4, is fully prerendered, and uses Kit's built-in `$service-worker` (`@vite-pwa/sveltekit` only supports Kit 2). Saves never leave the device. Deploys use nixpkgs `wrangler`; Cloudflare login goes through the user. |
-| D7 | TypeScript | **TS 7.0.2 native `tsc`** type-checks all `.ts`. **TS 6** (npm alias) runs only `svelte-check` for `.svelte` files, because language-tools#2733 blocks svelte-check on TS 7. Drop TS 6 once TS 7.1's API lands. |
-| D8 | UX | **Mobile-first, clean docs style.** Built for a phone next to the game or in split-screen. Neutral documentation look. |
-| D9 | Repo & license | **Public GitHub, MIT:** [azais-corentin/adg](https://github.com/azais-corentin/adg). `NOTICE` credits IvarK (upstream MIT ©2017) plus an "unofficial, not affiliated" disclaimer. Prose is original: Fandom text (CC BY-SA) is reworded and linked, Fandom images are never bundled, and third-party guides are summarized and linked. |
-| D10 | Automator scripts | **We write our own.** Each script is verified in-game before it ships. Third-party scripts are only linked. |
-| D11 | Git hooks | **hk + gitleaks, installed per project by mise** (`mise.toml`, `hk.pkl`, `hk install --mise`). The app toolchain stays in `flake.nix`. |
-| D12 | Save import formats | **Accept both envelopes; recommend "Export to web/steam"** in all instructions. The upstream schema is canonical for stage detection. Android-native exports are translated through a mapping layer, verified against the paired fixture (one state exported both ways). |
-| D13 | Screens for unreached stages | **Local Android emulator.** The installed APK is pulled from the user's phone and kept outside the repo, then run in a Nix-provided emulator, where saves from any stage are loaded and screenshotted. The user's phone save is never touched. |
+| #   | Topic                        | Decision                                                                                                                                                                                                                                                                                                                               |
+| --- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| D1  | Core model                   | **Save-aware with a manual fallback.** The player pastes an Android export. adg decodes it locally, detects the stage, and shows next goals and the relevant sections. A manual stage picker and checklists cover players who don't import.                                                                                            |
+| D2  | Content scope order          | **Milestone 1:** Pre-Infinity → first Reality (incl. Glyphs, Perks, Automator basics). **Milestone 2:** Celestials (Teresa → Effarig → Nameless → V → Ra → Lai'tela → Pelle → END).                                                                                                                                                    |
+| D3  | Interactive tools            | All five are in scope: save import + stage detector, Time Study tree planner (in-game import/export strings), Eternity Challenge planner, Automator script library, milestone checklists.                                                                                                                                              |
+| D4  | Android ground truth         | Captured directly from the user's phone over wireless adb: 3.18.0 screenshots and real exports. See [`device/README.md`](device/README.md) and `/fixtures/saves/`. Articles state "verified against Android 3.18.x".                                                                                                                   |
+| D5  | Game data                    | **Build-time extraction** from upstream at a pinned SHA. A Bun script evaluates `src/core/secret-formula/*` and emits typed JSON. Bumping the pin produces a reviewable diff.                                                                                                                                                          |
+| D6  | Deploy                       | **Static + offline PWA on Cloudflare Pages at `ad.nelieru.cc`.** Uses `@sveltejs/adapter-static` 4, is fully prerendered, and uses Kit's built-in `$service-worker` (`@vite-pwa/sveltekit` only supports Kit 2). Saves never leave the device. Deploys use nixpkgs `wrangler`; Cloudflare login goes through the user.                 |
+| D7  | TypeScript                   | **TS 7.0.2 native `tsc`** type-checks all `.ts`. **TS 6** (npm alias) runs only `svelte-check` for `.svelte` files, because language-tools#2733 blocks svelte-check on TS 7. Drop TS 6 once TS 7.1's API lands.                                                                                                                        |
+| D8  | UX                           | **Mobile-first, clean docs style.** Built for a phone next to the game or in split-screen. Neutral documentation look.                                                                                                                                                                                                                 |
+| D9  | Repo & license               | **Public GitHub, MIT:** [azais-corentin/adg](https://github.com/azais-corentin/adg). `NOTICE` credits IvarK (upstream MIT ©2017) plus an "unofficial, not affiliated" disclaimer. Prose is original: Fandom text (CC BY-SA) is reworded and linked, Fandom images are never bundled, and third-party guides are summarized and linked. |
+| D10 | Automator scripts            | **We write our own.** Each script is verified in-game before it ships. Third-party scripts are only linked.                                                                                                                                                                                                                            |
+| D11 | Git hooks                    | **hk + gitleaks, installed per project by mise** (`mise.toml`, `hk.pkl`, `hk install --mise`). The app toolchain stays in `flake.nix`.                                                                                                                                                                                                 |
+| D12 | Save import formats          | **Accept both envelopes; recommend "Export to web/steam"** in all instructions. The upstream schema is canonical for stage detection. Android-native exports are translated through a mapping layer, verified against the paired fixture (one state exported both ways).                                                               |
+| D13 | Screens for unreached stages | **Local Android emulator.** The installed APK is pulled from the user's phone and kept outside the repo, then run in a Nix-provided emulator, where saves from any stage are loaded and screenshotted. The user's phone save is never touched.                                                                                         |
 
 ## Stack (verified against the npm registry / nixpkgs, 2026-10-08)
 
-| Piece | Version | Note |
-|---|---|---|
-| Bun | 1.4.2 | nixpkgs-unstable `bun` |
-| SvelteKit | 3.0.1 | Released 2026-10-01; needs Vite ^8.0.12, Svelte ^5.57.1, Node ≥22.17 for tooling |
-| Svelte | 5.57.2 | |
-| Vite | 8.3.4 | |
-| TypeScript | 7.0.2 (`typescript`) + 6.x alias for svelte-check | nixpkgs `typescript` = 7.0.2 |
-| svelte-check | 4.7.6 | peers TS ^5 \|\| ^6 |
-| Tests | Vitest (unit) + Playwright (e2e) | Playwright browsers from nixpkgs `playwright-driver.browsers`; the npm version must match it |
-| Tooling | `flake.nix` (plain `forAllSystems`) + `.envrc` (`use flake`) | Packages: bun, nodejs_22, wrangler, android-tools, playwright-driver.browsers. See [`research/tooling.md`](research/tooling.md) |
-| Hooks | `mise.toml`: hk 2.5.0, gitleaks 8.30.1 | The pre-commit hook runs `gitleaks git --pre-commit --staged`; `hk check` runs a full scan |
+| Piece        | Version                                                      | Note                                                                                                                            |
+| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| Bun          | 1.4.2                                                        | nixpkgs-unstable `bun`                                                                                                          |
+| SvelteKit    | 3.0.1                                                        | Released 2026-10-01; needs Vite ^8.0.12, Svelte ^5.57.1, Node ≥22.17 for tooling                                                |
+| Svelte       | 5.57.2                                                       |                                                                                                                                 |
+| Vite         | 8.3.4                                                        |                                                                                                                                 |
+| TypeScript   | 7.0.2 (`typescript`) + 6.x alias for svelte-check            | nixpkgs `typescript` = 7.0.2                                                                                                    |
+| svelte-check | 4.7.6                                                        | peers TS ^5 \|\| ^6                                                                                                             |
+| Tests        | Vitest (unit) + Playwright (e2e)                             | Playwright browsers from nixpkgs `playwright-driver.browsers`; the npm version must match it                                    |
+| Tooling      | `flake.nix` (plain `forAllSystems`) + `.envrc` (`use flake`) | Packages: bun, nodejs_22, wrangler, android-tools, playwright-driver.browsers. See [`research/tooling.md`](research/tooling.md) |
+| Hooks        | `mise.toml`: hk 2.5.0, gitleaks 8.30.1                       | The pre-commit hook runs `gitleaks git --pre-commit --staged`; `hk check` runs a full scan                                      |
 
 ## Key technical facts carried into planning
 

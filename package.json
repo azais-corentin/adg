@@ -1,0 +1,41 @@
+{
+	"name": "adg",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"description": "Interactive guide for Antimatter Dimensions (Android)",
+	"license": "MIT",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "bun run check:ts && bun run check:svelte",
+		"check:ts": "svelte-kit sync && node node_modules/@typescript/native/bin/tsc -p tsconfig.json --noEmit",
+		"check:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"test": "bun run test:unit --run && bun run test:e2e",
+		"test:unit": "vitest",
+		"test:e2e": "playwright test",
+		"lint": "prettier --check .",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@playwright/test": "1.63.0",
+		"@sveltejs/adapter-static": "^4.0.0",
+		"@sveltejs/kit": "^3.0.1",
+		"@sveltejs/vite-plugin-svelte": "^7.2.0",
+		"@typescript/native": "npm:typescript@^7.0.2",
+		"mdsvex": "^0.12.8",
+		"prettier": "^3.8.3",
+		"prettier-plugin-svelte": "^4.1.0",
+		"svelte": "^5.57.2",
+		"svelte-check": "^4.7.6",
+		"typescript": "~6.0.3",
+		"vite": "^8.3.4",
+		"vitest": "^5.0.3"
+	},
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	}
+}
