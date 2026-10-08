@@ -1,8 +1,8 @@
 ---
-title: To the first Eternity
+title: 'To the first Eternity'
 stage: replicanti
 order: 21
-summary: The final push to 1.79e308 IP — last Infinity Dimensions, late Replicanti Galaxies, and the Eternity button.
+summary: 'The final push to 1.79e308 IP — last Infinity Dimensions, late Replicanti Galaxies, and the Eternity button.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
