@@ -12,13 +12,18 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Checklist from '#lib/components/Checklist.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## General approach
 
 Every hard EC completion is solved the same way: stop pushing the challenge and grow the economy around it. More TT for a deeper tree, more completions elsewhere for their rewards, a higher EP multiplier, study 181's per-second IP — then come back. The [Eternity Challenge planner](/tools/eternity-challenges) encodes this as a full 60-step order with TT targets and a suggested tree per step; check the next step there before forcing a wall.
 
-Inside a run, match the tree to the challenge's disabled half: if Time Dimensions are off (EC1), take Infinity Dimensions (study 72 branch); if Infinity Dimensions are off (EC2), take Time Dimensions (study 73 branch with 171). Active pace for short runs, Idle for runs that take an hour or more.
+<Screen
+	src="eternity-challenges/challenges-eternity-2.webp"
+	alt="Mid-list EC cards at this stage: EC5 and EC6 at 3 completions with galaxy and cost rewards, EC7 and EC8 below with their dimension-swap restrictions."
+	caption="Mid-list EC cards with completion counts. Each card's restriction is the whole ruleset — match the study tree to the half that still works."
+/>
 
 <Callout kind="warning">
 

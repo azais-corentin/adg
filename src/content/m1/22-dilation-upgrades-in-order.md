@@ -11,11 +11,16 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## The three rebuyables
 
-Three upgrades can be bought any number of times, each doubling in effect per purchase while its cost multiplies up. They are your standing DT budget alongside the one-time upgrades: <!-- vendor/ad-source/src/core/secret-formula/eternity/dilation-upgrades.js -->
+<Screen
+	src="early-dilation/eternity-dilation-1.webp"
+	alt="The Dilation upgrades list: the Double Dilated Time, Cheaper Tachyon Galaxy and Tripled Tachyon rebuyables with costs, then the one-time upgrades below."
+	caption="The Dilation upgrades. The three rebuyables on top are the standing DT budget; the one-time upgrades below are each bought once."
+/>
 
 | Upgrade | First cost | Cost × | Effect per buy | Buy when |
 | ------- | ---------- | ------ | -------------- | -------- |

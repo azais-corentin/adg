@@ -11,11 +11,16 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## Entering Dilation
 
-Open the Eternity tab's **Time Dilation** subtab (marked Ψ) and tap **Dilate time**. This starts a Dilated Eternity: your run resets like a normal Eternity, and a marker shows you are dilated until you Eternity again. Dilating or undilating this way always passes through an Eternity reset. <!-- vendor/ad-source/src/components/tabs/time-dilation/DilationButton.vue, vendor/ad-source/src/core/dilation.js -->
+<Screen
+	src="early-dilation/eternity-dilation-0.webp"
+	alt="The Time Dilation subtab: the EP and IP gain boxes, the normal-speed indicator, the Tachyon Particle total, Dilated Time with its hourly rate, and the Tachyon Galaxy threshold."
+	caption="The Time Dilation subtab. TP and DT totals, the hourly DT rate, and the next Tachyon Galaxy threshold all live here."
+/>
 
 While you are dilated, every value produced inside the run is raised to the power <Num value="0.75" /> — that is the Dilation penalty, and a later upgrade softens it. <!-- vendor/ad-source/src/core/dilation.js (dilatedValueOf) --> Ignore the smaller-looking numbers: what matters is that dilated runs earn the two new currencies, which buy upgrades that apply everywhere, dilated or not.
 

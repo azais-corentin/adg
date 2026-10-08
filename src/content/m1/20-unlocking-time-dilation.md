@@ -41,9 +41,9 @@ EC11 and EC12 are the two hardest Eternity Challenges, and the recommended compl
 Theorems are bought, not earned over time: the top of the Studies subtab has **Buy Time Theorems** buttons that spend antimatter, Infinity Points and EP, plus **Buy max Theorems** which buys all three at once. Costs rise with each purchase, so the routine is to push your EP higher, buy Theorems, respec or extend your tree, and push further.
 
 <Screen
-	src="early-eternity/eternity-studies-0.webp"
-	alt="The top of the Studies subtab: Buy max Theorems, the three Buy Time Theorems buttons, Respec, study presets 1 to 6, and the start of the study tree."
-	caption="The Studies subtab. Buy max Theorems first, then spend them on the tree below."
+	src="early-dilation/eternity-studies-0.webp"
+	alt="The top of the Studies subtab at this stage: 480 Theorems with 13,345 lifetime total, Buy max Theorems, the three Buy Time Theorems buttons, Respec, and Export and Import tree."
+	caption="The Studies subtab near the Dilation grind. Buy max Theorems first — the lifetime total is what the Dilation study counts."
 />
 
 Two things make this grind shorter than it looks:

@@ -23,9 +23,9 @@ Every challenge can be completed **up to 5 times**. Each completion raises the g
 <!-- secret-formula/challenges/eternity-challenges.js; src/core/eternity-challenge.js: maxCompletions -->
 
 <Screen
-	src="ra/challenges-eternity-1.webp"
-	alt="The Eternity subtab of the Challenges tab: EC1 through EC6 cards, each showing its restriction, a Completed button, goal span, reward and current effect."
-	caption="The Challenges tab's Eternity subtab. Each card shows its rule, goal span and reward; the layout is the same on an early save."
+	src="eternity-challenges/challenges-eternity-1.webp"
+	alt="The Eternity subtab of the Challenges tab at this stage: EC3 through EC6 cards with restrictions, goals, rewards and completed counts, plus the no-need-to-keep-study note above."
+	caption="The Challenges tab's Eternity subtab. Each card shows its rule, goal span and reward; completions stack to five."
 />
 
 ## Unlocking one
