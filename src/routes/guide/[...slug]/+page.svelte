@@ -130,7 +130,7 @@
 
 	ol a {
 		display: block;
-		padding: var(--space-2) 0;
+		padding: 0.65rem 0;
 		line-height: 1.35;
 		text-decoration: none;
 	}

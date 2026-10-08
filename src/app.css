@@ -217,6 +217,8 @@ td {
 	vertical-align: top;
 	padding: var(--space-2) var(--space-3) var(--space-2) 0;
 	border-bottom: 1px solid var(--rule);
+	/* Long identifiers (save headers, file names) must wrap instead of widening the page. */
+	overflow-wrap: anywhere;
 }
 
 th {

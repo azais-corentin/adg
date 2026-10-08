@@ -173,13 +173,13 @@
 	}
 
 	.tools dt {
-		margin-top: var(--space-4);
+		margin-top: var(--space-2);
 		font-weight: 720;
 	}
 
 	.tools dt a {
 		display: inline-block;
-		padding: var(--space-1) 0;
+		padding: 0.55rem 0;
 	}
 
 	.tools dd {

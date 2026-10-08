@@ -86,7 +86,7 @@
 
 	a {
 		display: inline-block;
-		padding: var(--space-1) 0;
+		padding: 0.55rem 0;
 		font-weight: 720;
 	}
 

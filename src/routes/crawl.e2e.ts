@@ -1,8 +1,12 @@
 import { expect, test } from '@playwright/test';
 
 // Follows every internal link and image from the home page and fails on anything that
-// doesn't load, so a broken nav link or a missing screenshot is caught.
-test('every internal link and image resolves', async ({ page, baseURL }) => {
+// doesn't load or any page wider than the phone screen, so a broken nav link, a missing
+// screenshot or a layout overflow is caught.
+test('every internal link and image resolves and pages fit the screen', async ({
+	page,
+	baseURL
+}) => {
 	const origin = new URL(baseURL ?? 'http://localhost:4173').origin;
 	const queue = ['/'];
 	const visited = new Set<string>();
@@ -20,6 +24,12 @@ test('every internal link and image resolves', async ({ page, baseURL }) => {
 			continue;
 		}
 		if (!response.headers()['content-type']?.includes('text/html')) continue;
+
+		// Pages must fit a phone screen without sideways scrolling.
+		const overflow = await page.evaluate(
+			() => document.documentElement.scrollWidth - document.documentElement.clientWidth
+		);
+		if (overflow > 0) failures.push(`${path}: ${overflow}px wider than the screen`);
 
 		const urls = await page.$$eval('a[href], img[src]', (elements) =>
 			elements.map((el) =>

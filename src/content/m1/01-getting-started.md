@@ -12,6 +12,7 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
 	import Screen from '#lib/components/Screen.svelte';
+	import StageGate from '#lib/components/StageGate.svelte';
 </script>
 
 ## What the game is
@@ -39,7 +40,11 @@ The app's tabs sit in a bar along the bottom of the screen. With Eternity unlock
 | $         | Shop         | The in-app store                                  |
 | i         | Info         | How to play, and About                            |
 
+<StageGate until="early-infinity" mode="highlight">
+
 Tabs for layers you haven't reached yet, such as Infinity and Eternity, stay hidden, so a new save shows fewer of them.
+
+</StageGate>
 
 The subtabs of the current tab are listed below the bar. Each tab remembers the subtab you last opened, so the Dimensions tab may not open on Antimatter.
 

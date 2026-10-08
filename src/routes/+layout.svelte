@@ -141,6 +141,7 @@
 		display: grid;
 		grid-template-columns: minmax(0, 1fr);
 		grid-template-areas: 'header' 'main' 'footer';
+		grid-template-rows: auto 1fr auto;
 		min-height: 100dvh;
 	}
 
