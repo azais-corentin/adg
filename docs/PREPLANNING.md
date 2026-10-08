@@ -57,8 +57,8 @@ Research reports (sourced, dated): [`docs/research/`](research/).
 1. ~~Android export flow~~: resolved, see `device/README.md`.
 2. ~~Automator sourcing~~: we write our own (D10).
 3. ~~Hosting~~: Cloudflare Pages, `ad.nelieru.cc` (D6). Repo created (D9).
-4. Page authoring format. **mdsvex** (guide pages as Markdown files with embedded interactive components) or **plain Svelte pages**. This is an engineering choice, not a product one; it gets decided by a short compatibility test against SvelteKit 3. Default is mdsvex.
-5. Exact upstream pin SHA (master == release @ `5409e32`, 2026-07-17, per research) and how the extractor evaluates `secret-formula` closures. Decided by a spike.
+4. ~~Page authoring format~~: mdsvex works with SvelteKit 3 and runes. Articles are Markdown with embedded components.
+5. ~~Upstream pin~~: `5409e320cecef96a917cca1dfb68f1f183e499ca` (`scripts/extract/pin.ts`). The extractor runs upstream files in `node:vm` with the real Decimal/format helpers and keeps state-dependent text as source (`scripts/extract/README.md`).
 6. ~~Save formats~~: both, web/steam recommended (D12).
 7. ~~Unreached-stage screens~~: local emulator (D13).
 
