@@ -30,9 +30,9 @@ Together they cost just over <Num value="1.111e9" /> Theorems. That number is on
 The generator pays TP divided by 20000 per second, so raising TP still speeds it up after purchase: each dilated push that sets a new TP record shortens the wait for the next study. Keep cycling dilation while the Theorems accumulate rather than idling on a fixed TP total.
 
 <Screen
-	src="early-eternity/dimensions-time-top.webp"
-	alt="The Time subtab of the Dimensions tab: Time Shard count and rate, a Max all button, Time Dimensions 1 to 4 with EP costs, and the 5th Time Dimension showing its Theorem unlock."
-	caption="The Time Dimensions list. Locked rows name the study that unlocks them — here the 5th is still waiting on its study."
+	src="late-eternity/dimensions-time-top.webp"
+	alt="The Time subtab at this stage: Time Shard total and rate, Max all, and all eight Time Dimensions with EP costs — the full list TD5 through TD8 unlocked."
+	caption="The Time Dimensions list with all eight unlocked. Each new tier multiplies the ones below — re-buy Max all right after the respec."
 />
 
 ## Order of work

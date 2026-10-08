@@ -11,6 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## The triple gate
@@ -48,7 +49,12 @@ Open the Achievements tab and hunt row by row through row 13. Advice that saves 
 
 - Do the awkward ones with your end-stage multipliers — tight-timer and constraint achievements that were miserable at Eternity 20 are trivial with full dilation upgrades.
 - Check the secret achievements too where they sit in pre-Reality rows; the counter counts rows, not tabs.
-- The last few are usually specific challenge setups (a Normal Challenge with an odd rule, an Infinity Challenge at an exact tier). Look up each one's requirement text in-game and build that exact run rather than hoping it fires during normal play.
+
+<Screen
+	src="late-eternity/achievements-normal-0.webp"
+	alt="The Achievements tab Normal subtab at this stage: completed rows with the ×393 achievement multiplier, and Normal and Secret subtabs below."
+	caption="Gate 3 is rows 1 through 13 complete — dimmed icons are still locked. The multiplier at the top grows with every row."
+/>
 
 <Callout kind="warning">
 

@@ -12,6 +12,7 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
 	import Checklist from '#lib/components/Checklist.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## What Reality does
@@ -37,6 +38,12 @@ Machines come from your max EP this Reality through a steep formula: at exactly 
 A good rule: once progress clearly slows past <Num value="1e4000" />, do a final dilated TP push, spend all DT, buy the Reality study, and go.
 
 ## Last checks before you go
+
+<Screen
+	src="late-eternity/options-main-2.webp"
+	alt="The Options tab lower pages at this stage: cloud save buttons and Other settings including Max offline ticks, UI update rate, and offline progress toggles."
+	caption="Options before the jump. Export first (hold Share save → Export to web/steam), and confirm Max offline ticks is high for the rebuild."
+/>
 
 1. **Export your save** (Options → Save & Load → hold Share save → Export to web/steam). Keep the file — it is your Eternity-era souvenir and your rollback.
 2. **Spend everything.** Unspent DT, TP-banked records, unbought Theorems — none of it crosses over in a useful form. Buy every dilation upgrade affordable and every Theorem available.

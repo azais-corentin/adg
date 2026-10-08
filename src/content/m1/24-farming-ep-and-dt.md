@@ -11,7 +11,7 @@ verified:
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
-</script>
+	import Screen from '#lib/components/Screen.svelte';
 
 ## The loop
 
@@ -21,7 +21,11 @@ Late Eternity is one repeating cycle, and every part of it feeds the next:
 2. **DT farming.** Higher TP means faster passive DT income. Spend DT on the rebuyables — Tachyon gain first, DT gain alongside — and the one-time upgrades in cost order.
 3. **Higher EP.** The upgrades (especially Antimatter Dimensions from DT, all three tree paths at once, and IP from DT) raise how far each Eternity climbs. More EP buys more pre-generator Theorems and pushes the max-EP record toward <Num value="1e4000" />.
 
-When a dilated push fails to beat your TP record, that is the signal to spend a while in step 2 before dilating again. When normal Eternities stall below your EP record, that is the signal to dilate. The two currencies take turns carrying you.
+<Screen
+	src="late-eternity/eternity-dilation-0.webp"
+	alt="The Time Dilation subtab at this stage: EP and IP gain boxes, 1.66e99 Tachyon Particles, 1.51e21 Dilated Time at 3.09e17 per hour, and 112 Tachyon Galaxies."
+	caption="The Dilation loop at scale: banked TP drives hourly DT income, which funds the next push. When a push stops beating the TP record, farm DT a while first."
+/>
 
 ## Settings that matter
 
