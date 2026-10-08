@@ -29,9 +29,9 @@ The **$ tab** holds the Shop, which sells permanent boosts for **STD coins** ("S
 - **~420 STD** — unlocking all remaining sets at once (scales down as you own more).
 
 <Screen
-	src="early-eternity/shop-main-0.webp"
-	alt="The Shop tab: STD coin balance, bonus rows for Dimensions, Infinity Points, Replicanti, Eternity Points, Dilated Time and Reality Shards with prices, and a Respec button."
-	caption="The Shop. Every row is a permanent multiplier bought with STD coins."
+	src="pre-infinity/shop-main-0.webp"
+	alt="The Shop tab on a new save: the watch-an-ad bonus at the top, the sign-in prompt, and the permanent STD bonus rows below it."
+	caption="The Shop on a fresh save. Sign in to enable purchases; the ad bonus row works without signing in."
 />
 
 Nothing in the Shop is required to finish the game — every boost is a convenience multiplier, and the full progression is completable free. Purchases can be **respecced** (the Respec button refunds STDs for redistribution). STDs and Shop purchases do not transfer to the web or Steam versions.
@@ -54,9 +54,9 @@ Closing the app costs no battery: the game does not run in the background. When 
 - **Offline progress SHOWN** toggles the popup; **Away Progress Options** (new in 3.18.0) configures what it covers.
 
 <Screen
-	src="early-eternity/options-main-2.webp"
-	alt="The Options tab Other section: Max offline ticks at 1,000,000, UI update rate, Offline progress SHOWN, Sleep, Battery saver, and the Away Progress Options button."
-	caption="Options → Other. Max offline ticks and the Away Progress Options button."
+	src="pre-infinity/options-main-2.webp"
+	alt="The Options tab lower pages on a new save: cloud save and Other settings including Max offline ticks at 1,000, UI update rate, and offline progress toggles."
+	caption="Options on a fresh save. Raise Max offline ticks from its 1,000 default when overnight gains disappoint."
 />
 
 <Callout kind="android">

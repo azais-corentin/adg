@@ -49,9 +49,9 @@ Tabs for layers you haven't reached yet, such as Infinity and Eternity, stay hid
 The subtabs of the current tab are listed below the bar. Each tab remembers the subtab you last opened, so the Dimensions tab may not open on Antimatter.
 
 <Screen
-	src="early-eternity/dimensions-antimatter-top.webp"
-	alt="The Antimatter subtab of the Dimensions tab: antimatter and Dimension amounts, prestige buttons above the tab bar, and the Antimatter, Infinity and Time subtabs below it."
-	caption="The Dimensions tab at early Eternity. The round prestige buttons sit above the tab bar, and the subtabs below it."
+	src="pre-infinity/dimensions-antimatter-top.webp"
+	alt="The Antimatter subtab on a new save: 10 antimatter, a 1st Dimension row costing 10, the Boost and Galaxy requirement boxes, and just D.Boost, A.Galaxy and Max above the tab bar."
+	caption="The Dimensions tab on a new save. Seven tabs for now — Infinity, Eternity and the rest appear as you unlock them."
 />
 
 ## The buttons above the tab bar
@@ -67,7 +67,7 @@ A row of round buttons floats above the tab bar on every tab, so you can reset w
 
 <Callout kind="tip">
 
-The top of the Dimensions tab shows what a reset would give you right now. In the screenshot above, the boxes read "Eternity for 7 EP" and "Gain <Num value="2.14e516" /> Infinity Points".
+The boxes in the middle of the tab (Dimension Boost, Antimatter Galaxies) show what each reset would give you right now. The screenshot above shows the very first state: no 4th Dimensions yet, so the first Boost still reads "Requires: 20 4th D".
 
 </Callout>
 

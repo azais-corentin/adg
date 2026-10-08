@@ -10,11 +10,16 @@ verified:
 
 <script>
 	import Callout from '#lib/components/Callout.svelte';
+	import Screen from '#lib/components/Screen.svelte';
 </script>
 
 ## What it does
 
-**Dimensional Sacrifice** resets your 1st through 7th Dimensions (and the antimatter spent on them) and converts them into a multiplier on the **8th Dimension**. Since every lower Dimension is fed by the one above it, a stronger 8th cascades all the way down: after a good Sacrifice you rebuild to where you were within a minute or two, then blow past it.
+<Screen
+	src="pre-infinity/dimensions-antimatter-top.webp"
+	alt="The top of the Antimatter subtab: the Sacrifice disabled banner reading requires 5 Dimboosts, with the buy-ten and Sacrifice multiplier readouts beside it."
+	caption="Before five Boosts the Sacrifice row says so outright. Once unlocked, this same row previews the multiplier — press it at ×2 or more."
+/>
 
 It becomes usable once you have bought more than four Dimension Boosts — roughly when your 8th Dimension is established and actually worth multiplying. The button appears among the Dimension controls; before that point the game does not offer it at all.
 

@@ -12,7 +12,7 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Checklist from '#lib/components/Checklist.svelte';
 	import Num from '#lib/components/Num.svelte';
-</script>
+	import Screen from '#lib/components/Screen.svelte';
 
 ## Reaching Infinity
 
@@ -20,7 +20,11 @@ The counter at the top of the Dimensions tab climbs toward <Num value="1.79e308"
 
 <!-- canCrunch: thisInfinity.maxAM >= NUMBER_MAX_VALUE outside challenges, vendor/ad-source/src/core/player.js -->
 
-Expect the road there to take a few hours to a couple of days of mixed active and idle play. The last stretch (roughly <Num value="1e130" /> to Infinity) is mostly waiting on Galaxies: keep the Boost/Galaxy loop turning, sacrifice at ×2+, and let the multipliers compound. There is no trick to the final push — if you have two Galaxies and a healthy Boost count, you are doing it right.
+<Screen
+	src="pre-infinity/dimensions-antimatter-top.webp"
+	alt="The bottom of the Antimatter subtab: the Percentage to Infinity progress bar, with D.Boost, A.Galaxy and Max above the tab bar."
+	caption="The Percentage to Infinity bar tracks the final push. It fills as antimatter climbs toward 1.79e308 — then B.Crunch lights up."
+/>
 
 <Callout kind="tip">
 
