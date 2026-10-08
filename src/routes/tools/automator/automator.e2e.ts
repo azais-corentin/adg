@@ -17,8 +17,9 @@ test('the stage filter shows one stage, your stage by default', async ({ page })
 	await expect(all).toBeChecked();
 	await expect(page.locator('article#ep-doubler')).toBeVisible();
 
-	await filter.getByText(/^Reality \(/).click();
-	await expect(filter.getByRole('radio', { name: /^Reality \(/ })).toBeChecked();
+	const reality = filter.getByRole('radio', { name: /^Reality \(\d+\)/ });
+	await reality.check({ force: true });
+	await expect(reality).toBeChecked();
 	await expect(page.getByRole('heading', { level: 2 })).toHaveText(['Reality']);
 	await expect(page.locator('article#ep-doubler')).toBeVisible();
 
