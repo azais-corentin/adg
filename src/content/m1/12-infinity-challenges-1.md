@@ -1,8 +1,8 @@
 ---
-title: Infinity Challenges, part 1
+title: 'Infinity Challenges, part 1'
 stage: break-infinity
 order: 12
-summary: How Infinity Challenges work, and walkthroughs for IC1 through IC4.
+summary: 'How Infinity Challenges work, and walkthroughs for IC1 through IC4.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
