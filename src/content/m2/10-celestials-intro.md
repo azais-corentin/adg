@@ -25,15 +25,15 @@ The first Celestial, Teresa, unlocks when you own all 25 Reality Upgrades (achie
 
 <Callout kind="note">
 
-Celestials are timeless: unless a description says otherwise, their mechanics run on real time and ignore game-speed multipliers. Charging a Black Hole, storing real time and pouring RM all tick in real seconds.
+Celestials are timeless: unless a description says otherwise, their new mechanics run on real time and ignore game-speed multipliers. Charging a Black Hole, storing real time and pouring RM all tick in real seconds.
 
-<!-- vendor/ad-source/src/core/secret-formula/h2p.js (Celestials entry: "Celestials are timeless entities") -->
+<!-- vendor/ad-source/src/core/secret-formula/h2p.js (Celestials entry: "Celestials are timeless entities... instead refer specifically to real time instead of game time") -->
 
 </Callout>
 
 ## The Celestials tab
 
-When Teresa unlocks, a new tab appears next to the Reality tab. On Android it is the rocket icon (sixth in the tab bar), and inside it the subtabs run along the bottom: Nav, Teresa, Effarig, Nameless, V, Ra. Tabs for Celestials you have not reached yet stay hidden, so you will only see Nav and Teresa at first.
+When Teresa unlocks, a new tab appears next to the Reality tab. On Android it is the starfield icon in the tab bar, and inside it the subtabs run along the bottom: Nav, Teresa, Effarig, Nameless, V, Ra. Tabs for Celestials you have not reached yet stay hidden, so you will only see Nav and Teresa at first.
 
 <Screen
 	src="ra/celestials-nav-0.webp"

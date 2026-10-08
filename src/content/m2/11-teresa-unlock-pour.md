@@ -16,7 +16,7 @@ verified:
 
 ## How Teresa unlocks
 
-Teresa unlocks when you earn achievement 147, which means owning all 25 Reality Upgrades. There is no other requirement. When it happens, the Celestials tab (rocket icon) appears next to the Reality tab, with Teresa as its first subtab.
+Teresa unlocks when you earn achievement 147, which means owning all 25 Reality Upgrades. There is no other requirement. When it happens, the Celestials tab appears next to the Reality tab, with Teresa as its first subtab.
 
 <!-- src/core/celestials/teresa.js: get isUnlocked() { return Achievement(147).isUnlocked; }; vendor/ad-source/src/core/secret-formula/h2p.js (Teresa entry) -->
 
@@ -30,7 +30,7 @@ The tab has three parts: a bar showing how full the container is, a **Pour RM** 
 
 ## How pouring works
 
-Each second the game moves a slice of your current RM into the container. The slice grows the longer you keep pouring (it scales with the square of the pour time) and with the amount already poured, so small early pours ramp up on their own if you leave the button on. The container holds at most <Num value="1e24" /> RM in total; the bar shows the fraction of that filled.
+Each second the game moves a slice of your current RM into the container. The slice grows the longer you keep pouring without toggling it off (it scales with the square of the unbroken pour time) and with the amount already poured, so small early pours ramp up on their own if you leave the button on. Toggling pouring off resets the timer, so a fresh pour always starts slow. The container holds at most <Num value="1e24" /> RM in total; the bar shows the fraction of that filled.
 
 <!-- vendor/ad-source/src/core/celestials/teresa.js: pourRM(diff): rmPoured = min((pouredAmount + 1e6) * 0.01 * timePoured^2, rm); pouredAmountCap = 1e24 -->
 
@@ -44,7 +44,7 @@ Two things grow as the poured total rises:
 | <Num value="1e6" /> | Start each Reality with all Eternity Upgrades |
 | <Num value="1e10" /> | Undo equipping a Glyph mid-Reality |
 | <Num value="1e14" /> | Teresa's Reality |
-| <Num value="1e18" /> | Passive EP generation (1% of peak EP per minute, every second) |
+| <Num value="1e18" /> | Passive EP generation (1% of your best EP/min this Eternity, every second) |
 | <Num value="1e21" /> | Teresa's Perk Point Shop |
 | <Num value="1e24" /> | Effarig, the next Celestial |
 
@@ -70,7 +70,7 @@ At <Num value="1e21" /> poured, the top of the Teresa tab opens the Perk Point S
 
 <!-- vendor/ad-source/src/core/secret-formula/celestials/perk-shop.js -->
 
-Buy the RM doubler first, then Glyph levels. The Music Glyph button is handy on touch: one tap gives a decent Glyph without a run, and a later button fills every empty inventory slot with them. Music Glyphs are single-effect Glyphs meant for sacrificing, so spend spare Perk Points there when the repeatables get expensive.
+Buy the RM doubler first, then Glyph levels. The Music Glyph button is handy on touch: one tap gives a decent Glyph without a run, and a later button fills every empty inventory slot with them. Music Glyphs have a single (random-type) effect and are meant for sacrificing, so spend spare Perk Points there when the repeatables get expensive.
 
 <Screen
 	src="ra/celestials-teresa-1.webp"

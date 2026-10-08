@@ -34,7 +34,7 @@ Reach Infinity (<Num value="1.8e308" /> antimatter) and Crunch. With levels capp
 
 <!-- src/core/celestials/effarig.js: glyphLevelCap INFINITY = 100 -->
 
-Reward: Infinity Challenges complete automatically and Infinity Dimension limits loosen.
+Reward: Infinity Challenges auto-complete much faster and Replicanti limits loosen (the Replicanti cap scales off total Infinities from here on).
 
 ## Layer 2: Eternity (Glyph level cap 1500)
 
@@ -42,7 +42,7 @@ Reach <Num value="1.8e308" /> IP and Eternity. Two extra caps apply: base IP gai
 
 Bring a mixed set: Power for Dimension multipliers, Infinity for its multipliers, Replication with Replicanti multiplier power (it scales Infinity Dimensions around the caps), and Dilation with Theorem generation for studies. Take the Infinity Dimension study path with the Idle path.
 
-Reward: **the Nameless Ones unlock** — the next Celestial — plus the removal of the IP caps.
+Reward: **the Nameless Ones unlock** — the next Celestial — plus Eternities generating Infinities and the end of Infinity Point limits inside the Reality.
 
 ## Layer 3: Reality (Glyph level cap 2000)
 

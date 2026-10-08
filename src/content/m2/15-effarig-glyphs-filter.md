@@ -34,7 +34,7 @@ An Effarig Glyph can roll up to 4 effects from its pool of 7:
 
 <!-- vendor/ad-source/src/core/secret-formula/reality/glyph-effects.js: effarigrm/effarigglyph/effarigblackhole/effarigachievement/effarigforgotten/effarigdimensions/effarigantimatter -->
 
-One restriction: the RM multiplier and the instability delay **cannot appear on the same Glyph** until much later (a Ra unlock lifts it). So hunt two Glyphs, not one perfect one:
+One restriction: the RM multiplier and the instability delay **cannot appear on the same Glyph** until Ra's Effarig level 10 lifts it (then Glyphs always have 4 effects and Effarig Glyphs can roll up to all 7). So hunt two Glyphs, not one perfect one:
 
 - **Level pushing:** instability delay + game speed + buy-10 or all-Dimension power.
 - **RM farming:** RM multiplier + game speed + buy-10 or all-Dimension power.

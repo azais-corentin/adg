@@ -16,7 +16,7 @@ verified:
 
 ## How Effarig unlocks
 
-Effarig, Celestial of Ancient Relics, unlocks when your poured total in Teresa's container reaches <Num value="1e24" /> — the full container. A new Effarig subtab appears in the Celestials tab (rocket icon).
+Effarig, Celestial of Ancient Relics, unlocks when your poured total in Teresa's container reaches <Num value="1e24" /> — the full container. A new Effarig subtab appears in the Celestials tab.
 
 <!-- vendor/ad-source/src/core/secret-formula/celestials/teresa.js: effarig price 1e24; src/core/celestials/enslaved.js chain via EffarigUnlock.eternity -->
 
@@ -30,10 +30,10 @@ Effarig, Celestial of Ancient Relics, unlocks when your poured total in Teresa's
 
 Relic Shards are Effarig's currency, earned from **every Reality from now on** — not just inside Effarig's Reality. Two things decide how many you get:
 
-1. **Distinct Glyph effects equipped** — the dominant factor. Each different effect on your equipped Glyphs raises the shard gain exponentially, so a set with many different effects earns far more than a set with a few strong ones.
+1. **Distinct Glyph effects equipped** — the dominant factor. The game takes the EP exponent, divides by 7,500 and raises that to the power of your distinct effect count (counting generated-type and non-generated-type effects separately), so a set with many different effects earns far more than a set with a few strong ones.
 2. **Eternity Points** — a much smaller factor. More EP helps, but never makes up for a narrow set.
 
-<!-- vendor/ad-source/src/core/celestials/effarig.js: shardsGained = floor((EP.exponent/7500)^glyphEffectAmount) × alchemy; vendor/ad-source/src/core/secret-formula/h2p.js (Effarig entry) -->
+<!-- vendor/ad-source/src/core/celestials/effarig.js: shardsGained = floor((EP.exponent/7500)^glyphEffectAmount) × alchemy Effarig effect; vendor/ad-source/src/core/secret-formula/h2p.js (Effarig entry) -->
 
 The tab previews what the next Reality would give, including a per-minute rate. Use that rate to tune your runs: Reality when the rate peaks instead of dragging runs out.
 
