@@ -1,0 +1,18 @@
+amends "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Builtins.pkl"
+
+hooks {
+  ["pre-commit"] {
+    steps {
+      // Scan only what is about to be committed.
+      ["gitleaks"] {
+        check = "gitleaks git --pre-commit --staged --redact --verbose --no-banner"
+      }
+    }
+  }
+  ["check"] {
+    steps {
+      ["gitleaks"] = Builtins.gitleaks
+    }
+  }
+}
