@@ -22,7 +22,7 @@ If the study will not buy, check which of those three is missing: usually it is 
 
 ## What a Reality resets — and what it keeps
 
-Reality resets almost everything up to this point: antimatter, Infinity Points, Eternity Points, Infinities, Eternities, Time Theorems, Time Dimensions, Tachyon Particles, Dilated Time, Replicanti, EC studies, normal/infinity challenge *completions*, studies and Dilation upgrades. EC *completion counts* survive — only the studies and unlock flags clear. <!-- vendor/ad-source/src/core/reality.js (finishProcessReality); vendor/ad-source/src/core/eternity.js (initializeChallengeCompletions) -->
+Reality resets almost everything up to this point: antimatter, Infinity Points, Eternity Points, Infinities, Eternities, Time Theorems, Time Dimensions, Tachyon Particles, Dilated Time, Replicanti, EC studies, normal/infinity challenge _completions_, studies and Dilation upgrades. EC _completion counts_ survive — only the studies and unlock flags clear. <!-- vendor/ad-source/src/core/reality.js (finishProcessReality); vendor/ad-source/src/core/eternity.js (initializeChallengeCompletions) -->
 
 Two things surprise most players:
 
@@ -54,7 +54,7 @@ Aim for **2–4 RM** on the first Reality (around <Num value="1e4148" />–<Num 
 
 </Callout>
 
-The run back up feels familiar but faster: Autobuyers, challenges and milestones return quickly, and the 30-minute achievement timer rebuilds your multipliers in the background. Spend your first RM on the repeatable Reality Upgrades — Dilated Time and Tachyon gain first.
+The run back up feels familiar but faster: Autobuyers, challenges and milestones return quickly, and the 30-minute achievement timer rebuilds your multipliers in the background. Spend your first RM on the repeatable Reality Upgrades; [Reality Upgrades, rows 1 and 2](/guide/m1/reality-upgrades-1-2) says what to buy for 1, 2, 3 or 4 RM.
 
 Your first Glyph is fixed: an Uncommon Glyph of Power with Antimatter Dimension power. A Companion glyph, a pink heart that records the EP you Realitied with, comes with it. On the Glyphs tab, tap the Power glyph and press **Equip**. Leave the Companion in the inventory: it does nothing and would take one of your three circles. Your first Perk Point starts the perk tree on the Perks subtab.
 
