@@ -18,7 +18,7 @@ verified:
 
 Every autobuyer has two stats, both upgraded with IP in the Autobuyers tab:
 
-- **Interval** — how often it fires. Lower is faster, down to a floor (100 ms for the Crunch buyer; faster for small Dimensions).
+- **Interval** — how often it fires. Lower is faster. Each upgrade ("40% smaller interval") costs IP, down to a floor of 100 ms for every autobuyer.
 - **Bulk** — how much it buys per firing. Higher bulk means fewer trips to keep up with production.
 
 Completing a Normal Challenge is what *unlocks* upgrading each autobuyer; IP is what *pays* for the upgrades. So the loop is: clear challenges → spend IP on the autobuyers they unlocked → crunch faster → earn IP faster → afford more upgrades.
@@ -42,13 +42,13 @@ Two milestones change the rules: the "Bulked Up" achievement (set every Dimensio
 
 ## Maxing the Big Crunch interval
 
-The Big Crunch autobuyer works differently: instead of an interval you set **"Crunch after X seconds"**, and lowering X costs IP per step. Bring it down to its floor of **100 ms** (0.1 s). That is expensive — most of your IP income for a while — but it is the single gate to the next layer: the **Break Infinity** button only activates once this interval is maxed.
+The Big Crunch autobuyer's interval is upgraded the same way, 40% smaller per IP purchase, and it starts much slower than the others. Bring it down to its floor of **100 ms** (0.1 s). That is expensive — most of your IP income for a while — but it is the single gate to the next layer: the **Break Infinity** button only activates once this interval is maxed.
 
-<!-- game.js: Break Infinity requires Autobuyer.bigCrunch.hasMaxedInterval -->
+<!-- big-crunch-autobuyer.js extends UpgradeableAutobuyerState; autobuyer.js upgradeInterval: interval * 0.6, hasMaxedInterval: interval <= 100; game.js: Break Infinity requires Autobuyer.bigCrunch.hasMaxedInterval -->
 
 Practical notes:
 
-- Set X to a few seconds while grinding (fast crunches, fast IP), and keep buying it down whenever IP allows.
+- Buy each interval step as soon as IP allows; a faster Crunch autobuyer also means faster IP.
 - Do not spend IP on the <Num value="1000" />-IP offline upgrade or big rebuyable stacks while the crunch interval still has steps left. The interval is the priority; everything else can wait.
 - At 100 ms the Button in the Infinity tab's **Break** subtab lights up. Break right away (next stage's article) — intervals going free makes the whole tab cheaper in hindsight, so there is no prize for over-grinding first.
 

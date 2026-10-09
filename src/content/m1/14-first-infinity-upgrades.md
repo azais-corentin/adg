@@ -16,21 +16,21 @@ verified:
 
 ## The upgrade grid
 
-The Infinity tab's **Upgrades** subtab holds the Infinity Upgrades in two columns. Within each column you must buy from top to bottom — each upgrade unlocks the one below it — and most cost just <Num value="1" /> IP. Your first few Crunches each yield a single IP, so the opening is a quick sequence of crunch → buy → crunch faster.
+The Infinity tab's **Upgrades** subtab holds sixteen Infinity Upgrades in four columns: Columns 1 and 2 side by side at the top, Columns 3 and 4 below them. Within each column you must buy from top to bottom — each upgrade unlocks the one below it. Columns 1 and 2 cost just <Num value="1" /> IP per upgrade (except the 2-IP Galaxy upgrade at the bottom of Column 2). Your first few Crunches each yield a single IP, so the opening is a quick sequence of crunch → buy → crunch faster.
 
 <!-- infinity-upgrades.js: 1-IP chain totalTimeMult→18→36→resetBoost, buy10Mult→27→45; src/lib/data/generated/infinity-upgrades.json -->
 
 Buy in this order:
 
-1. The top of either column (time multiplier or buy-10 multiplier) — both cost <Num value="1" /> IP with no requirement.
+1. The top of Column 1 (time-played multiplier) or Column 2 (buy-10 multiplier) — both cost <Num value="1" /> IP with no requirement.
 2. Work **down the column you started**: each next upgrade costs <Num value="1" /> IP and needs the one above it.
-3. Start the second column the same way, then alternate as IP allows.
+3. Start the other column the same way, then alternate as IP allows.
 
 The pair that matters most early is the time-played multiplier and the buy-10 multiplier: both feed every Dimension on every run. The Infinities-scaling pairs (1st+8th, 2nd+7th, 3rd+6th, 4th+5th) grow automatically as you crunch, so do not delay crunches to "save up" — more Infinities make the upgrades you already own stronger.
 
 ## The slightly bigger buys
 
-Once the 1-IP rows are done (about ten Infinities in), the next targets cost real IP:
+Once Columns 1 and 2 are done (about ten Infinities in), the next targets cost real IP. All but the first are in Column 3:
 
 | Cost | Upgrade | Why |
 | ---- | ------- | --- |
@@ -42,20 +42,22 @@ Once the 1-IP rows are done (about ten Infinities in), the next targets cost rea
 
 <Screen
 	src="early-infinity/infinity-upgrades-0.webp"
-	alt="The Upgrades subtab of the Infinity tab at 0 IP: the two 1-IP columns with their top-to-bottom unlock rule stated at the top."
-	caption="The Infinity Upgrades grid on your first visit. Each column unlocks top to bottom — spend that first IP at the top of either column."
+	alt="The Upgrades subtab of the Infinity tab at 0 IP: the top-to-bottom rule, Column 1 and Column 2 with their 1-IP upgrades and the 2-IP Galaxy upgrade, and the start of Columns 3 and 4 below."
+	caption="The Infinity Upgrades on your first visit. Each column unlocks top to bottom — spend that first IP at the top of Column 1 or 2."
 />
 
-Further up the right side sit the start-with-Boosts/Galaxy upgrades (<Num value="20" />–<Num value="300" /> IP) that skip the opening minutes of every run. They are quality of life first and speed second: buy them when runs feel slow to start, not before the multipliers above.
+Column 4 holds the start-with-Boosts/Galaxy upgrades (<Num value="20" />–<Num value="300" /> IP) that skip the opening minutes of every run. They are quality of life first and speed second: buy them when runs feel slow to start, not before the multipliers above.
 
 ## What not to do
 
 - Do not hoard IP "for later". Unspent IP does nothing until you own the upgrade that scales with it — spend everything, every Crunch, until that 5-IP upgrade is yours.
-- Do not buy the <Num value="1000" />-IP offline upgrade early. It pays half your best IP/min while offline (and needs offline progress on in Options) — excellent later, but at this stage <Num value="1000" /> IP is days of progress; spend it on the cheap multipliers instead.
+- Do not rush the <Num value="1000" />-IP offline upgrade once it appears. It pays half your best IP/min while offline (and needs offline progress on in Options) — excellent later, but at this stage <Num value="1000" /> IP is days of progress; spend it on the cheap multipliers instead.
 
 <Callout kind="tip">
 
-The greyed-out upgrade at the top ("Multiply Infinity Points ×2") is a rebuyable IP multiplier. It starts at 10 IP and rises tenfold per purchase, steepening above <Num value="1e3000000" /> IP and capping at <Num value="1e6000000" /> IP — ignore it for now; it matters in the hundreds-of-IP era.
+Once you own all sixteen upgrades (achievement "No DLC required"), a new row appears above the columns: a rebuyable "Multiply Infinity Points from all sources by 2" and the <Num value="1000" />-IP offline upgrade. The rebuyable starts at 10 IP and rises tenfold per purchase, steepening above <Num value="1e3000000" /> IP and capping at <Num value="1e6000000" /> IP — it matters in the hundreds-of-IP era.
+
+<!-- bottomRowUnlocked = Achievement(41) (16 Infinity Upgrades) in vendor/ad-source/src/components/tabs/infinity-upgrades/InfinityUpgradesTab.vue; on Android the row sits above Column 1/2 (break-infinity/infinity-upgrades-0.webp) -->
 
 </Callout>
 

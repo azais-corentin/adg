@@ -69,7 +69,7 @@ The two things worth planning around are the **buy-max Dimboost mode** and the *
 
 ## The repeatable IP multiplier
 
-Below the Break subtab, back on the **Upgrades** subtab, sits the repeatable ×2 IP upgrade. Each purchase doubles all IP gains, and you can buy it over and over: the price starts at 10 IP and rises tenfold per purchase for a long stretch before steepening. It unlocks once you own the earlier Infinity Upgrades (the achievement for completing that set). <!-- src/core/infinity-upgrades.js:132-175 (geometric 10× then 1e10× cost, hard cap) -->
+At the top of the Infinity tab's **Upgrades** subtab, above the four columns, sits the repeatable ×2 IP upgrade. Each purchase doubles all IP gains, and you can buy it over and over: the price starts at 10 IP and rises tenfold per purchase for a long stretch before steepening. It appears once you own all sixteen earlier Infinity Upgrades (the achievement for completing that set). <!-- src/core/infinity-upgrades.js:132-175 (geometric 10× then 1e10× cost, hard cap); InfinityUpgradesTab.vue bottomRowUnlocked = Achievement(41) -->
 
 <Callout kind="tip">
 
@@ -79,7 +79,7 @@ Buy this upgrade freely between pushes. Because post-break crunch payouts grow w
 
 <Callout kind="android">
 
-Everything here is bought with taps on the Break subtab, and the floating **Max** button above the tab bar buys whatever you can afford. After long offline stretches, check Options → Max offline ticks: a generous setting lets the away simulation actually play through these pushes instead of stalling. (On the way back in you will get the usual "While you were away" popup — Confirm it.)
+Everything here is bought with taps on the Break subtab and the Upgrades subtab; the floating **Max** button only buys Dimensions and Tickspeed. After long offline stretches, check Options → Max offline ticks: a generous setting lets the away simulation actually play through these pushes instead of stalling. (On the way back in you will get the usual "While you were away" popup — Confirm it.)
 
 </Callout>
 

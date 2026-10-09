@@ -17,30 +17,38 @@ verified:
 
 ## Reaching Infinity
 
-The counter at the top of the Dimensions tab climbs toward <Num value="1.79e308" /> — the largest finite number the game engine holds, displayed as "Infinity" when you pass it. The moment your antimatter reaches it, the **B.Crunch** button lights up: that is the Big Crunch, the first prestige reset.
+The counter at the top of the Dimensions tab climbs toward <Num value="1.79e308" /> — the largest finite number the game engine holds, displayed as "Infinity" when you pass it. The Percentage to Infinity bar below the Boost and Galaxy boxes tracks the final push.
 
-<!-- canCrunch: thisInfinity.maxAM >= NUMBER_MAX_VALUE outside challenges, vendor/ad-source/src/core/player.js -->
+The moment your antimatter reaches it, the game stops: the tab's content is replaced by "The world has collapsed due to excess of antimatter." and a large **Big Crunch** button. That is the Big Crunch, the first prestige reset. There is nothing else to do until you press it.
+
+<!-- canCrunch: thisInfinity.maxAM >= NUMBER_MAX_VALUE outside challenges, vendor/ad-source/src/core/player.js; BigCrunchButton.vue shouldDisplay = !player.break && Player.canCrunch -->
 
 <Screen
-	src="pre-infinity/dimensions-antimatter-top.webp"
-	alt="The bottom of the Antimatter subtab: the Percentage to Infinity progress bar, with D.Boost, A.Galaxy and Max above the tab bar."
-	caption="The Percentage to Infinity bar tracks the final push. It fills as antimatter climbs toward 1.79e308 — then B.Crunch lights up."
+	src="pre-infinity/at-infinity/dimensions-antimatter-top.webp"
+	alt="The Antimatter subtab at Infinity before the first Big Crunch: an empty tab with the text The world has collapsed due to excess of antimatter and a large Big Crunch button at the top, with D.Boost, A.Galaxy and Max above the tab bar."
+	caption="At 1.79e308 antimatter the tab collapses to a single Big Crunch button."
 />
 
 <Callout kind="tip">
 
-Before crunching, glance at the preview: the first Crunch always yields exactly <Num value="1" /> Infinity Point. Later Crunches give more based on how fast they were, so the first one is about unlocking the Infinity layer, not farming.
+The first Crunch always yields exactly <Num value="1" /> Infinity Point. Later Crunches give more based on how fast they were, so the first one is about unlocking the Infinity layer, not farming.
 
 </Callout>
 
 ## The Crunch itself
 
-Tapping B.Crunch shows an explanatory modal, then resets antimatter, Dimensions, Boosts and Galaxies — and opens the **Infinity** tab (∞ icon) with your first Infinity Point. Two things are new:
+Tapping **Big Crunch** resets antimatter, Dimensions, Boosts and Galaxies at once, with no confirmation, and opens the **Infinity** tab (∞ icon) on its Upgrades subtab with your first Infinity Point. Two things are new:
 
 - **Infinity Points (IP)** buy permanent Infinity Upgrades (next articles).
 - **Infinities** (the count of Crunches) are themselves a currency: several upgrades scale with them, and the count gates challenges.
 
 Your achievements, autobuyers and their settings survive. The game now plays noticeably faster: with upgrades and challenge autobuyers coming online, the second Infinity takes a fraction of the first.
+
+<Callout kind="android">
+
+Right after the first Crunch the app shows "You have unlocked sticky buttons". Holding one of the round buttons above the tab bar for half a second makes it keep repeating its action after you let go, until you tap it again or sticky another button. A circle marks the stickied button. A **B.Crunch** button also joins that row from now on.
+
+</Callout>
 
 ## First minutes after
 

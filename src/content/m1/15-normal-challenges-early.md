@@ -61,5 +61,5 @@ Ignore any guide telling you to set numeric autobuyer priorities for C9. Priorit
 ## Further reading
 
 - In-game Info → How to play → "Normal Challenges".
-- [The Challenges tab, Infinity subtab](/guide/m1/normal-challenges-late), for C10–C12 once they unlock.
+- [The later Normal Challenges](/guide/m1/normal-challenges-late), for C10–C12 once they unlock.
 - When the crunch interval is maxed, [Breaking Infinity](/guide/m1/breaking-infinity) is next.

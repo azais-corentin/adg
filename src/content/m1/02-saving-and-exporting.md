@@ -15,7 +15,7 @@ verified:
 
 ## Where the save options are
 
-Everything to do with saves is in the **Options** tab (the sliders icon, eighth in the tab bar), in the **Save & Load** section below the display settings.
+Everything to do with saves is in the **Options** tab (the sliders icon, always third from the right in the tab bar), in the **Save & Load** section below the display settings.
 
 <Screen
 	src="early-eternity/options-save-load.webp"
