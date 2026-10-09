@@ -289,7 +289,7 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'rep-galaxy',
 		stage: 'replicanti',
 		text: 'Get your first Replicanti Galaxy',
-		detail: `Buy a Max Replicanti Galaxies upgrade, then let Replicanti reach ${INFINITY}.`,
+		detail: `Buy a Max Replicanti Galaxies upgrade, then let Replicanti reach ${INFINITY} without a Big Crunch: until the achievement "Is this safe?", a crunch sets them back to 1.`,
 		auto: (s) => s.replicanti.galaxies > 0 || reachedEternity(s)
 	},
 	{

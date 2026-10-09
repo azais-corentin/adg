@@ -54,6 +54,8 @@ Replicanti survive into Eternity play and stay important: their multiplier boost
 
 Keep the **auto-galaxy** toggle on and feed chance, interval and max-galaxy upgrades from the Infinity tab. Study 62 triples Replicanti speed for 3 TT, but it stays locked until you complete Eternity Challenge 5 once, so it is a reward to pick up after your first EC5 run; the pace-split studies behind 121/122/123 add galaxy bonuses later.
 
+Replicanti chance now climbs toward its cap of 100%, and the interval toward its 50 ms floor (study 22 lowers the floor to 1 ms). Max Galaxies has no cap, but each level costs more than the last. You stop buying them by hand at 50, 60 and 80 Eternities, when milestones unlock the Chance, Interval and Max Galaxies autobuyers.
+
 <!-- normal-time-studies.js:135-140 (62: requirement 42 and EternityChallenge(5).completions > 0) -->
 
 ## Common wall: EP gain stalls

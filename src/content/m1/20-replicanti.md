@@ -34,40 +34,52 @@ Replicanti are a self-copying currency. Each tick (each "replication interval") 
 
 <!-- src/core/replicanti.js:505-514 (initial chance/interval/costs), :326-404 (chance +1%/level capped at 100%, interval ×0.9 floored at 50ms), :412-436 (galaxy cap upgrade) -->
 
-Every purchase also inflates that upgrade's next price enormously (×1e15 for chance, ×1e10 for interval, and steeply rising for galaxies), so costs run away fast — level the cheap one first and alternate as prices cross.
+Every purchase also makes that upgrade's next level far more expensive: ×1e15 for chance, ×1e10 for interval, and more each time for Max Galaxies (<Num value="1e170" />, <Num value="1e195" />, <Num value="1e225" />, <Num value="1e260" />, <Num value="1e300" />, <Num value="1e345" />).
 
 ## What Replicanti do for you
 
 Growing Replicanti pays in two ways:
 
 - **More Replicanti multiply your Infinity Dimensions.** The bonus is the squared log-base-2 of your count (log2(amount)²), so it starts small and becomes one of your biggest multipliers by the time you hold thousands of digits of them. <!-- src/core/replicanti.js:266-272 (`replicantiMult`) -->
-- **Reaching <Num value="1.80e308" /> Replicanti buys a Replicanti Galaxy.** Each galaxy adds to your shared galaxy strength alongside Antimatter Galaxies, up to your Max Galaxies cap. The galaxy purchase divides your Replicanti back down (or resets them to 1 early on), and growth resumes. <!-- src/core/replicanti.js:34-48 (`replicantiGalaxy`), multiplier-tab/galaxies.js:20-30 -->
+- **Reaching <Num value="1.80e308" /> Replicanti buys a Replicanti Galaxy.** Each galaxy adds to your shared galaxy strength alongside Antimatter Galaxies, up to your Max Galaxies cap. Taking the galaxy sets your Replicanti back to 1, and growth starts over. <!-- src/core/replicanti.js:34-48 (`replicantiGalaxy`), multiplier-tab/galaxies.js:20-30 -->
 
 So the loop is: grow → galaxy → grow faster → galaxy, with the chance/interval upgrades speeding each cycle and the Max Galaxies upgrade raising the ceiling.
 
+## Big Crunches reset Replicanti at first
+
+Until you earn the achievement **Is this safe?**, every Big Crunch sets your Replicanti back to 1 and takes away your Replicanti Galaxies. The achievement asks for <Num value="1.80e308" /> Replicanti within one hour of an Infinity. From then on, your Replicanti and one Replicanti Galaxy survive each crunch.
+
+So at first, Replicanti only grow within a single Infinity. The countdown under the galaxy count also gives the full time from 1 to <Num value="1.80e308" /> ("17 minutes and 24 seconds total" in the screenshot). Once that total is under an hour, turn off **Automatic Big Crunch** (Autobuyers tab) and don't crunch until Replicanti reach <Num value="1.80e308" />: that earns the achievement.
+
+<!-- big-crunch.js:121-162 (Replicanti to 1 and galaxies to 0 on crunch unless Achievement 95), normal-achievements.js:663-672 (Is this safe?); emulator (Android 3.18.0): pre-Eternity save with achievement 95 cleared and no Replicanti Galaxy, B.Crunch took Replicanti from 3.41e60 to 3 -->
+
 ## Tuning the upgrades
 
-Early priorities, in order:
+None of the three gets near its cap before your first Eternity. Prices climb that fast, and this stage ends at about <Num value="1.80e308" /> IP. The screenshot above is a save ready for its first Eternity: 12% chance, a 167 ms interval and 5 Max Replicanti Galaxies, with the next chance level at <Num value="1e315" /> IP.
 
-1. **Interval first.** It starts at full price parity with the unlock and each level visibly shortens cycles. The first handful of levels are the cheapest speed you will ever buy.
-2. **Chance to ~30–50%, then alternate.** Chance levels cost ×1e15 more each, so they overtake interval quickly; push chance while it is the cheaper of the two, then alternate.
-4. **Cap chance at 100%, floor interval at 50 ms** (lower with study 22's Time Study effect). After that every IP goes to Max Galaxies.
+1. **Buy the cheapest of the three.** Interval opens at <Num value="1e140" /> IP, chance at <Num value="1e150" /> and Max Galaxies at <Num value="1e170" />; after that their prices leapfrog each other.
+2. **When chance and interval cost about the same, take chance below about 9% and interval above it.** Replicanti grow at a speed set by ln(1 + chance) ÷ interval. Going from 5% to 6% chance makes them about 19% faster, from 12% to 13% only 8%, while every interval level gives 11%.
+3. **Raise Max Galaxies only when you are about to fill it.** Each Replicanti Galaxy sends your Replicanti back to 1, and climbing to <Num value="1.80e308" /> again takes a while (17 minutes in the screenshot), so you won't fill many galaxies before the first Eternity.
+
+<!-- replicanti.js:205 (growth per tick: ln(1 + chance)), :336-397 (cost steps, caps), :472-478 (Max Galaxies cost: 10^(170 + 25n + 5n(n-1)/2)); emulator (Android 3.18.0): Chance 5% next cost 1e210, Interval 531.44 ms cost 1e200, Max RGs 2 cost 1e225 on a Replicanti-stage save; replicanti/infinity-replicanti-top.webp at 2.69e315 IP -->
+
+The caps come into play after Eternity: chance stops at 100% and the interval at 50 ms (Time Study 22 lowers that floor to 1 ms), and Eternity milestones add autobuyers for all three upgrades. See [Eternity Upgrades and Replicanti](/guide/m1/eternity-upgrades-and-replicanti).
 
 <Callout kind="tip">
 
-Replicanti keep growing while you do other things. Set the three autobuyers (gears tab) on, push antimatter toward the next ID unlock, and let the count compound in the background — check back each crunch to spend the gains.
+Replicanti keep growing while you do other things. There are no Replicanti autobuyers yet, so check the subtab after each crunch: buy the cheapest upgrade, and take a galaxy once Replicanti reach <Num value="1.80e308" />. Until 40 Eternities a Replicanti Galaxy also resets your Antimatter Dimensions and Dimension Boosts, like an Antimatter Galaxy, so take it early in a run.
 
 </Callout>
 
 <Callout kind="android">
 
-Growth ticks run on the game clock, so offline stretches count — with a high Max-offline-ticks setting you can come back to a full galaxy cap. Touch specifics: the galaxy button can be held down (or the R.Galaxy floating button used) to buy repeatedly instead of tapping per galaxy.
+Growth ticks run on the game clock, so offline stretches count: Replicanti fill up to <Num value="1.80e308" /> while the app is closed. Take the galaxy with the **Reset Replicanti amount for a Replicanti Galaxy** button or the round **R.Galaxy** button above the tab bar.
 
 </Callout>
 
 ## When to move on
 
-Replicanti are "done" when galaxies flow without attention and your IP payouts climb past <Num value="1e200" /> toward the <Num value="1.80e308" /> goal. The last stretch is covered in the next article: the final IDs, the last ICs, and the first Eternity.
+Replicanti are "done" when the galaxy countdown is short and your IP payouts climb past <Num value="1e200" /> toward the <Num value="1.80e308" /> goal. The last stretch is covered in the next article: the final IDs, the last ICs, and the first Eternity.
 
 Further reading:
 
