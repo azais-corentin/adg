@@ -79,6 +79,8 @@ describe('paired fixtures (one game state exported both ways ~80 s apart)', () =
 			infinityChallenges: [1, 2, 3, 4, 5, 6, 7, 8],
 			eternityChallenges: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			timeStudies: [11, 22, 32, 42, 51],
+			// Nothing unspent: the five studies cost 1 + 2 + 2 + 6 + 3.
+			totalTimeTheorems: 14,
 			secretAchievements: [11, 17, 18, 24, 31, 36, 44],
 			realities: 0,
 			records: { bestInfinityTime: 787, bestEternityTime: 267465 }

@@ -1,7 +1,8 @@
 <!--
 @component
-Bottom sheet with one Eternity Challenge: what it does, reward, unlock study, and the goal and
-unlock requirement of each completion. In manual mode it also sets the completion count.
+Bottom sheet with one Eternity Challenge: what it does, reward, unlock study, and the goal,
+unlock requirement and suggested study tree of each completion. In manual mode it also sets the
+completion count.
 -->
 <script lang="ts">
 	import Num from '#lib/components/Num.svelte';
@@ -16,6 +17,7 @@ unlock requirement of each completion. In manual mode it also sets the completio
 		unlockRequirementAt
 	} from './challenges.ts';
 	import { ORDER } from './order.ts';
+	import StepTree from './StepTree.svelte';
 
 	let {
 		ec,
@@ -141,6 +143,12 @@ unlock requirement of each completion. In manual mode it also sets the completio
 							<dt>Unlock</dt>
 							<dd>{unlockRequirementAt(ec, tier - 1)}</dd>
 						</dl>
+						{#if step !== -1 && completions < tier}
+							<details class="tree">
+								<summary>Study tree for this run</summary>
+								<StepTree index={step} />
+							</details>
+						{/if}
 					</li>
 				{/each}
 			</ol>
@@ -334,5 +342,16 @@ unlock requirement of each completion. In manual mode it also sets the completio
 	dd {
 		margin: 0;
 		overflow-wrap: anywhere;
+	}
+
+	.tree {
+		margin-top: var(--space-2);
+	}
+
+	.tree summary {
+		padding: var(--space-2) 0;
+		font-size: var(--step--1);
+		font-weight: 650;
+		cursor: pointer;
 	}
 </style>

@@ -14,12 +14,14 @@ export const TOOLS = [
 	{
 		href: '/tools/time-studies',
 		name: 'Time Study planner',
-		summary: 'Plan a Time Study tree and copy it as a string the game can import.'
+		summary:
+			'Plan a Time Study tree, check it against your Time Theorems, and copy it as a string the game can import.'
 	},
 	{
 		href: '/tools/eternity-challenges',
 		name: 'Eternity Challenge planner',
-		summary: 'The usual order for all 60 completions, with the next one to do and its goal.'
+		summary:
+			'The usual order for all 60 completions, with the next one to do, its goal and a study tree for the run.'
 	},
 	{
 		href: '/tools/automator',

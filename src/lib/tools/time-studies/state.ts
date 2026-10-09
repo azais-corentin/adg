@@ -12,9 +12,17 @@ export interface PlannerState {
 	startEC: boolean;
 	/** Game state set by hand; null follows the imported save, or the defaults. */
 	context: TreeContext | null;
+	/** Time Theorems to check the build against, set by hand; null follows the imported save. */
+	budget: number | null;
 }
 
-export const EMPTY_STATE: PlannerState = { studies: [], ec: 0, startEC: false, context: null };
+export const EMPTY_STATE: PlannerState = {
+	studies: [],
+	ec: 0,
+	startEC: false,
+	context: null,
+	budget: null
+};
 
 const isIntArray = (value: unknown): value is number[] =>
 	Array.isArray(value) && value.every((v) => Number.isInteger(v));
@@ -46,11 +54,12 @@ function parseContext(value: unknown): TreeContext | null {
 /** Reads stored planner state; anything unreadable falls back field by field. */
 export function parsePlannerState(value: unknown): PlannerState {
 	if (typeof value !== 'object' || value === null || Array.isArray(value)) return EMPTY_STATE;
-	const { studies, ec, startEC, context } = value as Record<string, unknown>;
+	const { studies, ec, startEC, context, budget } = value as Record<string, unknown>;
 	return {
 		studies: isIntArray(studies) ? studies.filter((id) => NORMAL_STUDIES.has(id)) : [],
 		ec: typeof ec === 'number' && EC_STUDIES.has(ec) ? ec : 0,
 		startEC: startEC === true,
-		context: parseContext(context)
+		context: parseContext(context),
+		budget: typeof budget === 'number' && Number.isInteger(budget) && budget >= 0 ? budget : null
 	};
 }

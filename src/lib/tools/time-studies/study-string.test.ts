@@ -143,18 +143,23 @@ describe('presets', () => {
 
 describe('stored state', () => {
 	it('keeps valid fields and drops the rest', () => {
-		expect(parsePlannerState({ studies: [11, 12, 21], ec: 13, startEC: 'yes' })).toEqual({
+		expect(
+			parsePlannerState({ studies: [11, 12, 21], ec: 13, startEC: 'yes', budget: -3 })
+		).toEqual({
 			studies: [11, 21],
 			ec: 0,
 			startEC: false,
-			context: null
+			context: null,
+			budget: null
 		});
 		expect(parsePlannerState('nope')).toEqual({
 			studies: [],
 			ec: 0,
 			startEC: false,
-			context: null
+			context: null,
+			budget: null
 		});
+		expect(parsePlannerState({ studies: [], budget: 219 }).budget).toBe(219);
 		const context = { ...ctx, triads: 9 };
 		expect(parsePlannerState({ studies: [], ec: 4, startEC: true, context }).context).toEqual({
 			...ctx,

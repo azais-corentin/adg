@@ -2,7 +2,7 @@
 title: 'Time Studies'
 stage: early-eternity
 order: 13
-summary: 'The dimension and pace paths of the study tree, the active/passive/idle choice, study import strings, and how to plan a tree.'
+summary: 'The Studies subtab, the dimension and pace splits, what to buy first, importing trees, and planning one for your Time Theorems.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
@@ -13,25 +13,36 @@ verified:
 	import Screen from '#lib/components/Screen.svelte';
 </script>
 
-## The tree
+## The Studies subtab
 
-The **Studies** subtab of the Eternity tab shows the Time Study tree: rows of numbered boxes connected by lines. Each box costs Time Theorems, and you can only buy a study connected to one you already own. Tap a study to buy it; a dialog shows its effect and cost. There is also **Respec**: wiping the whole tree and refunding every TT, so you can rebuild for a different goal. The Eternity Challenges tab refunds your tree automatically when you leave a challenge, so experimenting is free.
+The **Studies** subtab of the Eternity tab holds everything about Time Studies. From the top:
+
+- Your Time Theorems and the buttons that buy them (see [Time Dimensions and Theorems](/guide/m1/time-dimensions-and-theorems)).
+- **Respec Time Studies on next Eternity**: tap it before you Eternity and that Eternity refunds every study, so you can rebuild for a different goal. Completing an Eternity Challenge respecs your tree too. <!-- vendor/ad-source/src/core/eternity.js (respecTimeStudies on EC completion and when player.respec) -->
+- **Always buy all Studies up to clicked Study: OFF**: turned on, a tap does what holding does (below).
+- **Export tree**, **Select preferred paths** and **Import tree**. Preferred paths tells the game which branch to take at the two splits when it buys several studies for you.
+- Six numbered buttons: **your own** preset slots. "Tap to load Time Study presets, hold to edit them." They start empty; hold one to save a tree into it.
+- A **Zoom** slider, then the tree itself.
 
 <Screen
 	src="early-eternity/eternity-studies-0.webp"
-	alt="The top of the Studies subtab: Buy max Theorems, the three Buy Time Theorems buttons with antimatter, IP and EP costs, Respec, Export and Import tree, and the study presets row."
-	caption="The top of the Studies subtab: Buy max Theorems, the three currency rows, respec and import/export — presets below."
+	alt="The top of the Studies subtab: Time Theorems, Buy max Theorems, three Buy Time Theorems buttons, Respec Time Studies on next Eternity, Always buy all Studies up to clicked Study: OFF, Export tree, Select preferred paths, Import tree, preset buttons 1 to 6, the Zoom slider and study 11."
+	caption="The top of the Studies subtab, then the tree starting at study 11."
 />
+
+## The tree
+
+The tree is rows of numbered boxes connected by lines. Each box shows what the study does, its current effect where it has one, and its cost in Time Theorems; you can only buy a study connected to one you already own. Tap a box to buy it.
 
 <Screen
 	src="early-eternity/eternity-studies-1.webp"
 	alt="The study tree: numbered study rows from 11 down through the 60s, EC study boxes on the right edge, and the prestige buttons above the tab bar."
-	caption="The tree itself. Tap a study to buy it; touch and hold a study to buy every study up to that point."
+	caption="Each box lists its effect and cost; bought studies are filled in."
 />
 
 <Callout kind="android">
 
-On Android, **touch and hold a study to buy every study up to that point** along the shortest route — the header says so right above the tree. On a phone this is the main way to fill in a tree: hold the deepest study you want instead of tapping each box. Pinch-zoom with two fingers when the tree gets wide.
+**Hold a study to buy every study up to it**, as the line above the tree says. On a phone this is the quickest way to fill in a tree: hold the deepest study you want instead of tapping each box. At a split the game follows your preferred paths.
 
 </Callout>
 
@@ -39,39 +50,56 @@ On Android, **touch and hold a study to buy every study up to that point** along
 
 Two rows of the tree force a choice between exclusive branches.
 
-**The Dimension Split (studies 71/72/73).** Each makes Dimensional Sacrifice boost a different tier: 71 affects all other Antimatter Dimensions, 72 the 4th Infinity Dimension, 73 the 3rd Time Dimension. You can only walk one branch at a time (a later study allows a second). Rule of thumb: take the **Time Dimension branch (73)** once you can also afford study 171 behind it — before that, the Antimatter branch (71) is cheaper and better. Do not take the TD split the moment it unlocks without 171.
+**The Dimension split (studies 71/72/73).** Each makes Dimensional Sacrifice boost a different tier: 71 the other Antimatter Dimensions, 72 the 4th Infinity Dimension, 73 the 3rd Time Dimension. Below each one runs its path of four studies (71→81→91→101 for Antimatter, 72→…→102 for Infinity, 73→…→103 for Time), and study 111 needs the end of one path. You can only walk one path at a time (study 201 much later allows a second). Before Eternity Challenges, the Antimatter path is the cheapest (16 TT against 23); each challenge then favours its own path, which the [Eternity Challenge planner](/tools/eternity-challenges) lists per step.
 
-<!-- secret-formula/eternity/time-studies/normal-time-studies.js: 71/72/73, 171 -->
+<!-- secret-formula/eternity/time-studies/normal-time-studies.js: 71/72/73 and their paths -->
 
-**The Pace Split (studies 121/122/123).** Each boosts Eternity Points for a different play style: 121 Active (fast Eternities), 122 Passive (long idle runs), 123 Idle (offline). **Active is the default for pushing and for Eternity Challenges** — it rewards short Eternity times, which is what farming runs look like. Passive is a trap outside a narrow band: it only wins if your runs genuinely last a long time. Idle is for overnight runs and a few specific challenges.
+**The pace split (studies 121/122/123).** Each boosts Eternity Points for a different play style:
 
-The rows behind each pace study deepen the same choice (131/132/133, 141/142/143), so switching pace means respeccing that whole column.
+- **121 Active**: "You gain more EP based on how fast your last 10 Eternities were", up to ×50 when they average 5 seconds or less.
+- **122 Passive**: a flat "You gain ×35 more EP".
+- **123 Idle**: "You gain more EP based on time spent this Eternity". It passes Passive's ×35 after about 15 minutes in one Eternity, so it is the one that rewards long runs.
+
+<!-- normal-time-studies.js: 121 clamp(250 / average real time per Eternity, 1, 50); 122 ×35; 123 sqrt(1.39 × seconds this Eternity), 35² / 1.39 ≈ 881 s -->
+
+**Active is the default for pushing and for most Eternity Challenges**: once Eternities are fast it is worth ×50. Passive needs no timing. Idle is for overnight runs and a few challenges. The rows behind each pace study continue the same choice (131/132/133, 141/142/143), so switching pace means respeccing that whole column.
 
 ## What to buy first
 
-A new tree starts at study 11 (1 TT) and grows downward. The cheap early backbone — 11 → 21/22 → 31/32 → 41/42 → 51 → 61/62 — is all strong and worth buying in roughly that order. Then:
+A new tree starts at study 11 (1 TT) and grows downward. The backbone 11 → 22 → 32 → 42 → 51 → 61 costs 17 TT (the 21 → 31 → 41 side costs the same), and the rest of the top (21, 31, 33, 41) is cheap and worth adding. Then:
 
-- Study 111 (12 TT) improves the whole IP formula — a big early jump.
-- 121/122/123 picks your pace (Active, unless you know why not).
-- 151 (8 TT) multiplies all Time Dimensions by 10,000.
-- 161/162 (7 TT each) are flat e616-AD and e11-ID multipliers — strong, but they stop scaling, so later percentage studies overtake them.
-- 171 (15 TT) improves the Tickspeed cost curve from ×1.33 to ×1.25 per step — required for the first EC studies.
+- A dimension path, then study 111 (12 TT), which improves the whole IP formula: a big early jump.
+- A pace row (121/122/123 and the two below it).
+- 151 (8 TT) multiplies all Time Dimensions by ×1e4.
+- 161 and 162 (7 TT each) are flat ×1e616 Antimatter and ×1e11 Infinity Dimension multipliers.
+- 171 (15 TT), in the middle under 161/162: "Time Shard requirement for the next Tickspeed upgrade goes up slower ×1.33 ➜ ×1.25", so Time Dimensions give free Tickspeed upgrades faster. The first three EC studies hang below it.
 
-Study 181 (200 TT) generates a share of your per-crunch IP every second and marks the transition into the Eternity Challenge era.
+<!-- normal-time-studies.js: 151, 161, 162, 171 (requirement 161 or 162) -->
 
-## Import strings and presets
+Study 181 (200 TT) gives you 1% of your Infinity Points gained on crunch every second, and marks the transition into the Eternity Challenge era.
 
-The row of buttons under the tree header imports and exports trees as text. An export looks like a list of study numbers separated by commas, then `|` and the Eternity Challenge number, for example `11,22,32,...|0` for no EC. **Import** pastes such a string and buys everything it can afford in order, skipping what the tree rules forbid. This is how other players share trees: copy the string, tap Import, paste, confirm.
+## Import and export
 
-<!-- src/core/time-studies/time-study-tree.js: exportString/import -->
+**Export tree** copies your tree as a study string: the study numbers in buying order, separated by commas, then `|` and the Eternity Challenge number (`|0` for none), for example `11,22,32,42,51,61|0`.
 
-The **Time Study presets** row holds a few built-in trees you can load directly. They are a fine starting point, but a tree tuned to your own TT count beats them — which is what the planner below is for.
+To load a string, **copy it first, then tap Import tree**: the box fills itself from your clipboard ("Antimatter Dimensions pasted from your clipboard"). If your clipboard holds something else, such as a save, the dialog says "Not a valid tree". Before you confirm, it previews the result:
+
+- "Importing with your current Tree will purchase: …" (or "will not purchase any new Time Studies") with the cost in TT.
+- "Importing into an empty Tree will purchase: …", what you would get after a respec.
+- "Tree status after loading", the dimension and pace paths.
+
+Tap **IMPORT** to buy, **CANCEL** to leave. The game buys left to right and skips any study you can't afford, along with everything that needs it, so the order of a string matters. The Eternity Challenge study comes last and is only bought if you have met its unlock requirement (or met it before). To switch to a whole different tree, tap **Respec Time Studies on next Eternity**, Eternity, then import.
+
+<!-- src/core/time-studies/time-study-tree.js: exportString, attemptBuyArray, hasRequirements (EC entry goal and TT); commitToGameState buys in order -->
 
 ## Plan your tree
 
-Do not copy a fixed tree from an old guide: the right tree depends on exactly how many TT you have. Use the **[Time Study planner](/tools/time-studies)**: enter your TT, pick a goal (pushing, farming, or a specific Eternity Challenge), and it suggests a tree you can export as an import string and paste into the game.
+Don't copy a fixed tree from an old guide: the right tree depends on how many Time Theorems you have and what you're about to do.
+
+- The **[Time Study planner](/tools/time-studies)** shows the whole tree. Build a tree by tapping studies, load one of adg's starting points or your own studies from an imported save, and copy the string into the game. Enter **Your Time Theorems** (an imported save fills it in) and it tells you whether the tree fits, or exactly what the game would leave out.
+- The **[Eternity Challenge planner](/tools/eternity-challenges)** gives a study tree for every step of the completion order, built from the step's path, pace and Time Theorems. Copy it, or open it in the Time Study planner to check it against your TT.
 
 ## Further reading
 
 - In-game How to Play: **Time Studies** and **Eternity Challenges**.
-- The [Eternity Challenge planner](/tools/eternity-challenges) suggests a tree per challenge step.
+- [Unlocking Eternity Challenges](/guide/m1/unlocking-eternity-challenges).

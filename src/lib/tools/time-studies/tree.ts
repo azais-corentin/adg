@@ -5,7 +5,7 @@
  *
  * Like upstream's virtual tree, nothing here reads the live game: closures that depend on the
  * game state (EC completions, perks, V, Ra) are answered from a `TreeContext`, and Time
- * Theorems are only totalled, never budgeted.
+ * Theorems are totalled, or budgeted only on request (`affordable`).
  */
 import { timeStudies } from '#lib/data/index.ts';
 import type {
@@ -312,6 +312,26 @@ export function buildRefs(build: Build): TimeStudyRef[] {
 /** Re-checks a stored build, dropping what no longer fits (e.g. after the context changed). */
 export function evaluate(build: Build, ctx: TreeContext): { tree: Tree; skipped: Skipped[] } {
 	return buyAll(EMPTY_TREE, buildRefs(build), ctx);
+}
+
+/**
+ * What the game buys of `build` into an empty tree with `budget` Time Theorems (upstream
+ * `commitToGameState`): left to right, skipping a study it can't afford, and with it every
+ * study that needed it. Returns the bought tree and what was left out, in build order.
+ */
+export function affordable(
+	build: Build,
+	ctx: TreeContext,
+	budget: number
+): { tree: Tree; left: TimeStudyRef[] } {
+	let tree = EMPTY_TREE;
+	const left: TimeStudyRef[] = [];
+	for (const ref of buildRefs(build)) {
+		const verdict = check(tree, ref, ctx);
+		if (verdict.ok && tree.tt + refCost(ref) <= budget) tree = buy(tree, ref, verdict.st);
+		else left.push(ref);
+	}
+	return { tree, left };
 }
 
 export function isSelected(tree: Build, ref: TimeStudyRef): boolean {

@@ -76,6 +76,7 @@ const isNormalizedSave = shape<NormalizedSave>({
 	infinityChallenges: isNumbers,
 	eternityChallenges: isNumbers,
 	timeStudies: isNumbers,
+	totalTimeTheorems: isNumber,
 	dilation: shape<NormalizedSave['dilation']>({
 		unlocked: isBoolean,
 		studies: isNumbers,

@@ -131,6 +131,7 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 			native ? (ecRaw[id - 1] ?? 0) : num(p, ['eternityChalls', `eterc${id}`], 0)
 		),
 		timeStudies: numbers(p, ['timestudy', 'studies']),
+		totalTimeTheorems: num(p, ['timestudy', 'maxTheorem'], 0),
 
 		dilation: {
 			unlocked: dilationStudies.includes(1),

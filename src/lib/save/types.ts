@@ -72,6 +72,11 @@ export interface NormalizedSave {
 	eternityChallenges: readonly number[];
 	/** Owned Time Study ids (upstream ids, e.g. 11, 171, 231), as stored. */
 	timeStudies: readonly number[];
+	/**
+	 * Time Theorems in total: unspent plus what the current tree and EC study cost, i.e. what
+	 * you hold after a respec (upstream `timestudy.maxTheorem`).
+	 */
+	totalTimeTheorems: number;
 
 	dilation: {
 		/** True once the "Unlock Time Dilation" study (dilation study 1) is bought. */

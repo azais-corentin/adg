@@ -15,6 +15,7 @@
 		unlockRequirementAt
 	} from '#lib/tools/eternity-challenges/challenges.ts';
 	import EcSheet from '#lib/tools/eternity-challenges/EcSheet.svelte';
+	import StepTree from '#lib/tools/eternity-challenges/StepTree.svelte';
 	import { ORDER, ORDER_PHASES, type OrderStep } from '#lib/tools/eternity-challenges/order.ts';
 	import {
 		isStepDone,
@@ -78,8 +79,8 @@
 	<p><a href={resolve('/tools')}>All tools</a></p>
 	<h1>Eternity Challenge planner</h1>
 	<p>
-		The order most players follow for all 60 completions, from EC1 ×1 to EC12 ×5 and Time Dilation.
-		Goals and requirements are the game's own numbers.
+		The order most players follow for all 60 completions, from EC1 ×1 to EC12 ×5 and Time Dilation,
+		with a study tree for each run. Goals and requirements are the game's own numbers.
 	</p>
 
 	<div class="source">
@@ -146,6 +147,7 @@
 					~{next.step.tt.toLocaleString('en-US')} TT · {next.step.path} path · {next.step.pace}
 				</dd>
 			</dl>
+			<StepTree index={next.index} />
 			<p class="note">{next.step.note}</p>
 			<div class="actions">
 				{#if editable}

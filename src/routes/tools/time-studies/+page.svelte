@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
+	import { replaceState } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { progress } from '#lib/progress.svelte.ts';
 	import { getStage } from '#lib/stages.ts';
@@ -19,6 +21,7 @@
 		studyTitle
 	} from '#lib/tools/time-studies/text.ts';
 	import {
+		affordable,
 		check,
 		contextFromSave,
 		DEFAULT_CONTEXT,
@@ -45,6 +48,12 @@
 		if (loaded || !progress.ready) return;
 		plan = parsePlannerState(progress.planner[PLANNER_KEY]);
 		loaded = true;
+		// A tree shared by link (the EC planner's "Open in the Time Study planner").
+		const shared = new URL(location.href).searchParams.get('tree');
+		if (shared) {
+			untrack(() => loadString(shared, 'Opened from the link'));
+			replaceState(resolve('/tools/time-studies'), {});
+		}
 	});
 
 	const save = $derived(progress.ready ? progress.save : null);
@@ -54,6 +63,22 @@
 	);
 	const tree = $derived(evaluate(plan, ctx).tree);
 	const laid = $derived(laidOutTree(ctx));
+
+	/** Total Time Theorems to check the build against: set by hand, else the save's. */
+	const budget = $derived(
+		plan.budget ?? (save && Number.isFinite(save.totalTimeTheorems) ? save.totalTimeTheorems : null)
+	);
+	const left = $derived(budget === null ? [] : affordable(tree, ctx, budget).left);
+	const leftLabels = $derived(
+		left.length <= 6
+			? left.map(nodeLabel).join(', ')
+			: `${left.slice(0, 5).map(nodeLabel).join(', ')} and ${left.length - 5} more`
+	);
+
+	function setBudget(value: string) {
+		const n = Math.floor(Number(value));
+		persist({ ...plan, budget: value.trim() === '' || !(n >= 0) ? null : n });
+	}
 
 	let mode = $state<'inspect' | 'select'>('inspect');
 	let focused = $state<TimeStudyRef | null>(null);
@@ -215,8 +240,9 @@
 	<p class="back"><a href={resolve('/tools')}>All tools</a></p>
 	<h1>Time Study planner</h1>
 	<p>
-		Build a tree, then copy its study string into the game: <strong>Time Studies</strong> tab,
-		<strong>Import tree</strong>. Strings from the game, a guide or a friend import here too.
+		Build a tree, then copy its study string into the game: <strong>Eternity</strong> tab,
+		<strong>Studies</strong>, <strong>Import tree</strong>. Copy first: the game's import box fills
+		itself from the clipboard. Strings from the game, a guide or a friend import here too.
 	</p>
 
 	<div class="toolbar">
@@ -247,6 +273,40 @@
 		{#if paths.length > 0}
 			<p class="paths muted">{paths.join(' · ')}</p>
 		{/if}
+		<div class="budget">
+			<label class="number">
+				Your Time Theorems
+				<input
+					type="number"
+					inputmode="numeric"
+					min="0"
+					placeholder="Total"
+					value={budget ?? ''}
+					onchange={(e) => setBudget(e.currentTarget.value)}
+					data-testid="tt-budget"
+				/>
+			</label>
+			<p class="small" data-testid="budget-verdict">
+				{#if budget === null}
+					<span class="muted"
+						>Enter all your TT, unspent plus what your tree cost (what you hold after a respec), to
+						see what the game would buy.</span
+					>
+				{:else if left.length > 0}
+					<strong>{(tree.tt - budget).toLocaleString('en-US')} TT short.</strong> The game buys left
+					to right and skips what it can't afford, and what needs it: it would leave out {leftLabels}.
+				{:else if tree.tt > 0}
+					Fits, with {(budget - tree.tt).toLocaleString('en-US')} TT to spare.
+				{/if}
+				{#if plan.budget === null && budget !== null}
+					<span class="muted">From your imported save.</span>
+				{:else if plan.budget !== null && save}
+					<button type="button" class="linkish" onclick={() => persist({ ...plan, budget: null })}
+						>Use my save's {Math.floor(save.totalTimeTheorems).toLocaleString('en-US')}</button
+					>
+				{/if}
+			</p>
+		</div>
 		<p class="status" role="status" aria-live="polite">{status}</p>
 	</div>
 
@@ -442,7 +502,7 @@
 		</fieldset>
 		<p class="muted small">
 			An imported save fills these in, except the Dilation upgrade and triads, which adg infers from
-			the studies you own. Time Theorems aren't budgeted: the total is what the tree costs.
+			the studies you own.
 		</p>
 	</section>
 </div>
@@ -671,6 +731,20 @@
 
 	.number input {
 		width: 6rem;
+	}
+
+	.budget {
+		margin-top: var(--space-2);
+	}
+
+	.budget .number {
+		justify-content: flex-start;
+		margin-top: 0;
+		font-weight: 650;
+	}
+
+	.budget p {
+		margin: var(--space-1) 0 0;
 	}
 
 	.error {

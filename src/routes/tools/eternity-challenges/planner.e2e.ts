@@ -33,3 +33,21 @@ test('marking completions moves the next step and persists across reloads', asyn
 	await page.getByRole('checkbox', { name: /^EC1 ×1 / }).uncheck();
 	await expect(next).toHaveText('EC1 ×1');
 });
+
+test('the next step’s tree opens in the Time Study planner and checks against a TT budget', async ({
+	page
+}) => {
+	await page.goto('/tools/eternity-challenges');
+	const tree = '11,22,32,42,51,61,72,82,92,102,111,121,131,141,151,161,171|1';
+	await expect(page.getByRole('textbox', { name: 'Study string for EC1 ×1' })).toHaveValue(tree);
+	await page.getByRole('link', { name: 'Open in the Time Study planner' }).click();
+
+	await expect(page).toHaveURL(/\/tools\/time-studies$/);
+	await expect(page.getByTestId('export')).toHaveValue(tree);
+	await expect(page.getByTestId('tt-total')).toHaveText('130');
+
+	await page.getByTestId('tt-budget').fill('120');
+	await page.getByTestId('tt-budget').blur();
+	await expect(page.getByTestId('budget-verdict')).toContainText('10 TT short');
+	await expect(page.getByTestId('budget-verdict')).toContainText('leave out EC1');
+});

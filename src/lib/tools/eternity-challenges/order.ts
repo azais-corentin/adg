@@ -45,7 +45,7 @@ const step = (
 ): OrderStep => ({ ec, completion, tt, path, pace, note });
 
 const UNLOCK_ON_TD =
-	'Buy the study on the Time Dimension path, then respec to the suggested tree for the run; the challenge stays unlocked.';
+	'Buy the study on the Time Dimension path first: the game remembers you met its requirement. Then respec, Eternity and import the tree for the run; it buys the study again for its TT alone.';
 
 export const ORDER_PHASES: readonly OrderPhase[] = [
 	{

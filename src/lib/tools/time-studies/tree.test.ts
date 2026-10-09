@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { timeStudies } from '#lib/data/index.ts';
 import type { NormalizedSave } from '#lib/save/types.ts';
 import {
+	affordable,
 	check,
 	contextFromSave,
 	DEFAULT_CONTEXT,
@@ -259,5 +260,23 @@ describe('contextFromSave', () => {
 			triads: 2
 		});
 		expect(EMPTY_TREE.tt).toBe(0);
+	});
+});
+
+describe('affordable', () => {
+	it('skips what the TT do not cover, and what needs it, but buys cheaper studies after', () => {
+		// 11 (1), 21 (3), 22 (2), 31 (3), 32 (2): with 8 TT, 31 doesn't fit but 32 still does.
+		const { tree } = build([11, 21, 22, 31, 32]);
+		const result = affordable(tree, ctx, 6);
+		expect(result.tree.studies).toEqual([11, 21, 22]);
+		expect(result.left).toEqual([normal(31), normal(32)]);
+		expect(affordable(tree, ctx, 8).tree.studies).toEqual([11, 21, 22, 32]);
+	});
+
+	it('leaves out the EC study, bought last, when the tree uses up the TT', () => {
+		const { tree } = build([11, 22, 32, 42], 5);
+		expect(tree.tt).toBe(141);
+		expect(affordable(tree, ctx, 140).left).toEqual([{ kind: 'ec', id: 5 }]);
+		expect(affordable(tree, ctx, 141).left).toEqual([]);
 	});
 });
