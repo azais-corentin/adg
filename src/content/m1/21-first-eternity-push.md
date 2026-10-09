@@ -2,7 +2,7 @@
 title: 'To the first Eternity'
 stage: replicanti
 order: 21
-summary: 'The final push to 1.80e308 IP — last Infinity Dimensions, late Replicanti Galaxies, and the Eternity button.'
+summary: 'The final push to 1.80e308 IP — last Infinity Dimensions, late Replicanti Galaxies, and the first Eternity.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
@@ -17,7 +17,7 @@ verified:
 
 ## The goal
 
-Eternity unlocks when a single run's peak reaches <Num value="1.80e308" /> IP — the same digits-of-Infinity figure as the first Big Crunch, one layer up. The Eternity button appears above the tab bar (its purple hourglass joins the floating prestige row) and the top box of the Break subtab starts counting down to it. <!-- src/core/player.js:949-951 (`canEternity`), src/game.js:156-159 (`requiredIPForEP`, floor of 1.80e308 IP) -->
+Eternity unlocks when your Infinity Points reach <Num value="1.80e308" /> — the same digits-of-Infinity figure as the first Big Crunch, one layer up. On your first time there is no round Eternity button: the box at the top left of every tab, which tracks the next Infinity Dimension unlock during this push, turns purple and reads "Other times await… I need to become Eternal". That box is the Eternity button. <!-- src/core/player.js:949-951 (`canEternity`), src/game.js:156-159 (`requiredIPForEP`, floor of 1.80e308 IP); box text from the emulator -->
 
 <Screen
 	src="replicanti/infinity-break-0.webp"
@@ -47,21 +47,20 @@ Two milestones to look forward to, not to chase: later Eternity milestones unloc
 
 ## The Eternity itself
 
-When the button lights up:
+When the purple box appears:
 
-1. **Spend everything first.** Buy all remaining Break upgrades, ID levels and replicanti upgrades — nothing carries over except the permanent unlocks, so unspent IP is wasted.
-2. **Tap Eternity.** Everything from Infinity down resets. You gain your first Eternity Points and the Eternity tab (hourglass icon) opens with Time Studies, Eternity Upgrades and Milestones.
-3. **Expect slowness.** The first few Eternities each take a while; milestones at 2, 4, 8 and 10 Eternities hand back autobuyers, upgrades and Replicanti quickly. That is the next stage's guide.
+1. **Tap the purple box** ("Other times await… I need to become Eternal") and confirm with **PROCEED**. Everything from Infinity down resets. You gain your first Eternity Point, the game opens the new **Time** subtab of the Dimensions tab, and the Eternity tab (hourglass icon) appears with Time Studies, Eternity Upgrades and Milestones.
+2. **Expect slowness.** The first few Eternities each take a while; milestones at 2, 4, 8 and 10 Eternities hand back autobuyers, upgrades and Replicanti quickly. That is the next stage's guide.
 
 <Callout kind="tip">
 
-Do not Eternity the instant it unlocks if a big purchase is minutes away — one more ID tier or galaxy cap level can halve the early-Eternity grind. But do not over-optimize either: the milestone rewards arrive fast, and each one retroactively speeds everything.
+Do not hold the first Eternity back for one more purchase: it gives 1 EP unless you push IP far past <Num value="1.80e308" /> (2 EP needs about <Num value="1e348" />), and everything you buy now resets with it. The milestone rewards arrive fast, and each one retroactively speeds everything.
 
 </Callout>
 
-<Callout kind="warning">
+<Callout kind="android">
 
-The Eternity button sits next to B.Crunch above the tab bar on every tab. Double-check the label before tapping during the final push — an accidental crunch at <Num value="1e300" /> IP just costs time, but it stings.
+After your first Eternity, a round **Eternity** button sits next to B.Crunch above the tab bar on every tab. Double-check the label before tapping during later pushes — an accidental Crunch just costs time, but it stings.
 
 </Callout>
 

@@ -22,7 +22,7 @@ verified:
 	caption="The Time Dilation subtab. TP and DT totals, the hourly DT rate, and the next Tachyon Galaxy threshold all live here."
 />
 
-While you are dilated, every value produced inside the run is raised to the power <Num value="0.75" /> — that is the Dilation penalty, and a later upgrade softens it. <!-- vendor/ad-source/src/core/dilation.js (dilatedValueOf) --> Ignore the smaller-looking numbers: what matters is that dilated runs earn the two new currencies, which buy upgrades that apply everywhere, dilated or not.
+While you are dilated, the **exponent** of every Antimatter, Infinity and Time Dimension multiplier and of the tickspeed multiplier is raised to the power <Num value="0.75" />, so a ×1e100 multiplier shrinks to about ×4e31. That is the Dilation penalty, and a later upgrade softens it. <!-- vendor/ad-source/src/core/dilation.js (dilatedValueOf); secret-formula/h2p.js (Time Dilation) --> Ignore the smaller-looking numbers: what matters is that dilated runs earn the two new currencies, which buy upgrades that apply everywhere, dilated or not.
 
 <Callout kind="warning">
 
@@ -32,7 +32,7 @@ Your first dilation is a one-way-feeling trip: progress inside it looks slow bec
 
 ## Tachyon Particles
 
-Tachyon Particles (TP) come from your highest antimatter in the dilated run: the more antimatter you reach while dilated, the more TP you bank when you leave, following roughly the log of your antimatter to the power 1.5. <!-- vendor/ad-source/src/core/dilation.js (getBaseTP) --> In practical terms:
+Tachyon Particles (TP) come from your highest antimatter in the dilated run: the more antimatter you reach while dilated, the more TP you bank when you leave. Before multipliers, TP = (antimatter exponent ÷ 400) to the power 1.5, so 1e4,000 antimatter is worth about 32 TP and 1e8,000 about 89. <!-- vendor/ad-source/src/core/dilation.js (getBaseTP) --> In practical terms:
 
 - TP only grows when you push to a **new antimatter record** inside Dilation.
 - Short dilated runs that never beat your record earn nothing — push each dilation as far as it goes.

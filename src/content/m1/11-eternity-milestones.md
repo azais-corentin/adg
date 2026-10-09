@@ -35,7 +35,7 @@ The **Milestones** subtab of the Eternity tab lists rewards that unlock permanen
 | 4 | Start with all Infinity Upgrades | The re-buy phase ends. |
 | 5 | More Big Crunch autobuyer options | Lets you crunch hands-free. |
 | 6 | Offline EP generation (25% of your best EP/min) | Progress while the app is closed; needs offline progress enabled in Options. |
-| 7 | Infinity Challenges auto-complete on unlock; keep the Sacrifice autobuyer | One less checklist to manage. |
+| 7 | Infinity Challenges complete as soon as you unlock them | One less checklist to manage. |
 | 8 | Start with all Break Infinity Upgrades | The last piece of re-setup busywork. |
 | 9 | Buy-max Antimatter Galaxies autobuyer mode | Galaxies stop needing taps. |
 | 10 | Start with Replicanti unlocked | The Eternity run-up shortens a lot. |
@@ -44,7 +44,9 @@ The **Milestones** subtab of the Eternity tab lists rewards that unlock permanen
 | 30 | Start with all Antimatter Dimensions buyable | The first minute of each run disappears. |
 | 40 | Replicanti Galaxies stop resetting most things | Galaxies become nearly free. |
 
-Beyond these, milestones at 50, 60 and 80 unlock the Replicanti upgrade autobuyers, 100 unlocks the Eternity autobuyer, and 200 and 1,000 add offline Eternity and Infinity generation.
+Beyond these, milestones at 50, 60 and 80 unlock the Replicanti upgrade autobuyers. **100** unlocks the Eternity autobuyer and offline Eternities (50% of your best Eternities per hour), and **1,000** adds offline Infinities (50% of your best Infinities per hour this Eternity).
+
+<!-- Android 3.18.0 milestone cards (late-eternity/eternity-milestones-0/2.webp): the app folds upstream's 200-Eternity offline-Eternities milestone into 100, and its 7-Eternity card does not mention the Sacrifice autobuyer -->
 
 <Screen
 	src="early-eternity/eternity-milestones-1.webp"
@@ -54,9 +56,24 @@ Beyond these, milestones at 50, 60 and 80 unlock the Replicanti upgrade autobuye
 
 <Callout kind="android">
 
-The offline milestones (6, 200, 1,000) only work if offline progress is enabled. Check Options → Max offline ticks: 100,000 or more keeps autobuyers faithful overnight.
+The offline milestones (6, 100 and 1,000) only work if offline progress is enabled. Check Options → Max offline ticks: 100,000 or more keeps autobuyers faithful overnight.
+
+Only one of them works at a time, and the game picks Eternities first, then Infinities, then EP. Each has conditions, printed under its card:
+
+- **Offline Eternities (100):** outside all Challenges and Dilation, with the Eternity Autobuyer on and set to 0 EP.
+- **Offline Infinities (1,000):** outside Normal and Infinity Challenges and EC4 and EC12, with the Infinity Autobuyer on and set to time mode with 5 seconds or less.
+
+So reaching 100 Eternities does not cost you the 6-Eternity offline EP by itself: the EP milestone stops only while one of the other two actually generates, that is while its autobuyer is set up as above.
 
 </Callout>
+
+<Screen
+	src="late-eternity/eternity-milestones-2.webp"
+	alt="The bottom of the Milestones subtab: cards for 15 to 80 Eternities, the 100 Eternities card (Unlock Eternity autobuyer; offline Eternities) and the 1,000 Eternities card (offline Infinities), their conditions, and the note that only one offline milestone is active at a time."
+	caption="The last milestones and their fine print: one offline milestone at a time, Eternities first."
+/>
+
+<!-- eternity-milestones.js:25-41 (autoEP inactive when em200/em1000 rewards are > 0, i.e. their conditions are met), :150-190. In the app at 1,012,907 Eternities with both other milestones "Currently: Disabled", the 6-Eternity card still shows "Currently: 0.00 EP/min", not Inactive. -->
 
 <Callout kind="tip">
 

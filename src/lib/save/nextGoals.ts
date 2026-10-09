@@ -44,7 +44,10 @@ const EC_GOAL_EXPONENT: readonly (readonly [number, number])[] = [
 	[110000, 12000]
 ];
 
-/** `secret-formula/eternity/eternity-milestones.js`, condensed. */
+/**
+ * `secret-formula/eternity/eternity-milestones.js`, condensed, as Android 3.18.0 lists them: the
+ * app folds upstream's 200-Eternity offline Eternities into the 100 milestone.
+ */
 const ETERNITY_MILESTONES: readonly (readonly [number, string])[] = [
 	[1, 'unlocks the Infinity Point multiplier autobuyer'],
 	[2, 'Eternities start with all Normal Challenges, autobuyers and Infinity broken'],
@@ -70,8 +73,7 @@ const ETERNITY_MILESTONES: readonly (readonly [number, string])[] = [
 	[50, 'unlocks the Replicanti Chance autobuyer'],
 	[60, 'unlocks the Replicanti Interval autobuyer'],
 	[80, 'unlocks the Max Replicanti Galaxy autobuyer'],
-	[100, 'unlocks the Eternity autobuyer'],
-	[200, 'gain Eternities while offline'],
+	[100, 'unlocks the Eternity autobuyer and gain Eternities while offline'],
 	[1000, 'gain Infinities while offline']
 ];
 

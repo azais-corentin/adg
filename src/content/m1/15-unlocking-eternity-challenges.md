@@ -33,9 +33,11 @@ Every challenge can be completed **up to 5 times**. Each completion raises the g
 Each challenge is unlocked by buying its **EC study** in the Time Study tree. An EC study has two costs:
 
 1. **Time Theorems** — 30 TT for EC1, rising to 550 TT for EC10. (EC11 and EC12 studies cost 1 TT but sit behind the expensive row-23 studies.)
-2. **A secondary requirement** — a resource threshold that grows with completions. The first EC1 study needs 20,000 Eternities; EC4's needs <Num value="1e8" /> Infinities; EC5's needs 160 Antimatter Galaxies; EC10's needs <Num value="1e100" /> EP. The study box shows both. Buying the study also marks the challenge **unlocked**, and that flag survives respecs — you only need the TT and tree position to re-enter it later, and rebuying a lost study is free once its secondary was met before.
+2. **A secondary requirement** — a resource threshold that grows with completions. The first EC1 study needs 20,000 Eternities; EC4's needs <Num value="1e8" /> Infinities; EC5's needs 160 Antimatter Galaxies; EC10's needs <Num value="1e100" /> EP. The study box shows both.
 
-<!-- secret-formula/eternity/time-studies/ec-time-studies.js; src/core/time-studies/ec-time-study.js (hasUnlocked, requirementBits) -->
+Meeting the secondary requirement is remembered until you **complete** that challenge. As the Eternity subtab of the Challenges tab puts it: "When you respec out of an unlocked Eternity Challenge, you don't need to redo the secondary requirement in order to unlock it again until you complete it; only the Time Theorems are required." So you can buy the study, respec to a different tree, and buy the study again later for its TT alone. Each completion clears that memory, and the next tier's secondary requirement has to be met again.
+
+<!-- secret-formula/eternity/time-studies/ec-time-studies.js; src/core/time-studies/ec-time-study.js:38,122 (requirementBits); src/core/eternity.js:29 (cleared on completion); EternityChallengesTab.vue:107-110 -->
 
 EC studies also need a normal study as a stepping stone: EC1–EC3 studies connect to study 171, EC4's to 143, EC5's to 42, EC6's to 121, EC7's to 111, EC8's to 123, EC9's to 151 and EC10's to 181. So the tree you run to *unlock* a challenge is not always the tree you run *inside* it — buy the study, then respec to the run tree.
 

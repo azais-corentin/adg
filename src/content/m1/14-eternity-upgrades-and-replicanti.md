@@ -52,13 +52,15 @@ Replicanti survive into Eternity play and stay important: their multiplier boost
 	caption="Replicanti mid-Eternity: Chance, Interval and Max Galaxies across the top, the galaxy button below — keep auto-galaxy on."
 />
 
-Keep the **auto-galaxy** toggle on and feed chance, interval and max-galaxy upgrades from the Infinity tab. Study 62 triples Replicanti speed for 3 TT and is worth an early slot; the pace-split studies behind 121/122/123 add galaxy bonuses later.
+Keep the **auto-galaxy** toggle on and feed chance, interval and max-galaxy upgrades from the Infinity tab. Study 62 triples Replicanti speed for 3 TT, but it stays locked until you complete Eternity Challenge 5 once, so it is a reward to pick up after your first EC5 run; the pace-split studies behind 121/122/123 add galaxy bonuses later.
+
+<!-- normal-time-studies.js:135-140 (62: requirement 42 and EternityChallenge(5).completions > 0) -->
 
 ## Common wall: EP gain stalls
 
 If EP per run stops growing, the fix is almost always more Time Theorems, not longer runs:
 
-1. Check the Time subtab — unspent IP or EP that could buy theorems.
+1. Check the top of the Eternity tab's Studies subtab — unspent IP or EP that could buy theorems.
 2. Respec studies toward your actual run shape (Active pace for short runs).
 3. Buy the next EP multiplier level.
 4. If all of those are done and runs still stall around a few hundred TT, you are ready for [Eternity Challenges](/guide/m1/unlocking-eternity-challenges) — their rewards are the next multiplier tier.
