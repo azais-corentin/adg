@@ -23,7 +23,7 @@ Effarig's Reality costs <Num value="5e11" /> Relic Shards and plays as **three r
 <Screen
 	src="effarig/celestials-effarig-1.webp"
 	alt="The lower Effarig tab: the Start Effarig's Reality panel with its penalty text, and the Infinity, Eternity and Reality layer reward lines below it."
-	caption="The Reality panel states the penalties; the layer lines below show what each finished layer pays."
+	caption="The Reality panel states the penalties and the Glyph level cap of the layer you are on. Below it, each layer lists its reward lines; layers you have not finished show “?”."
 />
 
 Infinity Power softens the production and game-speed penalties, and Time Shards soften the tickspeed penalty — both are worth pushing before you enter. <!-- src/core/celestials/effarig.js: tickDilation/multDilation; h2p Effarig entry -->
@@ -34,7 +34,13 @@ Reach Infinity (<Num value="1.8e308" /> antimatter) and Crunch. With levels capp
 
 <!-- src/core/celestials/effarig.js: glyphLevelCap INFINITY = 100 -->
 
-Reward: Infinity Challenges auto-complete much faster and Replicanti limits loosen (the Replicanti cap scales off total Infinities from here on).
+The game lists the Infinity layer as four lines:
+
+- "Infinities raise the Replicanti cap": from here on the Replicanti cap is <Num value="1.8e308" /> times your total Infinities to the power 30 (120 with Time Study 31).
+- "Infinities increase your max Replicanti Galaxies": you get one extra Replicanti Galaxy for every factor of <Num value="1.8e308" /> the cap rises.
+- "Base IP gain is capped at 1e200 in Effarig's Reality" and "Each type of IP multiplier is capped at 1e50 in Effarig's Reality": these two are not rewards but the extra rules of layer 2.
+
+<!-- vendor/ad-source/src/core/secret-formula/celestials/effarig.js (infinity description); src/core/replicanti.js replicantiCap(): infinitiesTotal^(TS31 ? 120 : 30) × NUMBER_MAX_VALUE once EffarigUnlock.infinity; effarig.js bonusRG = floor(log10(cap)/log10(MAX_VALUE) − 1). Emulator 3.18.0 (Effarig save, Infinity layer done): the four lines as quoted. -->
 
 ## Layer 2: Eternity (Glyph level cap 1500)
 
