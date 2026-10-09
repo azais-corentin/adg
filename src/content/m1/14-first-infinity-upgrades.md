@@ -58,11 +58,11 @@ Column 4 holds the start-with-Boosts/Galaxy upgrades (<Num value="20" />–<Num 
 ## What not to do
 
 - Do not hoard IP "for later". Unspent IP does nothing until you own the upgrade that scales with it — spend everything, every Crunch, until that 5-IP upgrade is yours.
-- Do not rush the <Num value="1000" />-IP offline upgrade once it appears. In the game it reads "Only while offline, gain 50% of your best IP/min run where you haven't used Max bottom button": only Infinities in which you never tapped the round **Max** button count, so its value depends on runs your autobuyers did alone. It also needs offline progress on in Options. Excellent later, but at this stage <Num value="1000" /> IP is days of progress; spend it on the cheap multipliers instead.
+- Do not rush the <Num value="1e3" />-IP offline upgrade once it appears. In the game it reads "Only while offline, gain 50% of your best IP/min run where you haven't used Max bottom button": only Infinities in which you never tapped the round **Max** button count, so its value depends on runs your autobuyers did alone. It also needs offline progress on in Options. Excellent later, but at this stage <Num value="1e3" /> IP is days of progress; spend it on the cheap multipliers instead.
 
 <Callout kind="tip">
 
-Once you own all sixteen upgrades (achievement "No DLC required"), a new row appears above the columns: a rebuyable "Multiply Infinity Points from all sources by 2" and the <Num value="1000" />-IP offline upgrade. The rebuyable starts at 10 IP and rises tenfold per purchase, steepening above <Num value="1e3000000" /> IP and capping at <Num value="1e6000000" /> IP — it matters in the hundreds-of-IP era.
+Once you own all sixteen upgrades (achievement "No DLC required"), a new row appears above the columns: a rebuyable "Multiply Infinity Points from all sources by 2" and the <Num value="1e3" />-IP offline upgrade. The rebuyable starts at 10 IP and rises tenfold per purchase, steepening above <Num value="1e3000000" /> IP and capping at <Num value="1e6000000" /> IP — it matters in the hundreds-of-IP era.
 
 <!-- bottomRowUnlocked = Achievement(41) (16 Infinity Upgrades) in vendor/ad-source/src/components/tabs/infinity-upgrades/InfinityUpgradesTab.vue; on Android the row sits above Column 1/2 (break-infinity/infinity-upgrades-0.webp) -->
 

@@ -31,7 +31,7 @@ Late Eternity is one repeating cycle, and every part of it feeds the next:
 ## Settings that matter
 
 - **Autobuyers.** Late Eternity runs buy a lot: keep Dimension, Tickspeed, Dimboost, Galaxy and Time Dimension autobuyers on with no cap, and the Eternity autobuyer set to a modest EP threshold so Eternities tick over while you watch DT. The Crunch autobuyer feeds IP between Eternities.
-- **Max offline ticks.** In Options, raise this toward the top of its 1000-to-1000000 range so time away earns DT and Theorem income at near-online fidelity. Coming back shows the "While you were away" popup — confirm it and spend the gains. <!-- device fact re-verified in docs/device/README.md -->
+- **Max offline ticks.** In Options, raise this toward the top of its 1,000-to-1,000,000 range so time away earns DT and Theorem income at near-online fidelity. Coming back shows the "While you were away" popup — confirm it and spend the gains. <!-- device fact re-verified in docs/device/README.md -->
 - **Study presets.** Keep at least two presets: your pushing tree (with TD5–8 once owned) and your best EC-farming tree if any completions remain. The Eternity Challenge planner lists the recommended order if ECs are still open. <!-- in-game preset behavior, see docs/device/EMULATOR.md if present -->
 
 ## Finishing the Eternity Challenges

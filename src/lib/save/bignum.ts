@@ -82,15 +82,21 @@ export function log10(value: BigNum): number {
 	return value.exponent + Math.log10(value.mantissa);
 }
 
-/** Exponents from this size up are shown with thousands separators (notations `Settings`). */
-const EXPONENT_COMMAS_MIN = 100_000;
-/** Exponents from this size up are themselves formatted in scientific. */
+/**
+ * Exponents from this size up are shown with thousands separators. The app's default
+ * ("Commas on exponents", 5 digits) starts at 1e4: captures show `8.16e3430` and
+ * `2.74e10,422`. Upstream's `Settings.exponentCommas.min` would be 1e5.
+ */
+const EXPONENT_COMMAS_MIN = 10_000;
+/** Exponents from this size up are themselves formatted in scientific (`3.34e1.312e9`). */
 const EXPONENT_COMMAS_MAX = 1_000_000_000;
+/** Places of a scientific exponent: upstream `format()` passes `placesExponent = 3`. */
+const EXPONENT_PLACES = 3;
 
 /**
- * Formats like the game's default "Scientific" notation (`@antimatter-dimensions/notations`
- * `ScientificNotation` via `format(value, places, placesUnder1000)`): plain below 1000,
- * `m.mme<exp>` above, commas in exponents from 1e5, and `me<m.mme<exp>>` from 1e9.
+ * Formats like the app's default "Scientific" notation (`@antimatter-dimensions/notations`
+ * `ScientificNotation` via upstream `format(value, places, placesUnder1000)`): plain below
+ * 1000, `m.mme<exp>` above, commas in exponents from 1e4, and `m.mme<m.mmme<exp>>` from 1e9.
  */
 export function formatBigNum(value: BigNum, places = 2, placesUnder1000 = 0): string {
 	if (Number.isNaN(value.mantissa)) return 'NaN';
@@ -106,9 +112,33 @@ export function formatBigNum(value: BigNum, places = 2, placesUnder1000 = 0): st
 		exponent += 1;
 	}
 	if (exponent < EXPONENT_COMMAS_MIN) return `${mantissa}e${exponent}`;
-	if (exponent < EXPONENT_COMMAS_MAX) {
-		return `${mantissa}e${exponent.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
-	}
-	const exponentPlaces = Math.max(2, places);
-	return `${value.mantissa.toFixed(0)}e${formatBigNum(fromNumber(exponent), exponentPlaces, exponentPlaces)}`;
+	if (exponent < EXPONENT_COMMAS_MAX) return `${mantissa}e${exponent.toLocaleString('en-US')}`;
+	return `${mantissa}e${formatBigNum(fromNumber(exponent), EXPONENT_PLACES, EXPONENT_PLACES)}`;
+}
+
+/** `formatBigNum` for a number or a numeric string such as `"1e10500"`. Throws on anything else. */
+export function formatGameNumber(value: string | number, places = 2, placesUnder1000 = 0): string {
+	const parsed = parseBigNum(value);
+	if (parsed === undefined) throw new Error(`Not a game number: ${value}`);
+	return formatBigNum(parsed, places, placesUnder1000);
+}
+
+/**
+ * A requirement amount as the game shows it (`ec-time-studies.js` `formatValue`): whole
+ * numbers below 1e9 with separators (`formatInt`), anything else as `format(value)`, 0 places.
+ */
+export function formatAmount(value: string | number): string {
+	const n = Number(value);
+	return Number.isInteger(n) && n < 1e9 ? n.toLocaleString('en-US') : formatGameNumber(value, 0);
+}
+
+/**
+ * A count (Infinities, Eternities, Realities) as the Statistics tab shows it: whole number
+ * with separators up to 1e9, scientific with 3 places above (`StatisticsTab.vue`
+ * `formatDecimalAmount`). The app's import summary also reads "Infinities: 5,832,648".
+ */
+export function formatCount(value: BigNum | number): string {
+	const count = typeof value === 'number' ? fromNumber(value) : value;
+	if (gt(count, 1e9)) return formatBigNum(count, 3);
+	return Math.floor(toNumber(count)).toLocaleString('en-US');
 }

@@ -6,7 +6,7 @@ two-finger pinch zoom, wheel zoom, and zoom buttons. Tapping (or Enter/Space on)
 -->
 <script lang="ts">
 	import { untrack } from 'svelte';
-	import { formatGameNumber } from '#lib/components/num.ts';
+	import { formatGameNumber } from '#lib/save/bignum.ts';
 	import type { TimeStudyLayoutCell } from '#lib/data/index.ts';
 	import {
 		check,

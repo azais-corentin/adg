@@ -43,8 +43,8 @@ describe('challenge numbers match upstream', () => {
 		expect(unlockRequirementAt(eternityChallenge(1), 1)).toBe('40,000 Eternities');
 		expect(unlockRequirementAt(eternityChallenge(4), 4)).toBe('200,000,000 Infinities');
 		expect(unlockRequirementAt(eternityChallenge(5), 1)).toBe('174 Antimatter Galaxies');
-		expect(unlockRequirementAt(eternityChallenge(7), 4)).toBe('1.00e1,700,000 antimatter');
-		expect(unlockRequirementAt(eternityChallenge(9), 2)).toBe('1.00e21500 Infinity Power');
+		expect(unlockRequirementAt(eternityChallenge(7), 4)).toBe('1e1,700,000 antimatter');
+		expect(unlockRequirementAt(eternityChallenge(9), 2)).toBe('1e21,500 Infinity Power');
 		expect(unlockRequirementAt(eternityChallenge(11), 0)).toBe(
 			'Antimatter Dimension path only (no TS72 or TS73)'
 		);

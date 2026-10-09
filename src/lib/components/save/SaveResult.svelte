@@ -9,8 +9,8 @@ where to go from here (articles for the stage and the tools that apply to it).
 	import { TOOLS, type Tool } from '#lib/content/tools.ts';
 	import StageStrip from '#lib/components/StageStrip.svelte';
 	import { layerStyle } from '#lib/components/stage-colors.ts';
-	import { detectStage, formatBigNum, gt, nextGoals } from '#lib/save/index.ts';
-	import type { BigNum, NormalizedSave } from '#lib/save/types.ts';
+	import { detectStage, formatBigNum, formatCount, gt, nextGoals } from '#lib/save/index.ts';
+	import type { NormalizedSave } from '#lib/save/types.ts';
 	import { STAGES, getStage, stageIndex, type StageId } from '#lib/stages.ts';
 	import GoalList from './GoalList.svelte';
 	import { formatDuration, formatTimeAgo } from './time.ts';
@@ -46,7 +46,6 @@ where to go from here (articles for the stage and the tools that apply to it).
 		})
 	);
 
-	const count = (value: BigNum) => formatBigNum(value, 2, 0);
 	const stats = $derived.by(() => {
 		const reality = save.realities > 0 || gt(save.realityMachines, 0);
 		const eternity = reality || gt(save.eternities, 0) || gt(save.eternityPoints, 0);
@@ -54,11 +53,11 @@ where to go from here (articles for the stage and the tools that apply to it).
 		return [
 			{ label: 'Antimatter', value: formatBigNum(save.antimatter), show: true },
 			{ label: 'Infinity Points', value: formatBigNum(save.infinityPoints), show: infinity },
-			{ label: 'Infinities', value: count(save.infinities), show: infinity },
+			{ label: 'Infinities', value: formatCount(save.infinities), show: infinity },
 			{ label: 'Eternity Points', value: formatBigNum(save.eternityPoints), show: eternity },
-			{ label: 'Eternities', value: count(save.eternities), show: eternity },
+			{ label: 'Eternities', value: formatCount(save.eternities), show: eternity },
 			{ label: 'Reality Machines', value: formatBigNum(save.realityMachines), show: reality },
-			{ label: 'Realities', value: save.realities.toLocaleString('en-US'), show: reality },
+			{ label: 'Realities', value: formatCount(save.realities), show: reality },
 			{ label: 'Time played', value: formatDuration(save.records.totalTimePlayed), show: true }
 		].filter((stat) => stat.show);
 	});

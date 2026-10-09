@@ -14,7 +14,7 @@ test('marking completions moves the next step and persists across reloads', asyn
 	// Set EC4 to two completions from its sheet; EC4 ×1 and ×2 count as done in the list.
 	await page.getByRole('button', { name: 'EC4, 0 of 5 completions' }).click();
 	const sheet = page.getByRole('dialog', { name: 'Eternity Challenge 4' });
-	await expect(sheet.getByText('1.00e2750')).toBeVisible();
+	await expect(sheet.getByText('1e2750')).toBeVisible();
 	await sheet.getByText('2', { exact: true }).click();
 	await sheet.getByRole('button', { name: 'Close' }).click();
 	await expect(sheet).toBeHidden();

@@ -3,6 +3,8 @@ import {
 	bigNum,
 	compare,
 	formatBigNum,
+	formatCount,
+	formatGameNumber,
 	fromNumber,
 	gte,
 	log10,
@@ -67,23 +69,61 @@ describe('compare / log10 / toNumber', () => {
 	});
 });
 
-describe('formatBigNum (game Scientific notation)', () => {
+describe('formatBigNum (the app\'s Scientific notation)', () => {
 	it.each([
 		[fromNumber(0), '0'],
 		[fromNumber(999.4), '999'],
 		[fromNumber(1234), '1.23e3'],
 		[bigNum(1.7976931348623157, 308), '1.80e308'],
 		[bigNum(9.999, 5), '1.00e6'],
-		[bigNum(3.30615479202856, 111541), '3.31e111,541'],
-		[bigNum(1, 1.5e12), '1e1.50e12'],
 		[bigNum(-2.5, 4), '-2.50e4'],
-		[{ mantissa: 1, exponent: Infinity }, 'Infinite']
+		[{ mantissa: 1, exponent: Infinity }, 'Infinite'],
+		// As the Android 3.18.0 captures show them: commas from a 5-digit exponent, a
+		// scientific exponent with 3 places from 1e9.
+		[bigNum(8.16, 3430), '8.16e3430'],
+		[bigNum(2.74, 10422), '2.74e10,422'],
+		[bigNum(3.30615479202856, 111541), '3.31e111,541'],
+		[bigNum(6.26, 380575449), '6.26e380,575,449'],
+		[bigNum(3.34, 1.312e9), '3.34e1.312e9']
 	])('%j → %s', (value, text) => {
 		expect(formatBigNum(value)).toBe(text);
 	});
 
 	it('uses 0 places for costs like the game', () => {
 		expect(formatBigNum(bigNum(1, 140), 0)).toBe('1e140');
+		expect(formatBigNum(bigNum(1, 10500), 0)).toBe('1e10,500');
 		expect(formatBigNum(fromNumber(12.345), 2, 1)).toBe('12.3');
+	});
+});
+
+describe('formatGameNumber', () => {
+	it.each([
+		['2.72e108838', '2.72e108,838'],
+		['6.18e7650', '6.18e7650'],
+		['1e308', '1.00e308'],
+		[Number.MAX_VALUE, '1.80e308'],
+		['446', '446'],
+		[999.4, '999'],
+		['0', '0'],
+		['1000', '1.00e3'],
+		['9.999e99', '1.00e100'],
+		['0.05e10', '5.00e8'],
+		['-2e5', '-2.00e5'],
+		['1e1000000000', '1.00e1.000e9']
+	])('%j → %s', (value, text) => {
+		expect(formatGameNumber(value)).toBe(text);
+	});
+
+	it('rejects non-numbers', () => {
+		expect(() => formatGameNumber('abc')).toThrow();
+		expect(() => formatGameNumber('')).toThrow();
+	});
+});
+
+describe('formatCount', () => {
+	it('groups digits up to 1e9, then 3 places like the Statistics tab', () => {
+		expect(formatCount(8584)).toBe('8,584');
+		expect(formatCount(bigNum(3.759336, 6))).toBe('3,759,336');
+		expect(formatCount(bigNum(1.2346, 12))).toBe('1.235e12');
 	});
 });

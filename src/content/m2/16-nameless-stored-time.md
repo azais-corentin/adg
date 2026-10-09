@@ -61,7 +61,7 @@ Stored game time is also the currency for two unlocks at the bottom of the tab:
 
 <!-- vendor/ad-source/src/core/celestials/enslaved.js: ENSLAVED_UNLOCKS FREE_TICKSPEED_SOFTCAP / RUN -->
 
-Buy the softcap first — it is cheap relative to the bank you will build anyway. The Reality unlock additionally demands proof of Glyph progress (a level 5000 Glyph and a max-rarity one in your best-Reality records), so keep pushing Glyph level and rarity while charging.
+Buy the softcap first — it is cheap relative to the bank you will build anyway. The Reality unlock additionally demands proof of Glyph progress (a level 5,000 Glyph and a max-rarity one in your best-Reality records), so keep pushing Glyph level and rarity while charging.
 
 ## What to aim for
 

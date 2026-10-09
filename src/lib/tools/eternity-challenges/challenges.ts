@@ -9,7 +9,7 @@ import type {
 	EternityChallenge,
 	TimeStudyRequirementType
 } from '#lib/data/index.ts';
-import { formatGameNumber } from '#lib/components/num.ts';
+import { formatAmount } from '#lib/save/bignum.ts';
 
 export const MAX_COMPLETIONS = 5;
 export const EC_COUNT = 12;
@@ -84,12 +84,6 @@ export function goalAt(ec: EternityChallenge, completions: number, doomed = fals
 /** Restriction on top of the goal for the next completion (EC4, EC12), else `null`. */
 export function restrictionAt(ec: EternityChallenge, completions: number): string | null {
 	return ec.restrictions?.[Math.min(completions, MAX_COMPLETIONS - 1)] ?? null;
-}
-
-/** A requirement amount the way the game shows it: grouped digits for counts, else scientific. */
-function formatAmount(value: DecimalString): string {
-	const n = Number(value);
-	return Number.isInteger(n) && n < 1e9 ? n.toLocaleString('en-US') : formatGameNumber(value);
 }
 
 /**

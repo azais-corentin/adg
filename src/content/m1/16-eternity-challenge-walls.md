@@ -45,7 +45,7 @@ Do not clear each challenge 1→5 in a row. That linear order hard-walls around 
 
 <!-- ec-time-studies.js: EC11/EC12 path secondaries -->
 
-**EC12 — the game at 1/1000 speed.** Everything runs a thousand times slower with a shrinking time limit (1 second of game time down to a tenth). The goal is enormous (<Num value="1e110000" /> antimatter, growing <Num value="1e12000" /> per completion). Keep the Eternity autobuyer on for every EC12 run, bank hundreds of millions of Banked Infinities for the late ones, and run the Time Dimension path on Passive. This is the longest single challenge in the stage — finishing it ×5 alongside EC11×5 unlocks Time Dilation.
+**EC12 — the game at 1/1000 speed.** Everything runs a thousand times slower with a shrinking time limit (1 second of game time down to a tenth). The goal is enormous (<Num value="1e110000" /> IP, growing <Num value="1e12000" /> per completion). Keep the Eternity autobuyer on for every EC12 run, bank hundreds of millions of Banked Infinities for the late ones, and run the Time Dimension path on Passive. This is the longest single challenge in the stage — finishing it ×5 alongside EC11×5 unlocks Time Dilation.
 
 ## Finishing the stage
 

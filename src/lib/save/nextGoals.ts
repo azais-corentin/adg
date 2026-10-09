@@ -1,6 +1,6 @@
 import { stageItems } from '#lib/checklists/items.ts';
 import type { StageId } from '#lib/stages.ts';
-import { bigNum, formatBigNum, gt, gte, toNumber } from './bignum.ts';
+import { bigNum, formatBigNum, formatCount, gt, gte, toNumber } from './bignum.ts';
 import { detectStage } from './stage.ts';
 import type { BigNum, Goal, NormalizedSave } from './types.ts';
 
@@ -141,7 +141,7 @@ const GOALS: Record<StageId, (s: NormalizedSave) => Goal[]> = {
 		{
 			// normal-challenges.js: NC10–12 `lockedAt: DC.D16`.
 			id: 'infinities-16',
-			text: `Reach 16 Infinities to unlock Normal Challenges 10–12 (have ${fmt(s.infinities)})`,
+			text: `Reach 16 Infinities to unlock Normal Challenges 10–12 (have ${formatCount(s.infinities)})`,
 			done: gte(s.infinities, 16)
 		},
 		{

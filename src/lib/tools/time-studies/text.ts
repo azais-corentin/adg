@@ -3,7 +3,7 @@
  * extracted data plus our wording where upstream builds the text from game state.
  */
 import { challenges } from '#lib/data/index.ts';
-import { formatGameNumber } from '#lib/components/num.ts';
+import { formatAmount } from '#lib/save/bignum.ts';
 import {
 	DILATION_STUDIES,
 	EC_STUDIES,
@@ -146,7 +146,7 @@ export function requirementLines(ref: TimeStudyRef): string[] {
 				`Only the ${secondary.path} path: none of ${forbidden} (a Reality perk lifts this)`
 			);
 		} else {
-			const amounts = secondary.amounts.map((a) => formatGameNumber(a)).join(' / ');
+			const amounts = secondary.amounts.map((a) => formatAmount(a)).join(' / ');
 			lines.push(`${secondary.resource}: ${amounts} for completions 1–5 (checked in the game)`);
 		}
 		return lines;

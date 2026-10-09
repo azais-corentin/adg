@@ -30,7 +30,7 @@ Start the Reality from the Nameless tab once the unlock is bought. The goal is a
 
 The panel lists them; the important ones:
 
-- Glyph levels are boosted to a minimum of 5000 — rarity and effects decide your power, not levels.
+- Glyph levels are boosted to a minimum of 5,000 — rarity and effects decide your power, not levels.
 - Infinity, Time and 8th Antimatter Dimension purchases are limited to 1 each; the Black Hole is disabled.
 - Time Study 192 (uncapped Replicanti) is locked; Theorem generation from Dilation Glyphs is off; Tachyon and Dilated Time production are severely reduced.
 - Certain challenge goals are raised; stored time discharges at exponent <Num value="0.55" />.

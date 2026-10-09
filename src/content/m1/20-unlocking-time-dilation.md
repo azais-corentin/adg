@@ -2,7 +2,7 @@
 title: 'Unlocking Time Dilation'
 stage: early-dilation
 order: 10
-summary: 'The four requirements for the Dilation study (EC11/EC12 at five completions, a row-23 study, 12900 lifetime Time Theorems) and how to meet them.'
+summary: 'The four requirements for the Dilation study (EC11/EC12 at five completions, a row-23 study, 12,900 lifetime Time Theorems) and how to meet them.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
@@ -23,12 +23,12 @@ You unlock it by buying a study at the bottom of the Time Study tree. The study 
 
 ## The four requirements
 
-1. **Eternity Challenge 11 completed five times.** EC11 disables nearly all Dimension multipliers except Infinity Power and Dimension Boosts. Its goal starts at <Num value="1e450" /> antimatter and rises by <Num value="1e200" /> per completion. <!-- vendor/ad-source/src/core/secret-formula/challenges/eternity-challenges.js -->
-2. **Eternity Challenge 12 completed five times.** EC12 runs the whole game <Num value="1000" /> times slower and must be finished within a tight in-game time limit that shrinks with each completion. Its goal starts at <Num value="1e110000" /> antimatter and rises by <Num value="1e12000" /> per completion. <!-- vendor/ad-source/src/core/secret-formula/challenges/eternity-challenges.js -->
+1. **Eternity Challenge 11 completed five times.** EC11 disables nearly all Dimension multipliers except Infinity Power and Dimension Boosts. Its goal starts at <Num value="1e450" /> IP and rises by <Num value="1e200" /> per completion. <!-- vendor/ad-source/src/core/secret-formula/challenges/eternity-challenges.js -->
+2. **Eternity Challenge 12 completed five times.** EC12 runs the whole game <Num value="1000" /> times slower and must be finished within a tight in-game time limit that shrinks with each completion. Its goal starts at <Num value="1e110000" /> IP and rises by <Num value="1e12000" /> per completion. <!-- vendor/ad-source/src/core/secret-formula/challenges/eternity-challenges.js -->
 3. **One row-23 study owned.** Own any of studies 231, 232, 233 or 234 — the ends of the Light/Dark branches at the bottom of the tree.
-4. **12900 lifetime Time Theorems.** This counts every Theorem you have ever earned, so spending Theorems never sets it back. <!-- vendor/ad-source/src/core/secret-formula/eternity/time-studies/dilation-time-studies.js, totalTimeTheoremRequirement in vendor/ad-source/src/core/time-studies/dilation-time-study.js -->
+4. **12,900 lifetime Time Theorems.** This counts every Theorem you have ever earned, so spending Theorems never sets it back. <!-- vendor/ad-source/src/core/secret-formula/eternity/time-studies/dilation-time-studies.js, totalTimeTheoremRequirement in vendor/ad-source/src/core/time-studies/dilation-time-study.js -->
 
-Note the order this implies: EC11 and EC12 are each unlocked by their own 1-Theorem studies (EC11 needs 231 or 232, EC12 needs 233 or 234), so by the time both are at five completions you already own a row-23 study. <!-- vendor/ad-source/src/core/secret-formula/eternity/time-studies/ec-time-studies.js --> In practice the checklist is: finish EC11 and EC12 five times each, accumulate 12900 total Theorems, then buy the 5000-Theorem Dilation study.
+Note the order this implies: EC11 and EC12 are each unlocked by their own 1-Theorem studies (EC11 needs 231 or 232, EC12 needs 233 or 234), so by the time both are at five completions you already own a row-23 study. <!-- vendor/ad-source/src/core/secret-formula/eternity/time-studies/ec-time-studies.js --> In practice the checklist is: finish EC11 and EC12 five times each, accumulate 12,900 total Theorems, then buy the 5,000-Theorem Dilation study.
 
 <Callout kind="tip">
 
@@ -59,7 +59,7 @@ On the phone the tree is panned with the zoom slider and horizontal arrows. Tapp
 
 ## Buying the study
 
-When everything is met, the Dilation study appears at the bottom of the tree and costs <Num value="5000" /> Theorems on top of the 12900-lifetime requirement — have both covered before you respec into your buying tree. Buying it unlocks a new **Time Dilation** subtab (marked Ψ) inside the Eternity tab. The game itself considers you to be in the Dilation stage once you hold any Dilated Time at all, and in Late Eternity once you pass <Num value="1e15" /> of it. <!-- vendor/ad-source/src/core/secret-formula/progress-checker.js -->
+When everything is met, the Dilation study appears at the bottom of the tree and costs <Num value="5000" /> Theorems on top of the 12,900-lifetime requirement — have both covered before you respec into your buying tree. Buying it unlocks a new **Time Dilation** subtab (marked Ψ) inside the Eternity tab. The game itself considers you to be in the Dilation stage once you hold any Dilated Time at all, and in Late Eternity once you pass <Num value="1e15" /> of it. <!-- vendor/ad-source/src/core/secret-formula/progress-checker.js -->
 
 <Checklist stage="early-dilation" />
 

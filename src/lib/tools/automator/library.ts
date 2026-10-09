@@ -232,7 +232,7 @@ const META: readonly ScriptMeta[] = [
 			date: '2026-10-09',
 			save: 'teresa',
 			observed:
-				'on teresa it sat in the until loop taking EP-doubling Eternities (EP 4.2e603 to 3.1e15025, Dilation unlocked, still 426 Realities with only 3.4e9 of the 1e12 RM pending). On effarig, with 1e12 RM already pending, it Realitied at once (4987 to 4988 Realities) and restarted inside the loop.'
+				'on teresa it sat in the until loop taking EP-doubling Eternities (EP 4.2e603 to 3.1e15,025, Dilation unlocked, still 426 Realities with only 3.4e9 of the 1e12 RM pending). On effarig, with 1e12 RM already pending, it Realitied at once (4,987 to 4,988 Realities) and restarted inside the loop.'
 		}
 	},
 	{
