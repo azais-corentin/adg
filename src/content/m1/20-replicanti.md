@@ -26,11 +26,11 @@ Replicanti unlock on the **Infinity tab's Replicanti subtab** for a one-time pay
 
 Replicanti are a self-copying currency. Each tick (each "replication interval") every Replicanti has a chance to copy itself, so the total grows exponentially — slowly at first, then explosively. Two numbers control the growth, and a third controls what the growth buys:
 
-| Upgrade | Starts at | First cost | Effect |
-| --- | --- | --- | --- |
-| Chance | 1% | <Num value="1e150" /> IP | Each level adds 1 percentage point, up to 100% |
-| Interval | 1000 ms | <Num value="1e140" /> IP | Each level shrinks the tick 10%, down to a 50 ms floor |
-| Max Replicanti Galaxies | 0 | <Num value="1e170" /> IP | Each level raises the cap on Replicanti Galaxies by 1 |
+| Upgrade                 | Starts at | First cost               | Effect                                                 |
+| ----------------------- | --------- | ------------------------ | ------------------------------------------------------ |
+| Chance                  | 1%        | <Num value="1e150" /> IP | Each level adds 1 percentage point, up to 100%         |
+| Interval                | 1000 ms   | <Num value="1e140" /> IP | Each level shrinks the tick 10%, down to a 50 ms floor |
+| Max Replicanti Galaxies | 0         | <Num value="1e170" /> IP | Each level raises the cap on Replicanti Galaxies by 1  |
 
 <!-- src/core/replicanti.js:505-514 (initial chance/interval/costs), :326-404 (chance +1%/level capped at 100%, interval ×0.9 floored at 50ms), :412-436 (galaxy cap upgrade) -->
 
@@ -41,9 +41,9 @@ Every purchase also makes that upgrade's next level far more expensive: ×1e15 f
 Growing Replicanti pays in two ways:
 
 - **More Replicanti multiply your Infinity Dimensions.** The bonus is the squared log-base-2 of your count (log2(amount)²), so it starts small and becomes one of your biggest multipliers by the time you hold thousands of digits of them. <!-- src/core/replicanti.js:266-272 (`replicantiMult`) -->
-- **Reaching <Num value="1.80e308" /> Replicanti buys a Replicanti Galaxy.** Each galaxy adds to your shared galaxy strength alongside Antimatter Galaxies, up to your Max Galaxies cap. Taking the galaxy sets your Replicanti back to 1, and growth starts over. <!-- src/core/replicanti.js:34-48 (`replicantiGalaxy`), multiplier-tab/galaxies.js:20-30 -->
+- **Replicanti stop at <Num value="1.80e308" />, and that is when you can take a Replicanti Galaxy.** Nothing happens on its own: tap **Reset Replicanti amount for a Replicanti Galaxy** on the subtab (or the round **R.Galaxy** button) while you are below your Max Galaxies cap. Each galaxy adds to your shared galaxy strength alongside Antimatter Galaxies. Taking it sets your Replicanti back to 1, and growth starts over. From 3 Eternities, an Eternity milestone adds a Replicanti Galaxy autobuyer that takes them for you. <!-- src/core/replicanti.js:34-48 (`replicantiGalaxy`), multiplier-tab/galaxies.js:20-30; eternity-milestones.js (3: Replicanti Galaxy autobuyer); emulator (3-2): Replicanti sat at 1.80e308 with 0 RG after 2.2 h until the button was tapped -->
 
-So the loop is: grow → galaxy → grow faster → galaxy, with the chance/interval upgrades speeding each cycle and the Max Galaxies upgrade raising the ceiling.
+So the loop is: grow → tap for a galaxy → grow faster → tap again, with the chance/interval upgrades speeding each cycle and the Max Galaxies upgrade raising the ceiling.
 
 ## Big Crunches reset Replicanti at first
 
@@ -73,7 +73,7 @@ Replicanti keep growing while you do other things. There are no Replicanti autob
 
 <Callout kind="android">
 
-Growth ticks run on the game clock, so offline stretches count: Replicanti fill up to <Num value="1.80e308" /> while the app is closed. Take the galaxy with the **Reset Replicanti amount for a Replicanti Galaxy** button or the round **R.Galaxy** button above the tab bar.
+Growth ticks run on the game clock, so offline stretches count: Replicanti fill up to <Num value="1.80e308" /> while the app is closed, then wait there. No galaxy comes until you take it with the **Reset Replicanti amount for a Replicanti Galaxy** button or the round **R.Galaxy** button above the tab bar, so a night away earns at most the one galaxy you collect in the morning.
 
 </Callout>
 
