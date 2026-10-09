@@ -28,13 +28,15 @@ Rule of thumb: buy a Boost as soon as the requirement is met and production has 
 
 An **Antimatter Galaxy** is a bigger reset: it resets your Dimensions, Boosts and antimatter, and in return makes every Tickspeed upgrade stronger. Galaxies multiply with Boosts, so one Galaxy plus a fresh stack of Boosts produces far more than Boosts alone ever could.
 
-<Screen
-	src="pre-infinity/dimensions-antimatter-top.webp"
-	alt="The Antimatter subtab on a new save: the Dimension Boost box reading Requires 20 4th D and the Antimatter Galaxies box reading Requires 200 8th D."
-	caption="The Boost and Galaxy boxes on the Dimensions tab. Each names the Dimensions it needs — 20 4ths for the first Boost, 200 8ths for the later Galaxy."
-/>
+The first Galaxy costs <Num value="80" /> 8th Dimensions, and each Galaxy after it costs 60 more: 140 for the second, 200 for the third.
 
 <!-- baseCost 80, costMult 60, requiredTier 8 in vendor/ad-source/src/core/galaxy.js -->
+
+<Screen
+	src="pre-infinity/dimensions-antimatter-top.webp"
+	alt="The Antimatter subtab in a pre-Infinity game with 2 Galaxies and 0 Boosts: the Dimension Boost box reading Requires 20 4th D and the Antimatter Galaxies (2) box reading Requires 200 8th D."
+	caption="The Boost and Galaxy boxes with 2 Galaxies. Boosts start over at 20 4ths after each Galaxy; the third Galaxy needs 200 8ths."
+/>
 
 <Callout kind="warning">
 

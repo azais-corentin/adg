@@ -12,7 +12,6 @@ verified:
 	import Callout from '#lib/components/Callout.svelte';
 	import Num from '#lib/components/Num.svelte';
 	import Screen from '#lib/components/Screen.svelte';
-	import StageGate from '#lib/components/StageGate.svelte';
 </script>
 
 ## What the game is
@@ -40,18 +39,21 @@ The app's tabs sit in a bar along the bottom of the screen. With Eternity unlock
 | $         | Shop         | The in-app store                                  |
 | i         | Info         | How to play, and About                            |
 
-<StageGate until="early-infinity" mode="highlight">
+A new game shows only six of them: Dimensions, Achievements, Statistics, Options, Shop and Info. The others appear as you reach them:
 
-Tabs for layers you haven't reached yet, such as Infinity and Eternity, stay hidden, so a new save shows fewer of them.
+- **Autobuyers** once you have made <Num value="1e40" /> antimatter in total, before your first Infinity.
+- **Challenges** and **Infinity** after your first Big Crunch.
+- **Eternity** after your first Eternity.
+- **Reality** and **Celestials** much later.
 
-</StageGate>
+<!-- tab conditions in vendor/ad-source/src/core/secret-formula/tabs.js: automation totalAntimatter >= 1e40, challenges/infinity infinityUnlocked, eternity eternityUnlocked -->
 
 The subtabs of the current tab are listed below the bar. Each tab remembers the subtab you last opened, so the Dimensions tab may not open on Antimatter.
 
 <Screen
-	src="pre-infinity/dimensions-antimatter-top.webp"
-	alt="The Antimatter subtab on a new save: 10 antimatter, a 1st Dimension row costing 10, the Boost and Galaxy requirement boxes, and just D.Boost, A.Galaxy and Max above the tab bar."
-	caption="The Dimensions tab on a new save. Seven tabs for now — Infinity, Eternity and the rest appear as you unlock them."
+	src="pre-infinity/new-game/dimensions-antimatter-top.webp"
+	alt="The Antimatter subtab on a brand-new game: 10 antimatter, a 1st Dimension row with a Cost 10 button, the Dimension Boost box reading Requires 20 4th D and the Antimatter Galaxies box reading Requires 80 8th D, only the Max button above the tab bar, and six tabs."
+	caption="The Dimensions tab on a brand-new game: six tabs, one Dimension row and only the Max button."
 />
 
 ## The buttons above the tab bar
@@ -63,11 +65,13 @@ A row of round buttons floats above the tab bar on every tab, so you can reset w
 - **D.Boost** buys a Dimension Boost.
 - **A.Galaxy** buys an Antimatter Galaxy.
 - **R.Galaxy** buys a Replicanti Galaxy.
-- **Max** buys as many Dimensions and Tickspeed upgrades as you can afford.
+- **Max** buys complete tens of every Dimension you can afford, then Tickspeed upgrades. [Your first Dimensions](/guide/m1/first-dimensions) explains what it skips.
+
+On a new game only **Max** is there.
 
 <Callout kind="tip">
 
-The boxes in the middle of the tab (Dimension Boost, Antimatter Galaxies) show what each reset would give you right now. The screenshot above shows the very first state: no 4th Dimensions yet, so the first Boost still reads "Requires: 20 4th D".
+The boxes in the middle of the tab (Dimension Boost, Antimatter Galaxies) show what each reset needs. On a new game the first Boost reads "Requires: 20 4th D" and the first Galaxy "Requires: 80 8th D".
 
 </Callout>
 

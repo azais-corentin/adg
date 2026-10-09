@@ -15,15 +15,19 @@ verified:
 
 ## What it does
 
+**Dimensional Sacrifice** sets your 1st to 7th Dimensions back to zero and, in return, multiplies your 8th Dimension. The multiplier grows with how many 1st Dimensions you sacrifice.
+
+<!-- sacrificeReset: resetAmountUpToTier(7); AD8 multiplier times Sacrifice.totalBoost in vendor/ad-source/src/core/sacrifice.js, dimensions/antimatter-dimension.js -->
+
+On a new game there is no Sacrifice control at all. It appears at the top of the Antimatter subtab once you have bought your first 8th Dimension, as a disabled button reading "Sacrifice disabled (requires 5 Dimboosts)", with a "Sacrifice multiplier" readout next to the buy-ten multiplier. It becomes usable from your fifth Dimension Boost, roughly when your 8th Dimension is established and actually worth multiplying.
+
 <Screen
 	src="pre-infinity/dimensions-antimatter-top.webp"
-	alt="The top of the Antimatter subtab: the Sacrifice disabled banner reading requires 5 Dimboosts, with the buy-ten and Sacrifice multiplier readouts beside it."
-	caption="Before five Boosts the Sacrifice row says so outright. Once unlocked, this same row previews the multiplier — press it at ×2 or more."
+	alt="The top of the Antimatter subtab in a pre-Infinity game with 2 Galaxies and 0 Boosts: the Sacrifice disabled (requires 5 Dimboosts) button, with Buy ten multiplier ×2.00 and Sacrifice multiplier ×1.00 below it."
+	caption="Before five Boosts the Sacrifice button says what it is waiting for. Once unlocked, the same button previews the multiplier — press it at ×2 or more."
 />
 
-It becomes usable once you have bought more than four Dimension Boosts — roughly when your 8th Dimension is established and actually worth multiplying. The button appears among the Dimension controls; before that point the game does not offer it at all.
-
-<!-- canSacrifice: DimBoost.purchasedBoosts > 4 in vendor/ad-source/src/core/sacrifice.js -->
+<!-- Sacrifice.isVisible: Achievement(18) "Buy an 8th Antimatter Dimension"; canSacrifice: DimBoost.purchasedBoosts > 4 in vendor/ad-source/src/core/sacrifice.js -->
 
 ## When to press it
 
@@ -33,7 +37,7 @@ As your 8th Dimension grows, the offered multiplier climbs. Early in a run it ma
 
 <Callout kind="tip">
 
-Sacrifice never touches your Boosts, Galaxies, achievements or autobuyers — only Dimensions 1–7 and their spent antimatter. It is always safe to press when the preview is good.
+Sacrifice never touches your Boosts, Galaxies, achievements or autobuyers. It only empties Dimensions 1–7: your antimatter stays, and so do the purchase counts and buy-ten multipliers of those rows, so they refill quickly. It is always safe to press when the preview is good.
 
 </Callout>
 
@@ -45,7 +49,8 @@ Inside Normal Challenge 8, Sacrifice behaves differently: Boosts give no multipl
 
 - **The preview sits below ×2 for ages.** That means your 8th Dimension is still small relative to the lower tiers. Do not force it — buy Boosts, push for the next Galaxy, and check again after each rebuild. The multiplier grows with the 8th, so Galaxy-driven growth unclogs it.
 - **Sacrifice barely moves the needle anymore.** Late pre-Infinity (and especially after Infinity upgrades), Boost and Galaxy multipliers dwarf the Sacrifice bonus. Keep pressing it at ×2+ out of habit, but stop waiting around for it — Galaxies are the growth engine now.
-- **The button vanished or does nothing.** You need more than four Boosts (it appears from the fifth), a positive multiplier preview, and to be outside Challenge 8's special rules. Inside C8 it is always available and works differently — see below.
+- **The button is greyed out or does nothing.** You need at least five Boosts, an 8th Dimension, and a preview above ×1; the button's text names the condition you are missing. Inside C8 the same five-Boost rule applies, but Sacrifice works differently there — see above.
+
 ## Further reading
 
 - In-game Info → How to play → "Sacrifice".
