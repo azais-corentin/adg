@@ -1,10 +1,12 @@
 /**
- * `bun run device:capture <stage> [tab…]`
+ * `bun run device:capture <stage>[/<variant>] [tab…]`
  *
  * Screenshots every tab, subtab and scroll page of the game running in the emulator into
  * static/screens/<stage>/<tab>-<subtab>-<page>.webp (`top` when the page does not scroll,
  * otherwise 0, 1, …). Load a save first with `bun run device:load`. Optional tab names limit
- * the run (e.g. `bun run device:capture ra celestials reality`).
+ * the run (e.g. `bun run device:capture ra celestials reality`). A `/<variant>` suffix writes
+ * to static/screens/<stage>/<variant>/ instead, for a second state of the same stage (e.g.
+ * `pre-infinity/new-game` for a fresh install).
  *
  * It only ever taps bottom-navigation icons and subtab labels and only drags along the left
  * screen edge, so it never presses prestige buttons (Eternity, B.Crunch, D.Boost, A.Galaxy,
@@ -179,12 +181,13 @@ async function captureTab(outDir: string, tab: string, x: number): Promise<void>
 	}
 }
 
-const [stage, ...onlyTabs] = process.argv.slice(2);
-if (!isStageId(stage))
-	fail(`usage: bun run device:capture <stage id from src/lib/stages.ts> [tab…]`);
+const [target = '', ...onlyTabs] = process.argv.slice(2);
+const [stage, variant, ...rest] = target.split('/');
+if (!isStageId(stage) || rest.length > 0 || (variant !== undefined && !/^[a-z0-9-]+$/.test(variant)))
+	fail(`usage: bun run device:capture <stage id from src/lib/stages.ts>[/<variant>] [tab…]`);
 requireBooted();
 
-const outDir = join(REPO_ROOT, 'static', 'screens', stage);
+const outDir = join(REPO_ROOT, 'static', 'screens', stage, variant ?? '');
 mkdirSync(outDir, { recursive: true });
 await dismissDialogs();
 const icons = navIcons(screencap());
