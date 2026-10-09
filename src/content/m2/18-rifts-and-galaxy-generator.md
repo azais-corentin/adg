@@ -21,8 +21,8 @@ Each Rift's effect scales with its total fill, and its three milestones sit at f
 Filling drains 3% of the linked resource per second per active Rift, two at most. Practical consequences:
 
 - **Vacuum (IP):** fill while IP income exceeds the drain; idle it during IP-spending bursts (Infinity upgrades, Break upgrades, shard-adjacent purchases).
-- **Decay (Replicanti):** needs Replicanti flowing faster than the drain — push Vacuum and the Replication-glyph effect first if it stalls. Its currency is "spendable", so banked Replicanti counts.
-- **Chaos (Decay fill):** drains your Decay *percentage*, not a currency — progress in one Rift feeds the other. This is why the Decay-10%/Chaos-9% synergy from the previous article matters: it caps the interaction cost.
+- **Decay (Replicanti):** needs Replicanti flowing faster than the drain — push Vacuum to 6% (uncapped Replicanti) and the Replication-glyph effect first if it stalls. Its fill can pass 100%, and the excess is what Chaos spends.
+- **Chaos (Decay fill):** drains your Decay *percentage*, not a currency: each 1% of Chaos costs 10% of Decay's fill. Its 9% milestone keeps Decay's effect maxed and its milestones active from then on, so fill Decay high first, then let Chaos take 90% of it ([Pelle Strikes](/guide/m2/pelle-strikes) has the order).
 - **Recursion (EP):** the long one. Fill it during late-Doom EP farming with a Time glyph equipped (EP^0.3 scaling once Chaos's glyph milestone is on).
 - **Paradox (Dilated Time):** fills alongside normal post-Dilation play; its second milestone raises Tachyon gain to the 1.4th power, speeding its own completion.
 

@@ -28,11 +28,11 @@ Finish Lai'tela first: complete every Singularity milestone, buy every Imaginary
 
 ## Remnants and Armageddon
 
-The Doomed prestige is **Armageddon** (the round button row gains it; on desktop it is hotkey Z — on Android, tap it). It resets the current Doomed run and grants **Remnants**, based on the best antimatter, Infinity Points and Eternity Points you have ever held across Doomed Realities. Remnant gain below 1 rounds down to nothing, so the button shows when the first one is earned. <!-- vendor/ad-source/src/core/celestials/pelle/pelle.js:151-167,282-298 -->
+The Doomed prestige is **Armageddon**. The red box at the top of every tab, where the Reality box used to be, is its button. It reads like "Armageddon for 1.59e6 Remnants, Reality Shards 2.60e30/s ➜ 1.64e31/s": the Remnants you would gain, and your Reality Shard income now and after the reset. The round buttons above the tab bar stay the usual Eternity, B.Crunch, D.Boost, A.Galaxy, R.Galaxy and Max. Armageddon resets the current Doomed run and grants **Remnants**, based on the best antimatter, Infinity Points and Eternity Points you have ever held across Doomed Realities. It needs at least one pending Remnant. <!-- vendor/ad-source/src/core/celestials/pelle/pelle.js:151-167,282-306 (canArmageddon: remnantsGain >= 1; nextRealityShardGain); game.js:621 Pelle.gameLoop(realDiff); emulator 3.18.0 (Pelle save): box text as quoted -->
 
-Remnants do nothing directly. They steadily generate **Reality Shards**, the currency spent on Pelle Upgrades — roughly 10 shards per second per Remnant at the start, scaling steeply with more. Shard income ticks in real time and ignores game speed. <!-- vendor/ad-source/src/core/celestials/pelle/pelle.js:300-305 -->
+Remnants do nothing directly. They steadily generate **Reality Shards**, the currency spent on Pelle Upgrades: about 10 shards per second with your first Remnant, rising steeply as Remnants grow. Shard income ticks in real time and ignores game speed. <!-- vendor/ad-source/src/core/celestials/pelle/pelle.js:300-305: (10^(remnants^(1/7.5) × 4) − 1) / 1e3 per second -->
 
-When to Armageddon: whenever the pending Remnants are several times what you hold and you can re-climb to the same point in under an hour or so of play. Early on that means roughly doubling each time; later, push for bigger jumps before resetting. The Dilation strike (5th) multiplies future Remnant gain enormously, so runs after it out-earn everything before.
+When to Armageddon: read the shard rates in the box. If the rate after the arrow is several times your current rate and you can re-climb to this point quickly, reset. Early on that means roughly doubling each time; later, push for bigger jumps before resetting. The Dilation strike (5th) multiplies future Remnant gain enormously, so runs after it out-earn everything before.
 
 ## Pelle Upgrades
 
@@ -55,6 +55,6 @@ Each Armageddon cycle replays the early game at speed: Dimensions to first Infin
 
 <Callout kind="android">
 
-Long-press a prestige button to check its current gain before tapping, and confirm the away-progress popup after any break — shard income accrues in real time, so short sessions still pay.
+Confirm the away-progress popup after any break: shard income accrues in real time, so short sessions still pay.
 
 </Callout>
