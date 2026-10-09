@@ -13,18 +13,20 @@ import {
 } from './tree.ts';
 
 /**
- * Descriptions the extractor leaves to source because they read game state. These are the
- * wordings before any perk, Achievement 103/138 or Celestial changes them.
+ * Descriptions the extractor leaves to source because they read game state, worded as the
+ * Android 3.18.0 tree shows them, before any perk, Achievement 103/138 or Celestial changes them.
+ * 131 differs from upstream in substance: the app only disables automatic Replicanti Galaxies
+ * offline (upstream: always, until Achievement 138).
  */
 const DESCRIPTION_FALLBACKS: Record<number, string> = {
-	111: 'Make the Infinity Point formula better: log(x)/308 ➜ log(x)/285',
-	121: 'You gain more Eternity Points based on how fast your last ten Eternities were',
-	122: 'You gain ×35 more Eternity Points',
-	131: 'Automatic Replicanti Galaxies are disabled, but you can get 50% more',
+	111: 'Make the IP formula better 10^(x/308) ➜ 10^(x/285)',
+	121: 'You gain more EP based on how fast your last 10 Eternities were',
+	122: 'You gain ×35 more EP',
+	131: 'Automatic Replicanti Galaxies are disabled while offline, but you can get 50% more of them',
 	132: 'Replicanti Galaxies are 40% stronger and Replicanti are ×1.5 faster',
-	133: 'Replicanti are ×10 slower until 1.80e308, but Replicanti Galaxies are 50% stronger',
-	141: 'Multiplier to Infinity Points, which decays over this Infinity',
-	142: 'You gain ×1e25 more Infinity Points',
+	133: 'Replicanti are ×10 slower until infinity, but their Galaxies are 50% stronger',
+	141: 'Multiplier to IP, which decays over this Infinity',
+	142: 'You gain ×1e25 more IP',
 	192: 'Replicanti can go beyond 1.80e308, but growth slows down at higher amounts',
 	224: 'Distant Galaxy cost scaling starts 1 Galaxy later per 2,000 Dimension Boosts',
 	228: 'Dimensional Sacrifice formula scales better (its exponent gains another +0.2 factor)'
