@@ -58,6 +58,12 @@ The offline milestones (6, 200, 1,000) only work if offline progress is enabled.
 
 </Callout>
 
+<Callout kind="tip">
+
+Once the 2-Eternity milestone gives your autobuyers back, open the Autobuyers tab and make sure the **Automatic Big Crunch** box is ticked: an Eternity save can carry it switched off, and a run without it crunches only when you tap. From 5 Eternities its mode button offers "Crunch after X seconds" and "X times highest IP" — see [Upgrading autobuyers](/guide/m1/maxing-crunch-autobuyer#after-break-crunch-settings) for which to pick.
+
+</Callout>
+
 ## The farming loop
 
 Early on, each Eternity earns little EP, so the goal is Eternity *count*, not EP per run:

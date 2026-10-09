@@ -16,9 +16,16 @@ verified:
 
 ## The upgrade grid
 
-The Infinity tab's **Upgrades** subtab holds sixteen Infinity Upgrades in four columns: Columns 1 and 2 side by side at the top, Columns 3 and 4 below them. Within each column you must buy from top to bottom — each upgrade unlocks the one below it. Columns 1 and 2 cost just <Num value="1" /> IP per upgrade (except the 2-IP Galaxy upgrade at the bottom of Column 2). Your first few Crunches each yield a single IP, so the opening is a quick sequence of crunch → buy → crunch faster.
+The Infinity tab's **Upgrades** subtab holds sixteen Infinity Upgrades in four columns, labelled **Column 1** to **Column 4** in the game: Columns 1 and 2 side by side at the top, Columns 3 and 4 below them. The rule is printed above them: "Within each column, the upgrades must be purchased from top to bottom." Your first few Crunches each yield a single IP, so the opening is a quick sequence of crunch → buy → crunch faster.
 
-<!-- infinity-upgrades.js: 1-IP chain totalTimeMult→18→36→resetBoost, buy10Mult→27→45; src/lib/data/generated/infinity-upgrades.json -->
+| Column | Upgrades, top to bottom |
+| ------ | ----------------------- |
+| 1 | Multiplier from time played; 1st and 8th Dimensions from Infinities; 3rd and 6th from Infinities; "Decrease the number of Dimensions needed for Dimension Boosts and Antimatter Galaxies by 9". <Num value="1" /> IP each. |
+| 2 | Buy-10 multiplier ×2 → ×2.2; 2nd and 7th Dimensions from Infinities; 4th and 5th from Infinities (<Num value="1" /> IP each); "Galaxies are twice as effective" (<Num value="2" /> IP). |
+| 3 | Multiplier from time in this Infinity (<Num value="3" /> IP); unspent IP boosts the 1st Dimension (<Num value="5" /> IP); Dimension Boost multiplier ×2 → ×2.5 (<Num value="7" /> IP); passive IP generation (<Num value="10" /> IP). |
+| 4 | Start every reset with 1, 2, 3 or 4 Dimension Boosts, the last one also with a Galaxy: <Num value="20" />, <Num value="40" />, <Num value="80" /> and <Num value="300" /> IP. |
+
+<!-- infinity-upgrades.js: 1-IP chain totalTimeMult→18→36→resetBoost, buy10Mult→27→45→galaxyBoost; src/lib/data/generated/infinity-upgrades.json; labels from early-infinity/infinity-upgrades-0/1.webp -->
 
 Buy in this order:
 
@@ -26,7 +33,7 @@ Buy in this order:
 2. Work **down the column you started**: each next upgrade costs <Num value="1" /> IP and needs the one above it.
 3. Start the other column the same way, then alternate as IP allows.
 
-The pair that matters most early is the time-played multiplier and the buy-10 multiplier: both feed every Dimension on every run. The Infinities-scaling pairs (1st+8th, 2nd+7th, 3rd+6th, 4th+5th) grow automatically as you crunch, so do not delay crunches to "save up" — more Infinities make the upgrades you already own stronger.
+The pair that matters most early is the time-played multiplier and the buy-10 multiplier: both feed every Dimension on every run. The last 1-IP upgrade in Column 1 is a big one too: every Boost and Galaxy needs 9 fewer Dimensions (the first Boost drops from 20 4ths to 11). The Infinities-scaling pairs (1st+8th, 2nd+7th, 3rd+6th, 4th+5th) grow automatically as you crunch, so do not delay crunches to "save up" — more Infinities make the upgrades you already own stronger.
 
 ## The slightly bigger buys
 
@@ -51,7 +58,7 @@ Column 4 holds the start-with-Boosts/Galaxy upgrades (<Num value="20" />–<Num 
 ## What not to do
 
 - Do not hoard IP "for later". Unspent IP does nothing until you own the upgrade that scales with it — spend everything, every Crunch, until that 5-IP upgrade is yours.
-- Do not rush the <Num value="1000" />-IP offline upgrade once it appears. It pays half your best IP/min while offline (and needs offline progress on in Options) — excellent later, but at this stage <Num value="1000" /> IP is days of progress; spend it on the cheap multipliers instead.
+- Do not rush the <Num value="1000" />-IP offline upgrade once it appears. In the game it reads "Only while offline, gain 50% of your best IP/min run where you haven't used Max bottom button": only Infinities in which you never tapped the round **Max** button count, so its value depends on runs your autobuyers did alone. It also needs offline progress on in Options. Excellent later, but at this stage <Num value="1000" /> IP is days of progress; spend it on the cheap multipliers instead.
 
 <Callout kind="tip">
 

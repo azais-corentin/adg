@@ -20,12 +20,12 @@ Infinity Challenges live in the **Challenges tab** (triangle icon), on the **Inf
 
 Every completion adds a stacking **×1.3 multiplier to all Infinity Dimensions** — eight completions is about ×8.2 total, which is why the later IDs depend on them. Several ICs add a second, unique reward on top. <!-- src/core/secret-formula/challenges/infinity-challenges.js -->
 
-Each IC also has an **unlock threshold**: it only appears once your peak antimatter passes a number far above its goal. The intended flow is to unlock it while pushing, crunch a few times to grow stronger, then come back and beat it.
+Each IC also has an **unlock threshold**: it only appears once your peak antimatter this Eternity reaches that number, which is at or well above its goal. The Infinity subtab names the next one ("Next Infinity Challenge unlocks at …"). The intended flow is to unlock it while pushing, crunch a few times to grow stronger, then come back and beat it.
 
 | IC | Unlocks at | Goal | Unique reward |
 | --- | --- | --- | --- |
 | IC1 | <Num value="1e2000" /> AM | <Num value="1e650" /> AM | — (only the ×1.3) |
-| IC2 | <Num value="1e11000" /> AM | <Num value="1e10500" /> AM | Sacrifice autobuyer + stronger Sacrifice |
+| IC2 | <Num value="1e10500" /> AM | <Num value="1e10500" /> AM | Sacrifice autobuyer + stronger Sacrifice |
 | IC3 | <Num value="1e12000" /> AM | <Num value="1e5000" /> AM | AD multiplier from galaxies + tickspeed buys |
 | IC4 | <Num value="1e14000" /> AM | <Num value="1e13000" /> AM | All AD multipliers raised to ^1.05 |
 | IC5 | <Num value="1e18000" /> AM | <Num value="1e16500" /> AM | Galaxies 10% stronger, galaxy/boost needs −1 |
@@ -33,13 +33,17 @@ Each IC also has an **unlock threshold**: it only appears once your peak antimat
 | IC7 | <Num value="1e23000" /> AM | <Num value="1e10000" /> AM | Dimboost multiplier minimum ×4 |
 | IC8 | <Num value="1e28000" /> AM | <Num value="1e27000" /> AM | AD2–7 multiplier from AD1+AD8 |
 
-<!-- Unlocks, goals and rewards from src/core/secret-formula/challenges/infinity-challenges.js:1-133; community-tested IP levels from Tables61's stuck-post and r/AD threads (see part 2's reading list). -->
+<!-- Goals and rewards from src/core/secret-formula/challenges/infinity-challenges.js:1-133. Unlock thresholds read in Android 3.18.0 ("Next Infinity Challenge unlocks at …" with the break-infinity save's peak antimatter set to each threshold): all match upstream except IC2, which Android unlocks at 1e10,500 (upstream pin: 1e11000). Community-tested IP levels from Tables61's stuck-post and r/AD threads (see part 2's reading list). -->
 
 <Screen
 	src="break-infinity/challenges-infinity-0.webp"
-	alt="The Infinity subtab of the Challenges tab at this stage: the IC1 card with its all-Normal-Challenges restriction, 1e650 goal and ×1.3 reward, plus the auto-retry and Big Crunch notes."
-	caption="The Infinity Challenges list. Each card shows its restriction, goal and reward; the notes at the top cover auto-retry and crunching."
+	alt="The Infinity subtab of the Challenges tab at this stage: Automatically retry challenges ON, Next Infinity Challenge unlocks at 1e10,500 antimatter, the Big Crunch autobuyer note, and the IC1 card with its all-Normal-Challenges restriction, 1e650 goal and ×1.30 reward."
+	caption="The Infinity Challenges list. The top names the next unlock; each card shows its restriction, goal and reward."
 />
+
+**Automatically retry challenges** (the button at the top, ON in this save) decides what happens when you complete a challenge: ON restarts the same challenge right away, OFF returns you to normal play. Turn it off before finishing an IC unless you want to run it again.
+
+<!-- big-crunch.js:21-24 (retryChallenge keeps the challenge running after completion) -->
 
 <Callout kind="android">
 

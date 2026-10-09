@@ -48,7 +48,7 @@ Infinity Power sits at the top of the subtab as a running total. Your Antimatter
 A few details worth knowing:
 
 - **It never resets within a run.** Power accumulates all the way to your crunch. Crunching converts nothing — power simply starts over, and your next run rebuilds it faster because your Dimensions are stronger.
-- **Each ID purchase gives 10 dimensions.** Like normal Dimensions, they get cheaper in effect as their multiplier grows — the purchase multiplier per 10 rises with the tier (×50 for ID1 down to ×5 for the top tiers). <!-- src/core/dimensions/infinity-dimension.js:53-57 (COST_MULTS, POWER_MULTS) -->
+- **Each ID purchase buys 10 at once and multiplies that Dimension.** The multiplier per purchase falls with the tier (×50 for ID1, ×30 for ID2, ×10 for ID3, ×5 for ID4–ID8), while the cost grows faster per purchase on higher tiers. <!-- src/core/dimensions/infinity-dimension.js:53-57 (COST_MULTS, POWER_MULTS) -->
 - **Replicanti helps later.** The total Replicanti you hold multiplies all Infinity Dimensions. Early on the bonus is tiny; by the Replicanti stage it is one of your largest. <!-- src/core/replicanti.js:266-272 (`replicantiMult`: log-squared of amount) -->
 
 ## The push order

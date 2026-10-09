@@ -42,7 +42,7 @@ Two milestones change the rules: the "Bulked Up" achievement (set every Dimensio
 
 ## Maxing the Big Crunch interval
 
-The Big Crunch autobuyer's interval is upgraded the same way, 40% smaller per IP purchase, and it starts much slower than the others. Bring it down to its floor of **100 ms** (0.1 s). That is expensive — most of your IP income for a while — but it is the single gate to the next layer: the **Break Infinity** button only activates once this interval is maxed.
+The Big Crunch autobuyer (the **Automatic Big Crunch** box) unlocks with Normal Challenge 12. Before Break it has no settings: it crunches as soon as you reach Infinity. Its interval is upgraded the same way as the others, 40% smaller per IP purchase, but it starts much slower (150 seconds). Bring it down to its floor of **100 ms** (0.1 s). That is expensive — most of your IP income for a while — but it is the single gate to the next layer: the **Break Infinity** button only activates once this interval is maxed.
 
 <!-- big-crunch-autobuyer.js extends UpgradeableAutobuyerState; autobuyer.js upgradeInterval: interval * 0.6, hasMaxedInterval: interval <= 100; game.js: Break Infinity requires Autobuyer.bigCrunch.hasMaxedInterval -->
 
@@ -57,6 +57,20 @@ Practical notes:
 Old guides describe grinding the crunch buyer "down to 0.1 s" as if the number were the goal of an era, with ~35k IP totals quoted. The mechanic is the same but the economy around it was rebalanced: just keep the interval as the top spending priority and break the moment it floors.
 
 </Callout>
+
+## After Break: crunch settings
+
+Once Infinity is broken, the interval upgrade disappears and the box shows a number field that decides **when** to crunch; typing a value is free. At first the only mode is **Crunch at X IP**. The 5-Eternity milestone adds a mode button that cycles through all three:
+
+| Mode | Crunches when | Use it for |
+| ---- | ------------- | ---------- |
+| **Crunch at X IP** | a crunch would give at least X IP | Right after Break. Set X to the IP you want from each crunch and raise it as your income grows. |
+| **Crunch after X seconds** | the current Infinity has lasted X seconds (real time) | Many quick Infinities, e.g. a few seconds while you farm Infinities. |
+| **X times highest IP** | a crunch would give X times your best IP this Eternity ("Will trigger at …" shows the target) | Pushing IP toward the next Eternity: each crunch gives at least X times your best so far. |
+
+<!-- big-crunch-autobuyer.js willInfinity (AMOUNT/TIME/X_HIGHEST), hasAdditionalModes = EternityMilestone.bigCrunchModes (5 Eternities); BigCrunchAutobuyerBox.vue (postBreak input); Android labels from break-infinity/ and early-eternity/autobuyers-main-0.webp -->
+
+Inside challenges the autobuyer ignores these settings and crunches as soon as the challenge goal is reached.
 
 ## Further reading
 

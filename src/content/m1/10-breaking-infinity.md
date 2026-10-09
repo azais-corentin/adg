@@ -27,16 +27,16 @@ If you are sitting on a pile of IP with nothing left to buy and the button still
 
 </Callout>
 
-Breaking is a toggle, not a reset. Your antimatter, Dimensions and upgrades stay. What changes is the ceiling: antimatter is allowed past <Num value="1.79e308" />, and Big Crunches start paying out far more IP the further past it you get.
+Breaking is a toggle, not a reset. Your antimatter, Dimensions and upgrades stay. What changes is the ceiling: antimatter is allowed past <Num value="1.80e308" />, and Big Crunches start paying out far more IP the further past it you get.
 
 ## What breaking changes
 
 Two things happen the moment you break:
 
-- **Antimatter keeps climbing.** Your run no longer ends at <Num value="1.79e308" />. Production continues into the thousands and beyond, which feeds everything below.
+- **Antimatter keeps climbing.** Your run no longer ends at <Num value="1.80e308" />. Antimatter goes on into exponents in the thousands (<Num value="1e1100" /> and beyond), which feeds everything below.
 - **IP gains scale with your peak antimatter.** After the break, each crunch pays roughly 10 raised to (your best antimatter's digit count divided by 308, minus a bit), times your IP multipliers. Before the break every crunch paid a flat trickle; now pushing your peak higher is the whole game. <!-- src/game.js:88-101 (`gainedInfinityPoints`) -->
 
-There is a side benefit that saves you a fortune: breaking instantly drops **every autobuyer interval to its minimum, for free**. The IP you would otherwise spend grinding intervals down to 0.1 seconds stays in your pocket for upgrades. <!-- src/game.js:78-80 (maxIntervalForFree on break) -->
+There is a side benefit that saves you a fortune: breaking instantly drops **every other autobuyer's interval to its minimum, for free**. You had to max the Big Crunch autobuyer yourself to break; the rest are maxed for you, so the IP you would otherwise spend grinding them down stays in your pocket for upgrades. Later, the Break upgrade "Autobuyers unlocked or improved by Normal Challenges work twice as fast" halves those intervals again, to 0.050 seconds. <!-- src/game.js:75-80 (breakInfinity: needs bigCrunch.hasMaxedInterval, then maxIntervalForFree on every autobuyer); autobuyerSpeed break upgrade -->
 
 <Screen
 	src="break-infinity/infinity-break-0.webp"
@@ -46,7 +46,7 @@ There is a side benefit that saves you a fortune: breaking instantly drops **eve
 
 ## The Break Infinity upgrades
 
-The Break subtab holds twelve upgrades: six one-time purchases and two rebuyable rows plus the IP generator. They are all bought with IP and they never reset. Sensible order after the Reality rebalancing is simply **cheapest first**, with two exceptions called out below:
+The Break subtab holds twelve upgrades: nine one-time purchases and three rebuyables (the last three rows of the table). They are all bought with IP and they never reset. Sensible order after the Reality rebalancing is simply **cheapest first**, with two exceptions called out below:
 
 | Upgrade | Cost | What it does |
 | --- | --- | --- |
@@ -85,7 +85,7 @@ Everything here is bought with taps on the Break subtab and the Upgrades subtab;
 
 ## When to move on
 
-Break Infinity is done when the upgrades above are all bought and your crunches are paying <Num value="1e8" /> IP or more. At that point antimatter in the low thousands unlocks the **Infinity Dimensions** — a new production layer that turns this whole phase from a grind into an avalanche. That is the next article: [Infinity Dimensions and Infinity Power](/guide/m1/infinity-dimensions).
+Break Infinity is done when the upgrades above are all bought and your crunches are paying <Num value="1e8" /> IP or more. At that point, reaching <Num value="1e1100" /> antimatter unlocks the first **Infinity Dimension** — a new production layer that turns this whole phase from a grind into an avalanche. That is the next article: [Infinity Dimensions and Infinity Power](/guide/m1/infinity-dimensions).
 
 Further reading:
 
