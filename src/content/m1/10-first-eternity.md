@@ -7,6 +7,7 @@ verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
 ---
+
 <script>
 	import Callout from '#lib/components/Callout.svelte';
 	import Checklist from '#lib/components/Checklist.svelte';
@@ -40,12 +41,12 @@ After the first Eternity the round **Eternity** button joins the row above the t
 
 Eternity wipes almost everything below it, like a Big Crunch plus one more layer:
 
-- **Reset:** antimatter, Antimatter Dimensions, Dimension Boosts, Antimatter Galaxies, Tickspeed, Dimensional Sacrifice, Infinity Points, Infinity Dimensions, Replicanti, and Normal/Infinity Challenge completions.
-- **Kept:** achievements, Eternity Points, your Eternity count, Eternity Upgrades, and your Time Studies (you can respec them on Eternity).
+- **Reset:** antimatter, Antimatter Dimensions, Dimension Boosts, Antimatter Galaxies, Tickspeed, Dimensional Sacrifice, Infinity Points and your Infinity count, Infinity Upgrades and Break Infinity Upgrades, Infinity Dimensions, Replicanti, Normal and Infinity Challenge completions, Break Infinity itself, and your **autobuyers**: every box on the Autobuyers tab is locked again behind its requirement ("Requirement: 1e40 total antimatter this Eternity" for the 1st Dimension's, 1e140 for Tickspeed's).
+- **Kept:** achievements, Eternity Points, your Eternity count, Eternity Upgrades, the Time Dimensions you bought, your Time Theorems and your Time Studies (you can respec them on Eternity).
 
-Two things feel bad on the first few Eternities and get fixed by milestones within the first day: Infinity is un-broken again (kept from 2 Eternities) and your Infinity Upgrades are gone (kept from 4 Eternities). Until then, each Eternity starts with a quick re-buy of the early Infinity upgrades. [Eternity milestones](/guide/m1/eternity-milestones) lists the whole ladder.
+So **your second Eternity is a replay of the Infinity stage, by hand**: buy Dimensions, Boosts and Galaxies yourself, crunch, buy the Infinity Upgrades again, redo the Normal Challenges to get autobuyers back, max the Big Crunch autobuyer and break Infinity again. Achievements, Time Dimension 1 and your first studies make it quicker than the first time, but it is still the slowest Eternity of the stage. The [Eternity milestones](/guide/m1/eternity-milestones) then hand the pieces back: at 2 Eternities "You start Eternity with Normal Challenges completed, Infinity broken, and autobuyers", at 4 with all Infinity Upgrades, at 8 with all Break Infinity Upgrades, and at 10 with Replicanti unlocked.
 
-<!-- src/core/eternity.js: initializeResourcesAfterEternity; eternity-milestones.js -->
+<!-- src/core/eternity.js: eternity() and initializeResourcesAfterEternity (Infinities, autobuyers via keepAutobuyers, player.break), game.js playerInfinityUpgradesOnReset (milestones 4 and 8); emulator (Android 3.18.0): after the first Eternity every Autobuyers box is locked ("Requirement: 1e40 total antimatter this Eternity"), Normal Challenges uncompleted, Infinity unbroken; milestone texts from late-eternity/eternity-milestones-0.webp -->
 
 <Callout kind="tip">
 
@@ -75,8 +76,7 @@ The full upgrade list, with the late ones that cost up to <Num value="1e50" /> E
 1. Eternity as soon as the purple box at the top left turns on (later, use the round **Eternity** button).
 2. Buy Time Dimension 1 for 1 EP.
 3. Buy your first Time Theorems ([Time Dimensions and Time Theorems](/guide/m1/time-dimensions-and-theorems)) and your first Time Study — [Time Studies](/guide/m1/time-studies) walks through the tree.
-4. Eternity again. The first dozen Eternities each take only minutes, and each one unlocks a [milestone](/guide/m1/eternity-milestones) that removes a piece of the re-setup busywork.
-
+4. Eternity again. The second Eternity is the slow replay described above; from 2 Eternities on, each [milestone](/guide/m1/eternity-milestones) removes another piece of the re-setup busywork.
 
 <Checklist stage="early-eternity" />
 

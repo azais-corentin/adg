@@ -27,11 +27,11 @@ Eternity unlocks when your Infinity Points reach <Num value="1.80e308" /> — th
 
 From the Replicanti unlock at <Num value="1e140" /> IP this takes a while — the community's longest Infinity stretch, on the order of days. The shape of it:
 
-| Phase | IP range | What carries you |
-| --- | --- | --- |
-| Early galaxies | <Num value="1e140" />–<Num value="1e170" /> | First galaxies, ID5 |
-| Mid ICs | <Num value="1e170" />–<Num value="1e250" /> | IC6–IC7 rewards, ID6–ID7 |
-| Late push | <Num value="1e250" />–<Num value="1.80e308" /> | IC8 reward, ID8, galaxy cap growth |
+| Phase          | IP range                                       | What carries you                   |
+| -------------- | ---------------------------------------------- | ---------------------------------- |
+| Early galaxies | <Num value="1e140" />–<Num value="1e170" />    | First galaxies, ID5                |
+| Mid ICs        | <Num value="1e170" />–<Num value="1e250" />    | IC6–IC7 rewards, ID6–ID7           |
+| Late push      | <Num value="1e250" />–<Num value="1.80e308" /> | IC8 reward, ID8, galaxy cap growth |
 
 ## The final Infinity Dimensions
 
@@ -43,18 +43,18 @@ Practical order per tier: push antimatter with galaxies until the threshold, buy
 
 In the late push your galaxy count does triple duty: each galaxy boosts production ~×10, feeds the galaxy-based IC rewards, and raises the antimatter peak that sets your IP payout. Keep the Max Galaxies upgrade within one or two of affordable at all times — a capped galaxy count while IP piles up is the main avoidable stall of this phase.
 
-Two milestones to look forward to, not to chase: later Eternity milestones unlock the Replicanti upgrade autobuyers and eventually start you with Replicanti free. They make the *second* run through this stretch nearly automatic. <!-- src/core/secret-formula/eternity/eternity-milestones.js:60-65,128-147 -->
+Two milestones to look forward to, not to chase: later Eternity milestones unlock the Replicanti upgrade autobuyers and eventually start you with Replicanti free. They make the _second_ run through this stretch nearly automatic. <!-- src/core/secret-formula/eternity/eternity-milestones.js:60-65,128-147 -->
 
 ## The Eternity itself
 
 When the purple box appears:
 
 1. **Tap the purple box** ("Other times await… I need to become Eternal") and confirm with **PROCEED**. Everything from Infinity down resets. You gain your first Eternity Point, the game opens the new **Time** subtab of the Dimensions tab, and the Eternity tab (hourglass icon) appears with Time Studies, Eternity Upgrades and Milestones.
-2. **Expect slowness.** The first few Eternities each take a while; milestones at 2, 4, 8 and 10 Eternities hand back autobuyers, upgrades and Replicanti quickly. That is the next stage's guide.
+2. **Expect a replay.** Your second Eternity redoes the Infinity stage by hand: autobuyers, Normal Challenges, Infinity and Break Infinity Upgrades and Break Infinity itself all reset. Milestones at 2, 4, 8 and 10 Eternities hand them back (autobuyers and Break, Infinity Upgrades, Break Upgrades, Replicanti), so it gets quicker with every Eternity. [Your first Eternity](/guide/m1/first-eternity) has the full reset list.
 
 <Callout kind="tip">
 
-Do not hold the first Eternity back for one more purchase: it gives 1 EP unless you push IP far past <Num value="1.80e308" /> (2 EP needs about <Num value="1e348" />), and everything you buy now resets with it. The milestone rewards arrive fast, and each one retroactively speeds everything.
+Do not hold the first Eternity back for one more purchase: it gives 1 EP unless you push IP far past <Num value="1.80e308" /> (2 EP needs about <Num value="1e348" />), and everything you buy now resets with it.
 
 </Callout>
 
