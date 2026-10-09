@@ -95,18 +95,29 @@ const isNormalizedSave = shape<NormalizedSave>({
 		pelle: isCelestial
 	}),
 	teresaPouredAmount: isNumber,
+	teresaBestAntimatter: isBigNum,
 	effarigRelicShards: isBigNum,
 	vRunUnlocks: isNumbers,
 	raPetLevels: isNumber,
+	nameless: shape<NormalizedSave['nameless']>({
+		storedTime: isNumber,
+		unlocks: isNumbers,
+		completed: isBoolean
+	}),
 	laitelaDarkMatter: isBigNum,
+	laitelaDifficultyTier: isNumber,
 	pelleRemnants: isNumber,
 	imaginaryMachineCap: isNumber,
+	imaginaryUpgrades: isNumbers,
+	imaginaryRebuyableLevels: isNumber,
 	pelleDoomed: isBoolean,
 	records: shape<NormalizedSave['records']>({
 		totalTimePlayed: isNumber,
 		bestInfinityTime: isNumber,
 		bestEternityTime: isNumber,
-		fullGameCompletions: isNumber
+		fullGameCompletions: isNumber,
+		thisRealityMaxDilatedTime: isBigNum,
+		thisRealityMaxReplicanti: isBigNum
 	})
 }) as (value: unknown) => value is NormalizedSave;
 

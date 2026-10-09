@@ -1,6 +1,17 @@
 import { stageItems } from '#lib/checklists/items.ts';
 import type { StageId } from '#lib/stages.ts';
-import { bigNum, formatBigNum, formatCount, gt, gte, toNumber } from './bignum.ts';
+import { celestials } from '#lib/data/index.ts';
+import {
+	add,
+	bigNum,
+	formatBigNum,
+	formatCount,
+	formatGameNumber,
+	fromNumber,
+	gt,
+	gte,
+	toNumber
+} from './bignum.ts';
 import { detectStage } from './stage.ts';
 import type { BigNum, Goal, NormalizedSave } from './types.ts';
 
@@ -284,6 +295,14 @@ const GOALS: Record<StageId, (s: NormalizedSave) => Goal[]> = {
 	],
 	teresa: (s) => [
 		{
+			// reality.js: completing Teresa's Reality records its antimatter in `teresa.bestRunAM`.
+			id: 'teresa-reality',
+			text: gt(s.teresaBestAntimatter, 1)
+				? `Complete Teresa's Reality (best antimatter in it: ${fmt(s.teresaBestAntimatter)}; beat it to raise the reward)`
+				: "Complete Teresa's Reality",
+			done: gt(s.teresaBestAntimatter, 1)
+		},
+		{
 			// secret-formula/celestials/teresa.js: Effarig unlock price 1e24.
 			id: 'effarig',
 			text: `Pour 1e24 Reality Machines into Teresa to unlock Effarig (poured ${fmt(bigNum(s.teresaPouredAmount, 0))})`,
@@ -308,7 +327,34 @@ const GOALS: Record<StageId, (s: NormalizedSave) => Goal[]> = {
 	],
 	v: (s) => {
 		const vAchievements = s.vRunUnlocks.reduce((sum, n) => sum + n, 0);
+		// secret-formula/celestials/v.js `mainUnlock`, shown on V's tab until V is unlocked.
+		const progress: Record<string, BigNum> = {
+			realities: fromNumber(s.realities),
+			eternities: s.eternities,
+			infinities: add(s.infinities, s.bankedInfinities),
+			dilatedTime: s.records.thisRealityMaxDilatedTime,
+			replicanti: s.records.thisRealityMaxReplicanti,
+			realityMachines: s.realityMachines
+		};
+		const requirements = celestials.v.mainUnlock.map((r) => {
+			const have = progress[r.key];
+			if (!have) throw new Error(`No save value for V requirement ${r.key}`);
+			const [show, need] =
+				r.key === 'realities'
+					? [formatCount(have), formatCount(Number(r.requirement))]
+					: [fmt(have), formatGameNumber(r.requirement)];
+			return `${show} / ${need} ${r.name}`;
+		});
+		const vUnlocked = ((s.celestials.v.unlockBits ?? 0) & 1) !== 0;
 		return [
+			{
+				// V.js `unlockCelestial` sets bit 0 (`vAchievementUnlock`).
+				id: 'v-unlock',
+				text: vUnlocked
+					? 'Unlock V'
+					: `Unlock V: meet all six requirements at once (${requirements.join(', ')})`,
+				done: vUnlocked
+			},
 			{
 				// secret-formula/celestials/v.js `raUnlock`: 36 V-Achievements.
 				id: 'ra',

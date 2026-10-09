@@ -94,15 +94,32 @@ export interface NormalizedSave {
 	celestials: Record<CelestialId, CelestialState>;
 	/** RM poured into Teresa. */
 	teresaPouredAmount: number;
+	/** Most antimatter reached in a completed Teresa's Reality (`teresa.bestRunAM`); 1 until the first. */
+	teresaBestAntimatter: BigNum;
 	effarigRelicShards: BigNum;
 	/** Completed tiers per V run (sum = number of V-Achievements). */
 	vRunUnlocks: readonly number[];
 	/** Sum of Ra's pet levels (each starts at 1). */
 	raPetLevels: number;
+	/** The Nameless Ones (upstream `enslaved`). */
+	nameless: {
+		/** Stored game time, ms. */
+		storedTime: number;
+		/** Bought unlock ids: 0 = Tickspeed softcap, 1 = their Reality (`ENSLAVED_UNLOCKS`). */
+		unlocks: readonly number[];
+		/** Their Reality has been completed. */
+		completed: boolean;
+	};
 	laitelaDarkMatter: BigNum;
+	/** Destabilizations of Lai'tela's Reality (0..8). */
+	laitelaDifficultyTier: number;
 	pelleRemnants: number;
 	/** Base Imaginary Machine cap (`reality.iMCap`); `> 0` once iM are unlocked. */
 	imaginaryMachineCap: number;
+	/** Owned one-time Imaginary Upgrade ids (11..25), ascending. */
+	imaginaryUpgrades: readonly number[];
+	/** Levels bought across the ten repeatable Imaginary Upgrades. */
+	imaginaryRebuyableLevels: number;
 	pelleDoomed: boolean;
 
 	records: {
@@ -113,6 +130,10 @@ export interface NormalizedSave {
 		/** Fastest Eternity this Reality (game time, ms); `999999999999` when none. */
 		bestEternityTime: number;
 		fullGameCompletions: number;
+		/** Most Dilated Time this Reality (`records.thisReality.maxDT`), a V unlock requirement. */
+		thisRealityMaxDilatedTime: BigNum;
+		/** Most Replicanti this Reality (`records.thisReality.maxReplicanti`), a V unlock requirement. */
+		thisRealityMaxReplicanti: BigNum;
 	};
 }
 

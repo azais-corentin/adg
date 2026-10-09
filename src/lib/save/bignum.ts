@@ -33,6 +33,13 @@ export function toNumber(value: BigNum): number {
 	return value.mantissa * 10 ** value.exponent;
 }
 
+/** `a + b` for non-negative values; the smaller term vanishes beyond float precision. */
+export function add(a: BigNum, b: BigNum): BigNum {
+	const [big, small] = compare(a, b) >= 0 ? [a, b] : [b, a];
+	if (small.mantissa === 0) return big;
+	return bigNum(big.mantissa + small.mantissa * 10 ** (small.exponent - big.exponent), big.exponent);
+}
+
 /** Parses a break_infinity string (`"1.5e+308"`, `"-1.0e0"`), a number, or `{mantissa, exponent}`. */
 export function parseBigNum(value: unknown): BigNum | undefined {
 	if (typeof value === 'number') return Number.isNaN(value) ? undefined : fromNumber(value);

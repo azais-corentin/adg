@@ -80,8 +80,18 @@ describe('auto ticks from real saves', () => {
 		const done = await ticked('community/teresa.txt');
 		expect(done).toContain('real-upgrades');
 		expect(done).toContain('teresa-run');
+		expect(done).toContain('teresa-complete');
 		expect(done).not.toContain('teresa-epGen');
 		expect(done).not.toContain('teresa-effarig');
+	});
+
+	it("Nameless save: stored game time and their Reality, V's tab open but V locked", async () => {
+		const done = await ticked('community/nameless.txt');
+		expect(done).toContain('nameless-store-time');
+		expect(done).toContain('nameless-unlock-run');
+		expect(done).toContain('nameless-complete');
+		expect(done).toContain('nameless-ach151');
+		expect(done).not.toContain('v-unlock');
 	});
 
 	it('Ra save: memory unlocks, no Imaginary Machines yet', async () => {
@@ -89,11 +99,21 @@ describe('auto ticks from real saves', () => {
 		expect(done).toContain('v-36');
 		expect(done).toContain('ra-unlockHardV');
 		expect(done).not.toContain('ra-imaginary-machines');
+		expect(done).toContain('nameless-complete');
+		expect(done).not.toContain('im-upgrade-11');
+	});
+
+	it("Lai'tela save: Imaginary Upgrades bought, Lai'tela only partly destabilized", async () => {
+		const done = await ticked('community/laitela.txt');
+		expect(done).toContain('im-first-upgrades');
+		expect(done).toContain('im-upgrade-11');
+		expect(done).not.toContain('laitela-destabilize');
 	});
 
 	it('Doomed save: Pelle progress and ECs cleared before Doom', async () => {
 		const done = await ticked('community/pelle.txt');
 		expect(done).toContain('laitela-doom');
+		expect(done).toContain('laitela-destabilize');
 		expect(done).toContain('pelle-remnants');
 		expect(done).toContain('pelle-strike-3');
 		expect(done).toContain('late-all-ec');

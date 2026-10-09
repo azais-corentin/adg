@@ -86,6 +86,15 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 		typeof pets === 'object' && pets !== null
 			? Object.keys(pets).reduce((sum, pet) => sum + num(pets, [pet, 'level'], 0), 0)
 			: 0;
+	// Web saves key the ten levels by id (`{1: …, 10: …}`); native saves use an array.
+	const imaginaryRebuyables = at(p, ['reality', 'imaginaryRebuyables']);
+	const imaginaryRebuyableLevels =
+		typeof imaginaryRebuyables === 'object' && imaginaryRebuyables !== null
+			? Object.values(imaginaryRebuyables).reduce<number>(
+					(sum, level) => sum + (typeof level === 'number' ? level : 0),
+					0
+				)
+			: 0;
 
 	const dilationStudies = numbers(p, ['dilation', 'studies']);
 	const ecRaw = native ? numbers(p, ['challenge', 'eternity', 'completions']) : [];
@@ -152,12 +161,21 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 			pelle: celestial('pelle')
 		},
 		teresaPouredAmount: num(p, ['celestials', 'teresa', 'pouredAmount'], 0),
+		teresaBestAntimatter: big(p, ['celestials', 'teresa', 'bestRunAM'], fromNumber(1)),
 		effarigRelicShards: big(p, ['celestials', 'effarig', 'relicShards']),
 		vRunUnlocks: numbers(p, ['celestials', 'v', 'runUnlocks']),
 		raPetLevels,
+		nameless: {
+			storedTime: num(p, ['celestials', 'enslaved', 'stored'], 0),
+			unlocks: numbers(p, ['celestials', 'enslaved', 'unlocks']),
+			completed: bool(p, ['celestials', 'enslaved', 'completed'])
+		},
 		laitelaDarkMatter: big(p, ['celestials', 'laitela', 'darkMatter']),
+		laitelaDifficultyTier: num(p, ['celestials', 'laitela', 'difficultyTier'], 0),
 		pelleRemnants: num(p, ['celestials', 'pelle', 'remnants'], 0),
 		imaginaryMachineCap: num(p, ['reality', 'iMCap'], 0),
+		imaginaryUpgrades: bitIds(num(p, ['reality', 'imaginaryUpgradeBits'], 0), range(11, 25)),
+		imaginaryRebuyableLevels,
 		pelleDoomed: bool(p, ['celestials', 'pelle', 'doomed']),
 
 		records: {
@@ -176,7 +194,9 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 					: ['records', 'bestEternity', 'time'],
 				NO_TIME
 			),
-			fullGameCompletions: num(p, ['records', 'fullGameCompletions'], 0)
+			fullGameCompletions: num(p, ['records', 'fullGameCompletions'], 0),
+			thisRealityMaxDilatedTime: big(p, ['records', 'thisReality', 'maxDT']),
+			thisRealityMaxReplicanti: big(p, ['records', 'thisReality', 'maxReplicanti'])
 		}
 	};
 }

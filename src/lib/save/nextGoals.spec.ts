@@ -71,6 +71,29 @@ describe('nextGoals', () => {
 		]);
 	});
 
+	it("Teresa: a completed Teresa's Reality is done", async () => {
+		const goals = nextGoals(await load('community/teresa.txt'));
+		expect(goals.map((g) => [g.id, g.done])).toEqual([
+			['teresa-reality', true],
+			['effarig', false]
+		]);
+	});
+
+	it("V tab opened but V locked: unlock V first, with V's six requirements", async () => {
+		const goals = nextGoals(await load('community/nameless.txt'));
+		expect(goals.map((g) => [g.id, g.done])).toEqual([
+			['v-unlock', false],
+			['ra', false]
+		]);
+		expect(goals[0]?.text).toContain('14,006 / 10,000 Realities');
+		expect(goals[0]?.text).toContain('2.49e316,717 / 1.00e320,000 Replicanti');
+		expect(nextGoals(await load('community/v.txt'))[0]).toEqual({
+			id: 'v-unlock',
+			text: 'Unlock V',
+			done: true
+		});
+	});
+
 	it.each(STAGE_IDS)('%s has goals with unique ids', (stage) => {
 		const goals = nextGoals(eternity, stage);
 		expect(goals.length).toBeGreaterThan(0);

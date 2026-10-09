@@ -468,10 +468,12 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 	// Teresa. secret-formula/celestials/teresa.js unlock prices.
 	teresaItem('run', "Unlock Teresa's Reality"),
 	{
+		// reality.js: completing Teresa's Reality records its antimatter in `teresa.bestRunAM`.
 		id: 'teresa-complete',
 		stage: 'teresa',
 		text: "Complete Teresa's Reality",
-		detail: 'Its reward grows with the most antimatter you reach in it.'
+		detail: 'Its reward grows with the most antimatter you reach in it.',
+		auto: (s) => gt(s.teresaBestAntimatter, 1)
 	},
 	teresaItem('epGen', 'Unlock passive Eternity Point generation'),
 	teresaItem('shop', "Unlock Teresa's Perk Point Shop"),
@@ -513,18 +515,21 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		stage: 'nameless',
 		text: 'Store game time by charging the Black Hole',
 		detail:
-			'Stored game time buys their unlocks: 1e35 years raises the Tickspeed softcap from Time Dimensions.'
+			'Stored game time buys their unlocks: 1e35 years raises the Tickspeed softcap from Time Dimensions.',
+		auto: (s) => s.nameless.storedTime > 0 || s.nameless.unlocks.length > 0
 	},
 	{
 		id: 'nameless-unlock-run',
 		stage: 'nameless',
 		text: "Unlock The Nameless Ones' Reality (1e40 years of stored game time)",
-		detail: 'You also need a level 5,000 Glyph and a Glyph of 100% rarity.'
+		detail: 'You also need a level 5,000 Glyph and a Glyph of 100% rarity.',
+		auto: (s) => s.nameless.unlocks.includes(1) || s.nameless.completed
 	},
 	{
 		id: 'nameless-complete',
 		stage: 'nameless',
-		text: "Complete The Nameless Ones' Reality"
+		text: "Complete The Nameless Ones' Reality",
+		auto: (s) => s.nameless.completed
 	},
 	{
 		id: 'nameless-ach151',
@@ -565,13 +570,15 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'im-first-upgrades',
 		stage: 'imaginary-machines',
 		text: 'Buy the repeatable Imaginary Upgrades',
-		detail: 'They raise the Imaginary Machine cap and boost the earlier layers.'
+		detail: 'They raise the Imaginary Machine cap and boost the earlier layers.',
+		auto: (s) => s.imaginaryRebuyableLevels > 0
 	},
 	{
 		id: 'im-upgrade-11',
 		stage: 'imaginary-machines',
 		text: `Buy “${imaginaryUpgrade(11).name}” (${fmt(imaginaryUpgrade(11).cost ?? 0)} iM)`,
-		detail: 'The first one-time Imaginary Upgrade; it needs 1e90 total Relic Shards.'
+		detail: 'The first one-time Imaginary Upgrade; it needs 1e90 total Relic Shards.',
+		auto: (s) => s.imaginaryUpgrades.includes(11)
 	},
 	{
 		id: 'im-laitela',
@@ -605,7 +612,8 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'laitela-destabilize',
 		stage: 'laitela',
 		text: "Fully destabilize Lai'tela's Reality",
-		detail: 'Each destabilization disables one more Dimension tier inside it.'
+		detail: 'Each destabilization disables one more Dimension tier inside it.',
+		auto: (s) => s.laitelaDifficultyTier >= 8
 	},
 	{
 		id: 'laitela-doom',
