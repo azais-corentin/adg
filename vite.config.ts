@@ -1,10 +1,17 @@
+import { execSync } from 'node:child_process';
 import { mdsvex } from 'mdsvex';
 import { defineConfig } from 'vitest/config';
 import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import remarkHeadings from './src/lib/content/remark-headings.ts';
 
+// Short hash of the commit being built, shown on the About page; "-dirty" marks uncommitted changes.
+const commit =
+	execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim() +
+	(execSync('git status --porcelain', { encoding: 'utf8' }).trim() ? '-dirty' : '');
+
 export default defineConfig({
+	define: { __ADG_COMMIT__: JSON.stringify(commit) },
 	plugins: [
 		sveltekit({
 			compilerOptions: {

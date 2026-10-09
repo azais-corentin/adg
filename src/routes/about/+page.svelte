@@ -58,6 +58,9 @@
 		<a href="https://github.com/azais-corentin/adg">azais-corentin/adg</a>. Found a mistake? Open an
 		issue there.
 	</p>
+	<p>
+		This site was built from adg commit <code>{__ADG_COMMIT__}</code>.
+	</p>
 
 	<p><a href={resolve('/guide')}>Read the guide</a></p>
 </div>
