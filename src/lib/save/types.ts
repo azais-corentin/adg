@@ -15,6 +15,9 @@ export type SourceFormat = 'android-native' | 'web';
 /** Celestial ids, named like `STAGES` (upstream `enslaved` is `nameless`). */
 export type CelestialId = 'teresa' | 'effarig' | 'nameless' | 'v' | 'ra' | 'laitela' | 'pelle';
 
+/** Pelle's Rifts, named by their upstream keys. */
+export type PelleRiftId = 'vacuum' | 'decay' | 'chaos' | 'recursion' | 'paradox';
+
 export interface CelestialState {
 	/** Bitmask of the celestial's quotes already shown; `> 0` once its tab has been opened. */
 	quoteBits: number;
@@ -116,6 +119,12 @@ export interface NormalizedSave {
 	pelleRemnants: number;
 	/** Reality Shards, the Doomed currency Remnants generate (`celestials.pelle.realityShards`). */
 	pelleRealityShards: BigNum;
+	/** Encountered Pelle Strike ids (1..5, `celestials.pelle.progressBits`). */
+	pelleStrikes: readonly number[];
+	/** Bought one-time Pelle Upgrade ids (`celestials.pelle.upgrades`), ascending. */
+	pelleUpgrades: readonly number[];
+	/** Total filled per Rift, and the fill percentage spent from it (only Decay's is spent, by Chaos). */
+	pelleRifts: Record<PelleRiftId, { fill: BigNum; spent: number }>;
 	/** Base Imaginary Machine cap (`reality.iMCap`); `> 0` once iM are unlocked. */
 	imaginaryMachineCap: number;
 	/** Owned one-time Imaginary Upgrade ids (11..25), ascending. */

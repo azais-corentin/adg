@@ -10,10 +10,12 @@ import {
 	fromNumber,
 	gt,
 	gte,
+	log10,
+	parseBigNum,
 	toNumber
 } from './bignum.ts';
 import { detectStage } from './stage.ts';
-import type { BigNum, Goal, NormalizedSave } from './types.ts';
+import type { BigNum, Goal, NormalizedSave, PelleRiftId } from './types.ts';
 
 /**
  * Concrete next goals per stage. Every threshold below is taken from upstream source at the
@@ -388,6 +390,7 @@ const GOALS: Record<StageId, (s: NormalizedSave) => Goal[]> = {
 		}
 	],
 	pelle: (s) => [
+		...(s.pelleDoomed ? doomedGoals(s) : []),
 		{
 			id: 'game-end',
 			text: 'Reach the end of the game',
@@ -395,6 +398,81 @@ const GOALS: Record<StageId, (s: NormalizedSave) => Goal[]> = {
 		}
 	]
 };
+
+/** secret-formula/celestials/strikes.js `requirementDescription`, with Strike 2 spelled out. */
+const PELLE_STRIKES: readonly string[] = [
+	'Reach Infinity',
+	'Power-up Galaxies (buy the Break Infinity Upgrade that makes Galaxies stronger)',
+	'Reach Eternity',
+	'Reach 115 Time Theorems',
+	'Dilate Time'
+];
+
+/** Rift fill as a fraction before spending (secret-formula/celestials/rifts.js `percentage`). */
+const RIFT_PERCENTAGE: Record<PelleRiftId, (fill: BigNum) => number> = {
+	vacuum: (fill) => Math.log10(log10(add(fill, fromNumber(1))) * 10 + 1) ** 2.5 / 100,
+	decay: (fill) => log10(add(fill, fromNumber(1))) * 0.0005,
+	chaos: (fill) => toNumber(fill) / 10,
+	recursion: (fill) => log10(add(fill, fromNumber(1))) ** 0.4 / 4000 ** 0.4,
+	paradox: (fill) => log10(add(fill, fromNumber(1))) / 100
+};
+
+/** The two milestone texts upstream builds from the cycling Rift name. */
+const RIFT_MILESTONE_TEXT: Record<string, string> = {
+	'vacuum-0.4': 'Vacuum also affects EP gain',
+	'chaos-0.09': 'Decay effect is always maxed and milestones always active'
+};
+
+/** The next Strike, the next milestone of each unlocked Rift, and the cheapest one-time Pelle Upgrade. */
+function doomedGoals(s: NormalizedSave): Goal[] {
+	const goals: Goal[] = [];
+	const nextStrike = PELLE_STRIKES.findIndex((_, i) => !s.pelleStrikes.includes(i + 1));
+	if (nextStrike >= 0) {
+		goals.push({
+			id: 'pelle-strike',
+			text: `Strike ${nextStrike + 1}: ${PELLE_STRIKES[nextStrike]} inside the Doomed Reality`,
+			done: false
+		});
+	}
+
+	/** Like the Rift bar ("46.25%"), without trailing zeros ("9%"). */
+	const percent = (fraction: number) => `${+(fraction * 100).toFixed(2)}%`;
+	// pelle/rifts.js `percentage`: min(raw − spent, reducedTo = 1).
+	const fill = (id: PelleRiftId) =>
+		Math.min(RIFT_PERCENTAGE[id](s.pelleRifts[id].fill) - s.pelleRifts[id].spent, 1);
+	for (const strike of celestials.pelle.strikes) {
+		if (!s.pelleStrikes.includes(strike.id)) continue;
+		const rift = celestials.pelle.rifts.find((r) => r.key === strike.rift);
+		if (!rift) throw new Error(`No Rift ${strike.rift}`);
+		const id = rift.key as PelleRiftId;
+		// Chaos at 9% keeps every Decay milestone active whatever Decay's fill.
+		if (id === 'decay' && fill('chaos') >= 0.09) continue;
+		const now = fill(id);
+		const next = rift.milestones.find((m) => now < m.requirement);
+		if (!next) continue;
+		const effect = next.description ?? RIFT_MILESTONE_TEXT[`${id}-${next.requirement}`];
+		if (!effect) throw new Error(`No text for the ${id} milestone at ${next.requirement}`);
+		goals.push({
+			id: `rift-${id}`,
+			text: `Fill ${rift.names[0]} to ${percent(next.requirement)} (${percent(now)} now): ${effect.replace(/\s+/g, ' ')}`,
+			done: false
+		});
+	}
+
+	// PelleUpgradePanel.vue lists the one-time upgrades cheapest first.
+	const upgrade = celestials.pelle.upgrades
+		.filter((u) => !u.rebuyable && !s.pelleUpgrades.includes(Number(u.id)))
+		.sort((a, b) => Number(a.cost) - Number(b.cost))[0];
+	const cost = upgrade && parseBigNum(upgrade.cost);
+	if (upgrade && cost) {
+		goals.push({
+			id: 'pelle-upgrade',
+			text: `Buy the Pelle Upgrade “${upgrade.description}” (${fmtGoal(cost)} Reality Shards; have ${fmt(s.pelleRealityShards)})`,
+			done: false
+		});
+	}
+	return goals;
+}
 
 /** Ordered next goals for `stage` (defaults to the save's detected stage). */
 export function nextGoals(save: NormalizedSave, stage: StageId = detectStage(save).stage): Goal[] {

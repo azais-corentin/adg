@@ -94,6 +94,18 @@ describe('nextGoals', () => {
 		});
 	});
 
+	it('Doomed: next Strike, unfinished Rift milestones and the cheapest Pelle Upgrade', async () => {
+		const goals = nextGoals(await load('community/pelle.txt'));
+		expect(goals.map((g) => g.text)).toEqual([
+			'Strike 5: Dilate Time inside the Doomed Reality',
+			// Vacuum (79.46%) has every milestone; Chaos above 9% keeps Decay's on.
+			'Fill Chaos to 100% (46.15% now): You gain 1% of your EP gained on Eternity per second',
+			'Fill Recursion to 100% (32.46% now): Permanently unlock the Galaxy Generator',
+			'Buy the Pelle Upgrade “Replicanti Galaxies no longer reset anything they normally reset” (1e30 Reality Shards; have 3.21e32)',
+			'Reach the end of the game'
+		]);
+	});
+
 	it.each(STAGE_IDS)('%s has goals with unique ids', (stage) => {
 		const goals = nextGoals(eternity, stage);
 		expect(goals.length).toBeGreaterThan(0);

@@ -40,6 +40,7 @@ const isCelestial = shape<NormalizedSave['celestials']['teresa']>({
 	quoteBits: isNumber,
 	unlockBits: optional(isNumber)
 });
+const isRift = shape<NormalizedSave['pelleRifts']['vacuum']>({ fill: isBigNum, spent: isNumber });
 
 /**
  * Exhaustive over `NormalizedSave`, so a field added there fails to compile here until it
@@ -108,6 +109,15 @@ const isNormalizedSave = shape<NormalizedSave>({
 	laitelaDifficultyTier: isNumber,
 	pelleRemnants: isNumber,
 	pelleRealityShards: isBigNum,
+	pelleStrikes: isNumbers,
+	pelleUpgrades: isNumbers,
+	pelleRifts: shape<NormalizedSave['pelleRifts']>({
+		vacuum: isRift,
+		decay: isRift,
+		chaos: isRift,
+		recursion: isRift,
+		paradox: isRift
+	}),
 	imaginaryMachineCap: isNumber,
 	imaginaryUpgrades: isNumbers,
 	imaginaryRebuyableLevels: isNumber,

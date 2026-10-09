@@ -1,6 +1,6 @@
 import { BIG_ZERO, fromNumber, parseBigNum, toNumber } from './bignum.ts';
 import type { DecodedSave } from './decode.ts';
-import type { BigNum, CelestialState, NormalizedSave } from './types.ts';
+import type { BigNum, CelestialState, NormalizedSave, PelleRiftId } from './types.ts';
 
 /**
  * Maps either save schema onto `NormalizedSave`. The web schema is upstream's `player`
@@ -80,6 +80,12 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 			unlockBits: typeof unlockBits === 'number' ? unlockBits : undefined
 		};
 	};
+
+	// Chaos stores its fill as a plain number in web saves and as a Decimal in native ones.
+	const rift = (key: PelleRiftId) => ({
+		fill: big(p, ['celestials', 'pelle', 'rifts', key, 'fill']),
+		spent: num(p, ['celestials', 'pelle', 'rifts', key, 'percentageSpent'], 0)
+	});
 
 	const pets = at(p, ['celestials', 'ra', 'pets']);
 	const raPetLevels =
@@ -174,6 +180,15 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 		laitelaDifficultyTier: num(p, ['celestials', 'laitela', 'difficultyTier'], 0),
 		pelleRemnants: num(p, ['celestials', 'pelle', 'remnants'], 0),
 		pelleRealityShards: big(p, ['celestials', 'pelle', 'realityShards']),
+		pelleStrikes: bitIds(num(p, ['celestials', 'pelle', 'progressBits'], 0), range(1, 5)),
+		pelleUpgrades: numbers(p, ['celestials', 'pelle', 'upgrades']).sort((a, b) => a - b),
+		pelleRifts: {
+			vacuum: rift('vacuum'),
+			decay: rift('decay'),
+			chaos: rift('chaos'),
+			recursion: rift('recursion'),
+			paradox: rift('paradox')
+		},
 		imaginaryMachineCap: num(p, ['reality', 'iMCap'], 0),
 		imaginaryUpgrades: bitIds(num(p, ['reality', 'imaginaryUpgradeBits'], 0), range(11, 25)),
 		imaginaryRebuyableLevels,
