@@ -9,11 +9,18 @@ where to go from here (articles for the stage and the tools that apply to it).
 	import { TOOLS, type Tool } from '#lib/content/tools.ts';
 	import StageStrip from '#lib/components/StageStrip.svelte';
 	import { layerStyle } from '#lib/components/stage-colors.ts';
-	import { detectStage, formatBigNum, formatCount, gt, nextGoals } from '#lib/save/index.ts';
+	import {
+		detectStage,
+		formatBigNum,
+		formatCount,
+		fromNumber,
+		gt,
+		nextGoals
+	} from '#lib/save/index.ts';
 	import type { NormalizedSave } from '#lib/save/types.ts';
 	import { STAGES, getStage, stageIndex, type StageId } from '#lib/stages.ts';
 	import GoalList from './GoalList.svelte';
-	import { formatDuration, formatTimeAgo } from './time.ts';
+	import { formatDuration, formatGameTime, formatTimeAgo } from './time.ts';
 
 	let {
 		save,
@@ -47,6 +54,7 @@ where to go from here (articles for the stage and the tools that apply to it).
 	);
 
 	const stats = $derived.by(() => {
+		const doomed = save.pelleDoomed;
 		const reality = save.realities > 0 || gt(save.realityMachines, 0);
 		const eternity = reality || gt(save.eternities, 0) || gt(save.eternityPoints, 0);
 		const infinity = eternity || gt(save.infinities, 0) || gt(save.infinityPoints, 0);
@@ -56,9 +64,22 @@ where to go from here (articles for the stage and the tools that apply to it).
 			{ label: 'Infinities', value: formatCount(save.infinities), show: infinity },
 			{ label: 'Eternity Points', value: formatBigNum(save.eternityPoints), show: eternity },
 			{ label: 'Eternities', value: formatCount(save.eternities), show: eternity },
-			{ label: 'Reality Machines', value: formatBigNum(save.realityMachines), show: reality },
+			// A Doomed Reality has no RM; the save still holds the pre-Doom amount.
+			{
+				label: 'Reality Machines',
+				value: formatBigNum(save.realityMachines),
+				show: reality && !doomed
+			},
+			{
+				label: 'Reality Shards',
+				value: formatBigNum(save.pelleRealityShards),
+				show: doomed
+			},
+			{ label: 'Remnants', value: formatBigNum(fromNumber(save.pelleRemnants)), show: doomed },
 			{ label: 'Realities', value: formatCount(save.realities), show: reality },
-			{ label: 'Time played', value: formatDuration(save.records.totalTimePlayed), show: true }
+			{ label: 'Time played', value: formatDuration(save.records.realTimePlayed), show: true },
+			// StatisticsTab.vue shows game time ("Your existence has spanned …") once Reality is unlocked.
+			{ label: 'Game time', value: formatGameTime(save.records.totalTimePlayed), show: reality }
 		].filter((stat) => stat.show);
 	});
 
@@ -100,6 +121,12 @@ where to go from here (articles for the stage and the tools that apply to it).
 				</div>
 			{/each}
 		</dl>
+		{#if save.pelleDoomed}
+			<p class="note">
+				This Reality is <strong>Doomed</strong>: Infinities and Eternities start over with each
+				Armageddon, and Reality Machines are replaced by Reality Shards and Remnants.
+			</p>
+		{/if}
 	</section>
 
 	<section aria-labelledby="goals-heading">

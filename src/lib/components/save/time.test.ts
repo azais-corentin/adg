@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatDuration, formatTimeAgo } from './time.ts';
+import { formatDuration, formatGameTime, formatTimeAgo } from './time.ts';
 
 describe('formatTimeAgo', () => {
 	const now = Date.UTC(2026, 9, 8, 12);
@@ -24,8 +24,16 @@ describe('formatDuration', () => {
 		[61_000, '1 minute, 1 second'],
 		[3_600_000, '1 hour, 0 minutes'],
 		[2 * 86_400_000 + 5 * 3_600_000 + 59_000, '2 days, 5 hours'],
-		[1500 * 86_400_000, '1,500 days, 0 hours']
+		[1500 * 86_400_000, '4 years, 40 days']
 	])('%d ms → %s', (ms, text) => {
 		expect(formatDuration(ms)).toBe(text);
+	});
+});
+
+describe('formatGameTime', () => {
+	it('reads like formatDuration up to a million years, then as years', () => {
+		expect(formatGameTime(2 * 86_400_000)).toBe('2 days, 0 hours');
+		// The Doomed community save: 8.79e248 ms of game time.
+		expect(formatGameTime(8.790842659264444e248)).toBe('2.788e238 years');
 	});
 });

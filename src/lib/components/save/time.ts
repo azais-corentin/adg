@@ -1,3 +1,5 @@
+import { formatBigNum, fromNumber } from '#lib/save/bignum.ts';
+
 const MINUTE = 60_000;
 const HOUR = 60 * MINUTE;
 const DAY = 24 * HOUR;
@@ -22,14 +24,17 @@ export function formatTimeAgo(then: number, now: number): string {
 	return 'just now';
 }
 
+const YEAR = 365 * DAY;
+
 const DURATION_UNITS: [string, number][] = [
+	['year', YEAR],
 	['day', DAY],
 	['hour', HOUR],
 	['minute', MINUTE],
 	['second', 1000]
 ];
 
-/** A play time in ms as its two largest units, like "12 days, 4 hours" or "3 minutes, 0 seconds". */
+/** A play time in ms as its two largest units, like "1 year, 12 days" or "3 minutes, 0 seconds". */
 export function formatDuration(ms: number): string {
 	let rest = Math.max(0, Math.floor(ms / 1000) * 1000);
 	const first = DURATION_UNITS.findIndex(([, size]) => rest >= size);
@@ -41,4 +46,13 @@ export function formatDuration(ms: number): string {
 			return `${count.toLocaleString('en-US')} ${unit}${count === 1 ? '' : 's'}`;
 		})
 		.join(', ');
+}
+
+/**
+ * Game time in ms as the Statistics tab shows it (upstream `TimeSpan.toString`): above a
+ * million years as a number of years, e.g. "2.788e238 years"; otherwise like `formatDuration`.
+ */
+export function formatGameTime(ms: number): string {
+	const years = ms / YEAR;
+	return years > 1e6 ? `${formatBigNum(fromNumber(years), 3)} years` : formatDuration(ms);
 }

@@ -62,10 +62,13 @@ describe('paired fixtures (one game state exported both ways ~80 s apart)', () =
 			Object.fromEntries(Object.entries(save).filter(([key]) => !skip.includes(key)));
 		expect(Object.keys(shared(web)).length).toBeGreaterThan(20);
 		expect(shared(native)).toEqual(shared(web));
-		expect({ ...native.records, totalTimePlayed: 0 }).toEqual({
-			...web.records,
-			totalTimePlayed: 0
+		// Play time keeps counting between the two exports.
+		const timeless = (records: NormalizedSave['records']) => ({
+			...records,
+			totalTimePlayed: 0,
+			realTimePlayed: 0
 		});
+		expect(timeless(native.records)).toEqual(timeless(web.records));
 	});
 
 	it('reads the expected state', () => {

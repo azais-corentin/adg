@@ -173,6 +173,7 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 		laitelaDarkMatter: big(p, ['celestials', 'laitela', 'darkMatter']),
 		laitelaDifficultyTier: num(p, ['celestials', 'laitela', 'difficultyTier'], 0),
 		pelleRemnants: num(p, ['celestials', 'pelle', 'remnants'], 0),
+		pelleRealityShards: big(p, ['celestials', 'pelle', 'realityShards']),
 		imaginaryMachineCap: num(p, ['reality', 'iMCap'], 0),
 		imaginaryUpgrades: bitIds(num(p, ['reality', 'imaginaryUpgradeBits'], 0), range(11, 25)),
 		imaginaryRebuyableLevels,
@@ -180,6 +181,7 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 
 		records: {
 			totalTimePlayed: num(p, ['records', 'totalTimePlayed'], 0),
+			realTimePlayed: num(p, ['records', 'realTimePlayed'], 0),
 			bestInfinityTime: num(
 				p,
 				native

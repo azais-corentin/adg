@@ -114,6 +114,8 @@ export interface NormalizedSave {
 	/** Destabilizations of Lai'tela's Reality (0..8). */
 	laitelaDifficultyTier: number;
 	pelleRemnants: number;
+	/** Reality Shards, the Doomed currency Remnants generate (`celestials.pelle.realityShards`). */
+	pelleRealityShards: BigNum;
 	/** Base Imaginary Machine cap (`reality.iMCap`); `> 0` once iM are unlocked. */
 	imaginaryMachineCap: number;
 	/** Owned one-time Imaginary Upgrade ids (11..25), ascending. */
@@ -123,8 +125,10 @@ export interface NormalizedSave {
 	pelleDoomed: boolean;
 
 	records: {
-		/** Game time played, ms. */
+		/** Game time played, ms; game speed scales it. */
 		totalTimePlayed: number;
+		/** Real time played, ms (`records.realTimePlayed`). */
+		realTimePlayed: number;
 		/** Fastest Infinity this Eternity (game time, ms); `999999999999` when none. */
 		bestInfinityTime: number;
 		/** Fastest Eternity this Reality (game time, ms); `999999999999` when none. */
