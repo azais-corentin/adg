@@ -30,13 +30,17 @@ The tab has three parts: a bar showing how full the container is, a **Pour RM** 
 
 ## How pouring works
 
-Each second the game moves a slice of your current RM into the container. The slice grows the longer you keep pouring without toggling it off (it scales with the square of the unbroken pour time) and with the amount already poured, so small early pours ramp up on their own if you leave the button on. Toggling pouring off resets the timer, so a fresh pour always starts slow. The container holds at most <Num value="1e24" /> RM in total; the bar shows the fraction of that filled.
+**Pour RM** is a hold button, not a switch. It pours only while your finger stays on it, and only while the Teresa tab is open. A quick tap pours next to nothing.
 
-<!-- vendor/ad-source/src/core/celestials/teresa.js: pourRM(diff): rmPoured = min((pouredAmount + 1e6) * 0.01 * timePoured^2, rm); pouredAmountCap = 1e24 -->
+While you hold, the pour speeds up fast: each update moves a slice of RM that grows with the square of how long you have been holding and with the amount already poured. Letting go stops the pour and resets the ramp, so the next hold starts slow again. In practice, about two seconds of holding pours as much again as the container already holds, and three seconds about ten times that. From an empty container, about six seconds reaches <Num value="1e14" />. The pour never takes more RM than you have, but a long hold takes all of it, so release early if you want to keep some.
+
+The container holds at most <Num value="1e24" /> RM in total. The label at the bottom of the bar shows your current RM gain multiplier and the poured total, for example "×28.70 RM gain 3.97e14/1.00e24".
+
+<!-- vendor/ad-source/src/core/celestials/teresa.js: pourRM(diff): rmPoured = min((pouredAmount + 1e6) * 0.01 * timePoured^2, rm); pouredAmountCap = 1e24. vendor/ad-source/src/components/tabs/celestial-teresa/TeresaTab.vue: pour = true on touchstart, false on touchend; update() resets Teresa.timePoured to 0 while not pouring. Emulator (3.18.0, 7.5e14 poured): a tap moved no visible RM, a 1 s hold took all 6.5e13 RM, a 3 s hold all 6.1e14. -->
 
 Two things grow as the poured total rises:
 
-- Your **RM gain multiplier**, up to <Num value="2.5e2" /> when the container is full. <!-- src/core/celestials/teresa.js: rmMultiplier = max(250 * (pouredAmount/1e24)^0.1, 1) -->
+- Your **RM gain multiplier**, up to ×<Num value="250" /> when the container is full. <!-- src/core/celestials/teresa.js: rmMultiplier = max(250 * (pouredAmount/1e24)^0.1, 1) -->
 - The **unlock ladder** below, which opens fixed rewards at fixed poured totals.
 
 | Poured total | Unlock |
@@ -87,9 +91,11 @@ Buy the RM doubler first, then Glyph levels. The Music Glyph button is handy on 
 
 ## Common walls
 
-**Pouring stalls early.** The pour rate scales with pour time squared, so a fresh pour starts slow. Leave pouring on across several Realities instead of expecting one Reality to fill a milestone.
+**Pouring seems to do nothing.** A tap pours almost nothing and the ramp resets as soon as you let go. Hold **Pour RM** for a few seconds and watch your RM drop.
 
-**Not wanting to "waste" RM.** Poured RM is gone, but the RM multiplier (up to <Num value="2.5e2" />) and the unlocks outweigh the cost. Keep just enough RM on hand for the next Reality Upgrade or Black Hole upgrade you actually plan to buy, and pour the rest.
+**A hold emptied all your RM.** Once the container holds more than your RM, a hold of a second or two pours everything you have. Buy the Reality Upgrades or Black Hole upgrades you want first, then pour the rest.
+
+**Not wanting to "waste" RM.** Poured RM is gone, but the RM multiplier (up to ×<Num value="250" />) and the unlocks outweigh the cost. Keep just enough RM on hand for the next Reality Upgrade or Black Hole upgrade you actually plan to buy, and pour the rest.
 
 **Perk Points feel scarce.** One per Reality adds up fast once runs take minutes. If the shop's first RM doubler still costs more than you earn, shorten your runs rather than pushing long ones.
 
