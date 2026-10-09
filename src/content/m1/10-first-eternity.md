@@ -61,9 +61,9 @@ EP is spent on Time Dimensions and Eternity Upgrades. The most important upgrade
 
 With your first handful of EP, buy in this order:
 
-1. The 5 EP upgrade (Infinity Dimensions scale with your unspent EP).
-2. The 10 EP upgrade (Infinity Dimensions scale with your Eternity count).
-3. Your first Time Dimension (1 EP) — this unlocks buying Time Theorems, covered in [Time Dimensions and Time Theorems](/guide/m1/time-dimensions-and-theorems).
+1. Your first Time Dimension (1 EP). A first Eternity usually gives exactly 1 EP, so this is the only thing you can afford, and it unlocks buying Time Theorems, covered in [Time Dimensions and Time Theorems](/guide/m1/time-dimensions-and-theorems).
+2. The 5 EP upgrade (Infinity Dimensions scale with your unspent EP).
+3. The 10 EP upgrade (Infinity Dimensions scale with your Eternity count).
 4. The EP multiplier (500 EP), then the remaining upgrades as they become affordable.
 
 The full upgrade list, with the late ones that cost up to <Num value="1e50" /> EP, is in [Eternity Upgrades and Replicanti](/guide/m1/eternity-upgrades-and-replicanti).

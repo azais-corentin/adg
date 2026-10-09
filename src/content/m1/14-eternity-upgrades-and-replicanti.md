@@ -37,7 +37,7 @@ The **Upgrades** subtab of the Eternity tab holds six one-time upgrades plus the
 
 The first two are cheap and strong — buy them on your first day of Eternity. The 50,000 EP one rewards finishing Infinity Challenges quickly, which the 7-Eternity milestone automates. The last three are long-term goals that become affordable during the Eternity Challenge era.
 
-Above them all sits the **EP multiplier**: ×5 EP gain per purchase, starting at 500 EP. It has no cap that matters at this stage. Whenever you can afford a level, buy it before the one-time upgrades at a similar price.
+Above them all sits the **EP multiplier**: ×5 EP gain per purchase, starting at 500 EP. The **Max EP mult** button above it buys as many levels as you can afford. The tab warns: "The cost for the EP multiplier jumps at 1e100, 1.8e308, and 1e1300 EP. The cost increases super-exponentially after 1e4000 Eternity Points." Until those jumps it stays cheap for what it gives, so whenever you can afford a level, buy it before the one-time upgrades at a similar price. <!-- vendor/ad-source/src/components/tabs/eternity-upgrades/EternityUpgradesTab.vue:50-53; emulator 3.18.0: text as quoted -->
 
 ## Replicanti in Eternity
 
