@@ -18,7 +18,13 @@ Manual stage picker. Writes to the progress store with source `manual`.
 
 <div class="picker">
 	<label for="{id}-stage">Where are you in the game?</label>
-	<select id="{id}-stage" value={progress.ready ? (progress.stage ?? '') : ''} onchange={pick}>
+	<!-- Disabled until the stored progress has loaded, so a pick made during hydration isn't lost. -->
+	<select
+		id="{id}-stage"
+		value={progress.ready ? (progress.stage ?? '') : ''}
+		disabled={!progress.ready}
+		onchange={pick}
+	>
 		<option value="">I don't know yet</option>
 		{#each milestones as milestone (milestone)}
 			<optgroup label={MILESTONE_NAMES[milestone]}>
