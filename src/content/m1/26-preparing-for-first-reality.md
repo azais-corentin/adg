@@ -17,11 +17,11 @@ verified:
 
 ## What Reality does
 
-Reality is a full-layer prestige: everything from the Eternity layer down resets — antimatter, Infinity and Eternity Points, Dimensions, studies, upgrades — and you start over with permanent additions. What actually survives (from `finishProcessReality`): <!-- vendor/ad-source/src/core/reality.js -->
+Reality is a full-layer prestige: everything from the Eternity layer down resets — antimatter, Infinity and Eternity Points, your Infinity and Eternity counts, Dimensions, Time Theorems and studies, Eternity Upgrades — and you start over with permanent additions. In detail: <!-- vendor/ad-source/src/core/reality.js (finishProcessReality: eternityChalls = {}, unlockedEC = 0, Currency.eternities/timeTheorems reset, eternityUpgrades.clear, dilation studies/upgrades/DT reset, preReality achievements lock unless Perk achievementGroup5) -->
 
-- **Eternity Challenge *studies* reset, not completions.** Your EC study tree empties and the `unlockedEC` flags clear, but the `eternityChalls` completion counts stay — the stacked rewards apply from the start, and re-unlocking studies is the only replay needed. Post-Reality multipliers make that fast.
+- **Eternity Challenges start over.** Your completions and their rewards reset along with the EC studies, so all 60 completions are earned again in each Reality. Your stronger post-Reality game makes the early ones quick, and later Perks complete them for you over time.
 - **Dilation studies, dilation upgrades, Tachyon Particles and Dilated Time** reset. You will re-unlock Dilation in every Reality; later perks automate this.
-- **Achievements are the one thing Reality takes away.** The 104 pre-Reality rows go dark (rewards and all) and must be re-earned — by hand or via the 30-minute auto-achievement timer. Everything else above (records, challenge times, General-tab statistics) stays.
+- **Achievements reset too.** The 104 pre-Reality achievements go dark (rewards and all) and must be re-earned — by hand or via the 30-minute auto-achievement timer. Your records and statistics stay.
 - **Records** (best EP, best times) start a new Reality row; the this-Reality max EP that unlocked the study begins climbing again from zero.
 - **What you gain:** Reality Machines from the run, Glyphs (the new equipment layer), and access to the Reality Upgrades, Perks, Automator and Black Hole tabs.
 
@@ -32,7 +32,7 @@ Nothing about the reset can strand you: with the study requirement behind you, r
 Machines come from your max EP this Reality through a steep formula: at exactly <Num value="1e4000" /> EP the run earns a single machine, and the payout grows fast above that — pushing past the minimum before realiting multiplies the starting budget several times over. <!-- vendor/ad-source/src/core/machines.js (uncappedRM: 1000^((log10EP/4000) − 1)) --> The practical consequences:
 
 - **Never Reality at exactly the minimum on purpose.** Every extra chunk of max EP above <Num value="1e4000" /> raises the machine count, and the climb from 4000 to a few hundred exponents higher is short compared to the road that got you here.
-- **But don't grind forever either.** The first few machines buy upgrades that speed up the *next* Reality enormously, so two quick Realities beat one slow maximal one. Push somewhat past the minimum, Reality, and let the new upgrades compound.
+- **But don't grind forever either.** The first few machines buy upgrades that speed up the _next_ Reality enormously, so two quick Realities beat one slow maximal one. Push somewhat past the minimum, Reality, and let the new upgrades compound.
 - The very first Reality additionally grants starting Glyphs, whose effects dwarf a couple of extra machines.
 
 A good rule: once progress clearly slows past <Num value="1e4000" />, do a final dilated TP push, spend all DT, buy the Reality study, and go.
