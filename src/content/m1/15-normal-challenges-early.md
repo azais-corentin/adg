@@ -36,7 +36,7 @@ Every challenge reward unlocks or improves an autobuyer, so challenges are not o
 | C2 | buying anything halts production for 3 min (recovering gradually) | 2nd Dimension autobuyer upgrades | Buy rarely and in bulk; then wait |
 | C3 | 1st Dimension weakened, gains an exponential multiplier that resets on Boost/Galaxy | 3rd Dimension autobuyer upgrades | Boost/Galaxy often — the multiplier resets anyway, so spend it |
 | C4 | buying a Dimension erases all lower tiers | 4th Dimension autobuyer upgrades | Buy top-down (high tiers first) so wipes destroy little |
-| C5 | Tickspeed multiplier starts at ×1.080 not ×1.1245 | 5th Dimension autobuyer upgrades | Noticeably slower Tickspeed; lean on Dimensions |
+| C5 | Tickspeed purchase multiplier starts at ×1.080 instead of ×1.125 | 5th Dimension autobuyer upgrades | Noticeably slower Tickspeed; lean on Dimensions |
 | C6 | Dimensions cost the Dimension 2 tiers below instead of antimatter | 6th Dimension autobuyer upgrades | Odd economy; keep lower tiers stocked as currency |
 | C7 | buy-10 multiplier reduced (recovers with Boosts) | 7th Dimension autobuyer upgrades | Boost early and often — each Boost restores part of the multiplier |
 | C8 | no Boost multiplier, no Galaxies; Sacrifice resets everything but hits much harder | 8th Dimension autobuyer upgrades | Sacrifice constantly, even at small multipliers — it is your only engine |
