@@ -70,7 +70,7 @@ The popup only *reports* simulated progress, and its Skip/Speed-up buttons trade
 Two backup systems, different jobs:
 
 - **Cloud saving** (Options → Save & Load → **Enable cloud saving** / **Load cloud save**) syncs through Google Play Games. It is automatic once enabled and convenient across your own Android devices — force one before switching devices by holding the cloud button. It does **not** sync to web or Steam, and the web/Steam cloud cannot be pushed back to Android (Android can *load* a web cloud save via a dedicated menu, one-way).
-- **Manual export** (holding **Share save**, then Export to web/steam or Export to mobile) writes a text file you keep yourself — the only route onto a PC or into adg's [Save import](/import). Full steps: [Saving and exporting](/guide/m1/saving-and-exporting).
+- **Manual export** copies the save as text (tap **Export to web/steam** or **Export to mobile**) or writes it to a text file you keep yourself (hold **Share save**, then pick a format). It is the only route onto a PC or into adg's [Save import](/import). Full steps: [Saving and exporting](/guide/m1/saving-and-exporting).
 
 Keep both: cloud for convenience, a manual export somewhere safe (Drive, email to yourself) before anything risky. Uninstalling the app wipes local saves, so **never reinstall to fix a problem before exporting** — the devs repeat this in every crash thread.
 

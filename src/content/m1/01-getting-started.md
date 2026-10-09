@@ -20,7 +20,7 @@ Antimatter Dimensions is an incremental game: you produce a resource, spend it o
 
 Numbers grow fast, so the game writes them in scientific notation. <Num value="2.72e108838" /> means 2.72 × 10<sup>108,838</sup>.
 
-The game is built in layers. Once you have about <Num value="1.79e308" /> antimatter (2<sup>1024</sup>, which the game calls Infinity), you do a Big Crunch: your antimatter and Dimensions reset, and you get Infinity Points to spend on permanent upgrades. Eternity and Reality later repeat that pattern on a larger scale. This guide follows the layers in the order you reach them.
+The game is built in layers. Once you have about <Num value="1.80e308" /> antimatter (2<sup>1024</sup>, which the game calls Infinity), you do a Big Crunch: your antimatter and Dimensions reset, and you get Infinity Points to spend on permanent upgrades. Eternity and Reality later repeat that pattern on a larger scale. This guide follows the layers in the order you reach them.
 
 ## The tab bar
 

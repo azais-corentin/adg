@@ -1,3 +1,4 @@
+import { stageItems } from '#lib/checklists/items.ts';
 import type { StageId } from '#lib/stages.ts';
 import { bigNum, formatBigNum, gt, gte, toNumber } from './bignum.ts';
 import { detectStage } from './stage.ts';
@@ -20,8 +21,12 @@ const fmtInt = (value: number) => value.toLocaleString('en-US', { maximumFractio
 const CRUNCH_BASE_INTERVAL = 150000;
 const CRUNCH_UPGRADES_TO_MAX = Math.ceil(Math.log(CRUNCH_BASE_INTERVAL / 100) / Math.log(1 / 0.6));
 
-/** `secret-formula/challenges/infinity-challenges.js` `unlockAM` exponents, IC1..IC8. */
-const IC_UNLOCK_AM_EXPONENT = [2000, 11000, 12000, 14000, 18000, 22500, 23000, 28000];
+/**
+ * Infinity Challenge unlock exponents, IC1..IC8, as Android 3.18.0 shows them ("Next Infinity
+ * Challenge unlocks at …"). Upstream `secret-formula/challenges/infinity-challenges.js` `unlockAM`
+ * at the pin has IC2 at 1e11000; the app unlocks it at 1e10500. The rest match.
+ */
+const IC_UNLOCK_AM_EXPONENT = [2000, 10500, 12000, 14000, 18000, 22500, 23000, 28000];
 
 /** `secret-formula/challenges/eternity-challenges.js` `[goal, goalIncrease]` IP exponents, EC1..EC12. */
 const EC_GOAL_EXPONENT: readonly (readonly [number, number])[] = [
@@ -113,25 +118,18 @@ function ecGoal(s: NormalizedSave, id: number): Goal {
 }
 
 const GOALS: Record<StageId, (s: NormalizedSave) => Goal[]> = {
-	'pre-infinity': (s) => [
-		{
-			// dimboost.js: 4 starting Dimensions, one more per boost up to 8.
-			id: 'dimboosts',
-			text: `Get 4 Dimension Boosts to unlock all 8 Antimatter Dimensions (${Math.min(s.dimensionBoosts, 4)}/4)`,
-			done: s.dimensionBoosts >= 4
-		},
-		{
-			// galaxy.js: the first Galaxy costs 80 8th Antimatter Dimensions.
-			id: 'first-galaxy',
-			text: 'Buy your first Antimatter Galaxy (80 8th Antimatter Dimensions)',
-			done: s.galaxies >= 1
-		},
-		{
-			id: 'first-infinity',
-			text: `Reach ${fmt(INFINITY_THRESHOLD)} antimatter and Big Crunch (now ${fmt(s.antimatter)})`,
-			done: gt(s.infinities, 0)
-		}
-	],
+	'pre-infinity': (s) => {
+		// The stage checklist's items and save evidence, so both views agree; plus live progress.
+		const progress: Record<string, string> = {
+			'pre-inf-8th-dimension': `${Math.min(s.dimensionBoosts, 4)}/4 Dimension Boosts`,
+			'pre-inf-infinity': `now ${fmt(s.antimatter)}`
+		};
+		return stageItems('pre-infinity').map((item) => {
+			const done = item.auto?.(s) ?? false;
+			const extra = done ? undefined : progress[item.id];
+			return { id: item.id, text: extra ? `${item.text} (${extra})` : item.text, done };
+		});
+	},
 	'early-infinity': (s) => [
 		{
 			id: 'normal-challenges-1-9',

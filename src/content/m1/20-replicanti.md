@@ -41,7 +41,7 @@ Every purchase also inflates that upgrade's next price enormously (×1e15 for ch
 Growing Replicanti pays in two ways:
 
 - **More Replicanti multiply your Infinity Dimensions.** The bonus is the squared log-base-2 of your count (log2(amount)²), so it starts small and becomes one of your biggest multipliers by the time you hold thousands of digits of them. <!-- src/core/replicanti.js:266-272 (`replicantiMult`) -->
-- **Reaching <Num value="1.79e308" /> Replicanti buys a Replicanti Galaxy.** Each galaxy adds to your shared galaxy strength alongside Antimatter Galaxies, up to your Max Galaxies cap. The galaxy purchase divides your Replicanti back down (or resets them to 1 early on), and growth resumes. <!-- src/core/replicanti.js:34-48 (`replicantiGalaxy`), multiplier-tab/galaxies.js:20-30 -->
+- **Reaching <Num value="1.80e308" /> Replicanti buys a Replicanti Galaxy.** Each galaxy adds to your shared galaxy strength alongside Antimatter Galaxies, up to your Max Galaxies cap. The galaxy purchase divides your Replicanti back down (or resets them to 1 early on), and growth resumes. <!-- src/core/replicanti.js:34-48 (`replicantiGalaxy`), multiplier-tab/galaxies.js:20-30 -->
 
 So the loop is: grow → galaxy → grow faster → galaxy, with the chance/interval upgrades speeding each cycle and the Max Galaxies upgrade raising the ceiling.
 
@@ -67,7 +67,7 @@ Growth ticks run on the game clock, so offline stretches count — with a high M
 
 ## When to move on
 
-Replicanti are "done" when galaxies flow without attention and your IP payouts climb past <Num value="1e200" /> toward the <Num value="1.79e308" /> goal. The last stretch is covered in the next article: the final IDs, the last ICs, and the first Eternity.
+Replicanti are "done" when galaxies flow without attention and your IP payouts climb past <Num value="1e200" /> toward the <Num value="1.80e308" /> goal. The last stretch is covered in the next article: the final IDs, the last ICs, and the first Eternity.
 
 Further reading:
 

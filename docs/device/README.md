@@ -34,8 +34,15 @@ The exports live under Options → **Save & Load**:
 | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Share save** (tap)                                                                           | Opens the Android share sheet                                                                                                                                                                                                                                                                    |
 | **Share save** (hold)                                                                          | Opens a dialog: _Export to mobile_ / _Export to web/steam_ (`options-save-to-file-dialog.webp`). Either choice opens the system file picker, which defaults to Downloads with file names `ADMobileSave_<ISO time>.txt` / `ADWebSave_<ISO time>.txt`. Returning to the game shows the away popup. |
-| **Export to mobile** / **Export to web/steam** buttons                                         | Same two formats [INFERENCE: copied to the clipboard; not captured]                                                                                                                                                                                                                              |
-| **Import save**, **Load cloud save**, **Load backup**, **Select save**, **Reset current save** | Destructive. Never touched.                                                                                                                                                                                                                                                                      |
+| **Export to mobile** / **Export to web/steam** buttons                                         | Copy the save text in that format to the clipboard; the game shows "Exported to clipboard". No file picker, no away popup. Verified in the emulator for Export to web/steam (`scripts/device/export-save.ts` relies on it) and Export to mobile.                                               |
+| **Import save**, **Load cloud save**, **Load backup**, **Select save**, **Reset current save**, **Start Speedrun** | Destructive. Never touched.                                                                                                                                                                                                                                                                      |
+
+## Game differences from the upstream pin
+
+Mechanics come from the upstream source at the pin, but the app is a separate build. Where the emulator shows something else, the guide follows the app:
+
+- **Infinity Challenge 2 unlocks at 1e10,500 antimatter** (upstream `unlockAM`: 1e11000). The other seven IC thresholds match. `src/lib/save/nextGoals.ts` and the Infinity Challenges article use the app's value; `src/lib/data/generated/challenges.json` keeps upstream's.
+- **Big Crunch autobuyer:** the Broken Infinity save shows no "Dynamic amount" checkbox under "Crunch at X IP" (`break-infinity/autobuyers-main-0.webp`); upstream shows one after Break. The guide does not mention it.
 
 ## Save formats (decoded from real exports; fixtures in `/fixtures/saves/`)
 

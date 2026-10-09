@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { stageItems } from '#lib/checklists/items.ts';
 import { STAGE_IDS } from '#lib/stages.ts';
 import { decodeSave } from './decode.ts';
 import { nextGoals } from './nextGoals.ts';
@@ -29,6 +30,16 @@ describe('nextGoals', () => {
 		expect(crunch?.text).toContain('now 150,000 ms');
 		expect(crunch?.text).toContain('15 upgrades for 32,767 IP');
 		expect(goals[0]?.text).toContain('(1/9)');
+	});
+
+	it('pre-Infinity goals match the stage checklist for the same save', async () => {
+		const twoGalaxies = await load('community/pre-infinity.txt');
+		const goals = nextGoals(twoGalaxies, 'pre-infinity');
+		expect(goals.map((g) => [g.id, g.done])).toEqual(
+			stageItems('pre-infinity').map((item) => [item.id, item.auto?.(twoGalaxies) ?? false])
+		);
+		expect(goals.find((g) => g.id === 'pre-inf-8th-dimension')?.done).toBe(true);
+		expect(goals.at(-1)?.text).toBe('Reach 1.80e308 antimatter and Big Crunch (now 10)');
 	});
 
 	it('early Eternity: next milestone, TS171, then EC1', () => {

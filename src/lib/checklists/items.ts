@@ -75,8 +75,12 @@ const reachedEternity = (s: NormalizedSave) =>
 const reachedInfinity = (s: NormalizedSave) =>
 	gt(s.infinities, 0) || gt(s.bankedInfinities, 0) || has(s, 21) || reachedEternity(s);
 
-/** `Decimal.NUMBER_MAX_VALUE` as the game prints it. */
-const INFINITY = '1.79e308';
+/** dimboost.js: four Boosts unlock the 8th; achievement 18 is buying one; a Galaxy costs 8ths. */
+const eighthDimensionUnlocked = (s: NormalizedSave) =>
+	s.dimensionBoosts >= 4 || has(s, 18) || s.galaxies >= 1 || reachedInfinity(s);
+
+/** `Decimal.NUMBER_MAX_VALUE` as the game prints it (Scientific, 2 places). */
+const INFINITY = '1.80e308';
 
 const ic = (id: number) =>
 	find(challenges.infinity, (c) => c.id === id, `Infinity Challenge ${id}`);
@@ -159,28 +163,33 @@ const ONE_TIME_REALITY_UPGRADES = realityUpgrades.upgrades.filter((u) => u.cost 
 
 export const CHECKLIST: readonly ChecklistItem[] = [
 	// Pre-Infinity. dimboost.js: the first boost costs 20 4th Dimensions, and each of the first
-	// four unlocks one more Dimension. galaxy.js: the first Galaxy costs 80 8th Dimensions.
+	// four unlocks one more Dimension. galaxy.js: the first Galaxy costs 80 8th Dimensions, so a
+	// Galaxy (which resets Boosts) proves the 8th was unlocked.
 	{
 		id: 'pre-inf-first-boost',
 		stage: 'pre-infinity',
 		text: 'Buy your first Dimension Boost',
 		detail: 'It costs 20 4th Antimatter Dimensions and unlocks the 5th Dimension.',
-		auto: (s) => s.dimensionBoosts >= 1 || has(s, 15) || reachedInfinity(s)
+		auto: (s) => s.dimensionBoosts >= 1 || has(s, 15) || eighthDimensionUnlocked(s)
 	},
 	{
 		id: 'pre-inf-8th-dimension',
 		stage: 'pre-infinity',
 		text: 'Unlock the 8th Antimatter Dimension',
 		detail: 'Each of your first four Dimension Boosts unlocks one more Dimension.',
-		auto: (s) => s.dimensionBoosts >= 4 || has(s, 18) || reachedInfinity(s)
+		auto: eighthDimensionUnlocked
 	},
 	{
 		// sacrifice.js: visible with achievement 18, usable after more than 4 Dimension Boosts.
+		// `player.sacrificed` resets on every Boost, so the evidence is achievement 32 (×600 from
+		// Sacrifice) or Normal Challenge 8, which is won with Sacrifice.
 		id: 'pre-inf-sacrifice',
 		stage: 'pre-infinity',
 		text: 'Use Dimensional Sacrifice',
 		detail:
-			'It works from your 5th Dimension Boost on: it resets your 1st–7th Dimensions and multiplies the 8th.'
+			'It works from your 5th Dimension Boost on: it resets your 1st–7th Dimensions and multiplies the 8th.',
+		auto: (s) =>
+			has(s, 32) || s.normalChallenges.includes(8) || has(s, 48) || reachedEternity(s)
 	},
 	{
 		id: 'pre-inf-first-galaxy',

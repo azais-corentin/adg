@@ -2,7 +2,7 @@
 title: Saving and exporting
 stage: pre-infinity
 order: 2
-summary: Export your save from the Android app as a file, and which of the two formats to pick.
+summary: Copy or export your save from the Android app, and which of the two formats to pick.
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
@@ -23,7 +23,17 @@ Everything to do with saves is in the **Options** tab (the sliders icon, always 
 	caption="Options on Android 3.18.0. Save & Load starts with the Share save button."
 />
 
+## Copy your save (quickest)
+
+1. Open **Options** and scroll to **Save & Load**.
+2. Tap **Export to web/steam**. The game shows "Exported to clipboard": the whole save is now on your clipboard as text.
+3. Switch to your browser, open [Save import](/import), long-press the **Paste the save text** box, choose **Paste**, and tap **Read pasted save**.
+
+**Export to mobile** works the same way, in the app's own format (see below).
+
 ## Export your save to a file
+
+Use a file if pasting fails, for example when the save went through a chat or notes app that cut the long text short.
 
 1. Open **Options** and scroll to **Save & Load**.
 2. Touch and hold **Share save (hold for save to file)**. A dialog offers **Export to mobile** and **Export to web/steam**.
@@ -36,12 +46,12 @@ Everything to do with saves is in the **Options** tab (the sliders icon, always 
 	caption="Holding Share save asks which format to write."
 />
 
-A short tap on **Share save** opens the Android share sheet instead, to send the save to another app. The **Export to mobile** and **Export to web/steam** buttons in the Save & Load grid give the same two formats.
+A short tap on **Share save** opens the Android share sheet instead, to send the save to another app.
 
 <Screen
 	src="early-eternity/away-progress-popup.webp"
 	alt="A popup reading 'While you were away for 21 seconds', listing how antimatter, Infinity Points, Infinities and Replicanti increased, with a Confirm button."
-	caption="The away popup after exporting. It only summarizes progress; tap Confirm."
+	caption="The away popup after exporting to a file. It only summarizes progress; tap Confirm."
 />
 
 ## Which format to pick
@@ -61,12 +71,16 @@ The two formats hold the same progress. The mobile one is specific to the Androi
 
 ## Buttons to leave alone
 
-<Callout kind="warning">
+Exporting and copying never change your progress, so the steps above are safe. These buttons in the same section are not:
 
-**Import save**, **Load cloud save**, **Load backup**, **Select save** and **Reset current save** replace or switch your current save. Exporting never changes your progress, so the steps above are safe; these buttons are not.
+- **Import save** replaces your current save with the one you paste.
+- **Load backup** and **Select save** switch to another save.
+- **Load cloud save** replaces your save with the cloud copy.
+- **Reset current save** starts over from nothing.
+- **Start Speedrun** restarts the game as a new speedrun save. It asks you to type a confirmation phrase first.
 
-</Callout>
+<!-- SpeedrunModeModal.vue startRun → Speedrun.prepareSave → NG.restartWithCarryover in vendor/ad-source/src/core/speedrun.js -->
 
 ## Use the export in adg
 
-Open [Save import](/import) and paste the text of the file. adg reads it on your phone; the save is never uploaded.
+Open [Save import](/import) and paste the save text, or pick the file. adg reads it on your phone; the save is never uploaded.

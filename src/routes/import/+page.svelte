@@ -38,38 +38,46 @@
 {#snippet steps()}
 	<ol class="steps">
 		<li>
-			In the game, open the <strong>Options</strong> tab (the sliders icon in the bottom bar).
+			In the game, open the <strong>Options</strong> tab (the sliders icon in the bottom bar) and
+			scroll to <strong>Save &amp; Load</strong>.
 		</li>
 		<li>
-			Scroll to <strong>Save &amp; Load</strong> and <strong>hold</strong> the
-			<strong>Share save</strong> button. A short tap opens the share sheet instead.
+			Tap <strong>Export to web/steam</strong>. The game shows “Exported to clipboard”.
+			<strong>Export to mobile</strong> works too, but adg reads the web/steam format most exactly.
 		</li>
 		<li>
-			In the dialog, choose <strong>Export to web/steam</strong>. <strong>Export to mobile</strong>
-			works too, but adg reads the web/steam format most exactly.
+			Come back here, long-press the box below, choose <strong>Paste</strong> and tap
+			<strong>Read pasted save</strong>.
 		</li>
-		<li>
-			The file picker opens in <strong>Downloads</strong> with a name like
-			<code>ADWebSave_….txt</code>. Tap <strong>Save</strong>.
-		</li>
-		<li>
-			Back in the game, a <strong>While you were away</strong> popup appears. That is normal; tap
-			<strong>Confirm</strong>.
-		</li>
-		<li>Here, tap <strong>Choose the save file</strong> and pick that file from Downloads.</li>
 	</ol>
 	<details class="screens">
-		<summary>Show the screens</summary>
+		<summary>If pasting fails: save it to a file</summary>
+		<ol class="steps">
+			<li>
+				In <strong>Save &amp; Load</strong>, <strong>hold</strong> the <strong>Share save</strong>
+				button. A short tap opens the share sheet instead.
+			</li>
+			<li>In the dialog, choose <strong>Export to web/steam</strong>.</li>
+			<li>
+				The file picker opens in <strong>Downloads</strong> with a name like
+				<code>ADWebSave_….txt</code>. Tap <strong>Save</strong>.
+			</li>
+			<li>
+				Back in the game, a <strong>While you were away</strong> popup appears. That is normal; tap
+				<strong>Confirm</strong>.
+			</li>
+			<li>Here, tap <strong>Choose the save file</strong> and pick that file from Downloads.</li>
+		</ol>
 		<div class="screen-row">
 			<Screen
 				src="early-eternity/options-save-load.webp"
-				alt="Options tab, Save & Load section, with the Share save (hold for save to file) button"
-				caption="Hold “Share save (hold for save to file)”."
+				alt="Options tab, Save & Load section, with the Share save (hold for save to file) and Export to web/steam buttons"
+				caption="Tap “Export to web/steam”, or hold “Share save (hold for save to file)”."
 			/>
 			<Screen
 				src="early-eternity/options-save-to-file-dialog.webp"
 				alt="Dialog with Export to mobile and Export to web/steam"
-				caption="Choose “Export to web/steam”."
+				caption="Holding Share save: choose “Export to web/steam”."
 			/>
 		</div>
 	</details>

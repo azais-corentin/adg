@@ -16,7 +16,7 @@ verified:
 
 ## When you can Eternity
 
-Once your best Infinity Points this Eternity reach about <Num value="1.79e308" /> (the same Infinity value that unlocks the first Big Crunch), the round **Eternity** button above the tab bar lights up. The box at the top of the Dimensions tab tells you exactly what you would get: "Eternity for N EP" and the IP needed for the next EP.
+Once your best Infinity Points this Eternity reach about <Num value="1.80e308" /> (the same Infinity value that unlocks the first Big Crunch), the round **Eternity** button above the tab bar lights up. The box at the top of the Dimensions tab tells you exactly what you would get: "Eternity for N EP" and the IP needed for the next EP.
 
 Eternity Points grow with your best IP this Eternity, but slowly: roughly, each big jump in max IP is worth a few more EP. Your first Eternity is usually worth just 1 EP, so do not wait around pushing IP further — Eternity as soon as the button lights up.
 

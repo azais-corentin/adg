@@ -47,6 +47,19 @@ describe('auto ticks from real saves', () => {
 		expect(done).not.toContain('inf-break');
 	});
 
+	it('2-Galaxy save: Boosts reset by the Galaxies still count as the 8th Dimension unlocked', async () => {
+		const done = await ticked('community/pre-infinity.txt');
+		expect(done).toContain('pre-inf-first-boost');
+		expect(done).toContain('pre-inf-8th-dimension');
+		expect(done).toContain('pre-inf-first-galaxy');
+		expect(done).not.toContain('pre-inf-infinity');
+	});
+
+	it('Broken Infinity save: Sacrifice counts as used (Normal Challenge 8 is done)', async () => {
+		const done = await ticked('community/break-infinity.txt');
+		expect(stageItems('pre-infinity').every((item) => done.has(item.id))).toBe(true);
+	});
+
 	it('pre-Eternity save: Replicanti Galaxy but no Eternity yet', async () => {
 		const done = await ticked('android-3.18.0-native-pre-eternity.txt');
 		expect(done).toContain('break-replicanti');
@@ -90,7 +103,7 @@ describe('auto ticks from real saves', () => {
 
 describe('status', () => {
 	const item = CHECKLIST.find((i) => i.id === 'inf-break');
-	const manualOnly = CHECKLIST.find((i) => i.id === 'pre-inf-sacrifice');
+	const manualOnly = CHECKLIST.find((i) => i.id === 'dil-galaxy-threshold');
 	if (!item || !manualOnly) throw new Error('fixture items missing');
 
 	it('a save that shows the item done wins over manual ticks', async () => {
@@ -104,18 +117,18 @@ describe('status', () => {
 		expect(itemStatus(item, null, { 'inf-break': true })).toBe('manual');
 		expect(itemStatus(item, save, { 'inf-break': true })).toBe('manual');
 		expect(itemStatus(item, save, {})).toBe('open');
-		expect(itemStatus(manualOnly, save, { 'pre-inf-sacrifice': true })).toBe('manual');
+		expect(itemStatus(manualOnly, save, { 'dil-galaxy-threshold': true })).toBe('manual');
 	});
 
 	it('counts auto and manual ticks per stage', async () => {
 		const save = await importSave(readFixture('android-3.17.0-native-pre-break.txt'));
-		const total = stageItems('pre-infinity').length;
-		const auto = stageItems('pre-infinity').filter((i) => i.auto?.(save)).length;
-		expect(stageProgress('pre-infinity', save, {})).toEqual({ done: auto, total });
-		expect(stageProgress('pre-infinity', save, { 'pre-inf-sacrifice': true })).toEqual({
+		const total = stageItems('early-infinity').length;
+		const auto = stageItems('early-infinity').filter((i) => i.auto?.(save)).length;
+		expect(stageProgress('early-infinity', save, {})).toEqual({ done: auto, total });
+		expect(stageProgress('early-infinity', save, { 'inf-break': true })).toEqual({
 			done: auto + 1,
 			total
 		});
-		expect(stageProgress('pre-infinity', null, {})).toEqual({ done: 0, total });
+		expect(stageProgress('early-infinity', null, {})).toEqual({ done: 0, total });
 	});
 });

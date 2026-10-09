@@ -2,7 +2,7 @@
 title: 'Your first Infinity'
 stage: pre-infinity
 order: 13
-summary: 'Reaching 1.79e308 antimatter, what the first Big Crunch gives you, and what to do in the first minutes after it.'
+summary: 'Reaching 1.80e308 antimatter, what the first Big Crunch gives you, and what to do in the first minutes after it.'
 verified:
   android: '3.18.0'
   upstream: '5409e320cecef96a917cca1dfb68f1f183e499ca'
@@ -17,7 +17,7 @@ verified:
 
 ## Reaching Infinity
 
-The counter at the top of the Dimensions tab climbs toward <Num value="1.79e308" /> — the largest finite number the game engine holds, displayed as "Infinity" when you pass it. The Percentage to Infinity bar below the Boost and Galaxy boxes tracks the final push.
+The counter at the top of the Dimensions tab climbs toward <Num value="1.80e308" /> — the largest finite number the game engine holds, displayed as "Infinity" when you pass it. The Percentage to Infinity bar below the Boost and Galaxy boxes tracks the final push.
 
 The moment your antimatter reaches it, the game stops: the tab's content is replaced by "The world has collapsed due to excess of antimatter." and a large **Big Crunch** button. That is the Big Crunch, the first prestige reset. There is nothing else to do until you press it.
 
@@ -26,7 +26,7 @@ The moment your antimatter reaches it, the game stops: the tab's content is repl
 <Screen
 	src="pre-infinity/at-infinity/dimensions-antimatter-top.webp"
 	alt="The Antimatter subtab at Infinity before the first Big Crunch: an empty tab with the text The world has collapsed due to excess of antimatter and a large Big Crunch button at the top, with D.Boost, A.Galaxy and Max above the tab bar."
-	caption="At 1.79e308 antimatter the tab collapses to a single Big Crunch button."
+	caption="At 1.80e308 antimatter the tab collapses to a single Big Crunch button."
 />
 
 <Callout kind="tip">

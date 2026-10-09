@@ -1,6 +1,6 @@
 <!--
 @component
-The two ways to hand adg a save: pick the exported `.txt` file, or paste its text. Decodes
+The two ways to hand adg a save: paste its text (copied by the game's Export button), or pick the exported `.txt` file. Decodes
 in the browser and stores the result with `progress.setImported`; calls `onimported` after.
 -->
 <script lang="ts">
@@ -20,7 +20,7 @@ in the browser and stores the result with `progress.setImported`; calls `onimpor
 	let error = $state<string | null>(null);
 
 	const FILE_HINT =
-		'Export it to a file instead (hold Share save, then Export to web/steam) and pick that file above.';
+		'Export it to a file instead (hold Share save, then Export to web/steam) and pick that file with Choose the save file.';
 
 	const MESSAGES: Record<SaveDecodeErrorCode, string> = {
 		empty: 'There is nothing to read yet. Pick the exported file or paste the save text first.',
@@ -71,6 +71,21 @@ in the browser and stores the result with `progress.setImported`; calls `onimpor
 </script>
 
 <div class="save-input">
+	<form onsubmit={submit}>
+		<label for="{id}-text">Paste the save text</label>
+		<textarea
+			id="{id}-text"
+			bind:value={text}
+			rows="4"
+			placeholder="AntimatterDimensionsSavefileFormat…EndOfSavefile"
+			autocomplete="off"
+			autocapitalize="off"
+			spellcheck="false"></textarea>
+		<button class="button" type="submit" disabled={busy}>Read pasted save</button>
+	</form>
+
+	<p class="or" aria-hidden="true">or</p>
+
 	<label class="button file" class:busy>
 		<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
 			<path d="M14 3H6v18h12V7z M14 3v4h4 M9 13h6 M9 17h6" />
@@ -84,21 +99,6 @@ in the browser and stores the result with `progress.setImported`; calls `onimpor
 			onchange={pickFile}
 		/>
 	</label>
-
-	<p class="or" aria-hidden="true">or</p>
-
-	<form onsubmit={submit}>
-		<label for="{id}-text">Paste the save text</label>
-		<textarea
-			id="{id}-text"
-			bind:value={text}
-			rows="4"
-			placeholder="AntimatterDimensionsSavefileFormat…EndOfSavefile"
-			autocomplete="off"
-			autocapitalize="off"
-			spellcheck="false"></textarea>
-		<button class="button" type="submit" disabled={busy}>Read pasted save</button>
-	</form>
 
 	<div aria-live="polite">
 		{#if busy}
