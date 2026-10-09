@@ -70,23 +70,30 @@ If you never tap the button, ads never interrupt play. Until you give consent, t
 
 ## Offline progress and Max offline ticks
 
-Closing the app costs no battery: the game does not run in the background. When you reopen it, it **simulates** the elapsed time — that is the "While you were away for N seconds" popup — using your autobuyer settings at a configurable fidelity:
+Closing the app costs no battery: the game does not run in the background. When you reopen it, it **simulates** the time you were away on a "Calculating offline progress" screen, then sums up the result in a "While you were away for …" popup. Three controls under Options → Other decide how that goes:
 
-- **Max offline ticks** (Options → Other) sets how many simulation ticks the game may use, from 1,000 up to 1,000,000.
-- Low values mean autobuyers fire rarely in simulation, so offline progress feels slow. Raise it if your overnight gains disappoint: 50,000–100,000 is the sweet spot most players land on, and 1,000,000 gives near-online fidelity at the cost of a long loading simulation (a minute or more on older phones).
-- **Offline progress SHOWN** toggles the popup; **Away Progress Options** (new in 3.18.0) configures what it covers.
+- **Offline progress** cycles through three states each time you tap it:
+  - **SHOWN** (the default): the game simulates your time away and shows the "While you were away" popup.
+  - **HIDDEN**: the game still simulates your time away, without the popup.
+  - **DISABLED** (red border): nothing is simulated. You come back to exactly what you left, and offline rewards such as the offline Infinity Point upgrade and the offline Eternity milestones give nothing. **If a night away earned nothing at all, check this button first.**
+- **Max offline ticks** (1,000 to 1,000,000; a new game starts at 1,000) is how many steps the simulation splits your time away into. Each step covers at least 50 ms, so a short absence uses fewer: 8 hours away took 576,783 ticks with the setting at 1,000,000. Fewer, longer steps mean your autobuyers fire less often than they would while you play, so offline gains fall short. More steps follow online play more closely but take longer to calculate: those 8 hours took about two minutes in our emulator.
+- **Away Progress Options** chooses which resources the "While you were away" popup lists (on a new game: Ad bonus, Antimatter, Dimension Boosts and Antimatter Galaxies). It only changes the popup, not what is simulated.
+
+<!-- Emulator (Android 3.18.0): tapping Offline progress goes SHOWN → HIDDEN → DISABLED → SHOWN. With HIDDEN, 90 s in the background advanced "You have played for" by 93 s with no popup; with DISABLED, by 1 s. Max offline ticks slider ends at 1,000,000; a fresh game (pm clear, Start game) shows 1,000 and UI update rate 50 ms. 8 h fast-forward at 1,000,000: "27120/576783 ticks done", "Time left: 01:43", i.e. 50 ms per tick at least (upstream storage.js maxOfflineTicks uses 33 ms). -->
 
 <Screen
-	src="pre-infinity/options-main-2.webp"
-	alt="The Options tab lower pages on a new save: cloud save and Other settings including Max offline ticks at 1,000, UI update rate, and offline progress toggles."
-	caption="Options on a fresh save. Raise Max offline ticks from its 1,000 default when overnight gains disappoint."
+	src="pre-infinity/new-game/options-main-2.webp"
+	alt="The lower half of the Options tab on a new game: Save & Load buttons, then Other with Max offline ticks at 1,000, UI update rate 50 ms, Offline progress SHOWN, Sleep NEVER, Battery saver OFF, and the Away Progress Options button."
+	caption="Options → Other on a new game. Offline progress is in the left column, Max offline ticks at the top left, Away Progress Options at the bottom."
 />
 
 <Callout kind="android">
 
-The popup only _reports_ simulated progress, and its Skip/Speed-up buttons trade accuracy for a faster return to the game — never pick Skip thinking it earns more. The speed comes from Max offline ticks and from autobuyers (especially the offline-IP Infinity Upgrade later). Ticks never exceed one-million total and each caps at ~30 s of game time, so very long absences still simulate faithfully in chunks.
+The "Calculating offline progress" screen has two buttons. **SPEED UP BY ×2** halves the ticks left to simulate (down to 500), and **SKIP** simulates all the remaining time in 10 ticks. Both get you back sooner by making the simulation coarser, so they never earn you more. If you have the time, let it finish.
 
 </Callout>
+
+<!-- vendor/ad-source/src/core/game.js:995-1020 (Speed up: remaining ticks halved, min 500; SKIP: remaining time in 10 ticks); emulator: "SPEED UP BY ×2" and "SKIP" on the Calculating offline progress screen. -->
 
 ## Cloud saves versus manual export
 
@@ -100,7 +107,7 @@ Keep both: cloud for convenience, a manual export somewhere safe (Drive, email t
 ## Battery, background and display
 
 - **Battery saver** (Options) reduces visual effects; **Sleep NEVER** controls whether the screen stays on. The game simulates rather than running, so closing it is always the battery-friendly move.
-- **UI update rate** trades smoothness for CPU/battery; the default 30 ms is fine on modern phones.
+- **UI update rate** is how often the screen redraws: lower is smoother but uses more CPU and battery. A new game starts at 50 ms, which is fine on modern phones.
 - **Orientation PORTRAIT** locks the layout — recommended, since rotation during heavy screens (Graphs, offline calc) has caused crashes on some devices.
 - **Theme**: if the app ever crashes on every launch after a theme change, do not reinstall (see above) — clear the app's cache or wait for the fix; the 3.13.0 System-theme boot crash was fixed in 3.13.1.
 

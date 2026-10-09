@@ -56,7 +56,7 @@ Beyond these, milestones at 50, 60 and 80 unlock the Replicanti upgrade autobuye
 
 <Callout kind="android">
 
-The offline milestones (6, 100 and 1,000) only work if offline progress is enabled. Check Options → Max offline ticks: 100,000 or more keeps autobuyers faithful overnight.
+The offline milestones (6, 100 and 1,000) give nothing while Options → **Offline progress** reads **DISABLED**; SHOWN or HIDDEN both work. A higher **Max offline ticks** makes the time away play out closer to online play; see [Offline progress and Max offline ticks](/guide/m1/android-shop-and-saves#offline-progress-and-max-offline-ticks).
 
 Only one of them works at a time, and the game picks Eternities first, then Infinities, then EP. Each has conditions, printed under its card:
 

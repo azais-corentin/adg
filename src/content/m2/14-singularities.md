@@ -31,7 +31,7 @@ How many you get per condense grows with cap-increase steps, the repeatable Sing
 ## Managing the cap
 
 - **Active play:** keep the cap low (200–2,000) and condense often. Fast cycles complete the early milestones quickly.
-- **Idle or overnight:** raise the cap so production is not wasted while you are away. Pair it with Offline Progress (Options → Max offline ticks) so Dark Energy keeps accumulating.
+- **Idle or overnight:** raise the cap so production is not wasted while you are away. Leave Options → **Offline progress** on SHOWN or HIDDEN (not DISABLED) and **Max offline ticks** high so Dark Energy keeps accumulating.
 - **Upgrade 17's task** needs one condense of 20+ Singularities: raise the cap until the preview promises 20, then condense once with auto-condense set above that cap level.
 - Auto-condense (a Singularity milestone) condenses for you at the cap, with an optional extra wait multiplier — set it once your DE income makes manual condensing tedious.
 
