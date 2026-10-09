@@ -164,7 +164,13 @@ const META: readonly ScriptMeta[] = [
 			'The TP goal on the while line (1e20).',
 			'If dilated runs take too long, replace "wait pending tp > tp" with a fixed amount, e.g. "wait pending tp > 1e10".'
 		],
-		verified: null
+		verified: {
+			android: '3.18.0',
+			date: '2026-10-09',
+			save: 'teresa',
+			observed:
+				'started on load, it unlocked Dilation, then ran dilated Eternities that doubled TP from 0 to 3.5e58, passed the 1e20 goal, ran to its notify end and stopped with an empty stack.'
+		}
 	},
 	{
 		id: 'reality-alert',
@@ -196,7 +202,13 @@ const META: readonly ScriptMeta[] = [
 		perks: [],
 		setup: ['Save the tree to switch to as Time Study preset 2.'],
 		tweaks: ['The preset number in "load id 2".'],
-		verified: null
+		verified: {
+			android: '3.18.0',
+			date: '2026-10-09',
+			save: 'teresa',
+			observed:
+				'started on load, it took an Eternity with respec and bought Time Study preset 2: the studies matched the 181 preset exactly and the old extra studies were gone. It ran to its notify and stop end.'
+		}
 	},
 	{
 		id: 'reality-loop',
@@ -215,7 +227,13 @@ const META: readonly ScriptMeta[] = [
 			'The RM target on the until line (1e12). Set it near what a good Reality gives you now.',
 			'Use "pending glyph level >= 3000" instead to Reality at a glyph level.'
 		],
-		verified: null
+		verified: {
+			android: '3.18.0',
+			date: '2026-10-09',
+			save: 'teresa',
+			observed:
+				'on teresa it sat in the until loop taking EP-doubling Eternities (EP 4.2e603 to 3.1e15025, Dilation unlocked, still 426 Realities with only 3.4e9 of the 1e12 RM pending). On effarig, with 1e12 RM already pending, it Realitied at once (4987 to 4988 Realities) and restarted inside the loop.'
+		}
 	},
 	{
 		id: 'glyph-hunt',
@@ -243,7 +261,13 @@ const META: readonly ScriptMeta[] = [
 		perks: [],
 		setup: [],
 		tweaks: ['The 10 min on the pause line (real time).'],
-		verified: null
+		verified: {
+			android: '3.18.0',
+			date: '2026-10-09',
+			save: 'nameless',
+			observed:
+				'started on load, it turned storing on and sat on the 10 min pause line while the stash grew (1.49e49 to 1.74e49), then used it (stash fell to 1.5e48) and kept cycling with repeat on, sitting on the pause line again.'
+		}
 	}
 ];
 
