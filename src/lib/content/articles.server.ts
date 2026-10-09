@@ -2,7 +2,7 @@ import { buildArticleList, groupArticles, type ArticleMeta, type MilestoneGroup 
 
 // Eager: every article's frontmatter, validated at build time (an invalid article fails
 // the build). Server-only so article bodies stay out of the client bundle; pages get the
-// list through the root layout's load data.
+// list through the root layout, which loads the prerendered /articles.json.
 const metadataModules = import.meta.glob('/src/content/*/*.md', {
 	eager: true,
 	import: 'metadata'
