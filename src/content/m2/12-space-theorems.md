@@ -25,9 +25,9 @@ Time Studies are under the Eternity tab (hourglass icon), Studies subtab. The bo
 
 </Callout>
 
-## What each Theorem count unlocks
+## What each V-Achievement count unlocks
 
-Intermediate V rewards also fire at fixed counts, independently of how you spend the Theorems: <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `unlocks` -->
+Intermediate V rewards also fire at fixed counts, independently of how you spend the Theorems. The tab words them "Have 2 V-Achievements" up to "Have 36 V-Achievements": <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `unlocks` -->
 
 | V-Achievements | Reward | What it does |
 | --- | --- | --- |

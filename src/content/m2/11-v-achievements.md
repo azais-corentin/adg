@@ -42,15 +42,15 @@ Hold 4,000 / 4,300 / 4,600 / 4,900 / 5,200 / 5,500 total Galaxies of all types a
 
 ### Se7en deadly matters
 
-Inside Eternity Challenge 7, reach IP with exponent <Num value="1e600000" /> / <Num value="1e720000" /> / <Num value="1e840000" /> / <Num value="1e960000" /> / <Num value="1e1080000" /> / <Num value="1e1200000" />. EC7 already restricts you, and V squares the pain, so this one waits until your glyph levels make EC7 comfortable.
+Inside Eternity Challenge 7, reach <Num value="1e600000" /> / <Num value="1e720000" /> / <Num value="1e840000" /> / <Num value="1e960000" /> / <Num value="1e1080000" /> / <Num value="1e1200000" /> IP. The hexagon reads "Get 1e600,000 IP in EC7." EC7 already restricts you, and V squares the pain, so this one waits until your glyph levels make EC7 comfortable.
 
 ### Young Boy
 
-Inside Eternity Challenge 12, without unlocking Time Dilation, reach antimatter with exponent <Num value="1e400000000" /> / <Num value="1e450000000" /> / <Num value="1e500000000" /> / <Num value="1e600000000" /> / <Num value="1e700000000" /> / <Num value="1e800000000" />. The no-Dilation condition bites: plan an EC12 run that never touches the Dilation study, and push antimatter with raw Dimensions and galaxies.
+Inside Eternity Challenge 12, without unlocking Time Dilation, reach <Num value="1e400000000" /> / <Num value="1e450000000" /> / <Num value="1e500000000" /> / <Num value="1e600000000" /> / <Num value="1e700000000" /> / <Num value="1e800000000" /> antimatter ("Get 1e400,000,000 AM in EC12 without unlocking Dilation."). The no-Dilation condition bites: plan an EC12 run that never touches the Dilation study, and push antimatter with raw Dimensions and galaxies.
 
 ### Eternal Sunshine
 
-Hold EP with exponent <Num value="1e7000" /> / <Num value="1e7600" /> / <Num value="1e8200" /> / <Num value="1e8800" /> / <Num value="1e9400" /> / <Num value="1e10000" />. Straightforward EP pushing inside V's Reality; strong Time Glyphs and a good Eternity setup carry it.
+Reach <Num value="1e7000" /> / <Num value="1e7600" /> / <Num value="1e8200" /> / <Num value="1e8800" /> / <Num value="1e9400" /> / <Num value="1e10000" /> Eternity Points ("Get 1e7000 Eternity Points."). Straightforward EP pushing inside V's Reality; strong Time Glyphs and a good Eternity setup carry it.
 
 ### Matterception
 
