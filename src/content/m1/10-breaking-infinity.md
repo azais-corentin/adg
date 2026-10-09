@@ -41,27 +41,27 @@ There is a side benefit that saves you a fortune: breaking instantly drops **eve
 <Screen
 	src="break-infinity/infinity-break-0.webp"
 	alt="The top of the Break subtab: the new-ID unlock tracker and IP gain boxes, then the first rows of Break Infinity upgrades with their 1e4 to 1e6 IP costs."
-	caption="The Break subtab right after breaking. The top boxes track the next Infinity Dimension unlock and the current crunch payout."
+	caption="The Break subtab. The top-left box names the antimatter the next Infinity Dimension needs and becomes an Unlock button you tap once you reach it; the right box shows what a Big Crunch gives now."
 />
 
 ## The Break Infinity upgrades
 
-The Break subtab holds twelve upgrades: nine one-time purchases and three rebuyables (the last three rows of the table). They are all bought with IP and they never reset. Sensible order after the Reality rebalancing is simply **cheapest first**, with two exceptions called out below:
+The Break subtab holds twelve upgrades: nine one-time purchases and three rebuyables (the last three rows of the table). They are all bought with IP, and a Big Crunch never resets them (an Eternity does, until the 8-Eternity milestone keeps them). Sensible order after the Reality rebalancing is simply **cheapest first**, with two exceptions called out below:
 
-| Upgrade | Cost | What it does |
-| --- | --- | --- |
-| Total antimatter multiplier | <Num value="1e4" /> IP | Dimensions scale with all antimatter you have ever made |
-| Current antimatter multiplier | <Num value="5e4" /> IP | Dimensions scale with the antimatter you hold now |
-| Infinities multiplier | <Num value="1e5" /> IP | Dimensions scale with your total Infinities |
-| Achievement multiplier | <Num value="1e6" /> IP | Dimensions scale with achievements finished |
-| Slowest-challenge multiplier | <Num value="1e7" /> IP | Dimensions scale with your slowest challenge time (capped) |
-| Passive Infinities | <Num value="2e7" /> IP | Earns Infinities on its own, from your fastest run |
-| Buy-max Dimboost mode | <Num value="5e9" /> IP | Autobuyer learns to buy max Dimboosts — a real pacing unlock |
-| Galaxies 50% stronger | <Num value="5e11" /> IP | Every galaxy counts half again as much — the biggest spike here |
-| Challenge autobuyers ×2 speed | <Num value="1e15" /> IP | Autobuyers earned from Normal Challenges tick twice as fast |
-| Tickspeed-cost rebuyable (×8) | from <Num value="1e6" /> IP | Each level softens post-Infinity tickspeed cost growth |
-| Dimension-cost rebuyable (×7) | from <Num value="1e7" /> IP | Each level softens post-Infinity Dimension cost growth |
-| Passive IP generator (×10) | from <Num value="1e7" /> IP | Each level adds 5% of your best IP/min from the last 10 Infinities |
+| Upgrade                       | Cost                        | What it does                                                       |
+| ----------------------------- | --------------------------- | ------------------------------------------------------------------ |
+| Total antimatter multiplier   | <Num value="1e4" /> IP      | Dimensions scale with all antimatter you have ever made            |
+| Current antimatter multiplier | <Num value="5e4" /> IP      | Dimensions scale with the antimatter you hold now                  |
+| Infinities multiplier         | <Num value="1e5" /> IP      | Dimensions scale with your total Infinities                        |
+| Achievement multiplier        | <Num value="1e6" /> IP      | Dimensions scale with achievements finished                        |
+| Slowest-challenge multiplier  | <Num value="1e7" /> IP      | Dimensions scale with your slowest challenge time (capped)         |
+| Passive Infinities            | <Num value="2e7" /> IP      | Earns Infinities on its own, from your fastest run                 |
+| Buy-max Dimboost mode         | <Num value="5e9" /> IP      | Autobuyer learns to buy max Dimboosts — a real pacing unlock       |
+| Galaxies 50% stronger         | <Num value="5e11" /> IP     | Every galaxy counts half again as much — the biggest spike here    |
+| Challenge autobuyers ×2 speed | <Num value="1e15" /> IP     | Autobuyers earned from Normal Challenges tick twice as fast        |
+| Tickspeed-cost rebuyable (×8) | from <Num value="1e6" /> IP | Each level softens post-Infinity tickspeed cost growth             |
+| Dimension-cost rebuyable (×7) | from <Num value="1e7" /> IP | Each level softens post-Infinity Dimension cost growth             |
+| Passive IP generator (×10)    | from <Num value="1e7" /> IP | Each level adds 5% of your best IP/min from the last 10 Infinities |
 
 <!-- Costs and order from src/core/secret-formula/infinity/break-infinity-upgrades.js -->
 

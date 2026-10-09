@@ -52,6 +52,10 @@ describe('nextGoals', () => {
 		expect(goals[2]?.text).toBe(
 			'Unlock the 8th Infinity Dimension (5/8 unlocked; next at 1e45,000 antimatter, you have 1.54e44,731)'
 		);
+		const ready = { ...replicanti, antimatter: { mantissa: 1, exponent: 45001 } };
+		expect(nextGoals(ready, 'replicanti')[2]?.text).toBe(
+			'Unlock the 8th Infinity Dimension (5/8 unlocked; tap “Unlock a new Infinity Dimension”)'
+		);
 	});
 
 	it('early Eternity: next milestone first, then EC1 with its study and Eternities', () => {

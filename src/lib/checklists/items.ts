@@ -107,11 +107,17 @@ const IC_UNLOCK_AM_EXPONENT = [2000, 10500, 12000, 14000, 18000, 22500, 23000, 2
  */
 const ID_UNLOCK_AM_EXPONENT = [1100, 1900, 2400, 10500, 30000, 45000, 54000, 60000];
 
-/** Unlocked count and the next Infinity Dimension's threshold, like the game's top-left box. */
+/**
+ * Unlocked count and the next Infinity Dimension's threshold, like the game's top-left box. At
+ * the threshold that box becomes the "Unlock a new Infinity Dimension" button, which must be tapped.
+ */
 const idProgress = (s: NormalizedSave) => {
 	const exponent = ID_UNLOCK_AM_EXPONENT[s.infinityDimensions];
 	if (exponent === undefined) return undefined;
-	return `${s.infinityDimensions}/8 unlocked; next at ${fmt(`1e${exponent}`)} antimatter, you have ${have(s.antimatter)}`;
+	const unlocked = `${s.infinityDimensions}/8 unlocked`;
+	return gte(s.antimatter, bigNum(1, exponent))
+		? `${unlocked}; tap “Unlock a new Infinity Dimension”`
+		: `${unlocked}; next at ${fmt(`1e${exponent}`)} antimatter, you have ${have(s.antimatter)}`;
 };
 
 /** `autobuyers/autobuyer.js`: interval starts at 150000 ms, ×0.6 per upgrade, floor 100 ms; cost 1 IP, ×2. */
@@ -311,7 +317,7 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'break-first-id',
 		stage: 'break-infinity',
 		text: 'Unlock the 1st Infinity Dimension',
-		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[0]}`)} antimatter.`,
+		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[0]}`)} antimatter and 1e8 Infinity Points; then tap “Unlock a new Infinity Dimension” at the top left.`,
 		auto: (s) => has(s, 63) || reachedEternity(s),
 		progress: (s) => `you have ${have(s.antimatter)}`
 	},
@@ -327,7 +333,7 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'break-id4',
 		stage: 'break-infinity',
 		text: 'Unlock the 4th Infinity Dimension',
-		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[3]}`)} antimatter. Each new Infinity Dimension needs more; the top-left box of the Infinity Dimensions subtab names the next threshold.`,
+		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[3]}`)} antimatter. Each new Infinity Dimension needs more: the box at the top left names the next threshold, then turns into an “Unlock a new Infinity Dimension” button you tap.`,
 		auto: (s) => has(s, 75) || reachedEternity(s),
 		progress: idProgress
 	},
@@ -365,7 +371,7 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'rep-id8',
 		stage: 'replicanti',
 		text: 'Unlock the 8th Infinity Dimension',
-		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[7]}`)} antimatter.`,
+		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[7]}`)} antimatter, then a tap on “Unlock a new Infinity Dimension”.`,
 		auto: (s) => has(s, 98) || reachedReality(s),
 		progress: idProgress
 	},

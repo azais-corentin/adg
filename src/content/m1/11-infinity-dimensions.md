@@ -16,20 +16,28 @@ verified:
 
 ## A second set of dimensions
 
-Once your antimatter passes about <Num value="1e1100" />, the **Dimensions tab** (cube icon) gains a second subtab: **Infinity**. It holds eight Infinity Dimensions (ID1–ID8), which work like the familiar ones turned upside down: the 8th produces the 7th, the 7th the 6th, and the 1st produces **Infinity Power** instead of antimatter. Infinity Power converts directly into a multiplier on all your Antimatter Dimensions, so every point of it echoes back down the whole chain.
+Once you have broken Infinity and reach <Num value="1e1100" /> antimatter and <Num value="1e8" /> Infinity Points, the box at the top left of every tab turns into a button: **Unlock a new Infinity Dimension**. Tap it and the **Dimensions tab** (cube icon) gains a second subtab: **Infinity**. It holds eight Infinity Dimensions (ID1–ID8), which work like the familiar ones turned upside down: the 8th produces the 7th, the 7th the 6th, and the 1st produces **Infinity Power** instead of antimatter. Infinity Power converts directly into a multiplier on all your Antimatter Dimensions, so every point of it echoes back down the whole chain.
 
-Each tier unlocks at a fixed antimatter threshold and is bought with Infinity Points:
+Each further tier has its own antimatter threshold, and **reaching it does not unlock the tier by itself**. Until then the top-left box reads "Reach 1e10,500 antimatter to unlock a new Infinity Dimension" (with the next threshold); once your antimatter gets there, it turns into a button, **Unlock a new Infinity Dimension**, and the tier's row shows **Unlock**. Tap either one, then buy the new Dimension with Infinity Points. The threshold counts the most antimatter you reached this Eternity, so a Big Crunch doesn't take it away. From 25 Eternities a milestone unlocks them for you.
 
-| Dimension | Unlocks at | First purchase |
-| --- | --- | --- |
-| ID1 | <Num value="1e1100" /> AM | <Num value="1e8" /> IP |
-| ID2 | <Num value="1e1900" /> AM | <Num value="1e9" /> IP |
-| ID3 | <Num value="1e2400" /> AM | <Num value="1e10" /> IP |
-| ID4 | <Num value="1e10500" /> AM | <Num value="1e20" /> IP |
-| ID5 | <Num value="1e30000" /> AM | <Num value="1e140" /> IP |
-| ID6 | <Num value="1e45000" /> AM | <Num value="1e200" /> IP |
-| ID7 | <Num value="1e54000" /> AM | <Num value="1e250" /> IP |
-| ID8 | <Num value="1e60000" /> AM | <Num value="1e280" /> IP |
+<!-- src/components/ui-modes/prestige-header/UnlockInfinityDimButton.vue (ID1 also needs 1e8 IP before the first Eternity), infinity-dimension.js canUnlock (records.thisEternity.maxAM), eternity-milestones.js autoUnlockID (25). Emulator (Android 3.18.0): with no ID unlocked, 8.39e9029 AM and 3.18e40 IP, the box read "Unlock a new Infinity Dimension", the Antimatter subtab's bar "Percentage to unlock a new type of Dimension: 100.00%" and there was no Infinity subtab yet. At 1e45,001 antimatter with 5 IDs the box read "Unlock a new Infinity Dimension" and the 6th row "Unlock"; tapping it unlocked ID6 (Cost: 1e200 IP) and the box moved on to "Reach 1e54,000 antimatter to unlock a new Infinity Dimension". -->
+
+<Screen
+	src="break-infinity/id-unlock/dimensions-infinity-top.webp"
+	alt="The Infinity Dimensions subtab with the top-left box reading Unlock a new Infinity Dimension, five Infinity Dimensions with IP costs, and the 6th Infinity Dimension row with an Unlock button."
+	caption="Threshold reached: the top-left box and the 6th row both say Unlock. Nothing happens until you tap one of them."
+/>
+
+| Dimension | Unlocks at                 | First purchase           |
+| --------- | -------------------------- | ------------------------ |
+| ID1       | <Num value="1e1100" /> AM  | <Num value="1e8" /> IP   |
+| ID2       | <Num value="1e1900" /> AM  | <Num value="1e9" /> IP   |
+| ID3       | <Num value="1e2400" /> AM  | <Num value="1e10" /> IP  |
+| ID4       | <Num value="1e10500" /> AM | <Num value="1e20" /> IP  |
+| ID5       | <Num value="1e30000" /> AM | <Num value="1e140" /> IP |
+| ID6       | <Num value="1e45000" /> AM | <Num value="1e200" /> IP |
+| ID7       | <Num value="1e54000" /> AM | <Num value="1e250" /> IP |
+| ID8       | <Num value="1e60000" /> AM | <Num value="1e280" /> IP |
 
 <!-- Unlock thresholds (UNLOCK_REQUIREMENTS) and base costs (BASE_COSTS) from src/core/dimensions/infinity-dimension.js:41-57. ID1's unlock is also the checklist's break-first-id gate. -->
 
@@ -53,16 +61,16 @@ A few details worth knowing:
 
 ## The push order
 
-The rhythm from here to Replicanti is: push antimatter to the next ID threshold, buy the new tier, watch IP payouts jump, spend IP on Break upgrades and the repeatable ×2, push further. Concretely:
+The rhythm from here to Replicanti is: push antimatter to the next ID threshold, tap **Unlock**, buy the new tier, watch IP payouts jump, spend IP on Break upgrades and the repeatable ×2, push further. Concretely:
 
 1. **ID1–ID2.** Reachable on Break upgrades alone. The galaxy-strength upgrade at <Num value="5e11" /> IP makes ID2 comfortable.
-2. **ID3.** Around <Num value="1e2400" /> AM. If you stall here, finish the first Infinity Challenge — each completion adds a stacking ×1.3 to all Infinity Dimensions, permanently. <!-- src/core/secret-formula/challenges/infinity-challenges.js:8-15 (IC1 reward) -->
+2. **ID3.** Around <Num value="1e2400" /> AM. If you stall here, finish the first Infinity Challenge: its reward is ×1.3 on all Infinity Dimensions for each Infinity Challenge you have completed, so every later one adds to it. <!-- src/core/secret-formula/challenges/infinity-challenges.js:8-15 (IC1 reward) -->
 3. **ID4.** The wall at <Num value="1e10500" /> AM and <Num value="1e20" /> IP. Several early ICs are meant to be done around now; see the Infinity Challenges article.
 4. **ID5–ID8.** Each needs the late IC completions behind it. ID8's <Num value="1e280" /> IP price tag looks impossible until Replicanti Galaxies start multiplying everything.
 
 <Callout kind="tip">
 
-Leaving an ID tier unbought is the most common stall. The Infinity subtab does not flash the way the Antimatter one does — make checking it part of every crunch: open the subtab, buy what you can, then crunch.
+Leaving a reached tier locked, or an unlocked one unbought, is the most common stall. The top-left box says **Unlock a new Infinity Dimension** until you tap it, and the Antimatter subtab's bar reads "Percentage to new Infinity Dimension: 100.00%". Make checking the Infinity subtab part of every crunch: unlock, buy what you can, then crunch.
 
 </Callout>
 
@@ -70,7 +78,7 @@ Leaving an ID tier unbought is the most common stall. The Infinity subtab does n
 
 **Stuck below ID1 (<Num value="1e1100" /> AM)?** You broke too early or skipped Break upgrades. Buy the cheap multipliers first; each one compounds with the others.
 
-**ID3 will not unlock?** Your peak antimatter is what counts, and it must be reached in a single run. Turn off anything that crunches early, push with galaxies, and remember the Max button buys Dimensions mid-push.
+**ID3 will not unlock?** If the top-left box says **Unlock a new Infinity Dimension**, tap it. Otherwise you need more antimatter: the most you reached this Eternity counts, so it doesn't have to be in the current Infinity. Turn off anything that crunches early, push with galaxies, and remember the Max button buys Dimensions mid-push.
 
 **ID4+ feels impossibly far?** That is normal — it is tuned around IC rewards. Do the challenges in the recommended order in the next article rather than grinding antimatter against the wall.
 
