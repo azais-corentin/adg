@@ -50,7 +50,9 @@ Upgrades whose requirement you could fail by accident (buying something you shou
 
 ## The repeatable rows (upgrades 1–10)
 
-Upgrades 1–5 are Intensifiers: each level adds to one of the Alchemy amplifier multipliers (Temporal, Replicative, Eternal, Superluminal, Boundless). They are cheap, so buy them whenever you have spare iM; cheapest-first is fine. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:14-53 -->
+Upgrades 1–5 are Intensifiers. Each level raises the per-level multiplier of one of the five Amplifiers in the first row of [Reality Upgrades](/guide/m1/reality-upgrades-1-2): "Increase Temporal Amplifier multiplier by +0.15" turns its ×3 per level into ×3.15, and that applies to every Amplifier level you own. Temporal, Replicative and Superluminal get +0.15 per level, Eternal +0.40 and Boundless +0.60. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:14-53; reality-upgrades.js:16 rebuyable effect = (base + ImaginaryUpgrade(id).effect)^level. Emulator 3.18.0: "Temporal Intensifier — Increase Temporal Amplifier multiplier by +0.15, Currently: +0.75" -->
+
+The first levels cost a few iM, but each level costs 30 to 80 times the one before, so after a handful they cost as much as the one-time upgrades 11–14. Once that happens, compare them against the next one-time upgrade instead of buying them by reflex.
 
 Upgrades 6–10 cost much more per level and each does something specific:
 
