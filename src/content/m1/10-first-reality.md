@@ -27,7 +27,7 @@ Reality resets almost everything up to this point: antimatter, Infinity Points, 
 Two things surprise most players:
 
 - **You lose the first 13 rows of achievements** — every pre-Reality achievement and its reward goes dark. You keep everything under the General header in Statistics, and all your best challenge times. <!-- in-game How to Play, "Reality" -->
-- **You re-earn those achievements one at a time.** Every 30 minutes the game completes your next unfinished achievement for free, even offline, until rows 1–13 are full again. You can also redo their requirements by hand, which is faster for the easy ones. Turning the timer off in Options pauses it at zero rather than skipping it. <!-- in-game How to Play, "Reality" -->
+- **You re-earn those achievements one at a time.** Every 30 minutes the game completes your next unfinished achievement for free, even offline, until rows 1–13 are full again. The Achievements tab (trophy) shows the countdown and an **Auto: ON** button. You can also redo their requirements by hand, which is faster for the easy ones. Switching Auto off doesn't stop the countdown: it runs down to zero and waits there, and the next achievement arrives as soon as you switch Auto back on. <!-- in-game How to Play, "Reality"; normal-achievement.js:141-158 (timer clamps at the period while auto is off); emulator: Achievements → Normal shows Hide completed rows and Auto: ON -->
 
 Each Reality pays three things: **Reality Machines** (the new currency), **Glyphs** (your starting Power glyph plus a Companion on run one; a choice of glyphs on later runs), and **one Perk Point**. <!-- vendor/ad-source/src/core/reality.js (giveRealityRewards) -->
 

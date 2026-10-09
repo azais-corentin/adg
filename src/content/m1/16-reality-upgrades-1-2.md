@@ -36,11 +36,11 @@ With 3 first-Reality RM, buy Temporal plus Superluminal (idle play) or Replicati
 
 ## Row 2: unlock, then buy for 15 RM each
 
-Row 2 upgrades cost <Num value="15" /> RM each, but each must first be **unlocked by doing something specific in a run** — and several can be permanently locked for that run if you do the wrong thing first. Start them in Reality 3–4, once two Power glyphs make the conditions easy. Recommended order: **Paradoxically Attain, Existentially Prolong, Cosmically Duplicate, Innumerably Construct, Linguistically Expand last.** <!-- vendor/ad-source/src/core/secret-formula/reality/reality-upgrades.js -->
+Row 2 (the app's "Group 2 - Cost: 15 Reality Machines") upgrades cost <Num value="15" /> RM each, but each must first be **unlocked by doing something specific in a run** — and several can be failed for that run if you do the wrong thing first. Start them in Reality 3–4, once two Power glyphs make the conditions easy. Recommended order: **Paradoxically Attain, Existentially Prolong, Cosmically Duplicate, Innumerably Construct, Linguistically Expand last.** <!-- vendor/ad-source/src/core/secret-formula/reality/reality-upgrades.js -->
 
 | Upgrade | Unlock condition | How to do it |
 | ------- | ---------------- | ------------ |
-| Paradoxically Attain | Manually Eternity without any automatic Achievements (first-Eternity-of-Reality check) | Turn off auto-achievements in Options before the Eternity; grab any needed challenge achievements by hand; turn it back on after |
+| Paradoxically Attain | Eternity without any automatic Achievements this Reality | Right after the Reality, before the 30-minute timer gives its first achievement, open the Achievements tab (trophy) and tap **Auto: ON** to turn it off (or turn on the card's Requirement lock). Earn the achievements you need by hand, Eternity, then switch Auto back on |
 | Existentially Prolong | First manual Eternity of the Reality with <Num value="1e400" />+ IP | Happens naturally on a long push run — do not combine with no-galaxy challenges |
 | Cosmically Duplicate | First manual Eternity of the Reality without using Replicanti Galaxies | Disable the Replicanti Galaxy autobuyer; glyph-boosted Dimensions carry you |
 | Innumerably Construct | First Infinity of the Reality with at most 1 Antimatter Galaxy | Do your first Infinity inside Normal Challenge 8, or just avoid the second galaxy |
@@ -56,7 +56,7 @@ Existentially Prolong is the prize: start every Reality with 100 Eternities, whi
 
 <Callout kind="tip">
 
-Locked an unlock by accident (bought the galaxy, gained the achievement)? It re-arms next Reality — the lock is per-run, not permanent. Check the upgrade text: it names what locked it.
+A card turns **red** as soon as its requirement can no longer be met this Reality (one automatic achievement is enough for Paradoxically Attain), and yellow cards are still possible. Red cards reset on the next Reality. Each card has a **Requirement lock** button under it: switched on, the game stops you from doing anything this Reality that would fail it.
 
 </Callout>
 
