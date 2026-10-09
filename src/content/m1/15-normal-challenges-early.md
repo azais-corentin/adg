@@ -25,14 +25,14 @@ Every challenge reward unlocks or improves an autobuyer, so challenges are not o
 <Screen
 	src="early-infinity/challenges-main-0.webp"
 	alt="The Normal Challenges list on a fresh-Infinity save: the C1 card showing Reach Infinity for the first time with its 1st-Dimension-autobuyer reward, C2 beside it, and the retry and Big Crunch notes above."
-	caption="Normal Challenges on your first visit. Each card states its restriction and its autobuyer reward — start with C1."
+	caption="Normal Challenges on your first visit. Each card states its restriction and its autobuyer reward. C1 is already completed by your first Crunch."
 />
 
 ## The nine, in suggested order
 
 | # | Restriction | Reward | Notes |
 | - | ----------- | ------ | ----- |
-| C1 | none beyond a fresh run | 1st Dimension autobuyer upgrades | Do it first; it is nearly a normal run |
+| C1 | reach Infinity for the first time | 1st Dimension autobuyer upgrades | Completed by your first Big Crunch; nothing to play |
 | C2 | buying anything halts production for 3 min (recovering gradually) | 2nd Dimension autobuyer upgrades | Buy rarely and in bulk; then wait |
 | C3 | 1st Dimension weakened, gains an exponential multiplier that resets on Boost/Galaxy | 3rd Dimension autobuyer upgrades | Boost/Galaxy often — the multiplier resets anyway, so spend it |
 | C4 | buying a Dimension erases all lower tiers | 4th Dimension autobuyer upgrades | Buy top-down (high tiers first) so wipes destroy little |
@@ -44,7 +44,7 @@ Every challenge reward unlocks or improves an autobuyer, so challenges are not o
 
 <!-- descriptions: src/lib/data/generated/challenges.json (normal) -->
 
-Do them roughly in numeric order: earlier numbers are gentler, and each autobuyer you unlock speeds the next attempt. C1–C3 are an evening's work with a few Infinities behind you; C4–C8 each want a little more IP and patience.
+Do them roughly in numeric order, starting with C2: earlier numbers are gentler, and each autobuyer you unlock speeds the next attempt. C2 and C3 are an evening's work with a few Infinities behind you; C4–C8 each want a little more IP and patience. <!-- vendor/ad-source/src/core/big-crunch.js:11 NormalChallenge(1).complete() on any Big Crunch; emulator 3.18.0: C1 card "Completed" after the first Crunch -->
 
 ## C3 and C9 tactics
 

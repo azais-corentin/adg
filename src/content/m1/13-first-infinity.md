@@ -53,7 +53,7 @@ Right after the first Crunch the app shows "You have unlocked sticky buttons". H
 ## First minutes after
 
 1. Open the Infinity tab and buy what <Num value="1" /> IP gets you (see [spending your first IP](/guide/m1/first-infinity-upgrades)).
-2. Open the Challenges tab (triangle icon): Normal Challenges 1–9 are available immediately, and each completion unlocks upgrading one autobuyer. Start with C1.
+2. Open the Challenges tab (triangle icon): Normal Challenges 1–9 are available immediately, and each completion unlocks upgrading one autobuyer. C1 ("Reach Infinity for the first time") is already completed by your first Crunch, so start with C2.
 3. Crunch again as soon as you can beat your best time — early Infinities come in minutes now, and each one feeds the Infinities-scaling upgrades.
 
 ## Common walls
