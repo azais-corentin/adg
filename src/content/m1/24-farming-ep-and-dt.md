@@ -18,13 +18,13 @@ verified:
 
 Late Eternity is one repeating cycle, and every part of it feeds the next:
 
-1. **Dilated TP push.** Dilate, push antimatter to a new record, exit via Eternity. Banked Tachyon Particles rise.
+1. **Dilated TP push.** Tap **Dilate time.**, push antimatter to a new record, then tap **Disable Dilation**. Banked Tachyon Particles rise.
 2. **DT farming.** Higher TP means faster passive DT income. Spend DT on the rebuyables — Tachyon gain first, DT gain alongside — and the one-time upgrades in cost order.
 3. **Higher EP.** The upgrades (especially Antimatter Dimensions from DT, all three tree paths at once, and IP from DT) raise how far each Eternity climbs. More EP buys more pre-generator Theorems and pushes the max-EP record toward <Num value="1e4000" />.
 
 <Screen
 	src="late-eternity/eternity-dilation-0.webp"
-	alt="The Time Dilation subtab at this stage: EP and IP gain boxes, 1.66e99 Tachyon Particles, 1.51e21 Dilated Time at 3.09e17 per hour, and 112 Tachyon Galaxies."
+	alt="The Dilation subtab at this stage: Gain 2.00e3808 Eternity Points and Gain Infinity Points boxes, 1.65e9 Tachyon Particles, the Dilate time. button, 1.510e21 Dilated Time at +3.09e17/h, and 112 Tachyon Galaxies."
 	caption="The Dilation loop at scale: banked TP drives hourly DT income, which funds the next push. When a push stops beating the TP record, farm DT a while first."
 />
 

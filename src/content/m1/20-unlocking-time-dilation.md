@@ -59,7 +59,7 @@ On the phone the tree is panned with the zoom slider and horizontal arrows. Tapp
 
 ## Buying the study
 
-When everything is met, the Dilation study appears at the bottom of the tree and costs <Num value="5000" /> Theorems on top of the 12,900-lifetime requirement — have both covered before you respec into your buying tree. Buying it unlocks a new **Time Dilation** subtab (marked Ψ) inside the Eternity tab. The game itself considers you to be in the Dilation stage once you hold any Dilated Time at all, and in Late Eternity once you pass <Num value="1e15" /> of it. <!-- vendor/ad-source/src/core/secret-formula/progress-checker.js -->
+When everything is met, the Dilation study appears at the bottom of the tree and costs <Num value="5000" /> Theorems on top of the 12,900-lifetime requirement — have both covered before you respec into your buying tree. Buying it adds a fourth subtab to the Eternity tab, **Dilation**, after Studies, Upgrades and Milestones; its **Dilate time.** button starts your first dilated run ([Your first Dilated Eternity](/guide/m1/first-dilated-eternity)). The game itself considers you to be in the Dilation stage once you hold any Dilated Time at all, and in Late Eternity once you pass <Num value="1e15" /> of it. <!-- vendor/ad-source/src/core/secret-formula/progress-checker.js -->
 
 <Checklist stage="early-dilation" />
 
