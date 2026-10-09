@@ -22,24 +22,30 @@ Every glyph has four attributes. Type decides which effects it can roll; level a
 - **Rarity** — a strength value shown as a percentage. Higher is better: it raises effect strength and the chance of extra effects. Named bands run Common, Uncommon, Rare, Epic, Legendary, Mythical, Transcendent, Celestial (top-down, not bottom-up). <!-- vendor/ad-source/src/core/constants.js (GlyphRarities, descending minStrength) -->
 - **Effects** — the actual bonuses, up to four per glyph on basic types. Same-type effects on several equipped glyphs combine: "+" effects add, "×" effects multiply. <!-- in-game How to Play, "Glyphs" -->
 
-Your first glyph is fixed: a Power glyph with Antimatter Dimension power at slightly above-average strength. The Companion heart rides along free and records the EP you Realitied with (its rarity encodes log10(EP)/1e6). Once a glyph exists, its attributes never change. <!-- vendor/ad-source/src/core/glyphs/glyph-generator.js (startingGlyph strength 1.5, companionGlyph) -->
+Your first glyph is fixed: an **Uncommon Glyph of Power** (rarity 20%) with a single effect, Antimatter Dimension power (+0.031 at level 1). Next to it sits the pink-heart **Companion Glyph**: "It does nothing but sit there and cutely smile at you…", and it records the EP you reached on your first Reality. It has no effect at all, and equipped it would take one of your three circles, so leave it in the inventory. Once a glyph exists, its attributes never change. <!-- vendor/ad-source/src/core/glyphs/glyph-generator.js (startingGlyph strength 1.5, companionGlyph); tooltips read in the emulator (Android 3.18.0, early-reality-first save) -->
+
+<Screen
+	src="early-reality/first-reality/reality-glyphs-1.webp"
+	alt="The Glyphs subtab right after the first Reality: three empty circles, the hint Tap to view, hold and drag or double tap to equip Glyphs, two grey protected rows, and the Power glyph (Ω) and Companion (♥) in the first inventory row."
+	caption="Right after the first Reality: three empty circles, and the Power glyph and Companion in the inventory. Equip the Power glyph only."
+/>
 
 ## Equipping on Android
 
-Open the **Reality** tab (rocket icon) and the **Glyphs** subtab. Your inventory is the grid; your equipped glyphs are the circles in the middle; their combined effects list on the right.
+Open the **Reality** tab (rocket icon) and the **Glyphs** subtab. Your inventory is the grid at the bottom; your equipped glyphs are the circles above it; their combined effects list in the **Current Glyph effects** panel at the top.
 
 <Screen
 	src="early-reality/reality-glyphs-0.webp"
-	alt="The Glyphs subtab after the first Reality: the Current Glyph effects panel showing Duplicated Power, the Reality study prompt, and equipped circles with the restart button."
-	caption="The Glyphs subtab on your first Reality. Circles in the middle are equipped; combined effects list above them."
+	alt="The Glyphs subtab a few Realities in: the Current Glyph effects panel showing Duplicated Power (Antimatter Dimension multipliers ^1.069, Replication speed ×12.7), the Reality study prompt, two Power glyphs and a Replication glyph in the circles, and the Start this Reality over button."
+	caption="A few Realities in, with three glyphs equipped. The panel at the top adds up their effects."
 />
 
-- **Equip:** drag a glyph from the inventory into an empty circle, or tap it for the equip option. It applies immediately.
+- **Equip:** tap a glyph and press **Equip** on its card, double-tap it, or hold and drag it onto an empty circle. It applies immediately.
 - **Swap:** dragging a glyph onto an occupied circle replaces it but **restarts your current Reality** for no reward — only swap when you mean it.
 - **Inspect:** tapping an equipped glyph shows its full stats.
 - **Protected slots:** the top rows of your inventory are protected. New glyphs never land there, and Sort and Auto-clean skip them. Put glyphs you want to keep there.
 
-You start with **3 active slots** (plus the Companion, which rides along free). The Reality Upgrades Linguistically Expand and Synthetic Symbolism each add one more, for 5 total. <!-- vendor/ad-source/src/core/glyphs/glyph-core.js (activeSlotCount) -->
+You start with **3 active slots**, and every equipped glyph takes one, the Companion included. The Reality Upgrades Linguistically Expand and Synthetic Symbolism each add one more, for 5 total. <!-- vendor/ad-source/src/core/glyphs/glyph-core.js (activeSlotCount); emulator: Power + Companion equipped leave one empty circle -->
 
 <Screen
 	src="early-reality/reality-glyphs-3.webp"
@@ -49,7 +55,7 @@ You start with **3 active slots** (plus the Companion, which rides along free). 
 
 <Callout kind="android">
 
-On touch, drag the glyph icon and drop it on the circle. If your fingers keep missing, use the tap-to-select then tap-the-slot flow instead.
+The app's own hint sits above the inventory: "Tap to view, hold and drag or double tap to equip Glyphs." Tapping is the most reliable on a phone: the glyph's card opens with an **Equip** button at the bottom.
 
 </Callout>
 
