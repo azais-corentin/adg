@@ -20,29 +20,36 @@ The Black Hole cycles: the game runs at normal speed for a while (interval), the
 
 <Screen
 	src="early-reality/reality-blackhole-0.webp"
-	alt="The Black Hole subtab on an early Reality: the interval, power and duration upgrades with RM costs and the cycle status."
-	caption="The Black Hole. Interval, power and duration each upgrade separately with RM."
+	alt="The Black Hole subtab on an early Reality: Unpause BH and 🌀1: Paused, Auto-pause: Before activation, Black Hole State: Inactive (Activation in 5.00 seconds), Active time percent: 0.277%, and the three upgrades: Reduce Black Hole's inactive time by 20% (Currently 1.00h, Cost 15 RM), Make Black Hole 35% stronger (Currently ×180.00, Cost 20 RM), Extend Black Hole's duration by 30% (Currently 10.00s, Cost 10 RM)."
+	caption="The Black Hole subtab. This save has the hole paused by Auto-pause, 5 seconds before its next burst."
 />
 
-Unlock costs <Num value="100" /> RM (achievement: Is this an Interstellar reference?) and also grants 10 Automator Points. <!-- vendor/ad-source/src/core/black-hole.js -->
+Unlock costs <Num value="100" /> RM (achievement: Is this an Interstellar reference?) and also grants 10 Automator Points. The unlock button sums it up: "Starts at ×180 faster for 10 seconds, once per hour." <!-- vendor/ad-source/src/core/black-hole.js -->
+
+## Pause and Auto-pause
+
+The top of the subtab holds two buttons, and the first also sits on the Dimensions tab next to the hole's status ("🌀1: ⏸ Paused"):
+
+- **Unpause BH / Pause BH** stops or restarts the cycle. While the hole is paused it never bursts.
+- **Auto-pause** switches between **Do not pause** and **Before activation**. "Before activation" pauses the hole 5 seconds before each burst, so you can save the burst for when you are watching. The hole then waits at "Activation in 5.00 seconds" until you tap Unpause BH.
+
+To let the hole run by itself, set Auto-pause to **Do not pause** and tap **Unpause BH**. During a burst the status line reads "Game speed is altered" with the multiplier.
+
+<!-- Emulator (Android 3.18.0, community early-reality save): Auto-pause cycles Before activation / Do not pause; after Unpause BH the hole went Active at ×180. black-hole.js:562-577 (pause 5 s before activation) -->
 
 ## The three upgrades
 
 | Upgrade | Starts | Each level | Cost scaling |
 | ------- | ------ | ---------- | ------------ |
-| Interval | 60 min off (3600 s) | ×0.8 downtime | ×3.5, from 15 RM |
-| Power | ×5 speed | ×1.35 burst speed | ×2, from 20 RM |
-| Duration | 10 s on | ×1.3 burst length | ×4, from 10 RM |
+| Interval ("Reduce Black Hole's inactive time by 20%") | 1.00h | ×0.8 inactive time | ×3.5, from 15 RM |
+| Power ("Make Black Hole 35% stronger") | ×180 game speed | ×1.35 | ×2, from 20 RM |
+| Duration ("Extend Black Hole's duration by 30%") | 10.00s | ×1.3 | ×4, from 10 RM |
 
-<!-- vendor/ad-source/src/core/black-hole.js: interval 3600s ×0.8 (cost 15 ×3.5), power ×5 ×1.35 (cost 20 ×2), duration 10s ×1.3 (cost 10 ×4); H2P confirms the 0.2/0.35/0.3 per-upgrade text. (The in-game effect readout divides power by 2 for display; the applied game-speed multiplier is the full ×5 base.) -->
+<!-- vendor/ad-source/src/core/black-hole.js:66-102: interval 3600 s ×0.8 (cost 15 ×3.5), power 180 ×1.35 (cost 20 ×2), duration 10 s ×1.3 (cost 10 ×4); costs switch to a steeper scaling later (getHybridCostScaling). Starting values read in the emulator. -->
 
-Buy **power first, then duration, then interval**: a stronger burst helps every cycle, a longer burst stretches it, and a shorter interval only matters once bursts are worth having often. Power's gentle ×2 cost scaling means it stays affordable the longest; duration's ×4 scaling bites fast, so alternate once power leads by a few levels. Keep the hole running during pushes — toggle it off only for timing-sensitive unlocks like fastest-Reality runs, where you want the clock slow, not fast.
+**Active time percent** under the state line is the share of time the hole is bursting: 0.277% at the start (10 s in every 3,610). Averaged over time, the hole speeds the game up by about 1 + 179 × 0.00277 ≈ ×1.5. From there one power level raises that average by about 12%, one duration level by about 10% and one interval level by about 8%.
 
-<Screen
-	src="early-reality/reality-blackhole-1.webp"
-	alt="Black Hole cycle status further down: the Inactive state with activation countdown, the 99.99% permanent-active note, and the upgrades list."
-	caption="Power first, then duration, then interval. The hole bursts inside its cycle — permanent activity is a long-term goal."
-/>
+So buy the **first duration level** (10 RM) right away, then mostly **power**: its price only doubles per level, while duration's quadruples and interval's grows ×3.5. Take a duration or interval level whenever it is the cheapest option. Keep the hole running during pushes. Pause it only for runs where you want less game time, such as the Reality in under 15 minutes of game time for Replicative Rapidity.
 
 ## The second Black Hole
 
