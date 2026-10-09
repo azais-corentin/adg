@@ -118,6 +118,7 @@ export interface NormalizedSave {
 	laitelaDarkMatter: BigNum;
 	/** Destabilizations of Lai'tela's Reality (0..8). */
 	laitelaDifficultyTier: number;
+	laitelaSingularities: number;
 	pelleRemnants: number;
 	/** Reality Shards, the Doomed currency Remnants generate (`celestials.pelle.realityShards`). */
 	pelleRealityShards: BigNum;

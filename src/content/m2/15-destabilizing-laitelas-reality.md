@@ -58,11 +58,11 @@ Rough order for the back half of the stage:
 2. Farm iM through bigger RM pushes; buy upgrades 17–19 for the remaining Dimensions and Annihilation.
 3. Push Singularity milestones toward automation; keep destabilizing as your multipliers allow.
 4. Fully destabilize all 8 tiers, finish the remaining milestones, and buy upgrades 20–24.
-5. For **upgrade 25**: with all tiers disabled, enter Lai'tela's Reality wearing at most one non-companion glyph, meet the Reality study's normal conditions inside, and press Reality. That purchases Pelle. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:307-323 -->
+5. For **upgrade 25** ("Reach Reality in Lai'tela's Reality with all Dimensions disabled and at least 4 empty Glyph slots"): with all 8 tiers disabled, enter Lai'tela's Reality with at most one Glyph equipped (a Companion Glyph counts as an empty slot, so it may stay), meet the Reality study's normal conditions inside, and press Reality. The upgrade then becomes buyable for <Num value="1.6e15" /> iM, and buying it unlocks Pelle. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:307-323 (Glyphs.activeWithoutCompanion.length <= 1); card text: emulator 3.18.0, static/screens/laitela/reality-imaginary-5.webp -->
 
 <Callout kind="warning">
 
-Do not buy upgrade 25 the moment you can afford it if your Singularity milestones are half-done: Dooming (the next stage) resets nearly everything, and Lai'tela farming never comes back. Finish the milestones first.
+Buying upgrade 25 only opens the Pelle tab; nothing resets until you tap **Doom Your Reality** there. Do not Doom while your Singularity milestones are half-done: Dooming (the next stage) resets nearly everything, and Lai'tela farming never comes back. Finish the milestones first. <!-- vendor/ad-source/src/components/tabs/celestial-pelle/PelleTab.vue:55-87 -->
 
 </Callout>
 

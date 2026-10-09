@@ -202,7 +202,16 @@ const vReward = (key: string, needed: number, text: string): ChecklistItem => {
 };
 
 const laitelaUpgrade = imaginaryUpgrade(15);
+const annihilationUpgrade = imaginaryUpgrade(19);
 const pelleUpgrade = imaginaryUpgrade(25);
+/** `celestials/laitela/laitela.js` `annihilationDMRequirement`. */
+const ANNIHILATION_DARK_MATTER = 1e60;
+/**
+ * `secret-formula/celestials/singularity-milestones.js`: the highest `start`
+ * (`tesseractMultFromSingularities`); a milestone first completes at its `start`. Android 3.18.0's
+ * milestone list sorted by "Singularities needed" ends with the same: "In 2.50e45 Singularities".
+ */
+const LAST_MILESTONE_SINGULARITIES = '2.5e45';
 /** Rebuyable Reality Upgrades have no fixed `cost`. */
 const ONE_TIME_REALITY_UPGRADES = realityUpgrades.upgrades.filter((u) => u.cost !== null).length;
 
@@ -710,27 +719,46 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'laitela-annihilate',
 		stage: 'laitela',
 		text: 'Annihilate your Dark Matter Dimensions',
-		auto: (s) => has(s, 176)
+		detail: `Unlocked by “${annihilationUpgrade.name}” (${fmt(annihilationUpgrade.cost ?? 0)} iM); needs ${fmt(ANNIHILATION_DARK_MATTER)} Dark Matter.`,
+		auto: (s) => has(s, 176),
+		progress: (s) => {
+			const darkMatter = `have ${have(s.laitelaDarkMatter)} / ${fmt(ANNIHILATION_DARK_MATTER)} Dark Matter`;
+			return s.imaginaryUpgrades.includes(19)
+				? darkMatter
+				: `buy “${annihilationUpgrade.name}” first; ${darkMatter}`;
+		}
 	},
 	{
 		id: 'laitela-milestones',
 		stage: 'laitela',
 		text: 'Complete every Singularity milestone once',
-		auto: (s) => has(s, 177)
+		detail: `Achievement “${achievementName(177)}”. The last one, “Singularities increase effective Tesseract count”, first completes at ${fmt(LAST_MILESTONE_SINGULARITIES)} Singularities.`,
+		auto: (s) => has(s, 177),
+		progress: (s) =>
+			`have ${have(fromNumber(s.laitelaSingularities))} / ${fmt(LAST_MILESTONE_SINGULARITIES)} Singularities`
 	},
 	{
 		id: 'laitela-destabilize',
 		stage: 'laitela',
 		text: "Fully destabilize Lai'tela's Reality",
 		detail: 'Each destabilization disables one more Dimension tier inside it.',
-		auto: (s) => s.laitelaDifficultyTier >= 8
+		auto: (s) => s.laitelaDifficultyTier >= 8,
+		// The run panel's "Highest active dimension" is 8 minus the destabilizations.
+		progress: (s) =>
+			`${s.laitelaDifficultyTier}/8 destabilized; Highest active dimension: ${8 - s.laitelaDifficultyTier}`
 	},
 	{
 		id: 'laitela-doom',
 		stage: 'laitela',
 		text: `Buy “${pelleUpgrade.name}” (${fmt(pelleUpgrade.cost ?? 0)} iM) and Doom your Reality`,
-		detail: pelleUpgrade.requirement ?? undefined,
-		auto: (s) => s.pelleDoomed || has(s, 181)
+		detail: `Requirement: “${pelleUpgrade.requirement}”. The game counts a Companion Glyph as an empty slot, so that means at most one other Glyph equipped.`,
+		auto: (s) => s.pelleDoomed || has(s, 181),
+		progress: (s) =>
+			s.imaginaryUpgrades.includes(25)
+				? 'tap “Doom Your Reality” on the Pelle tab'
+				: s.laitelaDifficultyTier < 8
+					? "fully destabilize Lai'tela's Reality first"
+					: undefined
 	},
 
 	// Pelle. secret-formula/celestials/strikes.js; achievements 182–188.

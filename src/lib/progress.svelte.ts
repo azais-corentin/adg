@@ -108,6 +108,7 @@ const isNormalizedSave = shape<NormalizedSave>({
 	}),
 	laitelaDarkMatter: isBigNum,
 	laitelaDifficultyTier: isNumber,
+	laitelaSingularities: isNumber,
 	pelleRemnants: isNumber,
 	pelleRealityShards: isBigNum,
 	pelleStrikes: isNumbers,

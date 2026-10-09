@@ -181,6 +181,7 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 		},
 		laitelaDarkMatter: big(p, ['celestials', 'laitela', 'darkMatter']),
 		laitelaDifficultyTier: num(p, ['celestials', 'laitela', 'difficultyTier'], 0),
+		laitelaSingularities: num(p, ['celestials', 'laitela', 'singularities'], 0),
 		pelleRemnants: num(p, ['celestials', 'pelle', 'remnants'], 0),
 		pelleRealityShards: big(p, ['celestials', 'pelle', 'realityShards']),
 		pelleStrikes: bitIds(num(p, ['celestials', 'pelle', 'progressBits'], 0), range(1, 5)),
