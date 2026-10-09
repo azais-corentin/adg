@@ -151,4 +151,14 @@ describe('status', () => {
 		});
 		expect(stageProgress('early-infinity', null, {})).toEqual({ done: 0, total });
 	});
+
+	it('a save past a stage completes every item of it, even ones a Reality reset', async () => {
+		const save = await importSave(readFixture('community/effarig.txt'));
+		expect(itemStatus(manualOnly, save, {})).toBe('implied');
+		for (const stage of STAGE_IDS.slice(0, STAGE_IDS.indexOf('effarig'))) {
+			const { done, total } = stageProgress(stage, save, {});
+			expect(done, stage).toBe(total);
+		}
+		expect(stageProgress('effarig', save, {}).done).toBeLessThan(stageItems('effarig').length);
+	});
 });

@@ -7,7 +7,8 @@
  * `auto` reads an imported save. A predicate may also return true once the save is past a
  * layer the item is required for (see `reached*`), because later resets clear the direct
  * evidence: Eternity resets Infinity Challenges, Reality resets Eternity Challenges and
- * re-locks achievements.
+ * re-locks achievements. Items of a stage the save is already past count as done anyway
+ * (`status.ts`, "past this stage"); `auto` matters for the save's own stage and Next goals.
  */
 import {
 	achievements,

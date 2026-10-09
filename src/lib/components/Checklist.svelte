@@ -2,8 +2,9 @@
 @component
 One stage's milestone checklist, e.g. `<Checklist stage="early-infinity" />` in an article.
 Ticks are shared with the /checklists page through the progress store. Items the imported
-save shows as done are ticked "from your save" and cannot be unticked; every other item can
-be ticked by hand. `header={false}` drops the title row (/checklists shows its own).
+save shows as done are ticked "from your save", items of a stage the save is past are ticked
+"past this stage"; neither can be unticked. Every other item can be ticked by hand.
+`header={false}` drops the title row (/checklists shows its own).
 -->
 <script lang="ts">
 	import { resolve } from '$app/paths';
@@ -42,9 +43,9 @@ be ticked by hand. `header={false}` drops the title row (/checklists shows its o
 					<input
 						type="checkbox"
 						checked={status !== 'open'}
-						aria-disabled={status === 'auto'}
+						aria-disabled={status === 'auto' || status === 'implied'}
 						onclick={(event) => {
-							if (status === 'auto') event.preventDefault();
+							if (status === 'auto' || status === 'implied') event.preventDefault();
 						}}
 						onchange={() => progress.toggleCheck(item.id)}
 						aria-describedby={item.detail ? `${uid}-${item.id}-detail` : undefined}
@@ -52,6 +53,7 @@ be ticked by hand. `header={false}` drops the title row (/checklists shows its o
 					<span class="text">
 						{item.text}
 						{#if status === 'auto'}<span class="badge">from your save</span>{/if}
+						{#if status === 'implied'}<span class="badge">past this stage</span>{/if}
 					</span>
 					{#if item.detail}
 						<span class="detail" id="{uid}-{item.id}-detail">{item.detail}</span>

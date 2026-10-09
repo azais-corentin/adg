@@ -40,7 +40,8 @@
 	</p>
 	<p class="muted">
 		{#if hasSave}
-			Items marked “from your save” are done in the save you imported, so they stay ticked.
+			Items marked “from your save” are done in the save you imported, and items marked “past this
+			stage” belong to a stage your save has moved beyond, so both stay ticked.
 			<a href={resolve('/import')}>Import a newer save</a> to update them.
 		{:else}
 			<a href={resolve('/import')}>Import a save</a> to tick what you have already done, or tick items
