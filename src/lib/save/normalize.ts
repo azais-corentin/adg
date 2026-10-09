@@ -128,6 +128,9 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 		realityMachines: big(p, ['reality', 'realityMachines']),
 		galaxies: num(p, ['galaxies'], 0),
 		dimensionBoosts: num(p, ['dimensionBoosts'], 0),
+		infinityDimensions: range(0, 7).filter((i) =>
+			bool(p, ['dimensions', 'infinity', i, 'isUnlocked'])
+		).length,
 
 		replicanti: {
 			unlocked: bool(p, ['replicanti', 'unl']),

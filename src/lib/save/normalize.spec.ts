@@ -75,6 +75,7 @@ describe('paired fixtures (one game state exported both ways ~80 s apart)', () =
 		expect(web).toMatchObject({
 			galaxies: 120,
 			dimensionBoosts: 451,
+			infinityDimensions: 8,
 			replicanti: { unlocked: true, galaxies: 4 },
 			breakInfinity: true,
 			crunchAutobuyerInterval: 100,

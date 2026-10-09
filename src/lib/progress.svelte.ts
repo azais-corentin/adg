@@ -68,6 +68,7 @@ const isNormalizedSave = shape<NormalizedSave>({
 	realityMachines: isBigNum,
 	galaxies: isNumber,
 	dimensionBoosts: isNumber,
+	infinityDimensions: isNumber,
 	replicanti: shape<NormalizedSave['replicanti']>({ unlocked: isBoolean, galaxies: isNumber }),
 	breakInfinity: isBoolean,
 	crunchAutobuyerInterval: isNumber,

@@ -17,16 +17,21 @@ import {
 	realityUpgrades,
 	timeStudies
 } from '#lib/data/index.ts';
+import { DILATION_TOTAL_TT } from '#lib/tools/eternity-challenges/challenges.ts';
 import {
+	add,
 	BIG_ZERO,
 	bigNum,
 	formatBigNum,
+	formatCount,
+	formatGameNumber,
+	fromNumber,
 	gt,
 	gte,
 	parseBigNum,
 	toNumber
 } from '#lib/save/bignum.ts';
-import type { NormalizedSave } from '#lib/save/types.ts';
+import type { BigNum, NormalizedSave } from '#lib/save/types.ts';
 import type { StageId } from '#lib/stages.ts';
 
 export interface ChecklistItem {
@@ -37,6 +42,8 @@ export interface ChecklistItem {
 	detail?: string;
 	/** True when an imported save shows the item is done. */
 	auto?: (save: NormalizedSave) => boolean;
+	/** Live progress read from a save, shown after the text in Next goals while the item is open. */
+	progress?: (save: NormalizedSave) => string | undefined;
 }
 
 /**
@@ -82,6 +89,35 @@ const eighthDimensionUnlocked = (s: NormalizedSave) =>
 /** `Decimal.NUMBER_MAX_VALUE` as the game prints it (Scientific, 2 places). */
 const INFINITY = '1.80e308';
 
+/** A player value the way the game prints it (2 places). */
+const have = (value: BigNum) => formatBigNum(value, 2);
+const count = (value: number) => value.toLocaleString('en-US');
+
+/**
+ * Infinity Challenge unlock exponents, IC1..IC8, as Android 3.18.0 shows them ("Next Infinity
+ * Challenge unlocks at …"). Upstream `secret-formula/challenges/infinity-challenges.js` `unlockAM`
+ * at the pin has IC2 at 1e11000; the app unlocks it at 1e10500. The rest match.
+ */
+const IC_UNLOCK_AM_EXPONENT = [2000, 10500, 12000, 14000, 18000, 22500, 23000, 28000];
+
+/**
+ * Infinity Dimension unlock exponents, ID1..ID8 (`dimensions/infinity-dimension.js`
+ * `UNLOCK_REQUIREMENTS`). Android 3.18.0 shows the same: "Reach 1e10,500 / 1e45,000 / 1e60,000
+ * antimatter to unlock a new Infinity Dimension" before the 4th, 6th and 8th.
+ */
+const ID_UNLOCK_AM_EXPONENT = [1100, 1900, 2400, 10500, 30000, 45000, 54000, 60000];
+
+/** Unlocked count and the next Infinity Dimension's threshold, like the game's top-left box. */
+const idProgress = (s: NormalizedSave) => {
+	const exponent = ID_UNLOCK_AM_EXPONENT[s.infinityDimensions];
+	if (exponent === undefined) return undefined;
+	return `${s.infinityDimensions}/8 unlocked; next at ${fmt(`1e${exponent}`)} antimatter, you have ${have(s.antimatter)}`;
+};
+
+/** `autobuyers/autobuyer.js`: interval starts at 150000 ms, ×0.6 per upgrade, floor 100 ms; cost 1 IP, ×2. */
+const CRUNCH_BASE_INTERVAL = 150000;
+const CRUNCH_UPGRADES_TO_MAX = Math.ceil(Math.log(CRUNCH_BASE_INTERVAL / 100) / Math.log(1 / 0.6));
+
 const ic = (id: number) =>
 	find(challenges.infinity, (c) => c.id === id, `Infinity Challenge ${id}`);
 const ec1Unlock = find(challenges.eternity, (c) => c.id === 1, 'EC1').unlock;
@@ -115,7 +151,8 @@ const teresaItem = (key: string, text: string, detail?: string): ChecklistItem =
 		text: `${text} (pour ${fmt(unlock.price)} RM)`,
 		detail,
 		auto: (s) =>
-			bit(s.celestials.teresa.unlockBits, unlock.id) || s.teresaPouredAmount >= unlock.price
+			bit(s.celestials.teresa.unlockBits, unlock.id) || s.teresaPouredAmount >= unlock.price,
+		progress: (s) => `poured ${have(bigNum(s.teresaPouredAmount, 0))}`
 	};
 };
 
@@ -144,15 +181,16 @@ const raItem = (key: string, text: string): ChecklistItem => {
 const vRequirements = celestials.v.mainUnlock
 	.map((r) => `${fmt(r.requirement)} ${r.name}`)
 	.join(', ');
-const vReward = (key: string, count: number, text: string): ChecklistItem => {
+const vReward = (key: string, needed: number, text: string): ChecklistItem => {
 	const unlock = vUnlock(key);
 	return {
-		id: `v-${count}`,
+		id: `v-${needed}`,
 		stage: 'v',
-		text: `Earn ${count} V-Achievements: ${text}`,
+		text: `Earn ${needed} V-Achievements: ${text}`,
 		auto: (s) =>
-			s.vRunUnlocks.reduce((sum, n) => sum + n, 0) >= count ||
-			bit(s.celestials.v.unlockBits, unlock.id)
+			s.vRunUnlocks.reduce((sum, n) => sum + n, 0) >= needed ||
+			bit(s.celestials.v.unlockBits, unlock.id),
+		progress: (s) => `have ${s.vRunUnlocks.reduce((sum, n) => sum + n, 0)}`
 	};
 };
 
@@ -177,7 +215,8 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		stage: 'pre-infinity',
 		text: 'Unlock the 8th Antimatter Dimension',
 		detail: 'Each of your first four Dimension Boosts unlocks one more Dimension.',
-		auto: eighthDimensionUnlocked
+		auto: eighthDimensionUnlocked,
+		progress: (s) => `${Math.min(s.dimensionBoosts, 4)}/4 Dimension Boosts`
 	},
 	{
 		// sacrifice.js: visible with achievement 18, usable after more than 4 Dimension Boosts.
@@ -188,8 +227,7 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		text: 'Use Dimensional Sacrifice',
 		detail:
 			'It works from your 5th Dimension Boost on: it resets your 1st–7th Dimensions and multiplies the 8th.',
-		auto: (s) =>
-			has(s, 32) || s.normalChallenges.includes(8) || has(s, 48) || reachedEternity(s)
+		auto: (s) => has(s, 32) || s.normalChallenges.includes(8) || has(s, 48) || reachedEternity(s)
 	},
 	{
 		id: 'pre-inf-first-galaxy',
@@ -203,7 +241,8 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		stage: 'pre-infinity',
 		text: `Reach ${INFINITY} antimatter and Big Crunch`,
 		detail: 'Your first Infinity gives 1 Infinity Point and opens the Infinity tab.',
-		auto: reachedInfinity
+		auto: reachedInfinity,
+		progress: (s) => `you have ${have(s.antimatter)}`
 	},
 
 	// Infinity. normal-challenges.js: NC10–12 unlock at 16 Infinities; big-crunch-autobuyer.js:
@@ -223,28 +262,41 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		auto: (s) =>
 			[1, 2, 3, 4, 5, 6, 7, 8, 9].every((id) => s.normalChallenges.includes(id)) ||
 			has(s, 48) ||
-			reachedEternity(s)
+			reachedEternity(s),
+		progress: (s) => `${s.normalChallenges.filter((id) => id <= 9).length}/9`
 	},
 	{
 		id: 'inf-16-infinities',
 		stage: 'early-infinity',
 		text: 'Reach 16 Infinities',
 		detail: 'This unlocks Normal Challenges 10–12.',
-		auto: (s) => gte(s.infinities, 16) || has(s, 48) || s.breakInfinity || reachedEternity(s)
+		auto: (s) => gte(s.infinities, 16) || has(s, 48) || s.breakInfinity || reachedEternity(s),
+		progress: (s) => `have ${formatCount(s.infinities)}`
 	},
 	{
 		id: 'inf-all-nc',
 		stage: 'early-infinity',
 		text: 'Complete all 12 Normal Challenges',
 		detail: 'Normal Challenge 12 unlocks the Big Crunch autobuyer.',
-		auto: (s) => s.normalChallenges.length === 12 || has(s, 48) || reachedReality(s)
+		auto: (s) => s.normalChallenges.length === 12 || has(s, 48) || reachedReality(s),
+		progress: (s) => `${s.normalChallenges.length}/12`
 	},
 	{
 		id: 'inf-crunch-autobuyer',
 		stage: 'early-infinity',
 		text: 'Max the Big Crunch autobuyer interval (100 ms)',
 		detail: 'Upgrade its interval with Infinity Points in the Autobuyers tab.',
-		auto: (s) => s.crunchAutobuyerInterval <= 100 || s.breakInfinity || reachedEternity(s)
+		auto: (s) => s.crunchAutobuyerInterval <= 100 || s.breakInfinity || reachedEternity(s),
+		progress: (s) => {
+			const interval = s.crunchAutobuyerInterval;
+			const bought = Math.min(
+				CRUNCH_UPGRADES_TO_MAX,
+				Math.max(0, Math.round(Math.log(CRUNCH_BASE_INTERVAL / interval) / Math.log(1 / 0.6)))
+			);
+			// Upgrade k costs 2^k IP, so the remaining ones cost 2^max − 2^bought.
+			const cost = 2 ** CRUNCH_UPGRADES_TO_MAX - 2 ** bought;
+			return `now ${count(interval)} ms; ${CRUNCH_UPGRADES_TO_MAX - bought} upgrades for ${count(cost)} IP`;
+		}
 	},
 	{
 		id: 'inf-break',
@@ -254,34 +306,38 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		auto: (s) => s.breakInfinity || has(s, 51) || reachedEternity(s)
 	},
 
-	// Broken Infinity. infinity-dimension.js: the 1st Infinity Dimension needs 1e1100 antimatter.
-	// replicanti.js: `Replicanti.unlock` costs 1e140 IP.
+	// Broken Infinity. replicanti.js: `Replicanti.unlock` costs 1e140 IP.
 	{
 		id: 'break-first-id',
 		stage: 'break-infinity',
 		text: 'Unlock the 1st Infinity Dimension',
-		detail: 'It needs 1e1100 antimatter.',
-		auto: (s) => has(s, 63) || reachedEternity(s)
+		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[0]}`)} antimatter.`,
+		auto: (s) => has(s, 63) || reachedEternity(s),
+		progress: (s) => `you have ${have(s.antimatter)}`
 	},
 	{
 		id: 'break-ic1',
 		stage: 'break-infinity',
 		text: 'Complete Infinity Challenge 1',
 		detail: `It unlocks at ${fmt(ic(1).unlockAntimatter)} antimatter; its goal is ${fmt(ic(1).goal)}.`,
-		auto: (s) => s.infinityChallenges.includes(1) || has(s, 67) || reachedReality(s)
+		auto: (s) => s.infinityChallenges.includes(1) || has(s, 67) || reachedReality(s),
+		progress: (s) => `you have ${have(s.antimatter)}`
 	},
 	{
 		id: 'break-id4',
 		stage: 'break-infinity',
 		text: 'Unlock the 4th Infinity Dimension',
-		auto: (s) => has(s, 75) || reachedEternity(s)
+		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[3]}`)} antimatter. Each new Infinity Dimension needs more; the top-left box of the Infinity Dimensions subtab names the next threshold.`,
+		auto: (s) => has(s, 75) || reachedEternity(s),
+		progress: idProgress
 	},
 	{
 		id: 'break-replicanti',
 		stage: 'break-infinity',
 		text: 'Unlock Replicanti for 1e140 Infinity Points',
 		detail: 'Replicanti is a subtab of the Infinity tab.',
-		auto: (s) => s.replicanti.unlocked || reachedEternity(s)
+		auto: (s) => s.replicanti.unlocked || reachedEternity(s),
+		progress: (s) => `have ${have(s.infinityPoints)}`
 	},
 
 	// Replicanti.
@@ -289,28 +345,37 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'rep-galaxy',
 		stage: 'replicanti',
 		text: 'Get your first Replicanti Galaxy',
-		detail: `Buy a Max Replicanti Galaxies upgrade, then let Replicanti reach ${INFINITY} without a Big Crunch: until the achievement "Is this safe?", a crunch sets them back to 1.`,
-		auto: (s) => s.replicanti.galaxies > 0 || reachedEternity(s)
+		detail: `Buy a Max Replicanti Galaxies upgrade and let Replicanti reach ${INFINITY} without a Big Crunch (until the achievement "Is this safe?", a crunch sets them back to 1). They stop there: tap "Reset Replicanti amount for a Replicanti Galaxy" or R.Galaxy to take the galaxy.`,
+		auto: (s) => s.replicanti.galaxies > 0 || reachedEternity(s),
+		progress: () => `at ${INFINITY} Replicanti, tap R.Galaxy`
 	},
 	{
 		id: 'rep-all-ic',
 		stage: 'replicanti',
 		text: 'Complete all 8 Infinity Challenges',
 		detail: `IC8 unlocks at ${fmt(ic(8).unlockAntimatter)} antimatter.`,
-		auto: (s) => s.infinityChallenges.length === 8 || has(s, 82) || reachedReality(s)
+		auto: (s) => s.infinityChallenges.length === 8 || has(s, 82) || reachedReality(s),
+		progress: (s) => {
+			const next = [1, 2, 3, 4, 5, 6, 7, 8].find((id) => !s.infinityChallenges.includes(id));
+			if (next === undefined) return undefined;
+			return `${s.infinityChallenges.length}/8; Infinity Challenge ${next} unlocks at ${fmt(`1e${IC_UNLOCK_AM_EXPONENT[next - 1]}`)} antimatter`;
+		}
 	},
 	{
 		id: 'rep-id8',
 		stage: 'replicanti',
 		text: 'Unlock the 8th Infinity Dimension',
-		auto: (s) => has(s, 98) || reachedReality(s)
+		detail: `It needs ${fmt(`1e${ID_UNLOCK_AM_EXPONENT[7]}`)} antimatter.`,
+		auto: (s) => has(s, 98) || reachedReality(s),
+		progress: idProgress
 	},
 	{
 		id: 'rep-eternity',
 		stage: 'replicanti',
 		text: `Reach ${INFINITY} Infinity Points and Eternity`,
 		detail: 'Your first Eternity resets everything from Infinity down and gives Eternity Points.',
-		auto: reachedEternity
+		auto: reachedEternity,
+		progress: (s) => `have ${have(s.infinityPoints)}`
 	},
 
 	// Eternity. secret-formula/eternity/eternity-milestones.js: the Eternity autobuyer at 100
@@ -327,21 +392,27 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		stage: 'early-eternity',
 		text: 'Reach 100 Eternities',
 		detail: 'This milestone unlocks the Eternity autobuyer.',
-		auto: (s) => toNumber(s.eternities) >= 100 || has(s, 102) || reachedDilation(s)
+		auto: (s) => toNumber(s.eternities) >= 100 || has(s, 102) || reachedDilation(s),
+		progress: (s) => `have ${formatCount(s.eternities)}`
 	},
 	{
 		id: 'et-all-milestones',
 		stage: 'early-eternity',
 		text: 'Reach 1,000 Eternities for every Eternity milestone',
 		detail: `Achievement “${achievementName(102)}”.`,
-		auto: (s) => toNumber(s.eternities) >= 1000 || has(s, 102) || reachedReality(s)
+		auto: (s) => toNumber(s.eternities) >= 1000 || has(s, 102) || reachedReality(s),
+		progress: (s) => `have ${formatCount(s.eternities)}`
 	},
 	{
 		id: 'et-ec1',
 		stage: 'early-eternity',
 		text: 'Complete Eternity Challenge 1',
 		detail: `Its study needs Time Study ${ec1Unlock.requires.join(' or ')}, ${fmt(ec1Eternities ?? 0)} Eternities and ${ec1Unlock.cost} Time Theorems.`,
-		auto: (s) => ec(s, 1) >= 1 || reachedReality(s)
+		auto: (s) => ec(s, 1) >= 1 || reachedReality(s),
+		progress: (s) => {
+			const study = ec1Unlock.requires.some((id) => s.timeStudies.includes(id));
+			return `${study ? 'Time Study owned' : `buy Time Study ${ec1Unlock.requires.join(' or ')}`}; have ${formatCount(s.eternities)} of ${fmt(ec1Eternities ?? 0)} Eternities`;
+		}
 	},
 
 	// Eternity Challenges. dilation-time-studies.js: Dilation needs EC11 and EC12 at 5
@@ -350,7 +421,8 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'ec-1-10-once',
 		stage: 'eternity-challenges',
 		text: 'Complete EC1–EC10 at least once each',
-		auto: (s) => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].every((id) => ec(s, id) >= 1) || reachedReality(s)
+		auto: (s) => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].every((id) => ec(s, id) >= 1) || reachedReality(s),
+		progress: (s) => `${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter((id) => ec(s, id) >= 1).length}/10`
 	},
 	{
 		id: 'ec-50-tiers',
@@ -358,20 +430,23 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		text: 'Reach 50 Eternity Challenge completions in total',
 		detail: `Achievement “${achievementName(123)}”.`,
 		auto: (s) =>
-			s.eternityChallenges.reduce((sum, n) => sum + n, 0) >= 50 || has(s, 123) || reachedReality(s)
+			s.eternityChallenges.reduce((sum, n) => sum + n, 0) >= 50 || has(s, 123) || reachedReality(s),
+		progress: (s) => `${s.eternityChallenges.reduce((sum, n) => sum + n, 0)}/50`
 	},
 	{
 		id: 'ec-11-12',
 		stage: 'eternity-challenges',
 		text: 'Complete EC11 and EC12 five times each',
-		auto: (s) => (ec(s, 11) >= 5 && ec(s, 12) >= 5) || reachedDilation(s)
+		auto: (s) => (ec(s, 11) >= 5 && ec(s, 12) >= 5) || reachedDilation(s),
+		progress: (s) => `EC11 ${ec(s, 11)}/5, EC12 ${ec(s, 12)}/5`
 	},
 	{
 		id: 'ec-unlock-dilation',
 		stage: 'eternity-challenges',
 		text: 'Unlock Time Dilation',
-		detail: `Own a row-23 Time Study (231–234) and buy the Dilation study for ${fmt(dilationStudy('dilation').cost)} Time Theorems.`,
-		auto: reachedDilation
+		detail: `Own a row-23 Time Study (231–234), reach ${count(DILATION_TOTAL_TT)} Time Theorems in total, and buy the Dilation study for ${fmt(dilationStudy('dilation').cost)} Time Theorems.`,
+		auto: reachedDilation,
+		progress: (s) => `${count(s.totalTimeTheorems)}/${count(DILATION_TOTAL_TT)} total Time Theorems`
 	},
 
 	// Time Dilation. progress-checker.js: Late Eternity starts above 1e15 Dilated Time.
@@ -397,7 +472,8 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'dil-dt-1e15',
 		stage: 'early-dilation',
 		text: 'Reach 1e15 Dilated Time',
-		auto: (s) => gt(s.dilation.dilatedTime, bigNum(1, 15)) || reachedReality(s)
+		auto: (s) => gt(s.dilation.dilatedTime, bigNum(1, 15)) || reachedReality(s),
+		progress: (s) => `have ${have(s.dilation.dilatedTime)}`
 	},
 
 	// Late Eternity. dilation-time-studies.js: the TD5–8 studies, and the Reality study needs
@@ -407,27 +483,31 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		stage: 'late-eternity',
 		text: 'Unlock Time Dimensions 5–8',
 		detail: `The four studies cost ${['td5', 'td6', 'td7', 'td8'].map((key) => fmt(dilationStudy(key).cost)).join(', ')} Time Theorems.`,
-		auto: (s) => [2, 3, 4, 5].every((id) => s.dilation.studies.includes(id)) || reachedReality(s)
+		auto: (s) => [2, 3, 4, 5].every((id) => s.dilation.studies.includes(id)) || reachedReality(s),
+		progress: (s) => `${[2, 3, 4, 5].filter((id) => s.dilation.studies.includes(id)).length}/4`
 	},
 	{
 		id: 'late-all-ec',
 		stage: 'late-eternity',
 		text: 'Complete every Eternity Challenge five times',
 		// Achievement 163 needs every EC at five completions.
-		auto: (s) => s.eternityChallenges.every((n) => n >= 5) || has(s, 163)
+		auto: (s) => s.eternityChallenges.every((n) => n >= 5) || has(s, 163),
+		progress: (s) => `${s.eternityChallenges.filter((n) => n >= 5).length}/12`
 	},
 	{
 		id: 'late-ep-e4000',
 		stage: 'late-eternity',
 		text: 'Reach 1e4000 Eternity Points',
 		detail: 'The Reality study needs it.',
-		auto: (s) => gte(s.eternityPoints, bigNum(1, 4000)) || reachedReality(s)
+		auto: (s) => gte(s.eternityPoints, bigNum(1, 4000)) || reachedReality(s),
+		progress: (s) => `have ${have(s.eternityPoints)}`
 	},
 	{
 		id: 'late-achievements',
 		stage: 'late-eternity',
 		text: 'Unlock all 104 achievements in rows 1–13',
-		auto: (s) => s.achievements.filter((id) => id < 140).length === 104
+		auto: (s) => s.achievements.filter((id) => id < 140).length === 104,
+		progress: (s) => `${s.achievements.filter((id) => id < 140).length}/104`
 	},
 	{
 		id: 'late-first-reality',
@@ -462,7 +542,8 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		stage: 'early-reality',
 		text: `Buy all ${ONE_TIME_REALITY_UPGRADES} one-time Reality Upgrades`,
 		detail: 'This unlocks Teresa.',
-		auto: (s) => s.realityUpgrades.length >= ONE_TIME_REALITY_UPGRADES || has(s, 147)
+		auto: (s) => s.realityUpgrades.length >= ONE_TIME_REALITY_UPGRADES || has(s, 147),
+		progress: (s) => `${s.realityUpgrades.length}/${ONE_TIME_REALITY_UPGRADES}`
 	},
 
 	// Teresa. secret-formula/celestials/teresa.js unlock prices.
@@ -484,13 +565,15 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'effarig-glyph-filter',
 		stage: 'effarig',
 		text: `Buy Glyph Filtering (${fmt(effarigUnlock('glyphFilter').cost ?? 0)} Relic Shards)`,
-		auto: (s) => bit(s.celestials.effarig.unlockBits, effarigUnlock('glyphFilter').id)
+		auto: (s) => bit(s.celestials.effarig.unlockBits, effarigUnlock('glyphFilter').id),
+		progress: (s) => `have ${have(s.effarigRelicShards)}`
 	},
 	{
 		id: 'effarig-run',
 		stage: 'effarig',
 		text: `Unlock Effarig's Reality (${fmt(effarigUnlock('run').cost ?? 0)} Relic Shards)`,
-		auto: (s) => bit(s.celestials.effarig.unlockBits, effarigUnlock('run').id)
+		auto: (s) => bit(s.celestials.effarig.unlockBits, effarigUnlock('run').id),
+		progress: (s) => `have ${have(s.effarigRelicShards)}`
 	},
 	effarigLayer(
 		'infinity',
@@ -545,7 +628,26 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		stage: 'v',
 		text: 'Unlock V',
 		detail: `Have all of these at once: ${vRequirements}.`,
-		auto: (s) => bit(s.celestials.v.unlockBits, vUnlock('vAchievementUnlock').id)
+		auto: (s) => bit(s.celestials.v.unlockBits, vUnlock('vAchievementUnlock').id),
+		// The six values V's tab shows until V is unlocked.
+		progress: (s) => {
+			const values: Record<string, BigNum> = {
+				realities: fromNumber(s.realities),
+				eternities: s.eternities,
+				infinities: add(s.infinities, s.bankedInfinities),
+				dilatedTime: s.records.thisRealityMaxDilatedTime,
+				replicanti: s.records.thisRealityMaxReplicanti,
+				realityMachines: s.realityMachines
+			};
+			const requirements = celestials.v.mainUnlock.map((r) => {
+				const value = values[r.key];
+				if (!value) throw new Error(`No save value for V requirement ${r.key}`);
+				return r.key === 'realities'
+					? `${formatCount(value)} / ${formatCount(Number(r.requirement))} ${r.name}`
+					: `${have(value)} / ${formatGameNumber(r.requirement)} ${r.name}`;
+			});
+			return `all six at once: ${requirements.join(', ')}`;
+		}
 	},
 	vReward('adPow', 5, 'Antimatter Dimension power from Space Theorems'),
 	vReward('autoAutoClean', 16, 'automatic Glyph purge on Reality'),
@@ -562,7 +664,8 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'ra-imaginary-machines',
 		stage: 'ra',
 		text: 'Reach 1e1000 Reality Machines to unlock Imaginary Machines',
-		auto: (s) => s.imaginaryMachineCap > 0
+		auto: (s) => s.imaginaryMachineCap > 0,
+		progress: (s) => `have ${have(s.realityMachines)}`
 	},
 
 	// Imaginary Machines. secret-formula/reality/imaginary-upgrades.js.

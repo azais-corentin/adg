@@ -13,51 +13,59 @@ async function load(name: string): Promise<NormalizedSave> {
 
 const preBreak = await load('android-3.17.0-native-pre-break.txt');
 const eternity = await load('android-3.18.0-native-eternity-paired.txt');
+const replicanti = await load('android-web-export-break-infinity.txt');
 
 describe('nextGoals', () => {
-	it('pre-break: Normal Challenges, then the crunch autobuyer, then Break Infinity', () => {
-		const goals = nextGoals(preBreak);
-		expect(goals.map((g) => g.id)).toEqual([
-			'normal-challenges-1-9',
-			'infinities-16',
-			'nc12',
-			'crunch-interval',
-			'break-infinity'
-		]);
-		expect(goals.every((g) => !g.done)).toBe(true);
-		const crunch = goals.find((g) => g.id === 'crunch-interval');
-		// 150000 × 0.6^15 hits the 100 ms floor; upgrades cost 1, 2, 4, … IP.
-		expect(crunch?.text).toContain('now 150,000 ms');
-		expect(crunch?.text).toContain('15 upgrades for 32,767 IP');
-		expect(goals[0]?.text).toContain('(1/9)');
-	});
-
-	it('pre-Infinity goals match the stage checklist for the same save', async () => {
-		const twoGalaxies = await load('community/pre-infinity.txt');
-		const goals = nextGoals(twoGalaxies, 'pre-infinity');
+	it.each([
+		'android-3.17.0-native-pre-break.txt',
+		'community/pre-infinity.txt',
+		'community/teresa.txt'
+	])('%s: every checklist item a save can answer, in checklist order, done alike', async (name) => {
+		const save = await load(name);
+		const goals = nextGoals(save, 'pre-infinity').concat(nextGoals(save, 'teresa'));
+		const items = stageItems('pre-infinity').concat(stageItems('teresa'));
 		expect(goals.map((g) => [g.id, g.done])).toEqual(
-			stageItems('pre-infinity').map((item) => [item.id, item.auto?.(twoGalaxies) ?? false])
+			items.flatMap((item) => (item.auto ? [[item.id, item.auto(save)]] : []))
 		);
-		expect(goals.find((g) => g.id === 'pre-inf-8th-dimension')?.done).toBe(true);
-		expect(goals.at(-1)?.text).toBe('Reach 1.80e308 antimatter and Big Crunch (now 10)');
 	});
 
-	it('early Eternity: next milestone, TS171, then EC1', () => {
-		const goals = nextGoals(eternity);
-		expect(goals.map((g) => g.id)).toEqual(['eternity-milestone-14', 'ts171', 'ec1-unlock', 'ec1']);
-		expect(goals[0]?.text).toContain('have 13');
-		expect(goals.at(-1)?.text).toContain('1e1800 IP');
+	it('pre-break: Normal Challenges with counts and the crunch autobuyer upgrades left', () => {
+		const goals = nextGoals(preBreak);
+		expect(goals.every((g) => !g.done)).toBe(true);
+		expect(goals.find((g) => g.id === 'inf-nc-1-9')?.text).toBe(
+			'Complete Normal Challenges 1–9 (1/9)'
+		);
+		// 150000 × 0.6^15 hits the 100 ms floor; upgrades cost 1, 2, 4, … IP.
+		expect(goals.find((g) => g.id === 'inf-crunch-autobuyer')?.text).toBe(
+			'Max the Big Crunch autobuyer interval (100 ms; now 150,000 ms; 15 upgrades for 32,767 IP)'
+		);
 	});
 
-	it('replicanti: marks finished goals done', () => {
-		const goals = nextGoals(eternity, 'replicanti');
+	it('Replicanti stage: the next Infinity Dimension threshold, like the game shows it', () => {
+		const goals = nextGoals(replicanti, 'replicanti');
 		expect(goals.map((g) => [g.id, g.done])).toEqual([
-			['infinity-challenges', true],
-			['replicanti-galaxy', true],
-			['eternity', true]
+			['rep-galaxy', true],
+			['rep-all-ic', true],
+			['rep-id8', false],
+			['rep-eternity', false]
 		]);
-		expect(nextGoals(eternity, 'break-infinity').find((g) => g.id === 'replicanti')?.done).toBe(
-			true
+		expect(goals[2]?.text).toBe(
+			'Unlock the 8th Infinity Dimension (5/8 unlocked; next at 1e45,000 antimatter, you have 1.54e44,731)'
+		);
+	});
+
+	it('early Eternity: next milestone first, then EC1 with its study and Eternities', () => {
+		const goals = nextGoals(eternity);
+		expect(goals.map((g) => g.id)).toEqual([
+			'eternity-milestone-14',
+			'et-first-study',
+			'et-100-eternities',
+			'et-all-milestones',
+			'et-ec1'
+		]);
+		expect(goals[0]?.text).toContain('have 13');
+		expect(goals.at(-1)?.text).toBe(
+			'Complete Eternity Challenge 1 (buy Time Study 171; have 13 of 20,000 Eternities)'
 		);
 	});
 
@@ -71,20 +79,16 @@ describe('nextGoals', () => {
 		]);
 	});
 
-	it("Teresa: a completed Teresa's Reality is done", async () => {
+	it('Teresa: unlock prices with what is poured', async () => {
 		const goals = nextGoals(await load('community/teresa.txt'));
-		expect(goals.map((g) => [g.id, g.done])).toEqual([
-			['teresa-reality', true],
-			['effarig', false]
-		]);
+		expect(goals.find((g) => g.id === 'teresa-complete')?.done).toBe(true);
+		expect(goals.at(-1)?.text).toBe('Unlock Effarig (pour 1e24 RM; poured 1.06e14)');
 	});
 
 	it("V tab opened but V locked: unlock V first, with V's six requirements", async () => {
 		const goals = nextGoals(await load('community/nameless.txt'));
-		expect(goals.map((g) => [g.id, g.done])).toEqual([
-			['v-unlock', false],
-			['ra', false]
-		]);
+		expect(goals[0]?.id).toBe('v-unlock');
+		expect(goals[0]?.done).toBe(false);
 		expect(goals[0]?.text).toContain('14,006 / 10,000 Realities');
 		expect(goals[0]?.text).toContain('2.49e316,717 / 1.00e320,000 Replicanti');
 		expect(nextGoals(await load('community/v.txt'))[0]).toEqual({
@@ -94,16 +98,16 @@ describe('nextGoals', () => {
 		});
 	});
 
-	it('Doomed: next Strike, unfinished Rift milestones and the cheapest Pelle Upgrade', async () => {
+	it('Doomed: next Strike, unfinished Rift milestones and the cheapest Pelle Upgrade first', async () => {
 		const goals = nextGoals(await load('community/pelle.txt'));
-		expect(goals.map((g) => g.text)).toEqual([
+		expect(goals.slice(0, 4).map((g) => g.text)).toEqual([
 			'Strike 5: Dilate Time inside the Doomed Reality',
 			// Vacuum (79.46%) has every milestone; Chaos above 9% keeps Decay's on.
 			'Fill Chaos to 100% (46.15% now): You gain 1% of your EP gained on Eternity per second',
 			'Fill Recursion to 100% (32.46% now): Permanently unlock the Galaxy Generator',
-			'Buy the Pelle Upgrade “Replicanti Galaxies no longer reset anything they normally reset” (1e30 Reality Shards; have 3.21e32)',
-			'Reach the end of the game'
+			'Buy the Pelle Upgrade “Replicanti Galaxies no longer reset anything they normally reset” (1e30 Reality Shards; have 3.21e32)'
 		]);
+		expect(goals.at(-1)).toEqual({ id: 'pelle-end', text: 'Beat the game', done: false });
 	});
 
 	it.each(STAGE_IDS)('%s has goals with unique ids', (stage) => {

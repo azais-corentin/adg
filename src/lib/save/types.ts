@@ -57,6 +57,8 @@ export interface NormalizedSave {
 	realityMachines: BigNum;
 	galaxies: number;
 	dimensionBoosts: number;
+	/** Infinity Dimensions unlocked, 0..8 (`dimensions.infinity[i].isUnlocked`; tiers unlock in order). */
+	infinityDimensions: number;
 
 	replicanti: { unlocked: boolean; galaxies: number };
 	breakInfinity: boolean;

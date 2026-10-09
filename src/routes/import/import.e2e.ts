@@ -20,7 +20,7 @@ test('an uploaded web/steam export shows its stage and persists across reloads',
 	const stage = page.locator('.result .stage-name');
 	await expect(stage).toHaveText('Eternity');
 	await expect(page.getByRole('heading', { name: 'Next goals' })).toBeVisible();
-	await expect(page.getByText('Buy Time Study 171')).toBeVisible();
+	await expect(page.getByText('Complete Eternity Challenge 1 (buy Time Study 171')).toBeVisible();
 	await expect(page.getByText('This save came from Export to mobile')).toHaveCount(0);
 
 	await page.reload();
@@ -29,7 +29,9 @@ test('an uploaded web/steam export shows its stage and persists across reloads',
 	await page.goto('/');
 	await expect(page.locator('.stage-name')).toHaveText('Eternity');
 	await expect(page.getByText(/From your save \(imported just now\)/)).toBeVisible();
-	await expect(page.getByText('Buy Time Study 171')).toBeVisible();
+	await expect(
+		page.getByText('Reach 14 Eternities: unlocks the 4th Infinity Dimension autobuyer')
+	).toBeVisible();
 
 	await page.goto('/import');
 	await page.getByRole('button', { name: 'Forget this save' }).click();
