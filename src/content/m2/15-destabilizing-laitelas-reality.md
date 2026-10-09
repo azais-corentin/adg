@@ -16,27 +16,38 @@ verified:
 
 ## Entering the Reality
 
-The Lai'tela tab has a **Start Lai'tela's Reality** button. Inside, the normal Reality goal is replaced: your antimatter generates **Entropy**, and at 100% Entropy the Reality destabilizes on its own — do not press the Reality button, just let it fill. Finishing improves a Dark Matter Dimension multiplier shown on the run button; repeating with faster times improves it further. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1644-1692 vendor/ad-source/src/core/celestials/laitela/laitela.js:51-58 -->
+The Lai'tela tab has a **Start Lai'tela's Reality** button. Inside, the normal Reality goal is replaced: your antimatter generates **Entropy**, and at 100% Entropy the Reality destabilizes and ends on its own. Do not press the Reality button, just let it fill. The faster you get there, the bigger the reward. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1644-1692; vendor/ad-source/src/game.js:724-745 laitelaRealityTick: entropy += realDiff × entropyGainPerSecond, at 1 clearCelestialRuns() -->
 
 <Screen
 	src="laitela/celestials-laitela-4.webp"
 	alt="The Start Lai'tela's Reality panel: its restriction text, the fastest-completion and highest-dimension records, and the equipped glyph set."
-	caption="The Reality panel. The records underneath show how far the destabilization has gone."
+	caption="The Reality panel. The records above the Glyph set show your reward and how far the destabilization has gone."
 />
 
-Two things surprise first-timers:
+The panel lists the rules. On Android 3.18.0 it reads:
 
-- Teresa's automatic Dilation unlock does **not** apply inside Celestial Realities. You must Dilate by hand (or add an explicit Dilate step to your Automator script) or Entropy stalls for lack of Tachyon Particles.
-- Glyphs destabilize: while inside, your equipped glyphs count down and disable Dimension tiers. That is the mechanic, not a bug — see below.
+> Infinity Point and Eternity Point gain are Dilated. Game speed is reduced to 1 and gradually comes back over 10 minutes. Black Hole storing, discharging, pulsing, and inversion are all disabled. Production from 5th and higher Dimensions is disabled.
+>
+> Antimatter generates entropy inside of this Reality. At 100% entropy, the Reality becomes destabilized and you gain a reward based on how quickly you reached 100%. Destabilizing the Reality in less than 30 seconds makes it become significantly more difficult, in exchange for giving a much stronger reward.
+
+The "Production from … is disabled" line follows your destabilizations; it is missing until the first one. Above the rules, three readouts track your progress:
+
+- **"All Dark Matter multipliers are ×… higher."** The reward. It grows ×100 per destabilization and with the square of how fast your best completion was.
+- **"Fastest Completion"**, in real time. It resets to 05:00 after each destabilization.
+- **"Highest active dimension"**: 8 at first, one lower per destabilization.
+
+<!-- vendor/ad-source/src/core/celestials/celestials.js:73-110 (Lai'tela effects/description); laitela.js realityReward = 100^difficultyTier × (360 / fastestCompletion)^2; game.js:742-744 (difficultyTier++, fastestCompletion = 300). Emulator 3.18.0 (Lai'tela save, tier 4): "All Dark Matter multipliers are ×1.44e8 higher.", "Fastest Completion: 05:00", "Highest active dimension: 4", rules as quoted. -->
+
+Entropy fills at a speed set only by your antimatter, and the clock is real time. Since game speed starts at 1 and the Black Hole is off, a fast run needs antimatter production that is huge on its own. <!-- laitela.js entropyGainPerSecond = clamp((log10(AM + 1) / 1e11)^2, 0, 100) / 200 -->
 
 ## The 30-second destabilizations
 
-Finish the Reality in under 30 seconds and your highest still-enabled Dimension tier is **permanently disabled inside future attempts** — 8th, then 7th, and so on. Each tier disabled multiplies Dark Matter gain substantially, so fast runs make everything else faster. Disable all 8 tiers this way and you also gain a ×8 Dark Energy multiplier; the run button then reports the Reality fully destabilized and its reward maxed. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1644-1692 vendor/ad-source/src/core/celestials/laitela/laitela.js:28-33 -->
+Destabilize the Reality in under 30 seconds of real time and your highest still-enabled Dimension tier is **permanently disabled inside future attempts**: 8th, then 7th, and so on. Each tier disabled multiplies the Dark Matter reward by 100, so fast runs make everything else faster. Disable all 8 tiers this way and you also gain a ×8 Dark Energy multiplier; the run button then reports the Reality fully destabilized and its reward maxed. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1644-1692 vendor/ad-source/src/core/celestials/laitela/laitela.js:28-33 -->
 
 How to go fast:
 
 - Equip a Dilation-heavy set (four Dilation glyphs plus a Reality glyph is the standard) with high Dilation power and Tickspeed effects.
-- Dilate manually as soon as you can, keep Black Holes pulsing, and Reality the moment Entropy hits 100% — dawdling past 30 seconds still completes the run but disables nothing.
+- Push antimatter as hard as you can from the first second. Black Hole pulsing and stored time do not work inside, and a run past 30 seconds still completes but disables nothing.
 - The first two sub-30-second runs are easy and fund upgrade 16; later tiers need bigger Dark Matter multipliers and higher glyph levels, so interleave destabilizations with normal farming.
 
 ## The road to Pelle
