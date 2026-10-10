@@ -15,19 +15,19 @@ verified:
 
 ## How perks work
 
-Each Reality gives exactly **1 Perk Point**, and each perk costs 1 point. You can only buy perks adjacent to ones you already own, starting from START — but loops in the tree can be walked either way, so plan a route, not a shopping list. <!-- in-game How to Play, "Perks"; vendor/ad-source/src/core/secret-formula/reality/perks.js -->
+Each Reality gives exactly **1 Perk Point**, and each perk costs 1 point. You can only buy perks adjacent to ones you already own, and a new tree owns none: **your first Perk Point must go into START**, the card in the middle of the tree ("Remove the achievement requirement from the Reality Study, and allow you to choose from 4 different Glyphs on Reality."). It is the only perk you can buy after your first Reality; tapping any other card does nothing, without a message. From your second Reality on, follow the order below. Loops in the tree can be walked either way, so plan a route, not a shopping list. <!-- in-game How to Play, "Perks"; vendor/ad-source/src/core/secret-formula/reality/perks.js firstPerk; emulator (Android 3.18.0), community early-reality-first save: 1 Perk Point, only START highlighted (black card, green text) as buyable; round-4 review: tapping EU1 does nothing, tapping START buys it (PP 1 → 0) -->
 
-Most perks are convenience rather than raw power: autobuyers, auto-unlocks, removed requirements. A few diamond-shaped perks also grant **Automator Points**, which count toward the 100 needed for the Automator. The tree is pannable on Android — drag to move around it, pinch or the zoom buttons to zoom; tapping a perk buys it if it is adjacent.
+Most perks are convenience rather than raw power: autobuyers, auto-unlocks, removed requirements. Perks whose label ends in an AP amount, like **ACH1 (+5 AP)**, also grant Automator Points, which count toward the 100 needed for the Automator. On Android each perk is a card with its label and full text; drag to move around the tree, and tap a card to buy it once it is next to one you own.
 
 <Screen
-	src="early-reality/reality-perks-top.webp"
-	alt="The Perks subtab on an early Reality: the perk tree around START with adjacent perks highlighted and the diamond Automator-Point perks visible."
-	caption="The perk tree. Drag to pan; you can only buy perks next to ones you own — diamond perks also grant Automator Points."
+	src="early-reality/first-reality/reality-perks-top.webp"
+	alt="The Perks subtab after the first Reality: START in the middle, highlighted as the only buyable card with green text on black, reading Remove the achievement requirement from the Reality Study, and allow you to choose from 4 different Glyphs on Reality; EC5R, PASS and EC1R above it, SAM, ANR and DAB (+5 AP) below, ACH1 (+5 AP), EU1, EU2 and DAU (+5 AP) to the right, all greyed out."
+	caption="The perk tree after your first Reality: only START can be bought. Cards marked (+5 AP) also give Automator Points."
 />
 
 ## Recommended order
 
-This follows the community perk route (Tables61's perk guide with later refinements). Perks mostly save time rather than multiply power, so treat any order as guidance — but this one removes the biggest early walls first.
+This follows the community perk route (Tables61's perk guide with later refinements), starting with your second Perk Point, after START. Perks mostly save time rather than multiply power, so treat any order as guidance — but this one removes the biggest early walls first.
 
 1. **EU1, EU2.** EU1 auto-unlocks the first row of Eternity Upgrades free (all three once you have any Eternities); paired with the Existentially Prolong upgrade (start with 100 Eternities) it fires on every Reality and speeds up early Eternities enormously. EU2 buys the second row at 1e10× discount.
 2. **DAU, DILR.** DAU unlocks autobuyers for the repeatable Dilation Upgrades. DILR removes the EC11/EC12 and Theorem-count requirements from the Dilation unlock — it skips the grueling EC11 slog inside every early Reality.

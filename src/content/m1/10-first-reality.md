@@ -56,12 +56,12 @@ Aim for **2–4 RM** on the first Reality (around <Num value="1e4148" />–<Num 
 
 The run back up feels familiar but faster: Autobuyers, challenges and milestones return quickly, and the 30-minute achievement timer rebuilds your multipliers in the background. Spend your first RM on the repeatable Reality Upgrades; [Reality Upgrades, rows 1 and 2](/guide/m1/reality-upgrades-1-2) says what to buy for 1, 2, 3 or 4 RM.
 
-Your first Glyph is fixed: an Uncommon Glyph of Power with Antimatter Dimension power. A Companion glyph, a pink heart that records the EP you Realitied with, comes with it. On the Glyphs tab, tap the Power glyph and press **Equip**. Leave the Companion in the inventory: it does nothing and would take one of your three circles. Your first Perk Point starts the perk tree on the Perks subtab.
+Your first Glyph is fixed: an Uncommon Glyph of Power with Antimatter Dimension power. A Companion glyph, a pink heart that records the EP you Realitied with, comes with it. On the Glyphs tab, tap the Power glyph and press **Equip**. Leave the Companion in the inventory: it does nothing and would take one of your three circles. Your first Perk Point can only go into **START**, the highlighted card in the middle of the Perks subtab; tap it to buy it. See [the perk tree](/guide/m1/perk-tree).
 
 <Screen
 	src="early-reality/first-reality/reality-glyphs-1.webp"
 	alt="The Glyphs subtab right after the first Reality: three empty circles above the inventory, with the Power glyph (Ω) and the Companion (♥) in its first row."
-	caption="The Glyphs tab after your first Reality. Equip the Power glyph; the Companion only takes up a circle. The Perks subtab takes your first Perk Point."
+	caption="The Glyphs tab after your first Reality. Equip the Power glyph; the Companion only takes up a circle. Your first Perk Point goes into START on the Perks subtab."
 />
 
 ## Further reading
