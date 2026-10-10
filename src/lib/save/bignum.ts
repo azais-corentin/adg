@@ -154,6 +154,29 @@ export function formatCount(value: BigNum | number): string {
 }
 
 /**
+ * A number written in an article (`<Num value="…" />`), with the decimals it is written with:
+ * `"1e10500"` → `1e10,500`, `"1.80e308"` → `1.80e308`, `"0.75"` → `0.75`. A whole number
+ * written without an exponent is a count and gets separators: `"5000"` → `5,000`. `places` and
+ * `placesUnder1000` override the written decimals.
+ */
+export function formatWrittenNumber(
+	value: string | number,
+	places?: number,
+	placesUnder1000?: number
+): string {
+	const text = String(value).trim();
+	// Decimals of the mantissa as written: "1.80e308" → 2, "1e140" → 0, "0.75" → 2.
+	const written = /^-?\d*\.(\d+)/.exec(text)?.[1]?.length ?? 0;
+	const isCount = typeof value === 'string' && /^\d+$/.test(text) && Number(text) < 1e9;
+	if (isCount && places === undefined) return formatCount(Number(text));
+	return formatGameNumber(
+		value,
+		places ?? (typeof value === 'number' ? 2 : written),
+		placesUnder1000 ?? written
+	);
+}
+
+/**
  * Time Theorems as the Time Theorem shop shows them (`TimeTheoremShop.vue`
  * `formatTimeTheoremType`): whole with separators below 1e6, `format(value, 2)` from 1e6.
  */

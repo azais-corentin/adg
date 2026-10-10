@@ -78,7 +78,21 @@
 			<span class="brand-short">adg</span>
 			<span class="brand-long">— Antimatter Dimensions Guide</span>
 		</a>
-		<ThemeToggle />
+		<div class="header-actions">
+			<a
+				class="search-link"
+				href={resolve('/search')}
+				aria-label="Search the guide"
+				title="Search the guide"
+				aria-current={path === resolve('/search') ? 'page' : undefined}
+			>
+				<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+					<circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2" />
+					<path d="m15 15 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+				</svg>
+			</a>
+			<ThemeToggle />
+		</div>
 	</header>
 
 	<aside class="sidebar" aria-label="Site">
@@ -201,6 +215,26 @@
 		font-size: var(--step--1);
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+
+	.header-actions {
+		display: flex;
+		flex: none;
+		align-items: center;
+	}
+
+	.search-link {
+		display: grid;
+		place-items: center;
+		width: var(--tap);
+		height: var(--tap);
+		border-radius: 50%;
+		color: var(--ink);
+	}
+
+	.search-link:hover,
+	.search-link[aria-current='page'] {
+		background: var(--surface-sunk);
 	}
 
 	main {

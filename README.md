@@ -3,9 +3,10 @@
 An interactive, mobile-first guide for **Antimatter Dimensions on Android (3.18.0)**: <https://ad.nelieru.cc>
 
 - **Guide:** 70 articles from the first Dimension to the end of the game, each checked against the game's source at a pinned commit and against screenshots of the real Android app.
+- **Search:** the magnifier in the header (or the box on the guide index) searches every article's titles, headings and text, plus game names such as perk labels (DILR), Reality and Imaginary Upgrades and Ra memory levels ("Effarig level 10"). Results open the matching section. The index is built at build time (`/search-index.json`) and searched on the device.
 - **Save import:** paste or pick the save you export from the game. adg decodes it on your device (nothing is uploaded), detects your stage, and lists your next goals. It reads both Android export formats.
 - **Tools:** milestone checklists, a Time Study planner (with the game's import/export strings), an Eternity Challenge planner, and Automator scripts that were run in the game before being listed.
-- **Offline:** installable PWA. After the first visit, the guide and tools work without a connection.
+- **Offline:** installable PWA. After the first visit, the guide, search and tools work without a connection.
 
 Unofficial fan project, not affiliated with the game's developers. See [NOTICE](NOTICE).
 
@@ -36,6 +37,7 @@ TypeScript 7 can't run `svelte-check` yet (sveltejs/language-tools#2733), so TS 
 - `src/content/m1`, `src/content/m2`: guide articles (mdsvex). Frontmatter is validated at build time.
 - `src/lib/save`: save decoder, Android-native → web schema mapping ([NATIVE_SCHEMA.md](src/lib/save/NATIVE_SCHEMA.md)), stage detection, next goals.
 - `src/lib/data`: typed game data extracted from upstream.
+- `src/lib/search`: the build-time search index (`build.ts`, served by `src/routes/search-index.json`) and the in-browser search (`search.ts`).
 - `src/lib/tools`, `src/lib/checklists`: the interactive tools.
 - `static/screens/<stage>`: screenshots of the Android app at each stage, captured in the emulator.
 - `fixtures/saves`: real Android exports and community saves ([sources](fixtures/saves/community/SOURCES.md)).

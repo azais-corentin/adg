@@ -7,7 +7,7 @@ number written without an exponent is a count and gets separators: `<Num value="
 renders `5,000`. `places` and `placesUnder1000` override the written decimals.
 -->
 <script lang="ts">
-	import { formatCount, formatGameNumber } from '#lib/save/bignum.ts';
+	import { formatWrittenNumber } from '#lib/save/bignum.ts';
 
 	let {
 		value,
@@ -15,19 +15,7 @@ renders `5,000`. `places` and `placesUnder1000` override the written decimals.
 		placesUnder1000
 	}: { value: string | number; places?: number; placesUnder1000?: number } = $props();
 
-	const text = $derived(String(value).trim());
-	// Decimals of the mantissa as written: "1.80e308" → 2, "1e140" → 0, "0.75" → 2.
-	const written = $derived(/^-?\d*\.(\d+)/.exec(text)?.[1]?.length ?? 0);
-	const isCount = $derived(typeof value === 'string' && /^\d+$/.test(text) && Number(text) < 1e9);
-	const formatted = $derived(
-		isCount && places === undefined
-			? formatCount(Number(text))
-			: formatGameNumber(
-					value,
-					places ?? (typeof value === 'number' ? 2 : written),
-					placesUnder1000 ?? written
-				)
-	);
+	const formatted = $derived(formatWrittenNumber(value, places, placesUnder1000));
 </script>
 
 <span class="num">{formatted}</span>

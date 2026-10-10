@@ -21,6 +21,10 @@ test('guide and tools keep working offline after the first visit', async ({ page
 	await page.goto('/tools/time-studies');
 	await expect(page.locator('h1')).toBeVisible();
 
+	// The search page and its index are precached too.
+	await page.goto('/search?q=Decoherence');
+	await expect(page.getByRole('main').getByRole('listitem').first()).toContainText('Decoherence');
+
 	// Unknown pages fall back to the cached home page instead of the browser's offline error.
 	await page.goto('/not-a-page');
 	await expect(page.locator('h1')).toBeVisible();

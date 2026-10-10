@@ -20,6 +20,22 @@
 <div class="page">
 	<h1>Guide</h1>
 	<p class="muted">Articles in the order you reach them in the game, grouped by stage.</p>
+	<form class="find" role="search" method="get" action={resolve('/search')}>
+		<label for="guide-q">Search the guide</label>
+		<div>
+			<input
+				id="guide-q"
+				name="q"
+				type="search"
+				enterkeyhint="search"
+				autocomplete="off"
+				autocapitalize="off"
+				spellcheck="false"
+				placeholder="DILR, Decoherence, EC4…"
+			/>
+			<button class="button" type="submit">Search</button>
+		</div>
+	</form>
 
 	{#each articleGroups as group (group.milestone)}
 		<section aria-labelledby="milestone-{group.milestone}">
@@ -45,6 +61,38 @@
 </div>
 
 <style>
+	.find {
+		display: grid;
+		gap: var(--space-1);
+		margin-bottom: var(--space-5);
+	}
+
+	.find label {
+		font-weight: 650;
+	}
+
+	.find div {
+		display: flex;
+		gap: var(--space-2);
+	}
+
+	.find input {
+		flex: 1;
+		min-width: 0;
+		min-height: var(--tap);
+		padding: var(--space-2) var(--space-3);
+		border: 1.5px solid var(--rule);
+		border-radius: var(--radius);
+		background: var(--surface);
+		color: var(--ink);
+		font-size: var(--step-0);
+	}
+
+	.find input:hover,
+	.find input:focus {
+		border-color: var(--layer);
+	}
+
 	.stage {
 		padding: 0 0 var(--space-2) var(--space-4);
 		border-left: 4px solid var(--layer);
