@@ -4,21 +4,29 @@ The suggested Time Study tree for one step of the completion order, as a study s
 into the game or open in the Time Study planner. When the tree has study 131, which on Android
 stops automatic Replicanti Galaxies while the app is closed, the step gets two labelled trees:
 the Active row for the game on screen and the Passive row for a run left going with the app
-closed. EC6 has no second tree: its study needs 121.
+closed. EC6 has no second tree: its study needs 121. Steps whose unlock requirement comes faster
+on another path (EC3, EC7) first get the tree that buys the study.
 
 Measured on Android 3.18.0 (eternity-challenges save, game on screen): EC2 ×5 at 219 TT, the
 Active tree was at 8.83e1565 IP after 7½ minutes, the Passive tree at 9.94e1520 after 8½.
 -->
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { ORDER } from './order.ts';
-	import { offlineTree, stepTree, type StepTree } from './trees.ts';
+	import { ORDER, type PathTip } from './order.ts';
+	import { offlineTree, stepTree, unlockTree, type StepTree } from './trees.ts';
 
 	let { index }: { /** Index into `ORDER`. */ index: number } = $props();
+
+	const PATH_NAMES: Record<PathTip, string> = {
+		AD: 'Antimatter Dimension',
+		ID: 'Infinity Dimension',
+		TD: 'Time Dimension'
+	};
 
 	const step = $derived(ORDER[index]);
 	const tree = $derived(stepTree(index));
 	const offline = $derived(offlineTree(index));
+	const unlock = $derived(unlockTree(index));
 	const plannerHref = (studies: string) =>
 		`${resolve('/tools/time-studies')}?tree=${encodeURIComponent(studies)}`;
 
@@ -56,8 +64,23 @@ Active tree was at 8.83e1565 IP after 7½ minutes, the Passive tree at 9.94e1520
 {/snippet}
 
 <div class="step-tree">
+	{#if unlock && step?.unlockPath}
+		<p class="variant">
+			<strong>Unlock</strong> · {PATH_NAMES[step.unlockPath]} path, Idle row (123, 133, 143)
+		</p>
+		{@render row(unlock, `Study string to unlock EC${step.ec} ×${step.completion}`)}
+		<p class="muted small">
+			{unlock.tt.toLocaleString('en-US')} TT. Tap EC{step.ec}'s study once its requirement is met
+			(the study shows how far you are). The game remembers that you met it: tap
+			<strong>Respec Time Studies on next Eternity</strong>, Eternity, and import the tree for the
+			run, which buys the study again for its TT alone.
+			<a href={plannerHref(unlock.studies)}>Open in the Time Study planner</a>.
+		</p>
+	{/if}
 	{#if offline}
-		<p class="variant"><strong>Game on screen</strong> · Active row (121, 131, 141)</p>
+		<p class="variant">
+			<strong>{unlock ? 'Run, game on screen' : 'Game on screen'}</strong> · Active row (121, 131, 141)
+		</p>
 		{@render row(
 			tree,
 			`Study string for EC${step?.ec} ×${step?.completion} with the game on screen`
@@ -66,7 +89,9 @@ Active tree was at 8.83e1565 IP after 7½ minutes, the Passive tree at 9.94e1520
 			{tree.tt.toLocaleString('en-US')} TT.
 			<a href={plannerHref(tree.studies)}>Open in the Time Study planner</a>.
 		</p>
-		<p class="variant"><strong>App closed</strong> · Passive row (122, 132, 142)</p>
+		<p class="variant">
+			<strong>{unlock ? 'Run, app closed' : 'App closed'}</strong> · Passive row (122, 132, 142)
+		</p>
 		{@render row(
 			offline,
 			`Study string for EC${step?.ec} ×${step?.completion} with the app closed`
@@ -87,6 +112,9 @@ Active tree was at 8.83e1565 IP after 7½ minutes, the Passive tree at 9.94e1520
 			or you haven't met its unlock requirement yet.
 		</p>
 	{:else}
+		{#if unlock}
+			<p class="variant"><strong>Run</strong> · {step?.pace} row</p>
+		{/if}
 		{@render row(tree, `Study string for EC${step?.ec} ×${step?.completion}`)}
 		<p class="muted small">
 			{tree.tt.toLocaleString('en-US')} TT. The game buys the studies left to right and EC{step?.ec}

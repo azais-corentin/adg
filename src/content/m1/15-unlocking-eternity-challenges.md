@@ -39,7 +39,7 @@ Meeting the secondary requirement is remembered until you **complete** that chal
 
 <!-- secret-formula/eternity/time-studies/ec-time-studies.js; src/core/time-studies/ec-time-study.js:38,122 (requirementBits); src/core/eternity.js:29 (cleared on completion); EternityChallengesTab.vue:107-110 -->
 
-EC studies also need a normal study as a stepping stone: EC1–EC3 studies connect to study 171, EC4's to 143, EC5's to 42, EC6's to 121, EC7's to 111, EC8's to 123, EC9's to 151 and EC10's to 181. So the tree you run to *unlock* a challenge is not always the tree you run *inside* it — buy the study, then respec to the run tree.
+EC studies also need a normal study as a stepping stone: EC1–EC3 studies connect to study 171, EC4's to 143, EC5's to 42, EC6's to 121, EC7's to 111, EC8's to 123, EC9's to 151 and EC10's to 181. So the tree you run to _unlock_ a challenge is not always the tree you run _inside_ it — buy the study, then respec to the run tree. The planner gives every EC3 step and EC7 from ×2 a separate unlock tree on the Time Dimension path, where 8th Antimatter Dimensions and antimatter grow faster than on the run's path.
 
 To enter, tap the challenge's box in the Challenges tab. Leaving or finishing a challenge refunds your study tree automatically (a respec on exit), so you always rebuild fresh afterward.
 
@@ -63,7 +63,7 @@ Each completion's reward is small at first but they stack across all 60 completi
 
 <Callout kind="tip">
 
-Stuck on a secondary? Most of them are farmed, not pushed: Eternities come from the [milestone loop](/guide/m1/eternity-milestones), galaxies from a long idle run, EP from theorems → studies → faster runs. Switch goals for a day rather than forcing the challenge.
+Stuck on a secondary? Most of them are farmed, not pushed: Eternities come from the [milestone loop](/guide/m1/eternity-milestones), galaxies from a long idle run, EP from theorems → studies → faster runs. EC7's antimatter needs one long Infinity: turn off **Automatic Big Crunch** (Autobuyers tab), because a Big Crunch resets antimatter. Switch goals for a day rather than forcing the challenge.
 
 </Callout>
 

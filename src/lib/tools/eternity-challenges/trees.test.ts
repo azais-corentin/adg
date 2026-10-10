@@ -2,13 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { importStudyString } from '../time-studies/study-string.ts';
 import { DEFAULT_CONTEXT } from '../time-studies/tree.ts';
 import { ORDER } from './order.ts';
-import { offlineTree, stepTree } from './trees.ts';
+import { offlineTree, stepTree, unlockTree } from './trees.ts';
 
 describe('step trees', () => {
 	it('import whole, with the step’s EC, into a tree owning only the completions before it', () => {
 		ORDER.forEach((step, index) => {
 			const done = [...new Set(ORDER.slice(0, index).map((s) => s.ec))];
-			for (const variant of [stepTree(index), offlineTree(index)]) {
+			for (const variant of [stepTree(index), offlineTree(index), unlockTree(index)]) {
 				if (!variant) continue;
 				const { studies, tt } = variant;
 				const result = importStudyString(studies, { ...DEFAULT_CONTEXT, completedECs: done });
@@ -47,8 +47,21 @@ describe('step trees', () => {
 
 	it('fit in the chart’s Time Theorems', () => {
 		ORDER.forEach((step, index) => {
-			expect(stepTree(index).tt, `EC${step.ec} ×${step.completion}`).toBeLessThanOrEqual(step.tt);
+			const label = `EC${step.ec} ×${step.completion}`;
+			expect(stepTree(index).tt, label).toBeLessThanOrEqual(step.tt);
+			expect(unlockTree(index)?.tt ?? 0, label).toBeLessThanOrEqual(step.tt);
 		});
+	});
+
+	it('unlock EC7 ×3 and ×4 where the measured unlock tree reaches their antimatter', () => {
+		const at = (ec: number, completion: number) =>
+			ORDER.findIndex((s) => s.ec === ec && s.completion === completion);
+		// After EC2 ×5 and EC5 ×5 (1e1,136,518 against 1e1,100,000), and with TS181 for ×4.
+		expect(at(7, 3)).toBeGreaterThan(Math.max(at(2, 5), at(5, 5)));
+		expect(unlockTree(at(7, 3))?.studies).toBe(
+			'11,22,32,42,51,61,73,83,93,103,111,123,133,143,151,161,171,162,33,62,21,31,41|7'
+		);
+		expect(unlockTree(at(7, 4))?.studies.split(/[,|]/)).toContain('181');
 	});
 
 	it('take the step’s path and pace', () => {

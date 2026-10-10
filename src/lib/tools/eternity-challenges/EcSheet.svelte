@@ -144,8 +144,13 @@ completion count.
 							<dd>{unlockRequirementAt(ec, tier - 1)}</dd>
 						</dl>
 						{#if step !== -1 && completions < tier}
+							<p class="step-note">{ORDER[step]?.note}</p>
 							<details class="tree">
-								<summary>Study tree for this run</summary>
+								<summary
+									>{ORDER[step]?.unlockPath
+										? 'Study trees to unlock and run'
+										: 'Study tree for this run'}</summary
+								>
 								<StepTree index={step} />
 							</details>
 						{/if}
@@ -342,6 +347,11 @@ completion count.
 	dd {
 		margin: 0;
 		overflow-wrap: anywhere;
+	}
+
+	.step-note {
+		margin: var(--space-2) 0 0;
+		font-size: var(--step--1);
 	}
 
 	.tree {

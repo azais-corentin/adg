@@ -13,7 +13,7 @@ import {
 	type Tree,
 	type TreeContext
 } from '../time-studies/tree.ts';
-import { ORDER, type OrderStep, type PaceTip, type PathTip } from './order.ts';
+import { ORDER, type PaceTip, type PathTip } from './order.ts';
 
 const PATH_STUDIES: Record<PathTip, readonly number[]> = {
 	AD: [71, 81, 91, 101],
@@ -32,7 +32,7 @@ const PACE_STUDIES: Record<PaceTip, readonly number[]> = {
  * step's path and pace, the central column, the rest above the split, then the lower tree.
  * One study per light/dark pair, as in the planner's presets.
  */
-function wishList(step: OrderStep, pace: PaceTip): number[] {
+function wishList(path: PathTip, pace: PaceTip): number[] {
 	return [
 		11,
 		22,
@@ -40,7 +40,7 @@ function wishList(step: OrderStep, pace: PaceTip): number[] {
 		42,
 		51,
 		61,
-		...PATH_STUDIES[step.path],
+		...PATH_STUDIES[path],
 		111,
 		...PACE_STUDIES[pace],
 		151,
@@ -127,7 +127,7 @@ function withStudy(
 export function stepTree(index: number): StepTree {
 	const step = ORDER[index];
 	if (!step) throw new Error(`No order step ${index}`);
-	return buildTree(index, step.pace);
+	return buildTree(index, step.path, step.pace);
 }
 
 /**
@@ -138,17 +138,27 @@ export function stepTree(index: number): StepTree {
  */
 export function offlineTree(index: number): StepTree | undefined {
 	if (!stepTree(index).stopsOfflineGalaxies) return undefined;
-	const tree = buildTree(index, 'Passive');
+	const tree = buildTree(index, ORDER[index]!.path, 'Passive');
 	return tree.studies.split(/[,|]/).includes('121') ? undefined : tree;
 }
 
-function buildTree(index: number, pace: PaceTip): StepTree {
+/**
+ * The tree that buys the step's challenge study first, for steps whose unlock requirement comes
+ * faster on another path than the run's (`unlockPath`). It takes the Idle row: in the EC7
+ * measurements in `order.ts` antimatter went furthest with it, also while the app was closed.
+ */
+export function unlockTree(index: number): StepTree | undefined {
+	const path = ORDER[index]?.unlockPath;
+	return path ? buildTree(index, path, 'Idle') : undefined;
+}
+
+function buildTree(index: number, path: PathTip, pace: PaceTip): StepTree {
 	const step = ORDER[index];
 	if (!step) throw new Error(`No order step ${index}`);
 	const ec = EC_STUDIES.get(step.ec);
 	if (!ec) throw new Error(`No study for EC${step.ec}`);
 	const ctx = contextBefore(index);
-	const wishes = wishList(step, pace);
+	const wishes = wishList(path, pace);
 
 	let route: Tree | null = null;
 	for (const requirement of [...ec.requires].sort((a, b) => cost(a) - cost(b))) {

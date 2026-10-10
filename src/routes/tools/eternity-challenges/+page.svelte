@@ -157,8 +157,8 @@
 					~{next.step.tt.toLocaleString('en-US')} TT · {next.step.path} path · {next.step.pace}
 				</dd>
 			</dl>
-			<StepTree index={next.index} />
 			<p class="note">{next.step.note}</p>
+			<StepTree index={next.index} />
 			<div class="actions">
 				{#if editable}
 					<button
@@ -381,7 +381,7 @@
 	}
 
 	.note {
-		margin-bottom: var(--space-3);
+		margin: 0 0 var(--space-3);
 	}
 
 	.actions {

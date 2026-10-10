@@ -8,8 +8,10 @@
  * - Antimatter Dimensions Wiki, "Guide" (1e17–1e50 EP and EC10–EC12 sections), which follows
  *   the same order: https://antimatter-dimensions.fandom.com/wiki/Guide
  * Goals and unlock requirements come from the game data instead (see `challenges.ts`);
- * `order.test.ts` checks every step is reachable with the completions before it.
+ * `plan.test.ts` checks every step is reachable with the completions before it.
  * Paths and paces follow the chart, except EC5, which runs on the Passive split (`EC5_PASSIVE`).
+ * EC7 ×3 and ×4 come later than in the chart, where the unlock tree reaches their antimatter
+ * (`EC7_UNLOCK`).
  */
 
 export type PathTip = 'AD' | 'ID' | 'TD';
@@ -25,6 +27,11 @@ export interface OrderStep {
 	/** Suggested dimension path and pace split for the run itself. */
 	path: PathTip;
 	pace: PaceTip;
+	/**
+	 * Path of a separate tree that buys the challenge's study first, when its unlock requirement
+	 * comes faster on another path than the run's. Unlock trees use the Idle row.
+	 */
+	unlockPath?: PathTip;
 	/** What to aim for, in a sentence or two. */
 	note: string;
 }
@@ -42,11 +49,29 @@ const step = (
 	tt: number,
 	path: PathTip,
 	pace: PaceTip,
-	note: string
-): OrderStep => ({ ec, completion, tt, path, pace, note });
+	note: string,
+	unlockPath?: PathTip
+): OrderStep => ({ ec, completion, tt, path, pace, note, ...(unlockPath && { unlockPath }) });
 
-const UNLOCK_ON_TD =
-	'Buy the study on the Time Dimension path first: the game remembers you met its requirement. Then respec, Eternity and import the tree for the run; it buys the study again for its TT alone.';
+/**
+ * EC7's antimatter requirement, measured on Android 3.18.0 with offline progress: a save right
+ * after EC5 ×4 (EC7 ×2 done, 219 TT, 5e27 EP), unlock trees on the TD path with the Idle row,
+ * the Big Crunch autobuyer crunching every 15 seconds and then turned off. The later rows set
+ * that save's completions and TT (and EP for 320 and 450 TT: 1e40, 1e45) to the step's.
+ * - 219 TT (103 TT of studies beside the 115 TT study): after 1 hour of crunching, antimatter
+ *   levelled off at 1e1,003,601 within an hour without crunching and 1e1,009,509 after four;
+ *   after 8 hours of crunching, 1e1,025,133. Short of EC7 ×3's 1e1,100,000.
+ * - 245 TT with EC2 and EC5 at ×5 (the full 122 TT tree): 1e1,136,518 an hour after 4 hours
+ *   of crunching. At 245 TT without them, 1e1,098,379 after four hours.
+ * - 264 TT after EC4 ×4, EC6 ×4 and EC7 ×3: 1e1,214,120; 320 TT after EC6 ×5 with the 1e40 EP
+ *   upgrade: 1e1,370,067. Both short of EC7 ×4's 1e1,400,000.
+ * - 450 TT with study 181 (322 TT of studies) after EC8 ×3, no crunching at all: 1e1,990,427
+ *   after an hour. Study 181 makes IP without a Big Crunch, so Infinity Dimensions keep growing.
+ * The Infinity Dimension (ID) path levels off lower than TD (1e579,402 against 1e603,642 after
+ * 8 hours at 219 TT without the crunching hour), and Passive lower than Idle (1e596,387).
+ */
+const EC7_UNLOCK =
+	'For the antimatter, crunch as usual for an hour or so, then turn off Automatic Big Crunch (Autobuyers tab): only a Big Crunch resets antimatter, and it levels off within about an hour.';
 
 /**
  * Android 3.18.0, eternity-challenges save, EC5 ×4 at 219 TT, game on screen: the Passive tree
@@ -81,14 +106,7 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 				'Infinity Dimensions are off: Time Dimensions carry the run. TS33 helps.'
 			),
 			step(1, 2, 140, 'ID', 'Active', 'Same tree as before, with 40,000 Eternities to unlock.'),
-			step(
-				3,
-				1,
-				140,
-				'AD',
-				'Passive',
-				`${UNLOCK_ON_TD} Passive is the better pace for this first one.`
-			),
+			step(3, 1, 140, 'AD', 'Passive', 'Passive is the better pace for this first one.', 'TD'),
 			step(
 				4,
 				1,
@@ -113,7 +131,15 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 		title: 'Rounding out ECs 1–7',
 		summary: 'Short runs that each add a few TT. Most of ECs 1–3 and 5 finish here.',
 		steps: [
-			step(3, 2, 155, 'AD', 'Active', UNLOCK_ON_TD),
+			step(
+				3,
+				2,
+				155,
+				'AD',
+				'Active',
+				'The 8th Antimatter Dimensions for the study come faster on the unlock tree.',
+				'TD'
+			),
 			step(2, 2, 157, 'TD', 'Active', 'Let Time Shards build up for free Tickspeed upgrades.'),
 			step(
 				6,
@@ -124,22 +150,8 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 				'The study is under TS121, so Active is forced. Crunch rarely and let the cheap Replicanti Galaxies pile up.'
 			),
 			step(1, 4, 163, 'ID', 'Active', 'Same ID + Active tree as the earlier EC1 runs.'),
-			step(
-				3,
-				3,
-				163,
-				'ID',
-				'Active',
-				`${UNLOCK_ON_TD} From here EC3 runs best on Infinity Dimensions.`
-			),
-			step(
-				7,
-				1,
-				166,
-				'AD',
-				'Active',
-				'Needs 1e500,000 antimatter to unlock; the TD path gets there more easily, then switch back to AD.'
-			),
+			step(3, 3, 163, 'ID', 'Active', 'From here EC3 runs best on Infinity Dimensions.', 'TD'),
+			step(7, 1, 166, 'AD', 'Active', EC7_UNLOCK),
 			step(
 				4,
 				2,
@@ -160,15 +172,8 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 			step(1, 5, 175, 'ID', 'Active', 'Last EC1 completion.'),
 			step(5, 2, 182, 'ID', 'Passive', 'Needs 174 Antimatter Galaxies for the study.'),
 			step(2, 3, 182, 'TD', 'Active', 'Same TD + Active tree.'),
-			step(3, 4, 182, 'ID', 'Active', UNLOCK_ON_TD),
-			step(
-				7,
-				2,
-				193,
-				'AD',
-				'Active',
-				'Unlock on the TD path, run on AD. Expect a range of about 190 to 215 TT.'
-			)
+			step(3, 4, 182, 'ID', 'Active', 'Same ID + Active tree as EC3 ×3.', 'TD'),
+			step(7, 2, 193, 'AD', 'Active', `${EC7_UNLOCK} Expect a range of about 190 to 215 TT.`, 'TD')
 		]
 	},
 	{
@@ -185,18 +190,10 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 				'Idle',
 				'Upgrades are limited: buy no Replicanti Galaxies, take Replicanti chance to 9% and the rest in interval, and spend every Infinity Dimension purchase on the 1st.'
 			),
-			step(3, 5, 200, 'ID', 'Active', `Last EC3 completion. ${UNLOCK_ON_TD}`),
+			step(3, 5, 200, 'ID', 'Active', 'Last EC3 completion.', 'TD'),
 			step(6, 3, 200, 'ID', 'Active', 'Same approach as before.'),
 			step(2, 4, 200, 'TD', 'Active', 'Same TD + Active tree.'),
 			step(5, 4, 215, 'ID', 'Passive', `${EC5_PASSIVE} Add TS33 if you farm up to about 218 TT.`),
-			step(
-				7,
-				3,
-				215,
-				'AD',
-				'Active',
-				'Unlock on the TD path, run on AD. Earlier attempts stall around 1e3,000 IP.'
-			),
 			step(2, 5, 240, 'TD', 'Active', 'Last EC2 completion.'),
 			step(
 				5,
@@ -206,9 +203,17 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 				'Passive',
 				`Last EC5 completion. ${EC5_PASSIVE} TS31 and TS41 help at about 252 TT.`
 			),
+			step(
+				7,
+				3,
+				245,
+				'AD',
+				'Active',
+				`${EC7_UNLOCK} Before EC2 ×5 and EC5 ×5, the unlock tree levels off short of 1e1,100,000 antimatter, and the run stalls around 1e3,000 IP.`,
+				'TD'
+			),
 			step(4, 4, 245, 'TD', 'Idle', 'At most 4 Infinities.'),
 			step(6, 4, 264, 'ID', 'Active', 'Same approach as before.'),
-			step(7, 4, 264, 'AD', 'Active', 'Unlock on the TD path, run on AD.'),
 			step(
 				8,
 				2,
@@ -229,8 +234,9 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 	},
 	{
 		id: 'ts181',
-		title: 'TS181, EC8 and EC9',
-		summary: 'TS181 (200 TT) makes IP without crunching and drives everything up to EC10.',
+		title: 'TS181, EC7 ×4, EC8 and EC9',
+		summary:
+			'TS181 (200 TT) makes IP without crunching. It drives everything up to EC10 and gets EC7 ×4 unlocked.',
 		steps: [
 			step(
 				4,
@@ -241,6 +247,15 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 				'No Infinities allowed at all, so IP must come from TS181. Last EC4 completion.'
 			),
 			step(8, 3, 450, 'TD', 'Idle', 'Buy about 4 Replicanti Galaxies this time; rest as before.'),
+			step(
+				7,
+				4,
+				450,
+				'AD',
+				'Active',
+				'The unlock tree now has TS181, which makes IP without a Big Crunch: turn off Automatic Big Crunch (Autobuyers tab) right away, and antimatter passes 1e1,400,000 within about an hour. Without TS181 it levels off short of it.',
+				'TD'
+			),
 			step(9, 1, 522, 'TD', 'Active', 'The study needs TS151 and 1e17,500 Infinity Power.'),
 			step(9, 2, 575, 'TD', 'Active', 'Time Shards drive this run.'),
 			step(8, 4, 600, 'TD', 'Idle', 'About 4 Replicanti Galaxies again.'),
@@ -276,7 +291,8 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 				858,
 				'AD',
 				'Active',
-				'Only possible after EC10 ×1, with TS193. Last EC7 completion.'
+				'Only possible after EC10 ×1, with TS193. Unlock it as for ×4. Last EC7 completion.',
+				'TD'
 			),
 			step(
 				10,
