@@ -107,6 +107,11 @@ export interface NormalizedSave {
 	/** Most antimatter reached in a completed Teresa's Reality (`teresa.bestRunAM`); 1 until the first. */
 	teresaBestAntimatter: BigNum;
 	effarigRelicShards: BigNum;
+	/**
+	 * Whether an Infinity Glyph with the "Infinity Point gain" effect (`infinityIP`) is equipped,
+	 * only in the inventory, or missing. Effarig's Eternity layer stalls without one.
+	 */
+	infinityPointGlyph: 'equipped' | 'inventory' | 'none';
 	/** Completed tiers per V run (sum = number of V-Achievements). */
 	vRunUnlocks: readonly number[];
 	/** Sum of Ra's pet levels (each starts at 1). */

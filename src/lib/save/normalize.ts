@@ -64,6 +64,25 @@ function achievementIds(rows: readonly number[]): number[] {
 	);
 }
 
+/** `infinityIP`'s bit in a Glyph's `effects` (`secret-formula/reality/glyph-effects.js`). */
+const INFINITY_IP_BIT = 14;
+
+/**
+ * True when a Glyph list holds an Infinity Glyph with "Infinity Point gain". Both schemas store
+ * Glyphs as `{type, effects, level, …}` with upstream's effect bitmask (native has `rarity` where
+ * web has `strength`).
+ */
+function hasInfinityPointGlyph(glyphs: unknown): boolean {
+	return (
+		Array.isArray(glyphs) &&
+		glyphs.some(
+			(glyph) =>
+				at(glyph, ['type']) === 'infinity' &&
+				bitIds(num(glyph, ['effects'], 0), [INFINITY_IP_BIT]).length > 0
+		)
+	);
+}
+
 /** Fallback for "no best time yet" (upstream initial `Number.MAX_VALUE`). */
 const NO_TIME = Number.MAX_VALUE;
 
@@ -175,7 +194,10 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 			tachyonParticles: big(p, ['dilation', 'tachyonParticles'])
 		},
 
-		realityUpgrades: bitIds(num(p, ['reality', 'upgradeBits'], 0), range(6, 25)),
+		// Web keys upgrade `id` at bit `id`; native at bit `id - 6` (all 20 bought: 2^20 − 1).
+		realityUpgrades: native
+			? bitIds(num(p, ['reality', 'upgradeBits'], 0), range(0, 19)).map((bit) => bit + 6)
+			: bitIds(num(p, ['reality', 'upgradeBits'], 0), range(6, 25)),
 		perks: numbers(p, ['reality', 'perks']).sort((a, b) => a - b),
 		celestials: {
 			teresa: celestial('teresa'),
@@ -189,6 +211,11 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 		teresaPouredAmount: num(p, ['celestials', 'teresa', 'pouredAmount'], 0),
 		teresaBestAntimatter: big(p, ['celestials', 'teresa', 'bestRunAM'], fromNumber(1)),
 		effarigRelicShards: big(p, ['celestials', 'effarig', 'relicShards']),
+		infinityPointGlyph: hasInfinityPointGlyph(at(p, ['reality', 'glyphs', 'active']))
+			? 'equipped'
+			: hasInfinityPointGlyph(at(p, ['reality', 'glyphs', 'inventory']))
+				? 'inventory'
+				: 'none',
 		vRunUnlocks: numbers(p, ['celestials', 'v', 'runUnlocks']),
 		raPetLevels,
 		nameless: {

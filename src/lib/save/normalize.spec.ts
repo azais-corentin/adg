@@ -106,6 +106,38 @@ describe('paired fixtures (one game state exported both ways ~80 s apart)', () =
 	});
 });
 
+const nativeEffarig = await load('android-3.18.0-native-effarig-paired.txt');
+const webEffarig = await load('android-3.18.0-web-export-effarig-paired.txt');
+
+describe('paired Effarig fixtures (inside Effarig’s Reality, exported both ways ~40 s apart)', () => {
+	it('agrees on everything that does not grow while the run goes on', () => {
+		const growing: readonly string[] = [
+			'source',
+			'version',
+			'lastUpdate',
+			'records',
+			'antimatter',
+			'infinities',
+			'eternities',
+			'infinityPoints',
+			'galaxies',
+			'dimensionBoosts',
+			'totalTimeTheorems',
+			'affordableInfinityDimensions'
+		];
+		const stable = (save: NormalizedSave) =>
+			Object.fromEntries(Object.entries(save).filter(([key]) => !growing.includes(key)));
+		expect(stable(nativeEffarig)).toEqual(stable(webEffarig));
+	});
+
+	it('reads Reality Upgrades, Perks and the equipped Infinity Point Glyph', () => {
+		// All 20 Reality Upgrades: native stores them from bit 0, web from bit 6.
+		expect(nativeEffarig.realityUpgrades).toEqual(Array.from({ length: 20 }, (_, i) => i + 6));
+		expect(nativeEffarig.perks.length).toBeGreaterThan(40);
+		expect(nativeEffarig.infinityPointGlyph).toBe('equipped');
+	});
+});
+
 describe('normalizeSave on single fixtures', () => {
 	it('reads the 3.17.0 pre-break native save', async () => {
 		const save = await load('android-3.17.0-native-pre-break.txt');
@@ -124,5 +156,10 @@ describe('normalizeSave on single fixtures', () => {
 		expect(save.breakInfinity).toBe(true);
 		expect(save.replicanti).toEqual({ unlocked: true, galaxies: 1 });
 		expect(save.eternities).toEqual({ mantissa: 0, exponent: 0 });
+	});
+
+	it('finds an Infinity Point Glyph in the inventory of the community Effarig save', async () => {
+		expect((await load('community/effarig.txt')).infinityPointGlyph).toBe('inventory');
+		expect(web.infinityPointGlyph).toBe('none');
 	});
 });

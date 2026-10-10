@@ -100,6 +100,7 @@ const isNormalizedSave = shape<NormalizedSave>({
 	teresaPouredAmount: isNumber,
 	teresaBestAntimatter: isBigNum,
 	effarigRelicShards: isBigNum,
+	infinityPointGlyph: (value) => value === 'equipped' || value === 'inventory' || value === 'none',
 	vRunUnlocks: isNumbers,
 	raPetLevels: isNumber,
 	nameless: shape<NormalizedSave['nameless']>({
