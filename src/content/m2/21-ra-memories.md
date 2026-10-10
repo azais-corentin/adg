@@ -15,9 +15,11 @@ verified:
 
 ## Chunks versus Memories
 
-Each pet tracks two numbers. **Memory Chunks** are the raw drip: they generate only while Ra's Reality is running, at a rate set by a different in-Reality resource per pet. **Memories** are the spendable total: chunks convert into Memories continuously, and Memories buy levels, chunk-rate upgrades and memory-rate upgrades via the arrows on each panel. <!-- vendor/ad-source/src/core/celestials/ra/ra.js `memoryChunksPerSecond`, `memoryUpgradeCurrentMult`, `chunkUpgradeCurrentMult`, `tick` -->
+Each pet tracks two numbers. **Memory Chunks** are the raw drip: they generate only while Ra's Reality is running, at a rate set by a different in-Reality resource per pet. **Memories** are the spendable total: chunks convert into Memories continuously, and Memories buy the pet's levels and two upgrades. <!-- vendor/ad-source/src/core/celestials/ra/ra.js `memoryChunksPerSecond`, `memoryUpgradeCurrentMult`, `chunkUpgradeCurrentMult`, `tick` -->
 
-The two arrow buttons on a panel spend Memories on faster chunk gain and faster conversion respectively. Buy them when a pet's progress stalls: they compound with levels.
+Each pet's panel has a progress bar with three buttons. The large **↑** on the right buys the next level once the bar is full. The two small icons on its left open the upgrades: the **brain** is Recollection ("Teresa's Recollection: Gain 30% more Memories") and the **cube** is Fragmentation ("Teresa's Fragmentation: Gain 50% more Memory Chunks"). Tapping one opens a box with its current multiplier and a cost button that also counts down the time until you can afford it ("Cost: 7.63e14 Memories in 08:03"); tap that button to buy. Both spend the same Memories as levels, so buy them when a pet's progress stalls: they compound with levels.
+
+<!-- Emulator (Android 3.18.0), reviewer's ra save: Teresa panel, brain and cube icons left of the bar, ↑ on the right; popovers "Teresa's Recollection / Gain 30% more Memories / Currently: ×112.46 / Cost: 3.81e15 Memories in 01:56:18" and "Teresa's Fragmentation / Gain 50% more Memory Chunks / Currently: ×25.63 / Cost: 7.63e14 Memories in 08:03". -->
 
 Pets cap at level 25 each. <!-- vendor/ad-source/src/core/celestials/ra/ra.js `levelCap` --> Level-up costs grow steeply (roughly level^5.5 times a million, steeper past 15), so late levels are long farms. <!-- vendor/ad-source/src/core/celestials/ra/ra.js `requiredMemoriesForLevel` -->
 

@@ -658,7 +658,7 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'v-unlock',
 		stage: 'v',
 		text: 'Unlock V',
-		detail: `Have all of these at once: ${vRequirements}.`,
+		detail: `Have all of these at once: ${vRequirements}. A Reality resets your Eternities, Infinities, Dilated Time and Replicanti, so those four have to be reached in one Reality.`,
 		auto: (s) => bit(s.celestials.v.unlockBits, vUnlock('vAchievementUnlock').id),
 		// The six values V's tab shows until V is unlocked.
 		progress: (s) => {
@@ -677,7 +677,7 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 					? `${formatCount(value)} / ${formatCount(Number(r.requirement))} ${r.name}`
 					: `${have(value)} / ${formatGameNumber(r.requirement)} ${r.name}`;
 			});
-			return `all six at once: ${requirements.join(', ')}`;
+			return `all six in one Reality: ${requirements.join(', ')}`;
 		}
 	},
 	vReward('adPow', 5, 'Antimatter Dimension power from Space Theorems'),

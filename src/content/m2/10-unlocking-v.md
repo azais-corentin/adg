@@ -33,13 +33,15 @@ V unlocks when you meet all six of these **at the same time**. The V tab shows a
 | Requirement | Amount | Notes |
 | --- | --- | --- |
 | Realities | <Num value="10000" /> | Lifetime total. |
-| Eternities | <Num value="1e70" /> | Lifetime total. |
-| Infinities | <Num value="1e160" /> | Lifetime total, counting banked ones (total, not current). |
+| Eternities | <Num value="1e70" /> | Current amount; a Reality resets it. |
+| Infinities | <Num value="1e160" /> | Current amount, counting banked ones; a Reality resets both. |
 | Dilated Time | <Num value="1e320" /> | Best this Reality, not lifetime. |
 | Replicanti | <Num value="1e320000" /> | Best this Reality, not lifetime. |
 | Reality Machines | <Num value="1e60" /> | Current amount. |
 
-The split matters: Infinities, Eternities and Realities accumulate forever, but Dilated Time and Replicanti are judged on your **current Reality's records**, and Reality Machines on what you hold right now. So the practical route is to grind the lifetime totals first, then do one long Reality where you push Dilated Time and Replicanti to their records while holding <Num value="1e60" /> RM.
+The split matters: only Realities accumulate for good. A Reality resets your Eternities and Infinities (banked ones too) along with the Dilated Time and Replicanti records, and Reality Machines count what you hold right now. So four of the six have to be reached **inside one Reality**: get to 10,000 Realities and an RM income that holds <Num value="1e60" />, then do one long Reality, with the Reality autobuyer off, in which Eternities, Infinities, Dilated Time and Replicanti all climb to their goals.
+
+<!-- vendor/ad-source/src/core/reality.js:623-624 (Currency.infinities/infinitiesBanked.reset), 644 (Currency.eternities.reset unless Pelle's upgrade); v.js mainUnlock uses Currency.eternities, Currency.infinitiesTotal, records.thisReality.maxDT/maxReplicanti. Reviewer (Android 3.18.0): V's ladder fell from 4.38e63 to 1.97e63 Eternities and from 3.44e136 to 4.29e135 Infinities between 14,006 and 14,049 Realities. -->
 
 <Screen
 	src="nameless/celestials-v-top.webp"
@@ -50,14 +52,14 @@ The split matters: Infinities, Eternities and Realities accumulate forever, but 
 ## How to push each one
 
 - **Realities to 10,000.** Reality count grows fast once your RM income does. Amplify with stored time from the Nameless Ones if you have it banked, and keep Realities short while farming glyphs anyway.
-- **Eternities to <Num value="1e70" /> and Infinities to <Num value="1e160" />.** These come from Eternity and Infinity autobuyers running constantly. They look absurd until Eternity and Infinity generation scale up, then they tick over on their own during active play. Check the Statistics tab if you want to watch the exponents climb.
+- **Eternities to <Num value="1e70" /> and Infinities to <Num value="1e160" />.** Both start over every Reality and are rebuilt by Eternity and Infinity generation and the autobuyers during it, so a long Reality is what grows them. Watch V's ladder: if the numbers drop between Realities, your Realities are too short for them.
 - **Dilated Time to <Num value="1e320" /> this Reality.** Run Dilation with a strong Tachyon setup, and stay in the Reality long enough for the DT record to build. Do not Reality again until the other five are also met.
 - **Replicanti to <Num value="1e320000" /> this Reality.** Push Replicanti amount and galaxies in the same long Reality. Replicanti speed matters more than anything else here.
 - **Reality Machines to <Num value="1e60" />.** This is usually the last gate. Keep farming RM with your best glyph set until the number holds.
 
 <Callout kind="tip">
 
-Because DT and Replicanti use this-Reality records, plan a single long "unlock Reality": enter it once the lifetime totals are close, push everything, and only leave when the ladder shows six of six.
+Because Eternities, Infinities, Dilated Time and Replicanti all reset on Reality, plan a single long "unlock Reality": turn the Reality autobuyer off, enter it once you have 10,000 Realities and solid RM, push everything, and only leave when the ladder shows six of six.
 
 </Callout>
 

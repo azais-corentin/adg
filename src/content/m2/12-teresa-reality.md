@@ -21,7 +21,7 @@ The **Start Teresa's Reality** panel sits at the bottom of the Teresa tab once y
 
 ## The restrictions
 
-The panel lists them, and they stay for the whole run. It sits at the bottom of the Teresa tab, under the unlock list, with your last-run antimatter and the equipped glyph set recorded underneath:
+The panel at the bottom of the Teresa tab, under the unlock list, states the rules, which hold for the whole run: "Glyph Time Theorem generation is disabled. You gain less Infinity Points and Eternity Points (x^0.55)." Under them it records your last run, your highest antimatter in Teresa's Reality and the Glyph set you used.
 
 <Screen
 	src="teresa/celestials-teresa-1.webp"
@@ -29,15 +29,15 @@ The panel lists them, and they stay for the whole run. It sits at the bottom of 
 	caption="The Reality panel records your best antimatter and glyph set, so repeats only need to beat the previous total."
 />
 
-- Glyph Time Theorem generation is disabled.
-- Infinity Point and Eternity Point gain are raised to the power <Num value="0.55" /> — each is roughly square-rooted.
-- Several upgrades that multiply total IP are disabled inside the run. <!-- vendor/ad-source/src/core/secret-formula/infinity/infinity-upgrades.js: "Disabled in this reality" when Teresa.isRunning -->
+- **Glyph Time Theorem generation is off**, the Dilation Glyph effect that makes Time Theorems.
+- **Infinity Points and Eternity Points are raised to the power <Num value="0.55" />**, which is roughly a square root.
+- One thing the panel doesn't mention: the Infinity Upgrade that passively generates Infinity Points reads "Disabled in this reality" and generates none. <!-- vendor/ad-source/src/core/game.js:108-109,142-143 (pow 0.55), 861 (glyph TT gen 0 when Teresa.isRunning); secret-formula/infinity/infinity-upgrades.js ipGen ("Passively generate Infinity Points 10 times slower than your fastest Infinity": effect 0, "Disabled in this reality"). Panel text from the emulator (Android 3.18.0, teresa save). -->
 
 Plan around the EP penalty: your Time Studies cost the same but your EP income is much lower, so bring a study route that reaches Dilation cheaply and lean on Replicanti and Time Dimensions rather than raw EP multipliers.
 
 ## A setup that clears it
 
-- **Glyphs:** favour Replication (speed and multiplier power) and Time (Time Dimension power, EP multiplier). Leave Dilation Glyphs out — their Theorem generation does nothing here.
+- **Glyphs:** Time Glyphs (Time Dimension power, EP multiplier) and Replication Glyphs (Replicanti speed and power) carry the run. Dilation Glyphs lose only their Time Theorem generation here: their Dilated Time and Tachyon Galaxy effects still work once Dilation is unlocked, so a Time and Dilation set clears it too. <!-- glyph-effects.js: dilationDT, dilationgalaxyThreshold, dilationpow are not Teresa-gated; only dilationTTgen is (game.js:861). Emulator: a cleared run's panel recorded "Glyph Set used: Attenuated Time", two Dilation and three Time Glyphs. -->
 - **Studies:** the Idle path with the cheap Dilation shortcut (studies 193 → 214 → 228 → 234) gets Dilation online early without waiting for the full tree. Finish the Eternity Challenges you can, since each completion still pays out.
 - **Execution:** unlock Dilation as soon as you can afford it, then let Replicanti and Time Dimensions carry the run to <Num value="1e4000" /> EP. Progress often slows near the end; that is normal.
 

@@ -38,6 +38,17 @@ On the Glyphs tab, open **Sacrifice Type** below the inventory. "Behavior for de
 
 How much a Glyph gives depends on its level (cubed: a level 10,000 Glyph has a refinement value of 10,000) and its rarity; refining it gives 5% of that value, the "Refine:" number on its card. The catch is the cap. The Alchemy tab puts it as "it will only give you resources up to a cap of ×20 its highest refinement value": each resource tops out at 20 times the "Refine:" value of the best Glyph of its type you have ever refined, and never above <Num value="25000" />. The Alchemy tab shows each resource as amount/cap ("Currently: 4,082.7/5,529.8"). So refine your _best_ spare Glyphs, not junk: one high-level Glyph raises the ceiling, and about twenty of that level fill it. <!-- vendor/ad-source/src/core/glyphs/glyph-purge-handler.js `glyphRefinementEfficiency` 0.05, `highestRefinementValue` = raw gain / 0.05, `glyphEffectiveCap`; celestials/ra/alchemy.js `cap` = min(25000, highestRefinementValue); h2p "Glyph Alchemy Resources"; emulator Alchemy tab text and Power "Currently: 4,082.7/5,529.8" -->
 
+### Filter modes for alchemy
+
+Alchemy also adds two buttons to the [Glyph Filter](/guide/m2/effarig-glyphs-filter#the-glyph-filter) mode row, after the four from Effarig:
+
+- **Atom icon, Lowest Alchemy Resource:** "Priority is given to the Glyph type with the lowest associated Alchemy Resource total." It evens out the base resources.
+- **Flask icon, Refinement Value:** "Priority is given to Glyphs which are worth the most alchemy resources; Glyphs which would cause you to hit a cap are effectively worth less." It fills resources fastest.
+
+Both end with "(this mode never keeps Glyphs)": every Reality's Glyph goes straight to Sacrifice Type, so pair them with **Refine to cap, then sacrifice** and use them only while you farm resources. Switch back to a keeping mode (Basic, Specified Effect or Effect Score) when you hunt a better Glyph for your set.
+
+<!-- Emulator (Android 3.18.0), ra save with Effarig level 12: Glyph Filter shows six mode buttons; texts as quoted. vendor/ad-source/src/core/glyphs/auto-glyph-processor.js (LOWEST_ALCHEMY, ALCHEMY_VALUE: threshold MAX_VALUE, never kept); GlyphFilterPanel.vue isUnlocked (Ra.unlocks.unlockGlyphAlchemy, Effarig level 2). -->
+
 ## The resource ladder
 
 Base resources combine through reactions into higher tiers. Each reaction consumes fixed amounts of its reagents and produces the next resource up: <!-- vendor/ad-source/src/core/secret-formula/celestials/alchemy.js -->

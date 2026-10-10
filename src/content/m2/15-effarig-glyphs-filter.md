@@ -42,7 +42,7 @@ One restriction: the RM multiplier and the instability delay **cannot appear on 
 
 <Callout kind="tip">
 
-Set the filter (below) to keep Effarig Glyphs at a low rarity threshold with 3+ effects. Their effects are rare enough that strict filtering throws away upgrades.
+Set the filter (below) to keep Effarig Glyphs at a low minimum rarity with 3+ effects. Their effects are rare enough that strict filtering throws away upgrades.
 
 </Callout>
 
@@ -54,23 +54,30 @@ Set the filter (below) to keep Effarig Glyphs at a low rarity threshold with 3+ 
 
 ## The Glyph filter
 
-The filter (second shard-shop unlock, <Num value="2e8" /> shards) scores each new Glyph choice and either keeps the best one or sacrifices it. One mode applies to all types at once, and each mode keeps its own settings when you switch. The modes, simplest first:
+The filter (second shard-shop unlock, <Num value="2e8" /> shards) scores each new Glyph choice and either keeps the best one or sacrifices it. Open it from the **Glyph Filter** tab under the inventory on the Glyphs subtab. "Current Filter Mode:" names the active mode above a row of icon buttons; one mode applies to all types at once, and each keeps its own settings when you switch. From left to right:
 
-- **Lowest total sacrifice:** keeps whichever type has the least sacrifice value. No threshold; always sacrifices. Good for balancing sacrifice totals early.
-- **Number of effects:** score is the effect count, ties broken by rarity. Set a minimum count (3 or 4).
-- **Rarity threshold:** score is the rarity percent, with a per-type minimum.
-- **Specified effect:** rarity score with required effects; each missing required effect sinks the score, so unwanted Glyphs always fail. You can ban a whole type by demanding something impossible (e.g. 6 effects on a Power Glyph).
-- **Effect score:** you weight rarity and every effect yourself; a Glyph is kept when rarity plus weights clear your threshold. Negative weights ban effects.
+- **Drop icon, Lowest Total Glyph Sacrifice:** "the type you have the least total Glyph Sacrifice value of is given the highest score. (this mode never keeps Glyphs)". Good for evening out sacrifice totals.
+- **Bulleted list, Basic:** "Selected Glyphs must have at least [N] effects total, with a minimum rarity of [N] %. Rarer Glyphs are preferred in ties." The same two numbers for every type.
+- **Checklist, Specified Effect:** pick a type from the row of type symbols, then set its minimum rarity on the slider, its minimum number of effects, and the effects a kept Glyph "must include". Each missing effect sinks a Glyph's score by 200, so it fails. You can ban a whole type by demanding something impossible (e.g. 6 effects on a Power Glyph).
+- **Numbered list, Effect Score:** per type, a "Threshold score" box ("rarity % + Σ effects") and a number box beside each effect. A Glyph is kept when its rarity plus the numbers of the effects it has reach the threshold. Negative numbers ban effects.
 
-<!-- vendor/ad-source/src/core/secret-formula/h2p.js (Advanced Glyph Mechanics entry) -->
+Once Glyph Alchemy is unlocked (Ra's Effarig memory level 2), two more buttons follow, an atom and a flask, for refining; [Glyph Alchemy](/guide/m2/glyph-alchemy#filter-modes-for-alchemy) covers them.
+
+<Screen
+	src="effarig/filter/reality-glyphs-3.webp"
+	alt="The Glyph Filter tab under the Glyph inventory: Current Filter Mode: Basic, four icon buttons (drop, bulleted list highlighted, checklist, numbered list), and the line Selected Glyphs must have at least 0 effects total, with a minimum rarity of 0 %. Rarer Glyphs are preferred in ties."
+	caption="The Glyph Filter in Basic mode. The four icon buttons are, from left: Lowest Total Glyph Sacrifice, Basic, Specified Effect and Effect Score."
+/>
+
+<!-- Emulator (Android 3.18.0), effarig save and reviewer saves: four mode buttons, six with alchemy; mode names and texts as quoted. Upstream (src/components/tabs/glyphs/sidebar/GlyphFilterPanel.vue) has separate Number of Effects and Rarity Threshold modes; the app merges them into Basic. Scores: src/core/glyphs/auto-glyph-processor.js filterValue (Specified Effect: rarity − 200 per missing effect; Effect Score: rarity + effect scores). Alchemy modes unlock with Ra.unlocks.unlockGlyphAlchemy (Effarig level 2, secret-formula/celestials/ra.js). -->
 
 Unlocking the filter also gives the Automator a filter-score currency and an option to force an immediate Reality when no upcoming choice passes — handy for unattended farming once your rules are solid.
 
 ## Recommended setups
 
-**General farming (Specified effect mode):** basic types at 70–85% minimum rarity and 3–4 minimum effects, with only the effects you always want required (Theorem generation on Dilation, speed/power on Replication). Effarig Glyphs at a low rarity minimum so odd rolls survive.
+**General farming (Specified Effect mode):** basic types at 70–85% minimum rarity and 3–4 minimum effects, with only the effects you always want required (Theorem generation on Dilation, speed/power on Replication). Effarig Glyphs at a low rarity minimum so odd rolls survive. **Basic** is the quick version: one effect count and one rarity for every type.
 
-**Hunting a level-pushing Effarig Glyph (Effect score mode):** threshold out the basic types (an unreachable score), then weight instability delay, game speed and exponents high, filler effects low, and the RM multiplier strongly negative. Only a 3–4 favoured-effect Glyph clears the bar.
+**Hunting a level-pushing Effarig Glyph (Effect Score mode):** threshold out the basic types (an unreachable score), then give instability delay, game speed and exponents high numbers, filler effects low ones, and the RM multiplier a strongly negative one. Only a 3–4 favoured-effect Glyph clears the bar.
 
 **Auto-recycle:** leave automatic sacrifice on so rejected Glyphs feed your sacrifice totals instead of clogging the inventory.
 
