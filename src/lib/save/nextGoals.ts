@@ -122,11 +122,21 @@ const RIFT_MILESTONE_TEXT: Record<string, string> = {
 	'chaos-0.09': 'Decay effect is always maxed and milestones always active'
 };
 
-/** The next Strike, the next milestone of each unlocked Rift, and the cheapest one-time Pelle Upgrade. */
+/**
+ * The next Strike, the next milestone of each unlocked Rift, and the cheapest one-time Pelle Upgrade.
+ * Strike 5 ("Dilate Time") needs Dilation unlocked in the Doomed Reality (achievement 187) first,
+ * so until then it is one goal with the checklist's "Unlock Time Dilation while Doomed".
+ */
 function doomedGoals(s: NormalizedSave): Goal[] {
 	const goals: Goal[] = [];
 	const nextStrike = PELLE_STRIKES.findIndex((_, i) => !s.pelleStrikes.includes(i + 1));
-	if (nextStrike >= 0) {
+	if (nextStrike === 4 && !s.achievements.includes(187)) {
+		goals.push({
+			id: 'pelle-dilation',
+			text: 'Unlock Time Dilation while Doomed, then Dilate Time for Strike 5',
+			done: false
+		});
+	} else if (nextStrike >= 0) {
 		goals.push({
 			id: 'pelle-strike',
 			text: `Strike ${nextStrike + 1}: ${PELLE_STRIKES[nextStrike]} inside the Doomed Reality`,
@@ -174,17 +184,20 @@ function doomedGoals(s: NormalizedSave): Goal[] {
 }
 
 /**
- * Ordered next goals for `stage` (defaults to the save's detected stage). Checklist items a save
- * can't answer (no `auto`) stay on the checklist only. `ticks` are the checklist's hand ticks: an
- * item the save doesn't show as done but the player ticked counts as done, like on the checklist.
+ * Ordered next goals for `stage` (defaults to the save's detected stage): the open ones first, the
+ * goals of the moment before the stage checklist's items, then the done ones for context. A goal of
+ * the moment stands in for the checklist item with the same id. Checklist items a save can't
+ * answer (no `auto`) stay on the checklist only. `ticks` are the checklist's hand ticks: an item
+ * the save doesn't show as done but the player ticked counts as done, like on the checklist.
  */
 export function nextGoals(
 	save: NormalizedSave,
 	stage: StageId = detectStage(save).stage,
 	ticks: Readonly<Record<string, boolean>> = {}
 ): Goal[] {
+	const current = (CURRENT[stage]?.(save) ?? []).filter((goal) => !ticks[goal.id]);
 	const checklist = stageItems(stage).flatMap(({ id, text, auto, progress }): Goal[] => {
-		if (!auto) return [];
+		if (!auto || current.some((goal) => goal.id === id)) return [];
 		if (auto(save)) return [{ id, text, done: true }];
 		if (ticks[id]) return [{ id, text, done: true, byHand: true }];
 		const live = progress?.(save);
@@ -196,5 +209,6 @@ export function nextGoals(
 				: `${text} (${live})`;
 		return [{ id, text: shown, done: false }];
 	});
-	return [...(CURRENT[stage]?.(save) ?? []), ...checklist];
+	const goals = [...current, ...checklist];
+	return [...goals.filter((goal) => !goal.done), ...goals.filter((goal) => goal.done)];
 }
