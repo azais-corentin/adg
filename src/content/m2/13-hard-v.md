@@ -58,7 +58,7 @@ Goal reduction applies to hard achievements too, at a steeper price. Use it — 
 
 ## The four Triad studies
 
-Triads sit at the bottom of the Time Study tree. Each costs 12 Space Theorems (10 after the Ra discount... precisely, the 36-Achievement reward cuts all Theorem costs by 2) and needs its three parent studies plus a V-memory level: <!-- vendor/ad-source/src/core/secret-formula/eternity/time-studies/normal-time-studies.js triad entries 301–304 -->
+Triads sit at the bottom of the Time Study tree. Each costs 12 Space Theorems (10 once you have 36 V-Achievements, whose reward reads "Reduce the ST cost of Time Studies by 2. Unlock Ra") and needs its three parent studies plus a V-memory level: <!-- vendor/ad-source/src/core/secret-formula/eternity/time-studies/normal-time-studies.js triad entries 301–304 (STCost 12); secret-formula/celestials/v.js raUnlock (effect 2); round 7 review, emulator V card "Have 36 V-Achievements / Reward: Reduce the ST cost of Time Studies by 2. Unlock Ra" -->
 
 | Triad | Needs         | V memory | Effect                                                              |
 | ----- | ------------- | -------- | ------------------------------------------------------------------- |
