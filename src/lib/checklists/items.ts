@@ -15,6 +15,7 @@ import {
 	celestials,
 	challenges,
 	dilationUpgrades,
+	perks,
 	realityUpgrades,
 	timeStudies
 } from '#lib/data/index.ts';
@@ -214,6 +215,19 @@ const ANNIHILATION_DARK_MATTER = 1e60;
 const LAST_MILESTONE_SINGULARITIES = '2.5e45';
 /** Rebuyable Reality Upgrades have no fixed `cost`. */
 const ONE_TIME_REALITY_UPGRADES = realityUpgrades.upgrades.filter((u) => u.cost !== null).length;
+
+const PERK_AP = new Map(perks.perks.map((p) => [p.id, p.automatorPoints ?? 0]));
+const UPGRADE_AP = new Map(realityUpgrades.upgrades.map((u) => [u.id, u.automatorPoints ?? 0]));
+/**
+ * `automator/automator-points.js` `totalPoints`: bought perks and one-time Reality Upgrades with
+ * `automatorPoints`, 2 per Reality up to 50 Realities, and 10 for unlocking the Black Hole
+ * (achievement 144) (`secret-formula/reality/automator.js` `otherAutomatorPoints`).
+ */
+const automatorPoints = (s: NormalizedSave) =>
+	s.perks.reduce((sum, id) => sum + (PERK_AP.get(id) ?? 0), 0) +
+	s.realityUpgrades.reduce((sum, id) => sum + (UPGRADE_AP.get(id) ?? 0), 0) +
+	2 * Math.min(s.realities, 50) +
+	(has(s, 144) ? 10 : 0);
 
 export const CHECKLIST: readonly ChecklistItem[] = [
 	// Pre-Infinity. dimboost.js: the first boost costs 20 4th Dimensions, and each of the first
@@ -537,8 +551,9 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'real-automator',
 		stage: 'early-reality',
 		text: 'Unlock the Automator',
-		detail: `Achievement “${achievementName(142)}”.`,
-		auto: (s) => has(s, 142)
+		detail: `It needs 100 Automator Points; the Automator subtab lists where they come from. Achievement “${achievementName(142)}”.`,
+		auto: (s) => has(s, 142),
+		progress: (s) => `${automatorPoints(s)}/100 Automator Points`
 	},
 	{
 		id: 'real-black-hole',

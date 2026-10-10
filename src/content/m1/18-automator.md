@@ -18,11 +18,11 @@ verified:
 The Automator unlocks at **100 total Automator Points** (achievement: How does this work?). Points come from several places: <!-- vendor/ad-source/src/core/automator/automator-points.js; vendor/ad-source/src/core/secret-formula/reality/automator.js; reality-upgrades.js; perks.js -->
 
 - **Realities:** 2 per Reality, up to 50 Realities (100 max, but you will unlock long before that).
-- **Diamond perks:** most grant 5–15 each (ECB gives 15, PEC3 gives 10, ACHNR gives 10).
+- **Perks:** the ones whose label on the Perks subtab ends in an AP amount, like "ACH1 (+5 AP)": 5, 10 or 15 each (ECB gives 15).
 - **Reality Upgrades:** Existentially Prolong (15), Boundless Flow (5), Telemechanical Process (10), Eternal Flow (5), Parity of Singularity (10), Effortless Existence (100).
 - **Black Hole:** unlocking it gives 10.
 
-In practice the Automator arrives in the first dozen Realities: Realities plus a few diamond perks and early upgrades cross 100 without grinding.
+In practice the Automator arrives in the first dozen Realities: Realities plus a few AP perks and early upgrades cross 100 without grinding. Until then, the Automator subtab reads "You have N / 100 Automator Points" and lists these sources with what each has given you; the Next goals of an [imported save](/import) show the same count.
 
 ## Block mode vs text mode
 
