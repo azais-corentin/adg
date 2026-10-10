@@ -241,6 +241,16 @@ class Progress implements ProgressState {
 		this.#save();
 	}
 
+	/** Goes back to the stage the kept save reaches after a manual pick. */
+	useSaveStage(): void {
+		this.init();
+		if (!this.save) return;
+		this.stage = detectStage(this.save).stage;
+		this.stageSource = 'import';
+		this.importedAt = undefined;
+		this.#save();
+	}
+
 	/** Drops the imported save, and the stage too if the import set it. */
 	forgetSave(): void {
 		this.init();

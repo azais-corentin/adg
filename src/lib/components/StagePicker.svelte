@@ -1,18 +1,23 @@
 <!--
 @component
-Manual stage picker. Writes to the progress store with source `manual`.
+Manual stage picker. Writes to the progress store with source `manual`. With an imported save
+kept, its first option goes back to the stage the save reaches.
 -->
 <script lang="ts">
 	import { MILESTONE_NAMES } from '#lib/content/index.ts';
 	import { progress } from '#lib/progress.svelte.ts';
-	import { STAGES, isStageId } from '#lib/stages.ts';
+	import { detectStage } from '#lib/save/stage.ts';
+	import { STAGES, getStage, isStageId } from '#lib/stages.ts';
 
+	const SAVE = 'save';
 	const milestones = [...new Set(STAGES.map((s) => s.milestone))];
 	const id = $props.id();
+	const save = $derived(progress.ready ? progress.save : null);
 
 	function pick(event: Event & { currentTarget: HTMLSelectElement }) {
 		const value = event.currentTarget.value;
-		progress.setStage(isStageId(value) ? value : null, 'manual');
+		if (value === SAVE) progress.useSaveStage();
+		else progress.setStage(isStageId(value) ? value : null, 'manual');
 	}
 </script>
 
@@ -21,10 +26,17 @@ Manual stage picker. Writes to the progress store with source `manual`.
 	<!-- Disabled until the stored progress has loaded, so a pick made during hydration isn't lost. -->
 	<select
 		id="{id}-stage"
-		value={progress.ready ? (progress.stage ?? '') : ''}
+		value={!progress.ready
+			? ''
+			: save && progress.stageSource === 'import'
+				? SAVE
+				: (progress.stage ?? '')}
 		disabled={!progress.ready}
 		onchange={pick}
 	>
+		{#if save}
+			<option value={SAVE}>My imported save ({getStage(detectStage(save).stage).name})</option>
+		{/if}
 		<option value="">I don't know yet</option>
 		{#each milestones as milestone (milestone)}
 			<optgroup label={MILESTONE_NAMES[milestone]}>

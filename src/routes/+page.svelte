@@ -96,7 +96,13 @@
 			</details>
 		{:else}
 			<StagePicker />
-			<a class="button" href={resolve('/import')}>Import a save</a>
+			{#if progress.ready && progress.save}
+				<button type="button" class="button" onclick={() => progress.useSaveStage()}>
+					Back to my save
+				</button>
+			{:else}
+				<a class="button" href={resolve('/import')}>Import a save</a>
+			{/if}
 		{/if}
 	</section>
 

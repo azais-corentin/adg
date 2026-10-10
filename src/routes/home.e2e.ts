@@ -39,3 +39,25 @@ test('corrupt saved progress falls back to no stage', async ({ page }) => {
 	await page.reload();
 	await expect(page.getByText('Stage not set')).toBeVisible();
 });
+
+test('after a manual pick, Home goes back to the imported save', async ({ page }) => {
+	await page.goto('/import');
+	await page.waitForLoadState('networkidle');
+	await page
+		.locator('input[type=file]')
+		.setInputFiles(
+			new URL('../../fixtures/saves/android-3.18.0-web-export-eternity-paired.txt', import.meta.url)
+				.pathname
+		);
+	await expect(page.locator('.result .stage-name')).toHaveText('Eternity');
+
+	await page.goto('/');
+	await page.getByText('Pick your stage by hand instead').click();
+	await page.getByLabel('Where are you in the game?').selectOption('replicanti');
+	await expect(page.getByText('Stage 4 of 17, picked by you.')).toBeVisible();
+
+	await page.getByRole('button', { name: 'Back to my save' }).click();
+	await expect(page.locator('.stage-name')).toHaveText('Eternity');
+	await expect(page.getByRole('heading', { name: 'Next goals' })).toBeVisible();
+	await expect(page.getByLabel('Where are you in the game?')).toHaveValue('save');
+});
