@@ -110,18 +110,51 @@ export function prepareIndex(index: SearchIndex): PreparedIndex {
 }
 
 const SNIPPET_LENGTH = 180;
+/** Text kept before the first match the snippet shows. */
+const SNIPPET_LEAD = 60;
 
 function wordPattern(words: readonly string[]): RegExp {
 	const escaped = words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
 	return new RegExp(`(?<![\\p{L}\\p{N}])(?:${escaped.join('|')})`, 'giu');
 }
 
-/** About `SNIPPET_LENGTH` characters of `text` around the first match, matches marked. */
+/**
+ * Where the snippet's first match sits: the match that starts the window holding the most
+ * different query words, preferring the query's words next to each other in its order (the
+ * table row "Tickspeed autobuyer upgrades" over "Tickspeed" alone further up); earliest on ties.
+ */
+function anchor(text: string, words: readonly string[], pattern: RegExp): number {
+	const matches = [...text.matchAll(pattern)].map((m) => ({
+		at: m.index,
+		end: m.index + m[0].length,
+		word: words.indexOf(m[0].toLowerCase())
+	}));
+	let best = { at: 0, score: -1 };
+	for (const [i, first] of matches.entries()) {
+		const seen = new Set<number>();
+		let score = 0;
+		for (let j = i; j < matches.length; j++) {
+			const match = matches[j];
+			if (match === undefined || match.at >= first.at + SNIPPET_LENGTH - SNIPPET_LEAD) break;
+			seen.add(match.word);
+			const next = matches[j + 1];
+			const adjacent =
+				next !== undefined &&
+				next.word === match.word + 1 &&
+				/^[^\p{L}\p{N}]{1,3}$/u.test(text.slice(match.end, next.at));
+			if (adjacent) score += 1;
+		}
+		score += seen.size * 2;
+		if (score > best.score) best = { at: first.at, score };
+	}
+	return best.at;
+}
+
+/** About `SNIPPET_LENGTH` characters of `text` around where the query words meet, matches marked. */
 function snippet(text: string, words: readonly string[]): Piece[] {
 	const pattern = wordPattern(words);
-	// `search` ignores the global flag's `lastIndex`, which `matchAll` below would inherit.
-	const first = Math.max(0, text.search(pattern));
-	let start = Math.max(0, first - 60);
+	const first = anchor(text, words, pattern);
+	let start = Math.max(0, first - SNIPPET_LEAD);
 	if (start > 0) start = text.indexOf(' ', start) + 1 || start;
 	let end = Math.min(text.length, start + SNIPPET_LENGTH);
 	if (end < text.length)

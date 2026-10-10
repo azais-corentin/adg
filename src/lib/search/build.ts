@@ -43,11 +43,22 @@ function renderComponents(md: string): string {
 }
 
 /**
- * One Markdown line as plain text: no list markers, table pipes, links, emphasis or code ticks,
- * and with the curly quotes and ellipses mdsvex's smartypants puts on the page.
+ * One Markdown line as plain text: no list markers, links, emphasis or code ticks, table rows
+ * as their cells joined by " · " and closed with a full stop, and with the curly quotes and
+ * ellipses mdsvex's smartypants puts on the page.
  */
 function inlineText(line: string): string {
-	if (/^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?\s*$/.test(line)) return '';
+	if (/^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/.test(line) && line.includes('-')) return '';
+	if (/^\s*\|.*\|\s*$/.test(line)) {
+		const row = line
+			.trim()
+			.slice(1, -1)
+			.split('|')
+			.map((cell) => inlineText(cell).trim())
+			.filter(Boolean)
+			.join(' · ');
+		return /[.!?…:;]$/.test(row) ? row : `${row}.`;
+	}
 	return line
 		.replace(/^\s*>\s?/, '')
 		.replace(/^\s*(?:[-*+]|\d+\.)\s+/, '')

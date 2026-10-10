@@ -22,7 +22,7 @@ describe('markdownSections', () => {
 			'## Costs: 1e10,500 and more',
 			'',
 			'| Upgrade | Cost |',
-			'| ------- | ---- |',
+			'| - | ---- |',
 			'| Big one | <Num value="1e10500" /> |',
 			'',
 			'<Screen',
@@ -47,7 +47,7 @@ describe('markdownSections', () => {
 				id: 'costs-1e10-500-and-more',
 				heading: 'Costs: 1e10,500 and more',
 				depth: 2,
-				text: 'Upgrade Cost Big one 1e10,500 Caption text. Alt text here.'
+				text: 'Upgrade · Cost. Big one · 1e10,500. Caption text. Alt text here.'
 			},
 			{ id: 'notes', heading: 'Notes', depth: 3, text: 'code and emphasis' },
 			{ id: 'notes-2', heading: 'Notes', depth: 2, text: '' }
@@ -98,5 +98,15 @@ describe('search', () => {
 		expect(marks).toContain('decoherence');
 		expect(search(prepared, 'decoherence zzzzqx').total).toBe(0);
 		expect(search(prepared, '  ').total).toBe(0);
+	});
+
+	it('shows table rows as cells and centres the snippet where the words meet', () => {
+		const result = search(prepared, 'tickspeed autobuyer').results.find(
+			(r) => r.id === 'the-nine-in-suggested-order'
+		);
+		const text = result?.snippet.map((p) => p.text).join('') ?? '';
+		expect(text).toContain('C9 · Tickspeed/dim buys');
+		expect(text).toContain('Tickspeed autobuyer upgrades');
+		expect(text).not.toMatch(/-{2,}|\|/);
 	});
 });
