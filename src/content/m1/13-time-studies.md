@@ -62,7 +62,9 @@ Two rows of the tree force a choice between exclusive branches.
 
 <!-- normal-time-studies.js: 121 clamp(250 / average real time per Eternity, 1, 50); 122 ×35; 123 sqrt(1.39 × seconds this Eternity), 35² / 1.39 ≈ 881 s -->
 
-**Active is the default for pushing and for most Eternity Challenges**: once Eternities are fast it is worth ×50. Passive needs no timing. Idle is for overnight runs and a few challenges. The rows behind each pace study continue the same choice (131/132/133, 141/142/143), so switching pace means respeccing that whole column. Active's 131 reads "Automatic Replicanti Galaxies are disabled while offline, but you can get 50% more of them": with it, no Replicanti Galaxies come while the app is closed ([Replicanti in Eternity](/guide/m1/eternity-upgrades-and-replicanti#replicanti-in-eternity)).
+**Active is the default for pushing and for most Eternity Challenges**: once Eternities are fast it is worth ×50. Inside an Eternity Challenge, 121 itself does nothing for the goal, because it boosts EP and a challenge asks for IP; the Active row earns its place there through 141's IP multiplier, which is largest when Infinities are short. EC5 runs better on Passive: its Antimatter Galaxies get expensive at once, so 132's stronger Replicanti Galaxies matter most. Passive needs no timing. Idle is for overnight runs and a few challenges. The rows behind each pace study continue the same choice (131/132/133, 141/142/143), so switching pace means respeccing that whole column. Active's 131 reads "Automatic Replicanti Galaxies are disabled while offline, but you can get 50% more of them": with it, no Replicanti Galaxies come while the app is closed ([Replicanti in Eternity](/guide/m1/eternity-upgrades-and-replicanti#replicanti-in-eternity)). The [Eternity Challenge planner](/tools/eternity-challenges) gives each step with 131 a second tree for runs left going with the app closed.
+
+<!-- EC5 on Passive: emulator measurement in src/lib/tools/eternity-challenges/order.ts (EC5_PASSIVE). 141: 1e45 / thisInfinityMult(seconds this Infinity), 142: ×1e25; 132: Replicanti Galaxies 40% stronger (normal-time-studies.js). -->
 
 ## What to buy first
 

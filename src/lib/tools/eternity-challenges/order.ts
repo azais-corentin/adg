@@ -9,6 +9,7 @@
  *   the same order: https://antimatter-dimensions.fandom.com/wiki/Guide
  * Goals and unlock requirements come from the game data instead (see `challenges.ts`);
  * `order.test.ts` checks every step is reachable with the completions before it.
+ * Paths and paces follow the chart, except EC5, which runs on the Passive split (`EC5_PASSIVE`).
  */
 
 export type PathTip = 'AD' | 'ID' | 'TD';
@@ -46,6 +47,16 @@ const step = (
 
 const UNLOCK_ON_TD =
 	'Buy the study on the Time Dimension path first: the game remembers you met its requirement. Then respec, Eternity and import the tree for the run; it buys the study again for its TT alone.';
+
+/**
+ * Android 3.18.0, eternity-challenges save, EC5 ×4 at 219 TT, game on screen: the Passive tree
+ * (122/132/142) passed the 1e1950 IP goal in about 3¼ minutes; the Active tree (121/131/141)
+ * was at 6.40e1744 IP after 23 minutes. EC5 makes Antimatter Galaxies expensive from the
+ * first one, so Replicanti Galaxies carry the run and 132's 40% stronger ones win. The chart
+ * this order comes from picks Active.
+ */
+const EC5_PASSIVE =
+	'Passive split: in EC5 the stronger Replicanti Galaxies of study 132 matter more than anything on the Active row, with the game on screen or not.';
 
 export const ORDER_PHASES: readonly OrderPhase[] = [
 	{
@@ -91,7 +102,7 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 				1,
 				147,
 				'ID',
-				'Active',
+				'Passive',
 				'The study sits under TS42 and needs 160 Antimatter Galaxies. Completing it opens TS62 for faster Replicanti.'
 			),
 			step(1, 3, 147, 'ID', 'Active', 'Keep the Active split: Idle is too slow for EC1.')
@@ -147,7 +158,7 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 			),
 			step(6, 2, 175, 'ID', 'Active', 'Same approach as the first run.'),
 			step(1, 5, 175, 'ID', 'Active', 'Last EC1 completion.'),
-			step(5, 2, 182, 'ID', 'Active', 'Needs 174 Antimatter Galaxies for the study.'),
+			step(5, 2, 182, 'ID', 'Passive', 'Needs 174 Antimatter Galaxies for the study.'),
 			step(2, 3, 182, 'TD', 'Active', 'Same TD + Active tree.'),
 			step(3, 4, 182, 'ID', 'Active', UNLOCK_ON_TD),
 			step(
@@ -165,7 +176,7 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 		title: 'EC8 and finishing ECs 2, 3, 5',
 		summary: 'Around 200–320 TT. EC8 is slow: plan its Replicanti upgrades before you start.',
 		steps: [
-			step(5, 3, 200, 'ID', 'Active', 'Same tree as the earlier EC5 runs.'),
+			step(5, 3, 200, 'ID', 'Passive', EC5_PASSIVE),
 			step(
 				8,
 				1,
@@ -177,7 +188,7 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 			step(3, 5, 200, 'ID', 'Active', `Last EC3 completion. ${UNLOCK_ON_TD}`),
 			step(6, 3, 200, 'ID', 'Active', 'Same approach as before.'),
 			step(2, 4, 200, 'TD', 'Active', 'Same TD + Active tree.'),
-			step(5, 4, 215, 'ID', 'Active', 'Add TS33 if you farm up to about 218 TT.'),
+			step(5, 4, 215, 'ID', 'Passive', `${EC5_PASSIVE} Add TS33 if you farm up to about 218 TT.`),
 			step(
 				7,
 				3,
@@ -187,7 +198,14 @@ export const ORDER_PHASES: readonly OrderPhase[] = [
 				'Unlock on the TD path, run on AD. Earlier attempts stall around 1e3,000 IP.'
 			),
 			step(2, 5, 240, 'TD', 'Active', 'Last EC2 completion.'),
-			step(5, 5, 245, 'ID', 'Active', 'Last EC5 completion. TS31 and TS41 help at about 252 TT.'),
+			step(
+				5,
+				5,
+				245,
+				'ID',
+				'Passive',
+				`Last EC5 completion. ${EC5_PASSIVE} TS31 and TS41 help at about 252 TT.`
+			),
 			step(4, 4, 245, 'TD', 'Idle', 'At most 4 Infinities.'),
 			step(6, 4, 264, 'ID', 'Active', 'Same approach as before.'),
 			step(7, 4, 264, 'AD', 'Active', 'Unlock on the TD path, run on AD.'),

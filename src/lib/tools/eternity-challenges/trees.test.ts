@@ -32,11 +32,17 @@ describe('step trees', () => {
 			expect(offline.studies.split(/[,|]/), label).not.toContain('121');
 			expect(offline.tt, label).toBe(tree.tt);
 		});
-		const ec5 = ORDER.findIndex((s) => s.ec === 5 && s.completion === 4);
-		expect(stepTree(ec5).studies).toBe('11,22,32,42,51,61,72,82,92,102,111,121,131,141,151,161|5');
-		expect(offlineTree(ec5)?.studies).toBe(
-			'11,22,32,42,51,61,72,82,92,102,111,122,132,142,151,161|5'
+		const ec2 = ORDER.findIndex((s) => s.ec === 2 && s.completion === 4);
+		expect(stepTree(ec2).studies).toBe(
+			'11,22,32,42,51,61,73,83,93,103,111,121,131,141,151,161,171,162,33,62,21,31,41|2'
 		);
+		expect(offlineTree(ec2)?.studies).toBe(
+			'11,22,32,42,51,61,73,83,93,103,111,122,132,142,151,161,171,162,33,62,21,31,41|2'
+		);
+		// EC5 runs on the Passive row on screen too, so it has one tree, without 131.
+		const ec5 = ORDER.findIndex((s) => s.ec === 5 && s.completion === 4);
+		expect(stepTree(ec5).studies).toBe('11,22,32,42,51,61,72,82,92,102,111,122,132,142,151,161|5');
+		expect(offlineTree(ec5)).toBeUndefined();
 	});
 
 	it('fit in the chart’s Time Theorems', () => {
