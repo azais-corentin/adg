@@ -59,6 +59,11 @@ export interface NormalizedSave {
 	dimensionBoosts: number;
 	/** Infinity Dimensions unlocked, 0..8 (`dimensions.infinity[i].isUnlocked`; tiers unlock in order). */
 	infinityDimensions: number;
+	/**
+	 * Unlocked Infinity Dimension tiers (1..8) whose stored `cost` the save's IP covers, ID1–ID7
+	 * only below the 2,000,000-purchase cap (`HARDCAP_PURCHASES`; Tesseracts ignored).
+	 */
+	affordableInfinityDimensions: readonly number[];
 
 	replicanti: { unlocked: boolean; galaxies: number };
 	breakInfinity: boolean;

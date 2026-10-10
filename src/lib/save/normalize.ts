@@ -1,4 +1,4 @@
-import { BIG_ZERO, fromNumber, parseBigNum, toNumber } from './bignum.ts';
+import { BIG_ZERO, fromNumber, gte, parseBigNum, toNumber } from './bignum.ts';
 import type { DecodedSave } from './decode.ts';
 import type { BigNum, CelestialState, NormalizedSave, PelleRiftId } from './types.ts';
 
@@ -67,6 +67,9 @@ function achievementIds(rows: readonly number[]): number[] {
 /** Fallback for "no best time yet" (upstream initial `Number.MAX_VALUE`). */
 const NO_TIME = Number.MAX_VALUE;
 
+/** `InfinityDimensions.HARDCAP_PURCHASES`: purchases ID1–ID7 allow before Tesseracts. */
+const ID_PURCHASE_CAP = 2_000_000;
+
 export function normalizeSave({ format, transport, player: p }: DecodedSave): NormalizedSave {
 	const native = format === 'android-native';
 	const version = at(p, ['version']);
@@ -104,6 +107,19 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 
 	const dilationStudies = numbers(p, ['dilation', 'studies']);
 	const ecRaw = native ? numbers(p, ['challenge', 'eternity', 'completions']) : [];
+	const infinityPoints = big(p, ['infinityPoints']);
+	// Both schemas store each Infinity Dimension's next price as `cost` and its bought count ×10
+	// as `baseAmount` (src/core/dimensions/infinity-dimension.js).
+	const affordableInfinityDimensions = range(1, 8).filter((tier) => {
+		const dim = ['dimensions', 'infinity', tier - 1];
+		const cost = parseBigNum(at(p, [...dim, 'cost']));
+		return (
+			bool(p, [...dim, 'isUnlocked']) &&
+			cost !== undefined &&
+			gte(infinityPoints, cost) &&
+			(tier === 8 || num(p, [...dim, 'baseAmount'], 0) / 10 < ID_PURCHASE_CAP)
+		);
+	});
 
 	return {
 		source: { format, transport },
@@ -123,7 +139,7 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 		bankedInfinities: big(p, [native ? 'bankedInfinities' : 'infinitiesBanked']),
 		eternities: big(p, ['eternities']),
 		realities: num(p, ['realities'], 0),
-		infinityPoints: big(p, ['infinityPoints']),
+		infinityPoints,
 		eternityPoints: big(p, ['eternityPoints']),
 		realityMachines: big(p, ['reality', 'realityMachines']),
 		galaxies: num(p, ['galaxies'], 0),
@@ -131,6 +147,7 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 		infinityDimensions: range(0, 7).filter((i) =>
 			bool(p, ['dimensions', 'infinity', i, 'isUnlocked'])
 		).length,
+		affordableInfinityDimensions,
 
 		replicanti: {
 			unlocked: bool(p, ['replicanti', 'unl']),

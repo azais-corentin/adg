@@ -57,7 +57,15 @@ describe('paired fixtures (one game state exported both ways ~80 s apart)', () =
 	});
 
 	it('agrees on every other field', () => {
-		const skip: readonly string[] = ['source', 'version', 'lastUpdate', 'records', ...growing];
+		// Affordable Infinity Dimensions follow IP: it passed ID4's and ID8's 1e490 between exports.
+		const skip: readonly string[] = [
+			'source',
+			'version',
+			'lastUpdate',
+			'records',
+			'affordableInfinityDimensions',
+			...growing
+		];
 		const shared = (save: NormalizedSave) =>
 			Object.fromEntries(Object.entries(save).filter(([key]) => !skip.includes(key)));
 		expect(Object.keys(shared(web)).length).toBeGreaterThan(20);

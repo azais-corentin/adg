@@ -18,9 +18,9 @@ verified:
 
 Once you have broken Infinity and reach <Num value="1e1100" /> antimatter and <Num value="1e8" /> Infinity Points, the box at the top left of every tab turns into a button: **Unlock a new Infinity Dimension**. Tap it and the **Dimensions tab** (cube icon) gains a second subtab: **Infinity**. It holds eight Infinity Dimensions (ID1–ID8), which work like the familiar ones turned upside down: the 8th produces the 7th, the 7th the 6th, and the 1st produces **Infinity Power** instead of antimatter. Infinity Power converts directly into a multiplier on all your Antimatter Dimensions, so every point of it echoes back down the whole chain.
 
-Each further tier has its own antimatter threshold, and **reaching it does not unlock the tier by itself**. Until then the top-left box reads "Reach 1e10,500 antimatter to unlock a new Infinity Dimension" (with the next threshold); once your antimatter gets there, it turns into a button, **Unlock a new Infinity Dimension**, and the tier's row shows **Unlock**. Tap either one, then buy the new Dimension with Infinity Points. The threshold counts the most antimatter you reached this Eternity, so a Big Crunch doesn't take it away. From 25 Eternities a milestone unlocks them for you.
+Each further tier has its own antimatter threshold, and **reaching it does not unlock the tier by itself**. Until then the top-left box reads "Reach 1e10,500 antimatter to unlock a new Infinity Dimension" (with the next threshold); once your antimatter gets there, it turns into a button, **Unlock a new Infinity Dimension**, and the tier's row shows **Unlock**. Tap either one, or **Max all** on the Infinity subtab (below), then buy the new Dimension with Infinity Points. The threshold counts the most antimatter you reached this Eternity, so a Big Crunch doesn't take it away. From 25 Eternities a milestone unlocks them for you.
 
-<!-- src/components/ui-modes/prestige-header/UnlockInfinityDimButton.vue (ID1 also needs 1e8 IP before the first Eternity), infinity-dimension.js canUnlock (records.thisEternity.maxAM), eternity-milestones.js autoUnlockID (25). Emulator (Android 3.18.0): with no ID unlocked, 8.39e9029 AM and 3.18e40 IP, the box read "Unlock a new Infinity Dimension", the Antimatter subtab's bar "Percentage to unlock a new type of Dimension: 100.00%" and there was no Infinity subtab yet. At 1e45,001 antimatter with 5 IDs the box read "Unlock a new Infinity Dimension" and the 6th row "Unlock"; tapping it unlocked ID6 (Cost: 1e200 IP) and the box moved on to "Reach 1e54,000 antimatter to unlock a new Infinity Dimension". -->
+<!-- src/components/ui-modes/prestige-header/UnlockInfinityDimButton.vue (ID1 also needs 1e8 IP before the first Eternity), infinity-dimension.js canUnlock (records.thisEternity.maxAM), eternity-milestones.js autoUnlockID (25). Emulator (Android 3.18.0): with no ID unlocked, 8.39e9029 AM and 3.18e40 IP, the box read "Unlock a new Infinity Dimension", the Antimatter subtab's bar "Percentage to unlock a new type of Dimension: 100.00%" and there was no Infinity subtab yet. At 1e45,001 antimatter with 5 IDs the box read "Unlock a new Infinity Dimension" and the 6th row "Unlock"; tapping it unlocked ID6 (Cost: 1e200 IP) and the box moved on to "Reach 1e54,000 antimatter to unlock a new Infinity Dimension". Same state, 2.10e197 IP: Max all alone unlocked ID6 (row "Cost: 1e200 IP", 7th row "Reach 1e54,000 AM"). -->
 
 <Screen
 	src="break-infinity/id-unlock/dimensions-infinity-top.webp"
@@ -47,6 +47,10 @@ Each further tier has its own antimatter threshold, and **reaching it does not u
 	caption="The Infinity Dimensions subtab. Each tier feeds the one above it; ID1 feeds Infinity Power at the top."
 />
 
+Under the Infinity Power lines the subtab notes "All IDs except the 8th are limited to a maximum of 2.00e6 purchases. Tap on locked Dimension buttons to see their cost." Then comes **Max all**: one tap unlocks every tier whose threshold you have reached and buys as many of each Infinity Dimension as your IP pays for, starting with ID1. That makes it the one button to press after every crunch. The purchase cap only matters much later, when [Tesseracts](/guide/m2/tesseracts-after) raise it.
+
+<!-- src/core/dimensions/infinity-dimension.js InfinityDimensions.buyMax ("Called from Max All": unlock(), then buyMax from the lowest tier), HARDCAP_PURCHASES 2000000; secret-formula/h2p.js (Tesseracts raise the cap). Note text from the emulator. -->
+
 Notice the gap: ID4 wants <Num value="1e20" /> IP but ID5 wants <Num value="1e140" />. That gap is the whole middle of this stage — you cross it with Infinity Challenges, which is why the Challenges tab starts glowing.
 
 ## How Infinity Power works
@@ -70,7 +74,7 @@ The rhythm from here to Replicanti is: push antimatter to the next ID threshold,
 
 <Callout kind="tip">
 
-Leaving a reached tier locked, or an unlocked one unbought, is the most common stall. The top-left box says **Unlock a new Infinity Dimension** until you tap it, and the Antimatter subtab's bar reads "Percentage to new Infinity Dimension: 100.00%". Make checking the Infinity subtab part of every crunch: unlock, buy what you can, then crunch.
+Leaving a reached tier locked, or an unlocked one unbought, is the most common stall. The top-left box says **Unlock a new Infinity Dimension** until you tap it, and the Antimatter subtab's bar reads "Percentage to new Infinity Dimension: 100.00%". Make the Infinity subtab part of every crunch: tap **Max all** (it unlocks and buys in one go), then crunch. With a save imported, [Next goals](/import) lists the Infinity Dimensions your IP already pays for.
 
 </Callout>
 

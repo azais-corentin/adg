@@ -62,6 +62,22 @@ describe('nextGoals', () => {
 		);
 	});
 
+	it('Infinity Dimensions the IP pays for come first, with the button that buys them', async () => {
+		const decoded = await decodeSave(readFixture('android-web-export-break-infinity.txt'));
+		// Costs in the fixture: ID1 1e200, ID2 1e201, ID3 1e202, ID4 1e200, ID5 1e200 IP.
+		const rich = normalizeSave({
+			...decoded,
+			player: { ...decoded.player, infinityPoints: '1.5e201' }
+		});
+		expect(rich.affordableInfinityDimensions).toEqual([1, 2, 4, 5]);
+		expect(nextGoals(rich, 'replicanti')[0]).toEqual({
+			id: 'buy-infinity-dimensions',
+			text: 'Buy Infinity Dimensions: you can afford ID1, ID2, ID4 and ID5 (tap Max all on Dimensions → Infinity)',
+			done: false
+		});
+		expect(replicanti.affordableInfinityDimensions).toEqual([]);
+	});
+
 	it('a goal ticked by hand on the checklist counts as done, without its progress', () => {
 		const ticks = { 'rep-id8': true, 'rep-galaxy': true };
 		const goals = nextGoals(replicanti, 'replicanti', ticks);

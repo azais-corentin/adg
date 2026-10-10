@@ -75,18 +75,46 @@ function ecGoal(s: NormalizedSave, id: number): Goal {
 	};
 }
 
+/** Joins `["ID1", "ID2", "ID3"]` as "ID1, ID2 and ID3". */
+const list = (items: readonly string[]) =>
+	items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`;
+
+/**
+ * Infinity Dimensions the save's IP pays for and no autobuyer buys yet (the Eternity milestones
+ * above: tier `t`'s autobuyer at `10 + t` Eternities). The Infinity subtab's Max all buys them,
+ * and unlocks any tier whose antimatter threshold is reached.
+ */
+function idPurchaseGoals(s: NormalizedSave): Goal[] {
+	const eternities = toNumber(s.eternities);
+	const tiers = s.affordableInfinityDimensions.filter((tier) => eternities < 10 + tier);
+	if (tiers.length === 0) return [];
+	return [
+		{
+			id: 'buy-infinity-dimensions',
+			text: `Buy Infinity Dimensions: you can afford ${list(tiers.map((t) => `ID${t}`))} (tap Max all on Dimensions → Infinity)`,
+			done: false
+		}
+	];
+}
+
 /** Goals of the moment that the stage checklist has no item for; listed before it. */
 const CURRENT: Partial<Record<StageId, (s: NormalizedSave) => Goal[]>> = {
+	'break-infinity': idPurchaseGoals,
+	replicanti: idPurchaseGoals,
 	'early-eternity': (s) => {
 		const eternities = toNumber(s.eternities);
 		const milestone = ETERNITY_MILESTONES.find(([count]) => eternities < count);
-		if (!milestone) return [];
 		return [
-			{
-				id: `eternity-milestone-${milestone[0]}`,
-				text: `Reach ${milestone[0]} Eternities: ${milestone[1]} (have ${eternities.toLocaleString('en-US')})`,
-				done: false
-			}
+			...idPurchaseGoals(s),
+			...(milestone
+				? [
+						{
+							id: `eternity-milestone-${milestone[0]}`,
+							text: `Reach ${milestone[0]} Eternities: ${milestone[1]} (have ${eternities.toLocaleString('en-US')})`,
+							done: false
+						}
+					]
+				: [])
 		];
 	},
 	// The next three Eternity Challenges below five completions, each with its next goal.
