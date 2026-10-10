@@ -19,7 +19,7 @@ verified:
 
 Reality is a full-layer prestige: everything from the Eternity layer down resets — antimatter, Infinity and Eternity Points, your Infinity and Eternity counts, Dimensions, Time Theorems and studies, Eternity Upgrades — and you start over with permanent additions. In detail: <!-- vendor/ad-source/src/core/reality.js (finishProcessReality: eternityChalls = {}, unlockedEC = 0, Currency.eternities/timeTheorems reset, eternityUpgrades.clear, dilation studies/upgrades/DT reset, preReality achievements lock unless Perk achievementGroup5) -->
 
-- **Eternity Challenges start over.** Your completions and their rewards reset along with the EC studies, so all 60 completions are earned again in each Reality. Your stronger post-Reality game makes the early ones quick, and later Perks complete them for you over time.
+- **Eternity Challenges start over.** Your completions and their rewards reset along with the EC studies, so all 60 completions are earned again in each Reality. Your stronger post-Reality game makes the early ones quick, and the perks PEC1–PEC3 later complete one EC for you every 60, 40 and then 20 minutes of real time.
 - **Dilation studies, dilation upgrades, Tachyon Particles and Dilated Time** reset. You will re-unlock Dilation in every Reality; later perks automate this.
 - **Achievements reset too.** The 104 pre-Reality achievements go dark (rewards and all) and must be re-earned — by hand or via the 30-minute auto-achievement timer. Your records and statistics stay.
 - **Records** (best EP, best times) start a new Reality row; the this-Reality max EP that unlocked the study begins climbing again from zero.

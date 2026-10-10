@@ -22,9 +22,17 @@ If the study will not buy, check which of those three is missing: usually it is 
 
 ## What a Reality resets — and what it keeps
 
-Reality resets almost everything up to this point: antimatter, Infinity Points, Eternity Points, Infinities, Eternities, Time Theorems, Time Dimensions, Tachyon Particles, Dilated Time, Replicanti, EC studies, normal/infinity challenge _completions_, studies and Dilation upgrades. EC _completion counts_ survive — only the studies and unlock flags clear. <!-- vendor/ad-source/src/core/reality.js (finishProcessReality); vendor/ad-source/src/core/eternity.js (initializeChallengeCompletions) -->
+Reality resets almost everything up to this point: antimatter and all three kinds of Dimensions, Dimension Boosts, Galaxies, Infinity Points and Infinities, Infinity and Break Infinity Upgrades and Break Infinity itself, Replicanti, Eternity Points and Eternities (so the Eternity milestones too), Eternity Upgrades, Time Theorems and every Time Study, and Time Dilation with its studies, upgrades, Tachyon Particles and Dilated Time. <!-- vendor/ad-source/src/core/reality.js (finishProcessReality); vendor/ad-source/src/core/eternity.js (initializeChallengeCompletions); currency.js Currency.timeTheorems.reset → respecTimeStudies -->
 
-Two things surprise most players:
+**Challenge completions reset too, Eternity Challenges included.** Normal and Infinity Challenges start over, and every Eternity Challenge reads "Completed 0 times" again, its reward gone until you redo it. All 60 EC completions are earned again in each Reality; your post-Reality multipliers make the early tiers quick, and the perks PEC1–PEC3 later complete one EC for you every 60, 40 and then 20 minutes of real time ([the perk tree](/guide/m1/perk-tree)). <!-- reality.js finishProcessReality: player.eternityChalls = {} unless Pelle's keepEternityChallenges; perks.js autocompleteEC1-3 -->
+
+<Screen
+	src="early-reality/challenges-eternity-0.webp"
+	alt="Challenges → Eternity after a Reality, with 3 Reality Machines: EC1 and EC2 are Locked and read Completed 0 times, with their goals and rewards."
+	caption="After a Reality every Eternity Challenge is back to Completed 0 times."
+/>
+
+Two more things surprise most players:
 
 - **You lose the first 13 rows of achievements** — every pre-Reality achievement and its reward goes dark. You keep everything under the General header in Statistics, and all your best challenge times. <!-- in-game How to Play, "Reality" -->
 - **You re-earn those achievements one at a time.** Every 30 minutes the game completes your next unfinished achievement for free, even offline, until rows 1–13 are full again. The Achievements tab (trophy) shows the countdown and an **Auto: ON** button. You can also redo their requirements by hand, which is faster for the easy ones. Switching Auto off doesn't stop the countdown: it runs down to zero and waits there, and the next achievement arrives as soon as you switch Auto back on. <!-- in-game How to Play, "Reality"; normal-achievement.js:141-158 (timer clamps at the period while auto is off); emulator: Achievements → Normal shows Hide completed rows and Auto: ON -->

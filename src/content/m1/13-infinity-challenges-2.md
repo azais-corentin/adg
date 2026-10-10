@@ -42,7 +42,7 @@ No technique — this is a race. Outgrow the divider with galaxies, Dimboosts an
 
 **Restriction:** Antimatter Galaxies cannot be bought; the base Dimboost multiplier rises to compensate (up to ×10). **Goal:** <Num value="1e10000" /> AM. Attempt around <Num value="1e114" /> IP.
 
-Dimboosts are your galaxies here. Push Dimboosts hard — the boosted multiplier plus your accumulated IC stack carries the run. The reward raises the Dimboost multiplier floor to ×4 permanently, which speeds up every future run including Eternity pushes.
+Dimboosts are your galaxies here. Push Dimboosts hard — the boosted multiplier plus your accumulated IC stack carries the run. The reward raises the Dimboost multiplier floor to ×4, which speeds up every later run of this stage.
 
 ## IC8 — decaying production
 
@@ -58,12 +58,12 @@ At the recommended IP it finishes in under a minute.
 
 ## After all eight
 
-Eight completions stack to about ×8.2 on every Infinity Dimension, and the unique rewards (Sacrifice autobuyer, ^1.05 exponents, stronger galaxies, ×4 Dimboost floor) compound across all future runs. That stack is what unlocks ID5–ID8 and carries you to <Num value="1e140" /> IP — the Replicanti unlock.
+Eight completions stack to about ×8.2 on every Infinity Dimension, and the unique rewards (Sacrifice autobuyer, ^1.05 exponents, stronger galaxies, ×4 Dimboost floor) compound across every Big Crunch that follows. That stack is what unlocks ID5–ID8 and carries you to <Num value="1e140" /> IP — the Replicanti unlock.
 
 Two things to know going forward:
 
 - **Within this stage, ICs are one-time.** Re-entering a finished IC just replays it; the reward does not stack twice.
-- **Later prestiges replay them free.** Eternity milestones eventually auto-complete Normal and Infinity Challenges at the start of each run, so this is the only time you solve them by hand. <!-- src/core/secret-formula/eternity/eternity-milestones.js (7- and 100-eternity milestone rewards) -->
+- **An Eternity clears them, then milestones hand them back.** Each Eternity resets Normal and Infinity Challenge completions. From 2 Eternities you start each Eternity with the Normal Challenges completed, and from 7 Eternities "You complete Infinity Challenges as soon as you unlock them", so after the first few Eternities you never solve them by hand again (until a Reality resets your Eternity count). <!-- src/core/eternity.js initializeChallengeCompletions; secret-formula/eternity/eternity-milestones.js (2 and 7); 7-Eternity card text from late-eternity/eternity-milestones-0.webp (Android 3.18.0) -->
 
 <Callout kind="tip">
 

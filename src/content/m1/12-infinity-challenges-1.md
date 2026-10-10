@@ -16,7 +16,7 @@ verified:
 
 ## How Infinity Challenges work
 
-Infinity Challenges live in the **Challenges tab** (triangle icon), on the **Infinity** subtab. Each one is a run with a special restriction, a goal antimatter amount, and a permanent reward. Entering one starts a fresh Infinity run under its rule; leaving or finishing returns you to normal play. **Entering any IC breaks Infinity for you automatically if you haven't already.** <!-- src/core/infinity-challenges.js:57 -->
+Infinity Challenges live in the **Challenges tab** (triangle icon), on the **Infinity** subtab. Each one is a run with a special restriction, a goal antimatter amount, and a reward that every Big Crunch keeps (an Eternity clears it, until the 7-Eternity milestone completes the challenges as soon as you unlock them). Entering one starts a fresh Infinity run under its rule; leaving or finishing returns you to normal play. **Entering any IC breaks Infinity for you automatically if you haven't already.** <!-- src/core/infinity-challenges.js:57; eternity.js initializeChallengeCompletions -->
 
 Every completion adds a stacking **×1.3 multiplier to all Infinity Dimensions** — eight completions is about ×8.2 total, which is why the later IDs depend on them. Several ICs add a second, unique reward on top. <!-- src/core/secret-formula/challenges/infinity-challenges.js -->
 

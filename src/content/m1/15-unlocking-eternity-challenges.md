@@ -16,9 +16,9 @@ verified:
 
 ## What an Eternity Challenge is
 
-Eternity Challenges are 12 special runs, listed in the **Eternity** subtab of the Challenges tab. Each one disables or warps part of the game — Time Dimensions off, Infinity Dimensions off, no galaxies — and sets an antimatter or IP goal. Reaching the goal finishes the run and grants part of that challenge's permanent reward.
+Eternity Challenges are 12 special runs, listed in the **Eternity** subtab of the Challenges tab. Each one disables or warps part of the game — Time Dimensions off, Infinity Dimensions off, no galaxies — and sets an antimatter or IP goal. Reaching the goal finishes the run and grants part of that challenge's reward.
 
-Every challenge can be completed **up to 5 times**. Each completion raises the goal and strengthens the reward, and stays forever with no need to keep the study bought. The Challenges tab shows each challenge's goal span, current reward and completion count.
+Every challenge can be completed **up to 5 times**. Each completion raises the goal and strengthens the reward. Completions survive every Eternity with no need to keep the study bought; the Challenges tab says "The rewards are applied permanently with no need to have the respective EC Time Study purchased." Only a Reality sets them back to 0 (see [Your first Reality](/guide/m1/first-reality)). The tab shows each challenge's goal span, current reward and completion count.
 
 <!-- secret-formula/challenges/eternity-challenges.js; src/core/eternity-challenge.js: maxCompletions -->
 

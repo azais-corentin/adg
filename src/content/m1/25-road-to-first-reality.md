@@ -33,7 +33,7 @@ Covered in [Time Dimensions 5 to 8](/guide/m1/time-dimensions-5-to-8): buy the <
 This is the long push. The route that gets most players there:
 
 - Finish the dilation upgrade set — every upgrade in [Dilation upgrades in order](/guide/m1/dilation-upgrades-in-order) raises the EP ceiling of a normal Eternity.
-- Complete remaining ECs five times each; their stacked rewards are permanent EP multipliers.
+- Complete remaining ECs five times each; their stacked rewards are EP multipliers that every Eternity keeps.
 - Run the dilate–push–exit cycle from [Farming EP and DT](/guide/m1/farming-ep-and-dt): each TP record raises DT income, which funds the next round of upgrades, which raises the next EP record.
 - Watch the exponent, not the mantissa: the Studies subtab and the top-of-screen EP readout show max EP — the number that must cross <Num value="1e4000" />.
 

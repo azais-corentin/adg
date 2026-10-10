@@ -34,7 +34,7 @@ Buy the Tachyon-gain upgrade first whenever its cost is within roughly one-and-a
 
 ## The one-time upgrades, in order
 
-Buy these as each becomes affordable — each is permanent, so none is ever wasted. The names are the cards' own texts: <!-- vendor/ad-source/src/core/secret-formula/eternity/dilation-upgrades.js; card texts from early-dilation/eternity-dilation-1.webp (Android 3.18.0) -->
+Buy these as each becomes affordable — every Eternity keeps them (only a Reality resets them), so none is ever wasted. The names are the cards' own texts: <!-- vendor/ad-source/src/core/secret-formula/eternity/dilation-upgrades.js; reality.js finishProcessReality dilation.upgrades.clear(); card texts from early-dilation/eternity-dilation-1.webp (Android 3.18.0) -->
 
 1. **"Gain twice as many Tachyon Galaxies, up to 500 base Galaxies"** — <Num value="5e6" /> DT. Doubles the Galaxies your DT has earned. An immediate Tickspeed jump; buy the moment it is affordable.
 2. **"Antimatter Dimension multiplier based on Dilated Time, unaffected by Time Dilation"** — <Num value="5e7" /> DT. Multiplies Antimatter Dimensions by DT to the power 308. This is what un-stalls your dilated pushes.

@@ -64,7 +64,7 @@ Every upgrade below is one-time: meet its task, pay its iM price, and its effect
 
 <Callout kind="warning">
 
-Upgrades 11–14 and 20–23 stop working inside Doomed Reality (Pelle); upgrade 24 keeps working, and so do 15 (Lai'tela/Continuum) and 25 (Pelle) — the game never takes your Celestials away. Buy everything you can before Dooming. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js: isDisabledInDoomed on 11–14, 20–23 only -->
+Upgrades 11–14 and 20–23 stop working inside Doomed Reality (Pelle). 15, 24 and 25 are not switched off themselves, but Continuum, the mechanic 15 unlocks, stays off for the whole Doomed Reality, as Dark Matter Singularities' effects and Alchemy do. Buy everything you can before Dooming. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js: isDisabledInDoomed on 11–14, 20–23 only; celestials/laitela/laitela.js continuumActive checks Pelle.isDisabled("continuum"); pelle.js disabledMechanicUnlocks: continuum, singularity, alchemy → ({}), never re-enabled -->
 
 </Callout>
 

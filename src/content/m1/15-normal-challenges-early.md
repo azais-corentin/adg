@@ -16,7 +16,7 @@ verified:
 
 ## How challenges work
 
-The Challenges tab (triangle icon) offers **Normal Challenges**. Entering one starts a fresh Infinity run under a restriction — weaker Dimensions, stranger costs, missing Boosts — and completing it (reaching <Num value="1.80e308" /> antimatter inside) grants its reward permanently. Challenges 1–9 are open as soon as you have crunched once; 10–12 stay locked until 16 Infinities.
+The Challenges tab (triangle icon) offers **Normal Challenges**. Entering one starts a fresh Infinity run under a restriction — weaker Dimensions, stranger costs, missing Boosts — and completing it (reaching <Num value="1.80e308" /> antimatter inside) grants its reward, which every Big Crunch keeps. (An Eternity clears the completions, until the 2-Eternity milestone hands them back each time.) Challenges 1–9 are open as soon as you have crunched once; 10–12 stay locked until 16 Infinities.
 
 <!-- goals NUMBER_MAX_VALUE (1.80e308); NC10-12 lockedAt 16 Infinities: src/lib/data/generated/challenges.json, vendor/ad-source/src/core/normal-challenges.js -->
 

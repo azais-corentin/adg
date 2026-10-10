@@ -15,14 +15,14 @@ verified:
 
 ## How milestones work
 
-The **Milestones** subtab of the Eternity tab lists rewards that unlock permanently once your total Eternity count reaches the number shown. They are the reason the first stretch of the game is a loop: Eternity often, watch the busywork disappear, Eternity faster.
+The **Milestones** subtab of the Eternity tab lists rewards that unlock once your total Eternity count reaches the number shown, and stay for every Eternity after (a Reality, much later, resets the count). They are the reason the first stretch of the game is a loop: Eternity often, watch the busywork disappear, Eternity faster.
 
 <!-- secret-formula/eternity/eternity-milestones.js -->
 
 <Screen
 	src="early-eternity/eternity-milestones-0.webp"
 	alt="The Milestones subtab at 13 Eternities: the 1-through-5 Eternity cards — IP multiplier autobuyer, start-with-challenges-and-broken-Infinity, Replicanti Galaxy autobuyer, start-with-all-Infinity-Upgrades."
-	caption="The start of the milestone ladder. Each card unlocks permanently at the shown Eternity count."
+	caption="The start of the milestone ladder. Each card unlocks at the shown Eternity count and stays unlocked from then on."
 />
 
 ## The early milestones

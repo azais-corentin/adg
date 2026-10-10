@@ -36,7 +36,7 @@ Late Eternity is one repeating cycle, and every part of it feeds the next:
 
 ## Finishing the Eternity Challenges
 
-Every EC at five completions is worth finishing before the final Reality push: each completion's reward is a permanent multiplier, and the full set feeds the EP growth that must reach <Num value="1e4000" />. The two achievement-relevant tallies are 50 total completions and all twelve at five — the latter is one of the hardest rows in the game, so treat it as background work across the whole stage, not a last-minute sprint. <!-- vendor/ad-source/src/core/secret-formula/challenges/eternity-challenges.js for EC data; checklist late-all-ec -->
+Every EC at five completions is worth finishing before the final Reality push: each completion's reward is a multiplier that every Eternity keeps, and the full set feeds the EP growth that must reach <Num value="1e4000" />. The two achievement-relevant tallies are 50 total completions and all twelve at five — the latter is one of the hardest rows in the game, so treat it as background work across the whole stage, not a last-minute sprint. <!-- vendor/ad-source/src/core/secret-formula/challenges/eternity-challenges.js for EC data; checklist late-all-ec -->
 
 <Callout kind="tip">
 
