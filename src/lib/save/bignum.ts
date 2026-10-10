@@ -37,7 +37,10 @@ export function toNumber(value: BigNum): number {
 export function add(a: BigNum, b: BigNum): BigNum {
 	const [big, small] = compare(a, b) >= 0 ? [a, b] : [b, a];
 	if (small.mantissa === 0) return big;
-	return bigNum(big.mantissa + small.mantissa * 10 ** (small.exponent - big.exponent), big.exponent);
+	return bigNum(
+		big.mantissa + small.mantissa * 10 ** (small.exponent - big.exponent),
+		big.exponent
+	);
 }
 
 /** Parses a break_infinity string (`"1.5e+308"`, `"-1.0e0"`), a number, or `{mantissa, exponent}`. */
@@ -148,4 +151,12 @@ export function formatCount(value: BigNum | number): string {
 	const count = typeof value === 'number' ? fromNumber(value) : value;
 	if (gt(count, 1e9)) return formatBigNum(count, 3);
 	return Math.floor(toNumber(count)).toLocaleString('en-US');
+}
+
+/**
+ * Time Theorems as the Time Theorem shop shows them (`TimeTheoremShop.vue`
+ * `formatTimeTheoremType`): whole with separators below 1e6, `format(value, 2)` from 1e6.
+ */
+export function formatTheorems(value: number): string {
+	return value < 1e6 ? Math.floor(value).toLocaleString('en-US') : formatGameNumber(value, 2);
 }

@@ -4,6 +4,7 @@ import {
 	compare,
 	formatBigNum,
 	formatCount,
+	formatTheorems,
 	formatGameNumber,
 	fromNumber,
 	gte,
@@ -69,7 +70,7 @@ describe('compare / log10 / toNumber', () => {
 	});
 });
 
-describe('formatBigNum (the app\'s Scientific notation)', () => {
+describe("formatBigNum (the app's Scientific notation)", () => {
 	it.each([
 		[fromNumber(0), '0'],
 		[fromNumber(999.4), '999'],
@@ -125,5 +126,13 @@ describe('formatCount', () => {
 		expect(formatCount(8584)).toBe('8,584');
 		expect(formatCount(bigNum(3.759336, 6))).toBe('3,759,336');
 		expect(formatCount(bigNum(1.2346, 12))).toBe('1.235e12');
+	});
+});
+
+describe('formatTheorems', () => {
+	it('groups digits below 1e6, then 2 places like the Time Theorem shop', () => {
+		expect(formatTheorems(215)).toBe('215');
+		expect(formatTheorems(999_999)).toBe('999,999');
+		expect(formatTheorems(3.1494355938828305e76)).toBe('3.15e76');
 	});
 });

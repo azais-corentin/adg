@@ -3,6 +3,7 @@
 	import { replaceState } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { progress } from '#lib/progress.svelte.ts';
+	import { formatTheorems } from '#lib/save/bignum.ts';
 	import { getStage } from '#lib/stages.ts';
 	import TreeView from '#lib/tools/time-studies/TreeView.svelte';
 	import { PRESETS } from '#lib/tools/time-studies/presets.ts';
@@ -76,7 +77,7 @@
 	);
 
 	function setBudget(value: string) {
-		const n = Math.floor(Number(value));
+		const n = Math.floor(Number(value.replaceAll(',', '')));
 		persist({ ...plan, budget: value.trim() === '' || !(n >= 0) ? null : n });
 	}
 
@@ -109,7 +110,7 @@
 		}
 		commit(result.tree);
 		const dropped = result.skipped.map((s) => nodeLabel(s.ref)).join(', ');
-		if (!removing) status = `Added ${label} (+${refCost(ref).toLocaleString('en-US')} TT).`;
+		if (!removing) status = `Added ${label} (+${formatTheorems(refCost(ref))} TT).`;
 		else if (dropped) status = `Removed ${label}, and what needed it: ${dropped}.`;
 		else status = `Removed ${label}.`;
 	}
@@ -158,7 +159,7 @@
 		commit(result.tree, { startEC: result.startEC && result.tree.ec !== 0 });
 		importReport = { invalid: result.invalid, skipped: result.skipped };
 		focused = null;
-		status = `${source}: ${result.tree.studies.length} studies${result.tree.ec ? ` and EC${result.tree.ec}` : ''}, ${result.tree.tt.toLocaleString('en-US')} TT.`;
+		status = `${source}: ${result.tree.studies.length} studies${result.tree.ec ? ` and EC${result.tree.ec}` : ''}, ${formatTheorems(result.tree.tt)} TT.`;
 		return true;
 	}
 
@@ -260,9 +261,7 @@
 
 	<div class="summary" aria-label="Build summary">
 		<p class="totals">
-			<span
-				><strong class="num" data-testid="tt-total">{tree.tt.toLocaleString('en-US')}</strong> TT</span
-			>
+			<span><strong class="num" data-testid="tt-total">{formatTheorems(tree.tt)}</strong> TT</span>
 			{#if tree.st > 0 || ctx.spaceTheorems > 0}
 				<span><strong class="num">{tree.st}</strong>/{ctx.spaceTheorems} ST</span>
 			{/if}
@@ -276,12 +275,13 @@
 		<div class="budget">
 			<label class="number">
 				Your Time Theorems
+				<!-- Text, not number: a late-game budget like 3.15e76 stays readable and editable. -->
 				<input
-					type="number"
-					inputmode="numeric"
-					min="0"
+					type="text"
+					inputmode="decimal"
+					autocomplete="off"
 					placeholder="Total"
-					value={budget ?? ''}
+					value={budget === null ? '' : budget < 1e9 ? String(budget) : formatTheorems(budget)}
 					onchange={(e) => setBudget(e.currentTarget.value)}
 					data-testid="tt-budget"
 				/>
@@ -293,16 +293,16 @@
 						see what the game would buy.</span
 					>
 				{:else if left.length > 0}
-					<strong>{(tree.tt - budget).toLocaleString('en-US')} TT short.</strong> The game buys left
-					to right and skips what it can't afford, and what needs it: it would leave out {leftLabels}.
+					<strong>{formatTheorems(tree.tt - budget)} TT short.</strong> The game buys left to right
+					and skips what it can't afford, and what needs it: it would leave out {leftLabels}.
 				{:else if tree.tt > 0}
-					Fits, with {(budget - tree.tt).toLocaleString('en-US')} TT to spare.
+					Fits, with {formatTheorems(budget - tree.tt)} TT to spare.
 				{/if}
 				{#if plan.budget === null && budget !== null}
 					<span class="muted">From your imported save.</span>
 				{:else if plan.budget !== null && save}
 					<button type="button" class="linkish" onclick={() => persist({ ...plan, budget: null })}
-						>Use my save's {Math.floor(save.totalTimeTheorems).toLocaleString('en-US')}</button
+						>Use my save's {formatTheorems(save.totalTimeTheorems)}</button
 					>
 				{/if}
 			</p>
@@ -410,8 +410,7 @@
 						<p class="meta">
 							<span class="chip">adg suggestion</span>
 							<span>{getStage(preset.stage).name}</span>
-							<span class="num">{(presetCosts.get(preset.id) ?? 0).toLocaleString('en-US')} TT</span
-							>
+							<span class="num">{formatTheorems(presetCosts.get(preset.id) ?? 0)} TT</span>
 							{#if stage === preset.stage}<strong>Your stage</strong>{/if}
 						</p>
 						<p>{preset.rationale}</p>
@@ -530,7 +529,7 @@
 		</div>
 		<p>{studyDescription(ref)}</p>
 		<p class="cost">
-			Cost: <strong class="num">{refCost(ref).toLocaleString('en-US')} TT</strong>
+			Cost: <strong class="num">{formatTheorems(refCost(ref))} TT</strong>
 			{#if stCostNote(ref)}<span class="muted">, plus {stCostNote(ref)}</span>{/if}
 		</p>
 		{#if requirementLines(ref).length > 0}
@@ -665,6 +664,7 @@
 	input:not([type]),
 	input[readonly],
 	input[type='number'],
+	input[type='text'],
 	select,
 	textarea {
 		min-height: var(--tap);
@@ -731,6 +731,10 @@
 
 	.number input {
 		width: 6rem;
+	}
+
+	.budget input {
+		width: 8rem;
 	}
 
 	.budget {

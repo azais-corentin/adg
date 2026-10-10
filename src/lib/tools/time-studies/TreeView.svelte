@@ -6,7 +6,7 @@ two-finger pinch zoom, wheel zoom, and zoom buttons. Tapping (or Enter/Space on)
 -->
 <script lang="ts">
 	import { untrack } from 'svelte';
-	import { formatGameNumber } from '#lib/save/bignum.ts';
+	import { formatTheorems } from '#lib/save/bignum.ts';
 	import type { TimeStudyLayoutCell } from '#lib/data/index.ts';
 	import {
 		check,
@@ -223,7 +223,7 @@ two-finger pinch zoom, wheel zoom, and zoom buttons. Tapping (or Enter/Space on)
 
 	function costText(ref: TimeStudyRef, small: boolean): string {
 		const cost = refCost(ref);
-		const text = cost >= 1e6 ? formatGameNumber(cost) : cost.toLocaleString('en-US');
+		const text = formatTheorems(cost);
 		return small ? text : `${text} TT`;
 	}
 
