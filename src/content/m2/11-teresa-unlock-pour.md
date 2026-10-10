@@ -32,11 +32,11 @@ The tab has three parts: a bar showing how full the container is, a **Pour RM** 
 
 **Pour RM** is a hold button, not a switch. It pours only while your finger stays on it, and only while the Teresa tab is open. A quick tap pours next to nothing.
 
-While you hold, the pour speeds up fast: each update moves a slice of RM that grows with the square of how long you have been holding and with the amount already poured. Letting go stops the pour and resets the ramp, so the next hold starts slow again. In practice, about two seconds of holding pours as much again as the container already holds, and three seconds about ten times that. From an empty container, about six seconds reaches <Num value="1e14" />. The pour never takes more RM than you have, but a long hold takes all of it, so release early if you want to keep some.
+While you hold, the pour speeds up fast: each update moves a slice of RM that grows with the square of how long you have been holding and with the amount already poured. Letting go stops the pour and resets the ramp, so the next hold starts slow again. Measured in the app with about <Num value="1e14" /> poured: a one-second hold pours about an eighth of what the container holds, a two-second hold about twice what it holds (the label went from 1.06e14 to 3.03e14), and by three seconds the pour asks for some 35 times the contents, which in practice is all your RM. From an empty container, about five seconds reaches <Num value="1e14" />. The pour never takes more RM than you have, but a long hold takes all of it, so release early if you want to keep some, and check the label after each hold.
 
 The container holds at most <Num value="1e24" /> RM in total. The label at the bottom of the bar shows your current RM gain multiplier and the poured total, for example "×28.70 RM gain 3.97e14/1.00e24".
 
-<!-- vendor/ad-source/src/core/celestials/teresa.js: pourRM(diff): rmPoured = min((pouredAmount + 1e6) * 0.01 * timePoured^2, rm); pouredAmountCap = 1e24. vendor/ad-source/src/components/tabs/celestial-teresa/TeresaTab.vue: pour = true on touchstart, false on touchend; update() resets Teresa.timePoured to 0 while not pouring. Emulator (3.18.0, 7.5e14 poured): a tap moved no visible RM, a 1 s hold took all 6.5e13 RM, a 3 s hold all 6.1e14. -->
+<!-- vendor/ad-source/src/core/celestials/teresa.js: pourRM(diff): rmPoured = min((pouredAmount + 1e6) * 0.01 * timePoured^2, rm); pouredAmountCap = 1e24. vendor/ad-source/src/components/tabs/celestial-teresa/TeresaTab.vue: pour = true on touchstart, false on touchend; update() resets Teresa.timePoured to 0 while not pouring. Emulator (3.18.0, teresa save, `adb shell input swipe` held on Pour RM): freshly loaded save at 1.06e14 poured + 2.0 s → 3.03e14; 1.24e14 + 2.0 s → 3.52e14; 1.07e14 + 1.0 s → 1.24e14; 3.52e14 + 1.0 s → 3.98e14; 3.98e14 + 1.0 s → 4.46e14. These fit the formula with ~25 ms updates (ln growth ≈ 0.4·t³/3): ×1.14 at 1 s, ×2.9 at 2 s, ×36 at 3 s; from 0 poured, 1e14 at t ≈ 5.2 s (derived, not measured). Earlier (7.5e14 poured): a tap moved no visible RM, a 1 s hold took all 6.5e13 RM. -->
 
 Two things grow as the poured total rises:
 
@@ -99,7 +99,7 @@ Buy the RM doubler first, every time you can, until it reads Capped; then Glyph 
 
 ## Common walls
 
-**Pouring seems to do nothing.** A tap pours almost nothing and the ramp resets as soon as you let go. Hold **Pour RM** for a few seconds and watch your RM drop.
+**Pouring seems to do nothing.** A tap pours almost nothing and the ramp resets as soon as you let go. Hold the **Pour RM** button itself for a second or two and watch the label at the bottom of the bar.
 
 **A hold emptied all your RM.** Once the container holds more than your RM, a hold of a second or two pours everything you have. Buy the Reality Upgrades or Black Hole upgrades you want first, then pour the rest.
 
