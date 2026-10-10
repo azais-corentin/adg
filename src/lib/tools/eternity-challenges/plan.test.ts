@@ -12,6 +12,7 @@ import {
 } from './challenges.ts';
 import { ORDER } from './order.ts';
 import {
+	effectiveSource,
 	nextStep,
 	NO_COMPLETIONS,
 	normalizeCompletions,
@@ -138,10 +139,25 @@ describe('next step', () => {
 
 describe('planner state', () => {
 	it('falls back field by field', () => {
-		expect(parsePlannerState(undefined)).toEqual({ source: 'save', completions: NO_COMPLETIONS });
-		expect(parsePlannerState({ source: 'manual', completions: [9, -1, 2.7, 'x'] })).toEqual({
-			source: 'manual',
-			completions: [5, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		expect(parsePlannerState(undefined)).toEqual({
+			source: 'save',
+			completions: NO_COMPLETIONS,
+			seededFrom: null
 		});
+		expect(
+			parsePlannerState({ source: 'manual', completions: [9, -1, 2.7, 'x'], seededFrom: 'x' })
+		).toEqual({
+			source: 'manual',
+			completions: [5, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			seededFrom: null
+		});
+	});
+
+	it('keeps marks by hand for the save they started from, and follows a newer import', () => {
+		const manual = { source: 'manual' as const, completions: [...NO_COMPLETIONS], seededFrom: 100 };
+		expect(effectiveSource(manual, 100)).toBe('manual');
+		expect(effectiveSource(manual, 200)).toBe('save');
+		expect(effectiveSource({ ...manual, source: 'save' }, 100)).toBe('save');
+		expect(effectiveSource({ ...manual, source: 'save' }, null)).toBe('manual');
 	});
 });

@@ -58,16 +58,21 @@
 	});
 
 	const save = $derived(progress.ready ? progress.save : null);
-	const ctx = $derived(plan.context ?? (save ? contextFromSave(save) : DEFAULT_CONTEXT));
+	// Game state and budget set by hand belong to the save they were set with; a newer import
+	// is followed again.
+	const handSet = $derived(plan.handSetFor === (save?.lastUpdate ?? null));
+	const handContext = $derived(handSet ? plan.context : null);
+	const handBudget = $derived(handSet ? plan.budget : null);
+	const ctx = $derived(handContext ?? (save ? contextFromSave(save) : DEFAULT_CONTEXT));
 	const contextSource = $derived(
-		plan.context ? 'set by you' : save ? 'from your imported save' : 'defaults'
+		handContext ? 'set by you' : save ? 'from your imported save' : 'defaults'
 	);
 	const tree = $derived(evaluate(plan, ctx).tree);
 	const laid = $derived(laidOutTree(ctx));
 
 	/** Total Time Theorems to check the build against: set by hand, else the save's. */
 	const budget = $derived(
-		plan.budget ?? (save && Number.isFinite(save.totalTimeTheorems) ? save.totalTimeTheorems : null)
+		handBudget ?? (save && Number.isFinite(save.totalTimeTheorems) ? save.totalTimeTheorems : null)
 	);
 	const left = $derived(budget === null ? [] : affordable(tree, ctx, budget).left);
 	const leftLabels = $derived(
@@ -78,7 +83,12 @@
 
 	function setBudget(value: string) {
 		const n = Math.floor(Number(value.replaceAll(',', '')));
-		persist({ ...plan, budget: value.trim() === '' || !(n >= 0) ? null : n });
+		persist({
+			...plan,
+			context: handContext,
+			budget: value.trim() === '' || !(n >= 0) ? null : n,
+			handSetFor: save?.lastUpdate ?? null
+		});
 	}
 
 	let mode = $state<'inspect' | 'select'>('inspect');
@@ -127,7 +137,7 @@
 	function setContext(next: TreeContext | null) {
 		const nextCtx = next ?? (save ? contextFromSave(save) : DEFAULT_CONTEXT);
 		const { tree: kept, skipped } = evaluate(plan, nextCtx);
-		commit(kept, { context: next });
+		commit(kept, { context: next, budget: handBudget, handSetFor: save?.lastUpdate ?? null });
 		const dropped = skipped.map((s) => nodeLabel(s.ref)).join(', ');
 		status = dropped
 			? `Removed what the new game state forbids: ${dropped}.`
@@ -300,9 +310,9 @@
 				{:else if tree.tt > 0}
 					Fits, with {formatTheorems(budget - tree.tt)} TT to spare.
 				{/if}
-				{#if plan.budget === null && budget !== null}
+				{#if handBudget === null && budget !== null}
 					<span class="muted">From your imported save.</span>
-				{:else if plan.budget !== null && save}
+				{:else if handBudget !== null && save}
 					<button type="button" class="linkish" onclick={() => persist({ ...plan, budget: null })}
 						>Use my save's {formatTheorems(save.totalTimeTheorems)}</button
 					>
@@ -440,7 +450,7 @@
 		<h2 id="state-h">Game state</h2>
 		<p class="muted">
 			Some studies depend on more than the tree. Currently {contextSource}.
-			{#if plan.context}
+			{#if handContext}
 				<button type="button" class="linkish" onclick={() => setContext(null)}
 					>Use {save ? 'my save' : 'the defaults'} instead</button
 				>

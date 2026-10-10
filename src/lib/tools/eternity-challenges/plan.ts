@@ -46,6 +46,11 @@ export interface PlannerState {
 	source: Source;
 	/** Completions marked by hand. */
 	completions: number[];
+	/**
+	 * `lastUpdate` of the imported save the hand marks started from, null if none was imported.
+	 * Marks by hand only apply to that save: importing another one follows the save again.
+	 */
+	seededFrom: number | null;
 }
 
 export const PLANNER_KEY = 'eternity-challenges';
@@ -56,6 +61,16 @@ export function parsePlannerState(value: unknown): PlannerState {
 		typeof value === 'object' && value !== null ? (value as Record<string, unknown>) : {};
 	return {
 		source: fields.source === 'manual' ? 'manual' : 'save',
-		completions: normalizeCompletions(fields.completions)
+		completions: normalizeCompletions(fields.completions),
+		seededFrom: typeof fields.seededFrom === 'number' ? fields.seededFrom : null
 	};
+}
+
+/**
+ * Where the planner's completions come from: by hand without a save, the save unless the
+ * player switched to marking by hand for this very save (a newer import follows the save).
+ */
+export function effectiveSource(state: PlannerState, saveLastUpdate: number | null): Source {
+	if (saveLastUpdate === null) return 'manual';
+	return state.source === 'manual' && state.seededFrom === saveLastUpdate ? 'manual' : 'save';
 }

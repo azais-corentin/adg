@@ -14,6 +14,11 @@ export interface PlannerState {
 	context: TreeContext | null;
 	/** Time Theorems to check the build against, set by hand; null follows the imported save. */
 	budget: number | null;
+	/**
+	 * `lastUpdate` of the imported save `context` and `budget` were set by hand for, null if none
+	 * was imported. They only apply to that save: after another import the planner follows it.
+	 */
+	handSetFor: number | null;
 }
 
 export const EMPTY_STATE: PlannerState = {
@@ -21,7 +26,8 @@ export const EMPTY_STATE: PlannerState = {
 	ec: 0,
 	startEC: false,
 	context: null,
-	budget: null
+	budget: null,
+	handSetFor: null
 };
 
 const isIntArray = (value: unknown): value is number[] =>
@@ -54,12 +60,13 @@ function parseContext(value: unknown): TreeContext | null {
 /** Reads stored planner state; anything unreadable falls back field by field. */
 export function parsePlannerState(value: unknown): PlannerState {
 	if (typeof value !== 'object' || value === null || Array.isArray(value)) return EMPTY_STATE;
-	const { studies, ec, startEC, context, budget } = value as Record<string, unknown>;
+	const { studies, ec, startEC, context, budget, handSetFor } = value as Record<string, unknown>;
 	return {
 		studies: isIntArray(studies) ? studies.filter((id) => NORMAL_STUDIES.has(id)) : [],
 		ec: typeof ec === 'number' && EC_STUDIES.has(ec) ? ec : 0,
 		startEC: startEC === true,
 		context: parseContext(context),
-		budget: typeof budget === 'number' && Number.isInteger(budget) && budget >= 0 ? budget : null
+		budget: typeof budget === 'number' && Number.isInteger(budget) && budget >= 0 ? budget : null,
+		handSetFor: typeof handSetFor === 'number' ? handSetFor : null
 	};
 }

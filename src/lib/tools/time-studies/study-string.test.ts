@@ -168,14 +168,16 @@ describe('stored state', () => {
 			ec: 0,
 			startEC: false,
 			context: null,
-			budget: null
+			budget: null,
+			handSetFor: null
 		});
 		expect(parsePlannerState('nope')).toEqual({
 			studies: [],
 			ec: 0,
 			startEC: false,
 			context: null,
-			budget: null
+			budget: null,
+			handSetFor: null
 		});
 		expect(parsePlannerState({ studies: [], budget: 219 }).budget).toBe(219);
 		const context = { ...ctx, triads: 9 };

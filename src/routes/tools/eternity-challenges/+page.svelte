@@ -18,6 +18,7 @@
 	import StepTree from '#lib/tools/eternity-challenges/StepTree.svelte';
 	import { ORDER, ORDER_PHASES, type OrderStep } from '#lib/tools/eternity-challenges/order.ts';
 	import {
+		effectiveSource,
 		isStepDone,
 		nextStep,
 		NO_COMPLETIONS,
@@ -33,7 +34,15 @@
 
 	const planner = $derived(parsePlannerState(progress.planner[PLANNER_KEY]));
 	const save = $derived(progress.ready ? progress.save : null);
-	const source: Source = $derived(save && planner.source === 'save' ? 'save' : 'manual');
+	const source: Source = $derived(effectiveSource(planner, save?.lastUpdate ?? null));
+	const saveDate = $derived(
+		save
+			? new Date(save.lastUpdate).toLocaleString(undefined, {
+					dateStyle: 'medium',
+					timeStyle: 'short'
+				})
+			: ''
+	);
 	const completions: Completions = $derived(
 		!progress.ready
 			? NO_COMPLETIONS
@@ -56,7 +65,8 @@
 		// Manual tracking starts from the save's completions, so switching never loses progress.
 		progress.setPlannerState(PLANNER_KEY, {
 			source: value,
-			completions: value === 'manual' && save ? [...save.eternityChallenges] : planner.completions
+			completions: value === 'manual' && save ? [...save.eternityChallenges] : planner.completions,
+			seededFrom: save?.lastUpdate ?? null
 		});
 	}
 
@@ -106,10 +116,10 @@
 					<span>Marked by hand</span>
 				</label>
 			</fieldset>
-			<p class="muted hint">
+			<p class="muted hint" data-testid="ec-source-hint">
 				{source === 'save'
-					? 'Read from your imported save. Import a newer one to update, or mark by hand.'
-					: 'Tap a step or a challenge to change it.'}
+					? `Read from your save from ${saveDate}. Import a newer one to update, or mark by hand.`
+					: `Marked by hand, starting from your save from ${saveDate}. Tap a step or a challenge to change it. Importing another save switches back to it.`}
 			</p>
 		{:else}
 			<p class="muted hint">

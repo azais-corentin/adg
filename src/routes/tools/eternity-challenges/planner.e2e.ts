@@ -1,4 +1,26 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
+
+const fixture = (name: string) => new URL(`../../../../fixtures/saves/${name}`, import.meta.url);
+
+async function importSave(page: Page, name: string) {
+	await page.goto('/import');
+	await page.waitForLoadState('networkidle');
+	await page.locator('input[type=file]').last().setInputFiles(fixture(name).pathname);
+	await expect(page.locator('.result .stage-name')).toBeVisible();
+}
+
+test('marks by hand belong to their save; a newer import is followed again', async ({ page }) => {
+	await importSave(page, 'community/eternity-challenges.txt');
+	await page.goto('/tools/eternity-challenges');
+	await page.getByText('Marked by hand', { exact: true }).click();
+	await expect(page.getByRole('radio', { name: 'Marked by hand' })).toBeChecked();
+	await expect(page.getByTestId('ec-source-hint')).toContainText('Marked by hand, starting from');
+
+	await importSave(page, 'community/late-eternity.txt');
+	await page.goto('/tools/eternity-challenges');
+	await expect(page.getByRole('radio', { name: 'Your save' })).toBeChecked();
+	await expect(page.getByTestId('ec-source-hint')).toContainText('Read from your save from');
+});
 
 test('marking completions moves the next step and persists across reloads', async ({ page }) => {
 	await page.goto('/tools/eternity-challenges');
