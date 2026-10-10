@@ -15,7 +15,7 @@ verified:
 
 ## What a Ra run looks like
 
-A Ra Reality has two phases. First, **push**: climb with only 4 Dimension Boosts and fixed tickspeed, reaching the highest EP, shards, or game-time total you can. Then **sit**: stay in the run while chunks convert to Memories, since chunk _rate_ depends on those peak resources and conversion needs time. Leaving early wastes the push; leaving late wastes time that could start the next push. When the Memories counter slows to a crawl, Reality and go again.
+A Ra Reality has two phases. First, **push**: climb with only 4 Dimension Boosts and fixed tickspeed, reaching the highest EP, shards, or game-time total you can. Then **sit**: stay in the run while chunks convert to Memories, since chunk _rate_ depends on those peak resources and conversion needs time. Leaving early wastes the push; leaving late wastes time that could start the next push. When the Memories counter slows to a crawl, Reality and go again, with **Repeat this Celestial's Reality** ticked so the Reality starts the next Ra run (see the farm below).
 
 Storing real time pauses chunk generation (Memories from banked chunks still convert), so do your Nameless time-storing outside Ra runs. <!-- screenshot text: "Storing real time prevents Memory Chunk generation, but Memories will still be gained normally." -->
 
@@ -48,10 +48,11 @@ Teresa 2 opens Charged Infinity Upgrades: pick a limited set of Infinity Upgrade
 
 ## Structuring the farm
 
-1. **One pet at a time.** Remembrance gives ×5 to the focused pet; move it with your focus.
-2. **Short runs early, long runs late.** Early on, each push raises peaks a lot — Reality often. Later, peaks barely move and conversion dominates — stay longer.
-3. **Feed alchemy between runs.** Refine strong spares so base resources and Decoherence keep up; their multipliers raise the next run's peaks.
-4. **Loop back to V.** V's chunk rate wants Theorems, and hard tiers want triads — alternate Ra farming with V pushes whenever either stalls.
+1. **Stay in Ra's Reality.** Tick **Repeat this Celestial's Reality** (Reality → Glyphs, under the equipped Glyph circles) before your first Reality in the run. Without it, a Reality takes you back to the normal Antimatter Universe, Memory Chunks stop, and you have to start Ra's Reality again from the Ra tab.
+2. **One pet at a time.** Remembrance gives ×5 to the focused pet; move it with your focus.
+3. **Short runs early, long runs late.** Early on, each push raises peaks a lot — Reality often. Later, peaks barely move and conversion dominates — stay longer.
+4. **Feed alchemy between runs.** Refine strong spares so base resources and Decoherence keep up; their multipliers raise the next run's peaks.
+5. **Loop back to V.** V's chunk rate wants Theorems, and hard tiers want triads — alternate Ra farming with V pushes whenever either stalls.
 
 <Callout kind="warning">
 

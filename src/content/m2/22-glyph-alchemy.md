@@ -45,7 +45,7 @@ Alchemy also adds two buttons to the [Glyph Filter](/guide/m2/effarig-glyphs-fil
 - **Atom icon, Lowest Alchemy Resource:** "Priority is given to the Glyph type with the lowest associated Alchemy Resource total." It evens out the base resources.
 - **Flask icon, Refinement Value:** "Priority is given to Glyphs which are worth the most alchemy resources; Glyphs which would cause you to hit a cap are effectively worth less." It fills resources fastest.
 
-Both end with "(this mode never keeps Glyphs)": every Reality's Glyph goes straight to Sacrifice Type, so pair them with **Refine to cap, then sacrifice** and use them only while you farm resources. Switch back to a keeping mode (Basic, Specified Effect or Effect Score) when you hunt a better Glyph for your set.
+Both end with "(this mode never keeps Glyphs)": every Reality's Glyph goes straight to Sacrifice Type, so pair them with **Refine to cap, then sacrifice** and use them only while you farm resources. While one of them is on, a Reality's confirmation box shows a **REFINE TO CAP** button in place of its usual one; that is the button that performs the Reality. Switch back to a keeping mode (Basic, Specified Effect or Effect Score) when you hunt a better Glyph for your set.
 
 <!-- Emulator (Android 3.18.0), ra save with Effarig level 12: Glyph Filter shows six mode buttons; texts as quoted. vendor/ad-source/src/core/glyphs/auto-glyph-processor.js (LOWEST_ALCHEMY, ALCHEMY_VALUE: threshold MAX_VALUE, never kept); GlyphFilterPanel.vue isUnlocked (Ra.unlocks.unlockGlyphAlchemy, Effarig level 2). -->
 

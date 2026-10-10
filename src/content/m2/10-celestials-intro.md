@@ -57,6 +57,7 @@ A few rules apply to all of them:
 
 - You can only be inside one Celestial Reality at a time; starting one leaves any other. <!-- src/core/celestials/teresa.js + effarig.js: initializeRun() calls clearCelestialRuns() -->
 - Progress inside is real: the antimatter, EP and Reality you earn count normally, and finishing means performing the usual prestige at the end (a Reality, or the Infinity/Eternity/Reality layers for Effarig).
+- A Reality ends the run and puts you back in the normal Antimatter Universe ("You are currently in the Antimatter Universe"). To stay, tick **Repeat this Celestial's Reality** on the Reality tab's Glyphs subtab, under the equipped Glyph circles; it shows while you are inside a Celestial's Reality. With it ticked, each Reality starts the same Celestial's Reality again, which is how you farm Teresa, V's runs or Ra's Memories without restarting from the Celestial's tab every time. <!-- player.options.retryCelestial, GlyphsTab.vue "Repeat this Celestial's Reality" (v-if isInCelestialReality); reality.js restoreCelestialRuns; emulator (Android 3.18.0, ra save, round 7 review): unticked, "Make a new Reality" returned to the Antimatter Universe -->
 - The reward is permanent and shown on the tab afterwards. Teresa's reward even grows if you repeat the run with a higher score.
 - If a run goes badly, leave it and come back stronger. Nothing in a Celestial Reality can damage your save; the only cost is the time spent.
 
