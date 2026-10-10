@@ -111,8 +111,15 @@ describe('progress store persistence', () => {
 		});
 
 		progress.setImported(save);
-		progress.forgetSave();
+		const importedAt = progress.importedAt;
+		const undo = progress.forgetSave();
 		expect(progress.stage).toBe(null);
 		expect(progress.importedAt).toBe(undefined);
+
+		undo();
+		expect(progress.save).toEqual(save);
+		expect(progress.stageSource).toBe('import');
+		expect(progress.importedAt).toBe(importedAt);
+		expect(parseProgress(storage.get(PROGRESS_KEY) ?? null).save).toEqual(save);
 	});
 });

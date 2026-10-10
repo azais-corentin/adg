@@ -251,9 +251,13 @@ class Progress implements ProgressState {
 		this.#save();
 	}
 
-	/** Drops the imported save, and the stage too if the import set it. */
-	forgetSave(): void {
+	/**
+	 * Drops the imported save, and the stage too if the import set it. Hand-ticked checklist
+	 * items stay. Returns a function that puts the save and stage back.
+	 */
+	forgetSave(): () => void {
 		this.init();
+		const { save, stage, stageSource, importedAt } = this;
 		this.save = null;
 		if (this.stageSource === 'import') {
 			this.stage = null;
@@ -261,6 +265,13 @@ class Progress implements ProgressState {
 			this.importedAt = undefined;
 		}
 		this.#save();
+		return () => {
+			this.save = save;
+			this.stage = stage;
+			this.stageSource = stageSource;
+			this.importedAt = importedAt;
+			this.#save();
+		};
 	}
 
 	toggleCheck(id: string): void {

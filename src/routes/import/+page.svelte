@@ -18,7 +18,23 @@
 		return () => clearInterval(timer);
 	});
 
+	/** Puts back the save "Forget this save" removed, until the next import. */
+	let undoForget = $state<(() => void) | null>(null);
+
+	async function forget() {
+		undoForget = progress.forgetSave();
+		// The button that had focus is gone; land on Undo instead of the page top.
+		await tick();
+		document.getElementById('undo-forget')?.focus();
+	}
+
+	function undo() {
+		undoForget?.();
+		undoForget = null;
+	}
+
 	async function showResult() {
+		undoForget = null;
 		now = Date.now();
 		await tick();
 		const heading = document.getElementById('result-heading');
@@ -108,10 +124,10 @@
 			ticks={progress.checklist}
 		/>
 		<p class="forget">
-			<button class="button" type="button" onclick={() => progress.forgetSave()}>
-				Forget this save
-			</button>
-			<span class="muted">Removes it from this browser.</span>
+			<button class="button" type="button" onclick={forget}>Forget this save</button>
+			<span class="muted"
+				>Removes it from this browser. Checklist items you ticked by hand stay ticked.</span
+			>
 		</p>
 
 		<section class="again" aria-labelledby="again-heading">
@@ -123,6 +139,12 @@
 			<SaveInput onimported={showResult} />
 		</section>
 	{:else}
+		{#if undoForget}
+			<p class="forgotten" role="status">
+				<span>Save removed from this browser. Checklist items you ticked by hand are kept.</span>
+				<button id="undo-forget" class="button" type="button" onclick={undo}>Undo</button>
+			</p>
+		{/if}
 		<section aria-labelledby="export-heading">
 			<h2 id="export-heading">1. Export from the game</h2>
 			{@render steps()}
@@ -207,12 +229,20 @@
 		margin: var(--space-2) 0;
 	}
 
-	.forget {
+	.forget,
+	.forgotten {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 		gap: var(--space-2) var(--space-3);
 		margin: var(--space-5) 0;
+	}
+
+	.forgotten {
+		padding: var(--space-3) var(--space-4);
+		border-left: 4px solid var(--layer);
+		background: var(--surface);
+		font-weight: 650;
 	}
 
 	.again {

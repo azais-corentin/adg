@@ -34,8 +34,14 @@ test('an uploaded web/steam export shows its stage and persists across reloads',
 	).toBeVisible();
 
 	await page.goto('/import');
-	await page.getByRole('button', { name: 'Forget this save' }).click();
+	const forget = page.getByRole('button', { name: 'Forget this save' });
+	await forget.click();
+	await expect(page.getByRole('status')).toContainText('Save removed from this browser.');
 	await expect(page.getByRole('heading', { name: '2. Open it here' })).toBeVisible();
+	await page.getByRole('button', { name: 'Undo' }).click();
+	await expect(stage).toHaveText('Eternity');
+
+	await forget.click();
 	await page.goto('/');
 	await expect(page.getByText('Stage not set')).toBeVisible();
 });
