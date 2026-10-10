@@ -142,6 +142,25 @@ describe('nextGoals', () => {
 		});
 	});
 
+	it('Imaginary Machines: one-time upgrades 12–14 before Fabrication, each with the iM cap', async () => {
+		const save = await load('android-3.18.0-native-imaginary-paired.txt');
+		expect(
+			nextGoals(save)
+				.filter((g) => !g.done)
+				.map((g) => g.text)
+		).toEqual([
+			'Buy “Consequences of Illusions” (5e7 iM; iM cap 1.13e8)',
+			'Buy “Transience of Information” (5e7 iM; iM cap 1.13e8)',
+			'Buy “Recollection of Intrusion” (3.5e8 iM; iM cap 1.13e8)',
+			"Buy “Fabrication of Ideals” (1e9 iM) to unlock Lai'tela (iM cap 1.13e8)"
+		]);
+		// Transience of Information multiplies the cap: 1 + 29 levels / 20 + 4 one-time upgrades / 2.
+		const withUpgrades = { ...save, imaginaryUpgrades: [11, 12, 13, 14] };
+		expect(nextGoals(withUpgrades).find((g) => g.id === 'im-laitela')?.text).toContain(
+			'iM cap 5.04e8'
+		);
+	});
+
 	it('Doomed: Dilation and Strike 5 as one goal, then Rift milestones and the cheapest Pelle Upgrade', async () => {
 		const pelle = await load('community/pelle.txt');
 		const goals = nextGoals(pelle);

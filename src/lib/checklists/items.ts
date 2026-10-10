@@ -96,6 +96,39 @@ const have = (value: BigNum) => formatBigNum(value, 2);
 const count = (value: number) => value.toLocaleString('en-US');
 
 /**
+ * The iM cap the Imaginary subtab shows ("Your Machine cap is … + …i"): machines.js `currentIMCap`,
+ * the stored base cap × Transience of Information (upgrade 13), whose effect is
+ * 1 + repeatable levels / 20 + one-time upgrades bought / 2.
+ */
+const imCapProgress = (s: NormalizedSave) => {
+	const multiplier = s.imaginaryUpgrades.includes(13)
+		? 1 + s.imaginaryRebuyableLevels / 20 + s.imaginaryUpgrades.length / 2
+		: 1;
+	return `iM cap ${have(fromNumber(s.imaginaryMachineCap * multiplier))}`;
+};
+
+/**
+ * Imaginary Upgrades 12–14 as the Android 3.18.0 Imaginary subtab words them (emulator, Scientific
+ * notation); upstream says "Imaginary Machine Cap", "projected Reality Machines" and
+ * "Eternity Challenge 5" and formats the tickspeed differently. Fabrication of Ideals (15) reads
+ * "Requirement: Reach 1e1.500e12 antimatter without ever having any 1st Infinity Dimensions".
+ */
+const IMAGINARY_PANELS: readonly (readonly [number, string])[] = [
+	[
+		12,
+		'Gain free Dimboosts based on Imaginary rebuyable count. Requirement: Make a level 9,000 Glyph with a single Glyph level factor weight at 100'
+	],
+	[
+		13,
+		"Increase iM Cap based on Imaginary Upgrades purchased. Requirement: Reach 1.80e308 projected RM within The Nameless Ones' Reality"
+	],
+	[
+		14,
+		'Raise all Dimension per-purchase multipliers to ^1.5. Requirement: Reach a Tickspeed of 1e7.500e10 / sec within EC5'
+	]
+];
+
+/**
  * Infinity Challenge unlock exponents, IC1..IC8, as Android 3.18.0 shows them ("Next Infinity
  * Challenge unlocks at …"). Upstream `secret-formula/challenges/infinity-challenges.js` `unlockAM`
  * at the pin has IC2 at 1e11000; the app unlocks it at 1e10500. The rest match.
@@ -718,7 +751,7 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'im-first-upgrades',
 		stage: 'imaginary-machines',
 		text: 'Buy the repeatable Imaginary Upgrades',
-		detail: 'They raise the Imaginary Machine cap and boost the earlier layers.',
+		detail: `They boost the earlier layers. They don't raise the iM cap until “${imaginaryUpgrade(13).name}” (upgrade 13) counts them.`,
 		auto: (s) => s.imaginaryRebuyableLevels > 0
 	},
 	{
@@ -726,14 +759,27 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		stage: 'imaginary-machines',
 		text: `Buy “${imaginaryUpgrade(11).name}” (${fmt(imaginaryUpgrade(11).cost ?? 0)} iM)`,
 		detail: 'The first one-time Imaginary Upgrade; it needs 1e90 total Relic Shards.',
-		auto: (s) => s.imaginaryUpgrades.includes(11)
+		auto: (s) => s.imaginaryUpgrades.includes(11),
+		progress: (s) => `have ${have(s.effarigRelicShards)} Relic Shards; ${imCapProgress(s)}`
 	},
+	...IMAGINARY_PANELS.map(([id, panel]): ChecklistItem => {
+		const upgrade = imaginaryUpgrade(id);
+		return {
+			id: `im-upgrade-${id}`,
+			stage: 'imaginary-machines',
+			text: `Buy “${upgrade.name}” (${fmt(upgrade.cost ?? 0)} iM)`,
+			detail: `The panel reads “${panel}”.`,
+			auto: (s) => s.imaginaryUpgrades.includes(id),
+			progress: imCapProgress
+		};
+	}),
 	{
 		id: 'im-laitela',
 		stage: 'imaginary-machines',
 		text: `Buy “${laitelaUpgrade.name}” (${fmt(laitelaUpgrade.cost ?? 0)} iM) to unlock Lai'tela`,
-		detail: laitelaUpgrade.requirement ?? undefined,
-		auto: (s) => s.celestials.laitela.quoteBits > 0 || gt(s.laitelaDarkMatter, 0) || s.pelleDoomed
+		detail: `Requirement: “Reach 1e1.500e12 antimatter without ever having any 1st Infinity Dimensions”. Your iM cap has to reach ${fmt(laitelaUpgrade.cost ?? 0)} first, so upgrades 12–14 come before it: they cost less, “${imaginaryUpgrade(13).name}” multiplies the cap, and “${imaginaryUpgrade(14).name}” makes your Dimensions much stronger, which pushes the cap up.`,
+		auto: (s) => s.celestials.laitela.quoteBits > 0 || gt(s.laitelaDarkMatter, 0) || s.pelleDoomed,
+		progress: imCapProgress
 	},
 
 	// Lai'tela. Achievements 174, 176, 177; Pelle unlocks with Imaginary Upgrade 25.
