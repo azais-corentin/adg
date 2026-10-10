@@ -42,13 +42,12 @@ A good rule: once progress clearly slows past <Num value="1e4000" />, do a final
 <Screen
 	src="late-eternity/options-main-2.webp"
 	alt="The Options tab lower pages at this stage: cloud save buttons and Other settings including Max offline ticks, UI update rate, and offline progress toggles."
-	caption="Options before the jump. Export first (hold Share save → Export to web/steam), and confirm Max offline ticks is high for the rebuild."
+	caption="Options at this stage: Export to web/steam at the top, then the Other settings with Max offline ticks (1,000 here)."
 />
 
-1. **Export your save** (Options → Save & Load → hold Share save → Export to web/steam). Keep the file — it is your Eternity-era souvenir and your rollback.
+1. **Export your save.** Options → Save & Load → **Export to web/steam** copies it to the clipboard; paste it somewhere safe, or hold **Share save** → Export to web/steam to write a file ([Saving and exporting](/guide/m1/saving-and-exporting)). Keep it: it is your rollback. While you are in Options, raise **Max offline ticks** if it still reads 1,000: time away is simulated in that many steps, so a higher value keeps long offline stretches of the rebuild accurate.
 2. **Spend everything.** Unspent DT, TP-banked records, unbought Theorems — none of it crosses over in a useful form. Buy every dilation upgrade affordable and every Theorem available.
 3. **Confirm the three gates** — TD8 owned, max EP ≥ <Num value="1e4000" />, rows 1–13 complete — and buy the 1-Theorem Reality study.
-4. **Free Glyph space.** The first Reality grants your starting Power glyph plus a Companion; later ones offer choices. A full inventory deletes the overflow, so clear room if you have been collecting.
 
 <Callout kind="android">
 
