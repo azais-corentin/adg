@@ -100,7 +100,13 @@
 	</p>
 
 	{#if save}
-		<SaveResult {save} articles={data.articles} importedAt={progress.importedAt} {now} />
+		<SaveResult
+			{save}
+			articles={data.articles}
+			importedAt={progress.importedAt}
+			{now}
+			ticks={progress.checklist}
+		/>
 		<p class="forget">
 			<button class="button" type="button" onclick={() => progress.forgetSave()}>
 				Forget this save

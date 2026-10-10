@@ -163,4 +163,6 @@ export interface Goal {
 	id: string;
 	text: string;
 	done: boolean;
+	/** Done because the player ticked its checklist item by hand, not because the save shows it. */
+	byHand?: true;
 }

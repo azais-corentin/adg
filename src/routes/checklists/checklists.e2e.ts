@@ -53,3 +53,28 @@ test('the current stage opens, and an imported save ticks what it shows done', a
 	await expect(breakItem).toBeDisabled();
 	await expect(infinity.getByText('from your save').first()).toBeVisible();
 });
+
+test('a goal ticked by hand on the checklist is done in Next goals too', async ({ page }) => {
+	await open(page, '/import');
+	await page
+		.locator('input[type=file]')
+		.setInputFiles(fixture('android-3.18.0-native-eternity-paired.txt').pathname);
+	await expect(page.locator('.result .stage-name')).toHaveText('Eternity');
+
+	await open(page, '/');
+	const home = page.locator('section.stage ul.goals');
+	await expect(home.getByText(/^To do: Reach 100 Eternities/)).toBeVisible();
+
+	await open(page);
+	await page
+		.locator('details#early-eternity')
+		.getByRole('checkbox', { name: /^Reach 100 Eternities/ })
+		.check();
+
+	await open(page, '/');
+	await expect(home.getByText(/Reach 100 Eternities/)).toHaveCount(0);
+	await open(page, '/import');
+	await expect(
+		page.locator('.result .goals li', { hasText: 'Reach 100 Eternities' })
+	).toContainText('Done: Reach 100 Eternities ticked by you');
+});

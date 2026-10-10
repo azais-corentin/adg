@@ -58,6 +58,16 @@ describe('nextGoals', () => {
 		);
 	});
 
+	it('a goal ticked by hand on the checklist counts as done, without its progress', () => {
+		const ticks = { 'rep-id8': true, 'rep-galaxy': true };
+		const goals = nextGoals(replicanti, 'replicanti', ticks);
+		expect(goals.slice(0, 3)).toEqual([
+			{ id: 'rep-galaxy', text: expect.any(String), done: true },
+			{ id: 'rep-all-ic', text: expect.any(String), done: true },
+			{ id: 'rep-id8', text: 'Unlock the 8th Infinity Dimension', done: true, byHand: true }
+		]);
+	});
+
 	it('early Eternity: next milestone first, then EC1 with its study and Eternities', () => {
 		const goals = nextGoals(eternity);
 		expect(goals.map((g) => g.id)).toEqual([

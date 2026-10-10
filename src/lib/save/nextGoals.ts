@@ -175,20 +175,26 @@ function doomedGoals(s: NormalizedSave): Goal[] {
 
 /**
  * Ordered next goals for `stage` (defaults to the save's detected stage). Checklist items a save
- * can't answer (no `auto`) stay on the checklist only.
+ * can't answer (no `auto`) stay on the checklist only. `ticks` are the checklist's hand ticks: an
+ * item the save doesn't show as done but the player ticked counts as done, like on the checklist.
  */
-export function nextGoals(save: NormalizedSave, stage: StageId = detectStage(save).stage): Goal[] {
+export function nextGoals(
+	save: NormalizedSave,
+	stage: StageId = detectStage(save).stage,
+	ticks: Readonly<Record<string, boolean>> = {}
+): Goal[] {
 	const checklist = stageItems(stage).flatMap(({ id, text, auto, progress }): Goal[] => {
 		if (!auto) return [];
-		const done = auto(save);
-		const live = done ? undefined : progress?.(save);
+		if (auto(save)) return [{ id, text, done: true }];
+		if (ticks[id]) return [{ id, text, done: true, byHand: true }];
+		const live = progress?.(save);
 		// "Unlock Effarig (pour 1e24 RM)" + "poured 1.06e14" → "Unlock Effarig (pour 1e24 RM; poured 1.06e14)".
 		const shown = !live
 			? text
 			: text.endsWith(')')
 				? `${text.slice(0, -1)}; ${live})`
 				: `${text} (${live})`;
-		return [{ id, text: shown, done }];
+		return [{ id, text: shown, done: false }];
 	});
 	return [...(CURRENT[stage]?.(save) ?? []), ...checklist];
 }

@@ -26,7 +26,8 @@ where to go from here (articles for the stage and the tools that apply to it).
 		save,
 		articles,
 		importedAt,
-		now
+		now,
+		ticks
 	}: {
 		save: NormalizedSave;
 		articles: readonly ArticleMeta[];
@@ -34,6 +35,8 @@ where to go from here (articles for the stage and the tools that apply to it).
 		importedAt: string | undefined;
 		/** Epoch ms used for "imported … ago". */
 		now: number;
+		/** The checklists' hand ticks; a ticked goal counts as done. */
+		ticks: Readonly<Record<string, boolean>>;
 	} = $props();
 
 	/** First stage at which a tool is worth opening; tools not listed apply from the start. */
@@ -44,7 +47,7 @@ where to go from here (articles for the stage and the tools that apply to it).
 	};
 
 	const stage = $derived(getStage(detectStage(save).stage));
-	const goals = $derived(nextGoals(save, stage.id));
+	const goals = $derived(nextGoals(save, stage.id, ticks));
 	const reading = $derived(articlesForStage(articles, stage.id));
 	const tools = $derived(
 		TOOLS.filter((tool) => {
@@ -131,7 +134,7 @@ where to go from here (articles for the stage and the tools that apply to it).
 
 	<section aria-labelledby="goals-heading">
 		<h2 id="goals-heading">Next goals</h2>
-		<GoalList {goals} />
+		<GoalList {goals} stage={stage.id} />
 	</section>
 
 	<section aria-labelledby="read-heading">

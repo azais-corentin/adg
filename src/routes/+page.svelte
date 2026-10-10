@@ -21,7 +21,7 @@
 	const imported = $derived(stage && progress.stageSource === 'import' ? progress.save : null);
 	const topGoals = $derived(
 		imported && stage
-			? nextGoals(imported, stage)
+			? nextGoals(imported, stage, progress.checklist)
 					.filter((goal) => !goal.done)
 					.slice(0, 3)
 			: []
@@ -83,10 +83,10 @@
 		{/if}
 		<StageStrip current={stage} />
 		{#if imported}
-			{#if topGoals.length > 0}
+			{#if stage && topGoals.length > 0}
 				<div class="goals">
 					<h3>Next goals</h3>
-					<GoalList goals={topGoals} />
+					<GoalList goals={topGoals} {stage} />
 				</div>
 			{/if}
 			<a class="button" href={resolve('/import')}>Your save in detail</a>
