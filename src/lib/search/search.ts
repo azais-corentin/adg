@@ -70,6 +70,10 @@ interface Entry {
 	/** Normalized, padded with spaces so `includes(' ' + word)` finds word starts. */
 	head: string;
 	body: string;
+	/** The article title, normalized and padded like `head`. */
+	titleText: string;
+	/** `body` as a word list, for how close together the query words sit. */
+	bodyWords: readonly string[];
 }
 
 export type PreparedIndex = readonly Entry[];
@@ -77,6 +81,7 @@ export type PreparedIndex = readonly Entry[];
 /** Normalizes the index once, after it loads. Terms come first: they win ties. */
 export function prepareIndex(index: SearchIndex): PreparedIndex {
 	const pad = (text: string) => ` ${normalize(text)} `;
+	const words = (text: string) => normalize(text).split(' ').filter(Boolean);
 	const article = (a: number) => {
 		const found = index.articles[a];
 		if (!found) throw new Error(`Search index: no article ${a}`);
@@ -91,7 +96,9 @@ export function prepareIndex(index: SearchIndex): PreparedIndex {
 			kind: t.kind,
 			text: t.text,
 			head: pad(t.name),
-			body: pad(t.text)
+			body: pad(t.text),
+			titleText: pad(article(t.a).title),
+			bodyWords: words(t.text)
 		})),
 		...index.sections.map((s) => {
 			const { slug, title } = article(s.a);
@@ -103,7 +110,9 @@ export function prepareIndex(index: SearchIndex): PreparedIndex {
 				heading: s.heading,
 				text: s.text,
 				head: pad(s.id === '' ? title : s.heading),
-				body: pad(s.text)
+				body: pad(s.text),
+				titleText: pad(title),
+				bodyWords: words(s.text)
 			};
 		})
 	];
@@ -187,16 +196,58 @@ function occurrences(haystack: string, needle: string): number {
 	return count;
 }
 
-/** Ranked results for `query`, best first: a word in a term's name or a heading beats body text. */
+/**
+ * The fewest consecutive body words that hold every query word (as a word start), or Infinity.
+ * "Reality Machines have a cap" holds "reality machines cap" in 5.
+ */
+function closestSpan(bodyWords: readonly string[], words: readonly string[]): number {
+	const hits: { at: number; word: number }[] = [];
+	for (const [at, bodyWord] of bodyWords.entries()) {
+		for (const [word, query] of words.entries()) {
+			if (bodyWord.startsWith(query)) hits.push({ at, word });
+		}
+	}
+	const inWindow = new Map<number, number>();
+	let best = Infinity;
+	let first = 0;
+	for (const hit of hits) {
+		inWindow.set(hit.word, (inWindow.get(hit.word) ?? 0) + 1);
+		while (inWindow.size === words.length) {
+			const start = hits[first];
+			if (start === undefined) break;
+			best = Math.min(best, hit.at - start.at + 1);
+			const left = (inWindow.get(start.word) ?? 1) - 1;
+			if (left === 0) inWindow.delete(start.word);
+			else inWindow.set(start.word, left);
+			first++;
+		}
+	}
+	return best;
+}
+
+/** Query words this close together in a body count as one statement about them. */
+const NEAR_WORDS = 6;
+const CLOSE_WORDS = 12;
+
+/**
+ * Ranked results for `query`, best first. Per query word: in a term's name 12, in a heading 8,
+ * in the body 1 plus 0.5 per occurrence (up to 5), in the article title 2. For several words:
+ * the whole query in the heading 15 or in the body 4, and all of them within 6 body words 10
+ * (within 12, 5). Ties keep guide order.
+ */
 export function search(
 	index: PreparedIndex,
 	query: string,
 	limit = 30
 ): { total: number; results: SearchResult[] } {
-	const words = normalize(query)
-		.split(' ')
-		.map((w) => w.replace(/^\.+|\.+$/g, ''))
-		.filter(Boolean);
+	const words = [
+		...new Set(
+			normalize(query)
+				.split(' ')
+				.map((w) => w.replace(/^\.+|\.+$/g, ''))
+				.filter(Boolean)
+		)
+	];
 	if (words.length === 0) return { total: 0, results: [] };
 	const phrase = ` ${words.join(' ')}`;
 
@@ -213,11 +264,15 @@ export function search(
 				break;
 			}
 			score += (inHead ? (entry.kind ? 12 : 8) : 0) + (inBody > 0 ? 1 + 0.5 * inBody : 0);
+			if (entry.titleText.includes(needle)) score += 2;
 		}
 		if (!all) continue;
 		if (words.length > 1) {
 			if (entry.head.includes(phrase)) score += 15;
 			else if (entry.body.includes(phrase)) score += 4;
+			const span = closestSpan(entry.bodyWords, words);
+			if (span <= NEAR_WORDS) score += 10;
+			else if (span <= CLOSE_WORDS) score += 5;
 		}
 		scored.push({ entry, score });
 	}

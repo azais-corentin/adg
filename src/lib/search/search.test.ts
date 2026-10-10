@@ -85,6 +85,15 @@ describe('search', () => {
 		});
 	});
 
+	it('ranks the section where the query words sit together above scattered matches', () => {
+		// "Reality Machines have a cap": the RM cap that unlocks Imaginary Machines.
+		expect(top('reality machines cap')).toMatchObject({
+			slug: 'm2/imaginary-machines',
+			id: 'unlocking-imaginary-machines'
+		});
+		expect(top('tesseract cost')).toMatchObject({ slug: 'm2/tesseracts-after', id: 'costs' });
+	});
+
 	it('ignores apostrophes, accents and thousands separators', () => {
 		expect(search(prepared, 'laitela').total).toBe(search(prepared, "Lai'tela").total);
 		expect(search(prepared, '1e10500').total).toBeGreaterThan(0);
