@@ -35,7 +35,7 @@ This is the long push. The route that gets most players there:
 - Finish the dilation upgrade set — every upgrade in [Dilation upgrades in order](/guide/m1/dilation-upgrades-in-order) raises the EP ceiling of a normal Eternity.
 - Complete remaining ECs five times each; their stacked rewards are EP multipliers that every Eternity keeps.
 - Run the dilate–push–exit cycle from [Farming EP and DT](/guide/m1/farming-ep-and-dt): each TP record raises DT income, which funds the next round of upgrades, which raises the next EP record.
-- Watch the exponent, not the mantissa: the Studies subtab and the top-of-screen EP readout show max EP — the number that must cross <Num value="1e4000" />.
+- Reaching <Num value="1e4000" /> EP once is enough: the game checks the most EP you have held this Reality, so EP spent afterwards on Time Dimensions or Theorems does not undo it. Statistics → Stats shows that record ("Your highest amount of Eternity Points is …"); "You have … Eternity Points" at the top of each tab is your current EP. <!-- dilation-time-studies.js (records.thisReality.maxEP); DilationTimeStudy.vue "Requirement: 1e4000 Eternity Points and 13 rows of Achievements"; emulator 3.18.0: late-eternity/statistics-stats-top.webp -->
 
 <Callout kind="tip">
 
@@ -48,7 +48,7 @@ Progress feels exponential in reverse: the jump from <Num value="1e3000" /> to <
 Open the Achievements tab and hunt row by row through row 13. Advice that saves real time:
 
 - Do the awkward ones with your end-stage multipliers — tight-timer and constraint achievements that were miserable at Eternity 20 are trivial with full dilation upgrades.
-- Check the secret achievements too where they sit in pre-Reality rows; the counter counts rows, not tabs.
+- Secret achievements (their own subtab) are not part of it: the study reads "Requirement: <Num value="1e4000" /> EP and 13 rows of Achievements", the 13 rows of the Normal subtab. <!-- Achievements.preReality = normal rows 1–13 -->
 
 <Screen
 	src="late-eternity/achievements-normal-0.webp"
@@ -72,5 +72,5 @@ What happens next — what survives, what resets, and how many Reality Machines 
 
 ## Further reading
 
-- [How to prepare for the first Reality](preparing-for-first-reality): resets, keeps, and machine expectations.
+- [How to prepare for the first Reality](/guide/m1/preparing-for-first-reality): resets, keeps, and machine expectations.
 - The [checklists page](/checklists) shows the three gates as ticks against your imported save.
