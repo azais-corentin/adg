@@ -217,8 +217,19 @@ td {
 	vertical-align: top;
 	padding: var(--space-2) var(--space-3) var(--space-2) 0;
 	border-bottom: 1px solid var(--rule);
-	/* Long identifiers (save headers, file names) must wrap instead of widening the page. */
+	/* Words stay whole: a column is never narrower than its longest word ("anywhere" let the
+	   table squeeze headers like "ETs" into "E/Ts"). */
+	overflow-wrap: break-word;
+}
+
+/* Long identifiers (save headers, file names) wrap instead of widening the page. */
+:is(th, td) code {
 	overflow-wrap: anywhere;
+}
+
+/* A short range in a table cell ("11–18") that must not break at its dash. */
+.nowrap {
+	white-space: nowrap;
 }
 
 th {

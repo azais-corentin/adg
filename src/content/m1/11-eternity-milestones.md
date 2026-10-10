@@ -27,22 +27,22 @@ The **Milestones** subtab of the Eternity tab lists rewards that unlock permanen
 
 ## The early milestones
 
-| ETs | Reward | Why it matters |
-| --- | ------ | -------------- |
-| 1 | IP multiplier autobuyer | Your first new automation. |
-| 2 | Start with Normal Challenges done, normal autobuyers, and Infinity broken | No more re-breaking Infinity every run. |
-| 3 | Replicanti Galaxy autobuyer | One less thing to babysit. |
-| 4 | Start with all Infinity Upgrades | The re-buy phase ends. |
-| 5 | More Big Crunch autobuyer options | Lets you crunch hands-free. |
-| 6 | Offline EP generation (25% of your best EP/min) | Progress while the app is closed; needs offline progress enabled in Options. |
-| 7 | Infinity Challenges complete as soon as you unlock them | One less checklist to manage. |
-| 8 | Start with all Break Infinity Upgrades | The last piece of re-setup busywork. |
-| 9 | Buy-max Antimatter Galaxies autobuyer mode | Galaxies stop needing taps. |
-| 10 | Start with Replicanti unlocked | The Eternity run-up shortens a lot. |
-| 11–18 | Infinity Dimension autobuyers, one per Eternity | Each dimension gets its own buyer. |
-| 25 | Infinity Dimensions auto-unlock on reaching them | No more tapping each unlock. |
-| 30 | Start with all Antimatter Dimensions buyable | The first minute of each run disappears. |
-| 40 | Replicanti Galaxies stop resetting most things | Galaxies become nearly free. |
+| ETs                               | Reward                                                                    | Why it matters                                                               |
+| --------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 1                                 | IP multiplier autobuyer                                                   | Your first new automation.                                                   |
+| 2                                 | Start with Normal Challenges done, normal autobuyers, and Infinity broken | No more re-breaking Infinity every run.                                      |
+| 3                                 | Replicanti Galaxy autobuyer                                               | One less thing to babysit.                                                   |
+| 4                                 | Start with all Infinity Upgrades                                          | The re-buy phase ends.                                                       |
+| 5                                 | More Big Crunch autobuyer options                                         | Lets you crunch hands-free.                                                  |
+| 6                                 | Offline EP generation (25% of your best EP/min)                           | Progress while the app is closed; needs offline progress enabled in Options. |
+| 7                                 | Infinity Challenges complete as soon as you unlock them                   | One less checklist to manage.                                                |
+| 8                                 | Start with all Break Infinity Upgrades                                    | The last piece of re-setup busywork.                                         |
+| 9                                 | Buy-max Antimatter Galaxies autobuyer mode                                | Galaxies stop needing taps.                                                  |
+| 10                                | Start with Replicanti unlocked                                            | The Eternity run-up shortens a lot.                                          |
+| <span class="nowrap">11–18</span> | Infinity Dimension autobuyers, one per Eternity                           | Each dimension gets its own buyer.                                           |
+| 25                                | Infinity Dimensions auto-unlock on reaching them                          | No more tapping each unlock.                                                 |
+| 30                                | Start with all Antimatter Dimensions buyable                              | The first minute of each run disappears.                                     |
+| 40                                | Replicanti Galaxies stop resetting most things                            | Galaxies become nearly free.                                                 |
 
 Beyond these, milestones at 50, 60 and 80 unlock the Replicanti upgrade autobuyers. **100** unlocks the Eternity autobuyer and offline Eternities (50% of your best Eternities per hour), and **1,000** adds offline Infinities (50% of your best Infinities per hour this Eternity).
 
@@ -83,7 +83,7 @@ Once the 2-Eternity milestone gives your autobuyers back, open the Autobuyers ta
 
 ## The farming loop
 
-Early on, each Eternity earns little EP, so the goal is Eternity *count*, not EP per run:
+Early on, each Eternity earns little EP, so the goal is Eternity _count_, not EP per run:
 
 1. Eternity, buy Time Dimension 1 and your studies (or respec to your farming tree).
 2. Push antimatter → crunch → push IP as far as it goes quickly.

@@ -22,16 +22,16 @@ Every completion adds a stacking **×1.3 multiplier to all Infinity Dimensions**
 
 Each IC also has an **unlock threshold**: it only appears once your peak antimatter this Eternity reaches that number, which is at or well above its goal. The Infinity subtab names the next one ("Next Infinity Challenge unlocks at …"). The intended flow is to unlock it while pushing, crunch a few times to grow stronger, then come back and beat it.
 
-| IC | Unlocks at | Goal | Unique reward |
-| --- | --- | --- | --- |
-| IC1 | <Num value="1e2000" /> AM | <Num value="1e650" /> AM | — (only the ×1.3) |
-| IC2 | <Num value="1e10500" /> AM | <Num value="1e10500" /> AM | Sacrifice autobuyer + stronger Sacrifice |
-| IC3 | <Num value="1e12000" /> AM | <Num value="1e5000" /> AM | AD multiplier from galaxies + tickspeed buys |
-| IC4 | <Num value="1e14000" /> AM | <Num value="1e13000" /> AM | All AD multipliers raised to ^1.05 |
+| IC  | Unlocks at                 | Goal                       | Unique reward                                |
+| --- | -------------------------- | -------------------------- | -------------------------------------------- |
+| IC1 | <Num value="1e2000" /> AM  | <Num value="1e650" /> AM   | — (only the ×1.3)                            |
+| IC2 | <Num value="1e10500" /> AM | <Num value="1e10500" /> AM | Sacrifice autobuyer + stronger Sacrifice     |
+| IC3 | <Num value="1e12000" /> AM | <Num value="1e5000" /> AM  | AD multiplier from galaxies + tickspeed buys |
+| IC4 | <Num value="1e14000" /> AM | <Num value="1e13000" /> AM | All AD multipliers raised to ^1.05           |
 | IC5 | <Num value="1e18000" /> AM | <Num value="1e16500" /> AM | Galaxies 10% stronger, galaxy/boost needs −1 |
-| IC6 | <Num value="1e22500" /> AM | <Num value="2e22222" /> AM | ID multiplier from tickspeed rate |
-| IC7 | <Num value="1e23000" /> AM | <Num value="1e10000" /> AM | Dimboost multiplier minimum ×4 |
-| IC8 | <Num value="1e28000" /> AM | <Num value="1e27000" /> AM | AD2–7 multiplier from AD1+AD8 |
+| IC6 | <Num value="1e22500" /> AM | <Num value="2e22222" /> AM | ID multiplier from tickspeed rate            |
+| IC7 | <Num value="1e23000" /> AM | <Num value="1e10000" /> AM | Dimboost multiplier minimum ×4               |
+| IC8 | <Num value="1e28000" /> AM | <Num value="1e27000" /> AM | AD2–7 multiplier from AD1+AD8                |
 
 <!-- Goals and rewards from src/core/secret-formula/challenges/infinity-challenges.js:1-133. Unlock thresholds read in Android 3.18.0 ("Next Infinity Challenge unlocks at …" with the break-infinity save's peak antimatter set to each threshold): all match upstream except IC2, which Android unlocks at 1e10,500 (upstream pin: 1e11000). Community-tested IP levels from Tables61's stuck-post and r/AD threads (see part 2's reading list). -->
 
@@ -55,13 +55,13 @@ On Android there are no hotkeys: the PC guides' "hold M" is the floating **Max**
 
 Do them roughly in numeric order, but **wait for the IP level listed**, not the unlock moment. Attempting an IC the instant it appears is the classic way to stall for an hour:
 
-| IC | Attempt around | Why the wait |
-| --- | --- | --- |
-| IC1 | <Num value="5e11" /> IP + ID2 | Needs the galaxy-strength upgrade |
-| IC2 | <Num value="1e45" /> IP + ID4 | A pure stat check |
-| IC3 | <Num value="1e56" />–<Num value="1e60" /> IP | Needs ID depth |
-| IC4 | <Num value="1e68" />–<Num value="1e80" /> IP | Needs manual-buy technique below |
-| IC5–IC8 | see part 2 | Harder mechanics, later economy |
+| IC                                  | Attempt around                               | Why the wait                      |
+| ----------------------------------- | -------------------------------------------- | --------------------------------- |
+| IC1                                 | <Num value="5e11" /> IP + ID2                | Needs the galaxy-strength upgrade |
+| IC2                                 | <Num value="1e45" /> IP + ID4                | A pure stat check                 |
+| IC3                                 | <Num value="1e56" />–<Num value="1e60" /> IP | Needs ID depth                    |
+| IC4                                 | <Num value="1e68" />–<Num value="1e80" /> IP | Needs manual-buy technique below  |
+| <span class="nowrap">IC5–IC8</span> | see part 2                                   | Harder mechanics, later economy   |
 
 ## IC1 — everything at once
 
