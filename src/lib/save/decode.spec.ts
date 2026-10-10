@@ -86,6 +86,13 @@ describe('decodeSave errors', () => {
 		await expectCode(native.slice(0, -'EndOfSavefile'.length), 'truncated');
 	});
 
+	it('reports a paste added to text already in the box as extra text', async () => {
+		await expectCode(`${web}${native}`, 'extra-text');
+		await expectCode(`${web}teqi0aaJR`, 'extra-text');
+		await expectCode(`leftover${web}`, 'extra-text');
+		await expectCode(`${web.slice(0, 900)}${web}`, 'extra-text');
+	});
+
 	it('reports a string cut short (as chat apps do) as truncated', async () => {
 		await expectCode(web.slice(0, 2000), 'truncated');
 		await expectCode(native.slice(0, Math.floor(native.length / 2)), 'truncated');

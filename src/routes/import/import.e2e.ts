@@ -55,6 +55,17 @@ test('a pasted Export to mobile save is read and flagged', async ({ page }) => {
 
 	await expect(page.locator('.result .stage-name')).toHaveText('Infinity');
 	await expect(page.getByText('This save came from Export to mobile')).toBeVisible();
+
+	// A second paste lands after the leftover text: two saves in the box, the first one stays.
+	const again = readFileSync(fixture('android-3.18.0-web-export-eternity-paired.txt'), 'utf8');
+	const box = page.getByLabel('Paste the save text');
+	await box.fill(`${again.trim()}${again.trim()}`);
+	await page.getByRole('button', { name: 'Read pasted save' }).click();
+	await expect(page.getByRole('alert')).toContainText('more than one save');
+	await expect(page.getByRole('alert')).toContainText(
+		'Nothing was imported: the results above are still those of your previous save.'
+	);
+	await expect(page.locator('.result .stage-name')).toHaveText('Infinity');
 });
 
 test('a truncated paste explains that the save is cut off', async ({ page }) => {

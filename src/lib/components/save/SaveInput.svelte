@@ -4,6 +4,7 @@ The two ways to hand adg a save: paste its text (copied by the game's Export but
 in the browser and stores the result with `progress.setImported`; calls `onimported` after.
 -->
 <script lang="ts">
+	import { onMount, tick } from 'svelte';
 	import { progress } from '#lib/progress.svelte.ts';
 	import {
 		importSave,
@@ -18,15 +19,24 @@ in the browser and stores the result with `progress.setImported`; calls `onimpor
 	let text = $state('');
 	let busy = $state(false);
 	let error = $state<string | null>(null);
+	/** True once the failed read left an earlier imported save on screen. */
+	let keptPrevious = $state(false);
+	/** Before hydration a tap on Read would submit the form natively and just reload the page. */
+	let hydrated = $state(false);
+	let status: HTMLElement | undefined = $state();
+
+	onMount(() => (hydrated = true));
 
 	const FILE_HINT =
 		'Export it to a file instead (hold Share save, then Export to web/steam) and pick that file with Choose the save file.';
 
 	const MESSAGES: Record<SaveDecodeErrorCode, string> = {
-		empty: 'There is nothing to read yet. Pick the exported file or paste the save text first.',
+		empty: 'Nothing to read yet: paste your save into the box first, or pick the exported file.',
 		'too-large': 'This is far larger than any save. Check that you picked the exported save file.',
 		'unknown-envelope':
 			'This is not an Antimatter Dimensions save. A save starts with "AntimatterDimensions" and ends with "EndOfSavefile".',
+		'extra-text':
+			'The box holds more than one save, or a save with other text around it: the paste probably went in after text that was already there. Clear the box, paste the save again and tap Read pasted save.',
 		'unsupported-version': 'This save uses a format version adg does not know yet.',
 		truncated: `The save is cut off: the end is missing. Chat and notes apps often shorten long text. ${FILE_HINT}`,
 		corrupt: `The save is damaged and cannot be read. ${FILE_HINT}`,
@@ -36,11 +46,13 @@ in the browser and stores the result with `progress.setImported`; calls `onimpor
 	async function read(input: string) {
 		busy = true;
 		error = null;
+		keptPrevious = false;
 		try {
 			progress.setImported(await importSave(input));
 			text = '';
 			onimported?.();
 		} catch (cause) {
+			keptPrevious = progress.save !== null;
 			if (!(cause instanceof SaveDecodeError)) {
 				error = 'Something went wrong while reading this save.';
 				throw cause;
@@ -48,6 +60,10 @@ in the browser and stores the result with `progress.setImported`; calls `onimpor
 			error = MESSAGES[cause.code];
 		} finally {
 			busy = false;
+			if (error) {
+				await tick();
+				status?.scrollIntoView({ block: 'nearest' });
+			}
 		}
 	}
 
@@ -80,8 +96,9 @@ in the browser and stores the result with `progress.setImported`; calls `onimpor
 			placeholder="AntimatterDimensionsSavefileFormat…EndOfSavefile"
 			autocomplete="off"
 			autocapitalize="off"
-			spellcheck="false"></textarea>
-		<button class="button" type="submit" disabled={busy}>Read pasted save</button>
+			spellcheck="false"
+			onfocus={(e) => e.currentTarget.select()}></textarea>
+		<button class="button" type="submit" disabled={busy || !hydrated}>Read pasted save</button>
 	</form>
 
 	<p class="or" aria-hidden="true">or</p>
@@ -95,16 +112,21 @@ in the browser and stores the result with `progress.setImported`; calls `onimpor
 			class="visually-hidden"
 			type="file"
 			accept=".txt,text/plain"
-			disabled={busy}
+			disabled={busy || !hydrated}
 			onchange={pickFile}
 		/>
 	</label>
 
-	<div aria-live="polite">
+	<div aria-live="polite" bind:this={status}>
 		{#if busy}
 			<p class="muted">Reading the save…</p>
 		{:else if error}
-			<p class="error" role="alert">{error}</p>
+			<p class="error" role="alert">
+				{error}
+				{#if keptPrevious}<strong
+						>Nothing was imported: the results above are still those of your previous save.</strong
+					>{/if}
+			</p>
 		{/if}
 	</div>
 </div>

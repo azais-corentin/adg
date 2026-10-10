@@ -10,6 +10,7 @@ export type SaveDecodeErrorCode =
 	| 'empty'
 	| 'too-large'
 	| 'unknown-envelope'
+	| 'extra-text'
 	| 'unsupported-version'
 	| 'truncated'
 	| 'corrupt'
@@ -67,6 +68,10 @@ const ENVELOPES: readonly Envelope[] = [
 const TRUNCATED_HINT =
 	'The save looks cut off. Chat apps often shorten long messages; copy it from a file or a paste site instead.';
 
+const EXTRA_TEXT_HINT =
+	'The text holds more than one save, or a save with other text before or after it.';
+const SAVE_START = /AntimatterDimensions(?:AndroidSaveFormat|SavefileFormat)/g;
+
 async function decompress(bytes: Uint8Array<ArrayBuffer>, format: Envelope['compression']) {
 	const reader = new Blob([bytes])
 		.stream()
@@ -104,6 +109,12 @@ export async function decodeSave(input: string): Promise<DecodedSave> {
 	const text = input.replace(/\s+/g, '');
 	if (text === '') throw new SaveDecodeError('empty', 'Paste a save string first.');
 
+	// A paste that lands after text already in the box: two saves glued together, or junk around one.
+	const starts = [...text.matchAll(SAVE_START)].map((m) => m.index);
+	if (starts.length > 1 || (starts.length === 1 && starts[0] > 0)) {
+		throw new SaveDecodeError('extra-text', EXTRA_TEXT_HINT);
+	}
+
 	const envelope = ENVELOPES.find((e) => text.startsWith(e.prefix));
 	if (!envelope) {
 		throw new SaveDecodeError(
@@ -124,7 +135,11 @@ export async function decodeSave(input: string): Promise<DecodedSave> {
 
 	let body = text.slice(envelope.prefix.length + 3);
 	if (hasSuffixStep) {
-		if (!body.endsWith(SUFFIX)) throw new SaveDecodeError('truncated', TRUNCATED_HINT);
+		const end = body.indexOf(SUFFIX);
+		if (end !== -1 && end !== body.length - SUFFIX.length) {
+			throw new SaveDecodeError('extra-text', EXTRA_TEXT_HINT);
+		}
+		if (end === -1) throw new SaveDecodeError('truncated', TRUNCATED_HINT);
 		body = body.slice(0, -SUFFIX.length);
 	}
 	// Damage inside a complete string is corruption; without a suffix to check, assume a cut-off paste.
