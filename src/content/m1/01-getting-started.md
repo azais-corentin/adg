@@ -50,6 +50,10 @@ A new game shows only six of them: Dimensions, Achievements, Statistics, Options
 
 The subtabs of the current tab are listed below the bar. Each tab remembers the subtab you last opened, so the Dimensions tab may not open on Antimatter.
 
+The ☰ button at the top left opens a side menu with the same tabs; the arrow beside a tab lists its subtabs. The menu calls the gears tab **Automation**: its subtab is Autobuyers, and the Automator joins it later. You can also swipe left or right across a tab to move between its subtabs. Options → UI → **Navigations** turns the side menu, swiping and the bottom bar on or off; at least one has to stay on.
+
+<!-- emulator (Android 3.18.0): side drawer (Dimensions, Automation › Autobuyers/Automator, Challenges, …, "You can customize the game's navigation in the Options - UI - Navigations"); Navigations dialog: Side navigation, Swipe navigation, Bottom navigation, "At least one type of navigation needs to be enabled."; a sideways swipe on Celestials › Lai'tela opened Ra -->
+
 <Screen
 	src="pre-infinity/new-game/dimensions-antimatter-top.webp"
 	alt="The Antimatter subtab on a brand-new game: 10 antimatter, a 1st Dimension row with a Cost 10 button, the Dimension Boost box reading Requires 20 4th D and the Antimatter Galaxies box reading Requires 80 8th D, only the Max button above the tab bar, and six tabs."
