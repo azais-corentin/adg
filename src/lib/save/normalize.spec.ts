@@ -138,6 +138,18 @@ describe('paired Effarig fixtures (inside Effarig’s Reality, exported both way
 	});
 });
 
+describe('paired Imaginary Machine fixtures (exported both ways ~20 s apart)', () => {
+	it('reads the one-time Imaginary Upgrades with the native bit offset', async () => {
+		const native = await load('android-3.18.0-native-imaginary-paired.txt');
+		const web = await load('android-3.18.0-web-export-imaginary-paired.txt');
+		// Only “Suspicion of Interference” is bought: native bit 0 (1), web bit 11 (2048).
+		expect(native.imaginaryUpgrades).toEqual([11]);
+		expect(web.imaginaryUpgrades).toEqual([11]);
+		expect(native.imaginaryRebuyableLevels).toBe(29);
+		expect(web.imaginaryRebuyableLevels).toBe(29);
+	});
+});
+
 describe('normalizeSave on single fixtures', () => {
 	it('reads the 3.17.0 pre-break native save', async () => {
 		const save = await load('android-3.17.0-native-pre-break.txt');

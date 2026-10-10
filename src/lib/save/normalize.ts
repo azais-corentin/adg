@@ -238,7 +238,10 @@ export function normalizeSave({ format, transport, player: p }: DecodedSave): No
 			paradox: rift('paradox')
 		},
 		imaginaryMachineCap: num(p, ['reality', 'iMCap'], 0),
-		imaginaryUpgrades: bitIds(num(p, ['reality', 'imaginaryUpgradeBits'], 0), range(11, 25)),
+		// Web keys one-time upgrade `id` at bit `id`; native at bit `id - 11` (only 11 bought: 1 vs 2048).
+		imaginaryUpgrades: native
+			? bitIds(num(p, ['reality', 'imaginaryUpgradeBits'], 0), range(0, 14)).map((bit) => bit + 11)
+			: bitIds(num(p, ['reality', 'imaginaryUpgradeBits'], 0), range(11, 25)),
 		imaginaryRebuyableLevels,
 		pelleDoomed: bool(p, ['celestials', 'pelle', 'doomed']),
 
