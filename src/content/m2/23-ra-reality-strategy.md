@@ -15,7 +15,7 @@ verified:
 
 ## What a Ra run looks like
 
-A Ra Reality has two phases. First, **push**: climb with only 4 Dimension Boosts and fixed tickspeed, reaching the highest EP, shards, or game-time total you can. Then **sit**: stay in the run while chunks convert to Memories, since chunk *rate* depends on those peak resources and conversion needs time. Leaving early wastes the push; leaving late wastes time that could start the next push. When the Memories counter slows to a crawl, Reality and go again.
+A Ra Reality has two phases. First, **push**: climb with only 4 Dimension Boosts and fixed tickspeed, reaching the highest EP, shards, or game-time total you can. Then **sit**: stay in the run while chunks convert to Memories, since chunk _rate_ depends on those peak resources and conversion needs time. Leaving early wastes the push; leaving late wastes time that could start the next push. When the Memories counter slows to a crawl, Reality and go again.
 
 Storing real time pauses chunk generation (Memories from banked chunks still convert), so do your Nameless time-storing outside Ra runs. <!-- screenshot text: "Storing real time prevents Memory Chunk generation, but Memories will still be gained normally." -->
 
@@ -55,7 +55,7 @@ Teresa 2 opens Charged Infinity Upgrades: pick a limited set of Infinity Upgrade
 
 <Callout kind="warning">
 
-Ra's Reality allows zero Dimension Boosts inside. If a run's climb stalls at the same spot repeatedly, the answer is account power (Glyphs, alchemy, triads, charges) — not longer runs.
+Ra's Reality locks your Dimension Boosts: the panel reads "You only have 4 Dimension Boosts and can not gain any more. The Tickspeed purchase multiplier is fixed at ×1.125." If a run's climb stalls at the same spot repeatedly, the answer is account power (Glyphs, alchemy, triads, charges) — not longer runs. <!-- Ra panel text from the emulator (Android 3.18.0, ra save); dimboost.js maxBoosts 0 while Ra runs, initial boosts still given -->
 
 </Callout>
 
