@@ -30,9 +30,19 @@ Each hard tier counts as **two** V-Achievements and awards **two** Space Theorem
 
 ### Requiem for a Glyph
 
-Reality with 5, 4, 3, 2, then 1 "Glyphs" — counts that go below zero through Cursed Glyphs, each of which counts as −3 toward the total. <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[6].values`; vendor/ad-source/src/core/glyphs/glyph-core.js:734-740 --> The **Create a Cursed Glyph** button on the V tab makes them (up to five at once).
+The card reads "Unlock Reality with at most -1 Glyphs equipped for the entire Reality", and the five tiers ask for at most −1, −4, −7, −10 and −13 Glyphs. The count goes below zero through Cursed Glyphs: each equipped Glyph counts 1 (your Companion Glyph doesn't count), and each Cursed Glyph counts −3 instead. <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[6]` values [1, 4, 7, 10, 13] (negated) and description; vendor/ad-source/src/core/glyphs/glyph-core.js:734-740 (length − 4 × cursed, activeWithoutCompanion); emulator card for tier 2: "Unlock Reality with at most -4 Glyphs equipped for the entire Reality." (round 4 review) --> The **Create a Cursed Glyph** button on the V tab makes them (up to five at once).
 
-Cursed Glyphs are weak by design, so this is really a low-Glyph-count Reality with extra steps: equip the cursed ones plus as few real Glyphs as possible, keep the whole Reality equipped that way, and Reality when the tracker confirms the count. Start with the −1 tier (one cursed Glyph plus minimal real ones) and work down.
+With five Glyph slots, each tier fits one more Cursed Glyph:
+
+| Tier | At most | One setup that fits                |
+| ---- | ------- | ---------------------------------- |
+| 1    | −1      | 1 Cursed Glyph and 2 other Glyphs  |
+| 2    | −4      | 2 Cursed Glyphs and 2 other Glyphs |
+| 3    | −7      | 3 Cursed Glyphs and 2 other Glyphs |
+| 4    | −10     | 4 Cursed Glyphs and 1 other Glyph  |
+| 5    | −13     | 5 Cursed Glyphs                    |
+
+The count is the highest it was at any moment of the Reality, so set the Glyphs up before you start V's Reality and don't add one mid-run. Cursed Glyphs are weak by design, so the late tiers are really Realities on one or no real Glyph: take them once the rest of your account carries V's Reality that way.
 
 ### Post-destination
 
@@ -42,7 +52,7 @@ This one is about Black Hole control: invert the hole deep, accumulate 400,000 T
 
 ### Shutter Glyph
 
-Reach Glyph level 6,500 / 7,000 / 8,000 / 9,000 / 10,000 inside V's Reality (five tiers). <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[8].values` --> This is the purest power check in V: your Glyph level must be enormous *despite* the square-root weakening. High sacrifices, strong Reality Glyphs, and every Theorem in the tree all feed it. Take the early tiers when they come naturally during farming; the 9,000+ tiers wait for near-maxed setups.
+Reach Glyph level 6,500 / 7,000 / 8,000 / 9,000 / 10,000 inside V's Reality (five tiers). <!-- vendor/ad-source/src/core/secret-formula/celestials/v.js `runUnlocks[8].values` --> This is the purest power check in V: your Glyph level must be enormous _despite_ the square-root weakening. High sacrifices, strong Reality Glyphs, and every Theorem in the tree all feed it. Take the early tiers when they come naturally during farming; the 9,000+ tiers wait for near-maxed setups.
 
 Goal reduction applies to hard achievements too, at a steeper price. Use it — the top tiers assume you will.
 
@@ -50,12 +60,12 @@ Goal reduction applies to hard achievements too, at a steeper price. Use it — 
 
 Triads sit at the bottom of the Time Study tree. Each costs 12 Space Theorems (10 after the Ra discount... precisely, the 36-Achievement reward cuts all Theorem costs by 2) and needs its three parent studies plus a V-memory level: <!-- vendor/ad-source/src/core/secret-formula/eternity/time-studies/normal-time-studies.js triad entries 301–304 -->
 
-| Triad | Needs | V memory | Effect |
-| --- | --- | --- | --- |
-| 301 | 221, 222, 231 | 6 | Study 231 boosts study 221's effect. |
-| 302 | 223, 224, 232 | 12 | Distant galaxy scaling starts 3,000 galaxies later. |
-| 303 | 225, 226, 233 | 18 | Studies 225/226 grant half again as many extra Replicanti Galaxies. |
-| 304 | 227, 228, 234 | 24 | Dimensional Sacrifice multiplier is squared. |
+| Triad | Needs         | V memory | Effect                                                              |
+| ----- | ------------- | -------- | ------------------------------------------------------------------- |
+| 301   | 221, 222, 231 | 6        | Study 231 boosts study 221's effect.                                |
+| 302   | 223, 224, 232 | 12       | Distant galaxy scaling starts 3,000 galaxies later.                 |
+| 303   | 225, 226, 233 | 18       | Studies 225/226 grant half again as many extra Replicanti Galaxies. |
+| 304   | 227, 228, 234 | 24       | Dimensional Sacrifice multiplier is squared.                        |
 
 Buy them in order as they unlock: each one multiplies the system its parents cover, and 302 and 304 in particular break open galaxy and sacrifice scaling for everything downstream, including the remaining V tiers.
 
