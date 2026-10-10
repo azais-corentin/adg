@@ -164,14 +164,20 @@ const teresaItem = (key: string, text: string, detail?: string): ChecklistItem =
 	};
 };
 
-const effarigLayer = (key: string, text: string, detail: string): ChecklistItem => {
+const effarigLayer = (
+	key: string,
+	text: string,
+	detail: string,
+	progress?: ChecklistItem['progress']
+): ChecklistItem => {
 	const unlock = effarigUnlock(key);
 	return {
 		id: `effarig-${key}`,
 		stage: 'effarig',
 		text,
 		detail,
-		auto: (s) => bit(s.celestials.effarig.unlockBits, unlock.id)
+		auto: (s) => bit(s.celestials.effarig.unlockBits, unlock.id),
+		progress
 	};
 };
 
@@ -614,7 +620,14 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 	effarigLayer(
 		'eternity',
 		"Clear the Eternity layer of Effarig's Reality",
-		'This unlocks The Nameless Ones.'
+		'This unlocks The Nameless Ones. Bring an Infinity Glyph with "Infinity Point gain", a Power Glyph with "Antimatter Dimension multipliers" and two Replication Glyphs with "Replicanti multiplier": without them IP stalls far below 1.80e308.',
+		// Measured on Android 3.18.0, src/content/m2/14-effarig-reality-layers.md.
+		(s) =>
+			({
+				equipped: 'an Infinity Glyph with Infinity Point gain is equipped',
+				inventory: 'equip your Infinity Glyph with Infinity Point gain first',
+				none: 'no Infinity Glyph with Infinity Point gain yet: farm one first'
+			})[s.infinityPointGlyph]
 	),
 	effarigLayer(
 		'reality',

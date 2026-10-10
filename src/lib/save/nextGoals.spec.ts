@@ -122,6 +122,13 @@ describe('nextGoals', () => {
 		);
 	});
 
+	it("Effarig's Eternity layer: says whether the Infinity Point gain Glyph is equipped", async () => {
+		const goals = nextGoals(await load('community/effarig.txt'));
+		expect(goals.find((g) => g.id === 'effarig-eternity')?.text).toBe(
+			"Clear the Eternity layer of Effarig's Reality (equip your Infinity Glyph with Infinity Point gain first)"
+		);
+	});
+
 	it("V tab opened but V locked: unlock V first, with V's six requirements", async () => {
 		const goals = nextGoals(await load('community/nameless.txt'));
 		expect(goals[0]?.id).toBe('v-unlock');
