@@ -2,20 +2,41 @@ import { describe, expect, it } from 'vitest';
 import { importStudyString } from '../time-studies/study-string.ts';
 import { DEFAULT_CONTEXT } from '../time-studies/tree.ts';
 import { ORDER } from './order.ts';
-import { stepTree } from './trees.ts';
+import { offlineTree, stepTree } from './trees.ts';
 
 describe('step trees', () => {
 	it('import whole, with the step’s EC, into a tree owning only the completions before it', () => {
 		ORDER.forEach((step, index) => {
 			const done = [...new Set(ORDER.slice(0, index).map((s) => s.ec))];
-			const { studies, tt } = stepTree(index);
-			const result = importStudyString(studies, { ...DEFAULT_CONTEXT, completedECs: done });
-			expect(result.ok, `step ${index + 1}`).toBe(true);
-			if (!result.ok) return;
-			expect(result.skipped, `step ${index + 1}`).toEqual([]);
-			expect(result.tree.ec).toBe(step.ec);
-			expect(result.tree.tt).toBe(tt);
+			for (const variant of [stepTree(index), offlineTree(index)]) {
+				if (!variant) continue;
+				const { studies, tt } = variant;
+				const result = importStudyString(studies, { ...DEFAULT_CONTEXT, completedECs: done });
+				expect(result.ok, `step ${index + 1}`).toBe(true);
+				if (!result.ok) return;
+				expect(result.skipped, `step ${index + 1}`).toEqual([]);
+				expect(result.tree.ec).toBe(step.ec);
+				expect(result.tree.tt).toBe(tt);
+			}
 		});
+	});
+
+	it('offline variants drop the Active row, whose study 131 stops Replicanti Galaxies offline', () => {
+		ORDER.forEach((step, index) => {
+			const tree = stepTree(index);
+			const offline = offlineTree(index);
+			const label = `EC${step.ec} ×${step.completion}`;
+			// EC6's study needs 121, so its runs have no tree without the Active row.
+			expect(offline !== undefined, label).toBe(tree.stopsOfflineGalaxies && step.ec !== 6);
+			if (!offline) return;
+			expect(offline.studies.split(/[,|]/), label).not.toContain('121');
+			expect(offline.tt, label).toBe(tree.tt);
+		});
+		const ec5 = ORDER.findIndex((s) => s.ec === 5 && s.completion === 4);
+		expect(stepTree(ec5).studies).toBe('11,22,32,42,51,61,72,82,92,102,111,121,131,141,151,161|5');
+		expect(offlineTree(ec5)?.studies).toBe(
+			'11,22,32,42,51,61,72,82,92,102,111,122,132,142,151,161|5'
+		);
 	});
 
 	it('fit in the chart’s Time Theorems', () => {

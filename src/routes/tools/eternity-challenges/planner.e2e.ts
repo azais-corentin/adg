@@ -39,8 +39,14 @@ test('the next step’s tree opens in the Time Study planner and checks against 
 }) => {
 	await page.goto('/tools/eternity-challenges');
 	const tree = '11,22,32,42,51,61,72,82,92,102,111,121,131,141,151,161,171|1';
-	await expect(page.getByRole('textbox', { name: 'Study string for EC1 ×1' })).toHaveValue(tree);
-	await page.getByRole('link', { name: 'Open in the Time Study planner' }).click();
+	await expect(
+		page.getByRole('textbox', { name: 'Study string for EC1 ×1', exact: true })
+	).toHaveValue(tree);
+	// Study 131 stops Replicanti Galaxies offline, so the step also offers a Passive tree.
+	await expect(
+		page.getByRole('textbox', { name: 'Study string for EC1 ×1 left offline' })
+	).toHaveValue('11,22,32,42,51,61,72,82,92,102,111,122,132,142,151,161,171|1');
+	await page.getByRole('link', { name: 'Open in the Time Study planner' }).first().click();
 
 	await expect(page).toHaveURL(/\/tools\/time-studies$/);
 	await expect(page.getByTestId('export')).toHaveValue(tree);

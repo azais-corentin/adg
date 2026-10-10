@@ -32,7 +32,7 @@ const PACE_STUDIES: Record<PaceTip, readonly number[]> = {
  * step's path and pace, the central column, the rest above the split, then the lower tree.
  * One study per light/dark pair, as in the planner's presets.
  */
-function wishList(step: OrderStep): number[] {
+function wishList(step: OrderStep, pace: PaceTip): number[] {
 	return [
 		11,
 		22,
@@ -42,7 +42,7 @@ function wishList(step: OrderStep): number[] {
 		61,
 		...PATH_STUDIES[step.path],
 		111,
-		...PACE_STUDIES[step.pace],
+		...PACE_STUDIES[pace],
 		151,
 		161,
 		171,
@@ -71,6 +71,11 @@ export interface StepTree {
 	studies: string;
 	/** Time Theorems the whole tree costs, EC study included. */
 	tt: number;
+	/**
+	 * Has study 131, which on Android stops automatic Replicanti Galaxies while the app is
+	 * closed ("Automatic Replicanti Galaxies are disabled while offline").
+	 */
+	stopsOfflineGalaxies: boolean;
 }
 
 /** EC completions owned before `ORDER[index]`, which open studies 62, 181 and 191–193. */
@@ -122,10 +127,28 @@ function withStudy(
 export function stepTree(index: number): StepTree {
 	const step = ORDER[index];
 	if (!step) throw new Error(`No order step ${index}`);
+	return buildTree(index, step.pace);
+}
+
+/**
+ * The step's tree for a run left going while the app is closed: an Active tree with Passive
+ * (122/132/142) instead of 121/131/141, so Replicanti Galaxies keep coming offline. Undefined
+ * when the step's tree has no study 131, or when the challenge's study needs 121 (EC6), so no
+ * tree can leave the Active row.
+ */
+export function offlineTree(index: number): StepTree | undefined {
+	if (!stepTree(index).stopsOfflineGalaxies) return undefined;
+	const tree = buildTree(index, 'Passive');
+	return tree.studies.split(/[,|]/).includes('121') ? undefined : tree;
+}
+
+function buildTree(index: number, pace: PaceTip): StepTree {
+	const step = ORDER[index];
+	if (!step) throw new Error(`No order step ${index}`);
 	const ec = EC_STUDIES.get(step.ec);
 	if (!ec) throw new Error(`No study for EC${step.ec}`);
 	const ctx = contextBefore(index);
-	const wishes = wishList(step);
+	const wishes = wishList(step, pace);
 
 	let route: Tree | null = null;
 	for (const requirement of [...ec.requires].sort((a, b) => cost(a) - cost(b))) {
@@ -143,5 +166,9 @@ export function stepTree(index: number): StepTree {
 	}
 	if (!check(tree, { kind: 'ec', id: step.ec }, ctx).ok) throw new Error(`EC${step.ec} locked`);
 	const final = { ...tree, ec: step.ec, tt: tree.tt + ec.cost };
-	return { studies: exportStudyString(final), tt: final.tt };
+	return {
+		studies: exportStudyString(final),
+		tt: final.tt,
+		stopsOfflineGalaxies: final.studies.includes(131)
+	};
 }
