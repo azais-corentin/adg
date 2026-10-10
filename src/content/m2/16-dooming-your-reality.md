@@ -45,7 +45,7 @@ Buy one-time upgrades the moment you can afford them — unlike the repeatables,
 
 ## The shape of a Doomed run
 
-Each Armageddon cycle replays the early game at speed: Dimensions to first Infinity (Strike 1 hits), Break-style pushes (Strike 2 at the Galaxy-strength Break upgrade), Eternity (Strike 3), Time Studies toward Dilation (Strike 4 at 115 Time Theorems, Strike 5 at Dilation). The next article, [Pelle Strikes](/guide/m2/pelle-strikes), walks through all five. Between cycles, spend shards, fill Rifts, and push Remnants higher.
+Each Armageddon cycle replays the early game at speed: Dimensions to first Infinity (Strike 1 hits), Break-style pushes (Strike 2 at the Galaxy-strength Break upgrade), Eternity (Strike 3), Time Studies toward Dilation (Strike 4 at 115 Time Theorems, Strike 5 at Dilation, which needs EC11 and EC12 ×5 again inside Doom). The next article, [Pelle Strikes](/guide/m2/pelle-strikes), walks through all five. Between cycles, spend shards, fill Rifts, and push Remnants higher.
 
 <Screen
 	src="pelle/celestials-nav-top.webp"

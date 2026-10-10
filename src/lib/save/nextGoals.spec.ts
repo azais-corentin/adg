@@ -146,8 +146,9 @@ describe('nextGoals', () => {
 		const pelle = await load('community/pelle.txt');
 		const goals = nextGoals(pelle);
 		expect(goals.map((g) => g.text)).toEqual([
-			// Strikes 1–4 are done; Strike 5 needs Dilation unlocked in the Doom first.
-			'Unlock Time Dilation while Doomed, then Dilate Time for Strike 5',
+			// Strikes 1–4 are done; Strike 5 needs Dilation unlocked in the Doom first, and the
+			// game's study shows the same 1,750/12,900 total Time Theorems.
+			'Unlock Time Dilation while Doomed (EC11 0/5, EC12 0/5, 1,750/12,900 total Time Theorems), then Dilate Time for Strike 5',
 			// Vacuum (79.46%) has every milestone; Chaos above 9% keeps Decay's on.
 			'Fill Chaos to 100% (46.15% now): You gain 1% of your EP gained on Eternity per second',
 			'Fill Recursion to 100% (32.46% now): Permanently unlock the Galaxy Generator',

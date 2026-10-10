@@ -482,7 +482,8 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		text: 'Unlock Time Dilation',
 		detail: `Own a row-23 Time Study (231–234), reach ${count(DILATION_TOTAL_TT)} Time Theorems in total, and buy the Dilation study for ${fmt(dilationStudy('dilation').cost)} Time Theorems.`,
 		auto: reachedDilation,
-		progress: (s) => `${count(s.totalTimeTheorems)}/${count(DILATION_TOTAL_TT)} total Time Theorems`
+		progress: (s) =>
+			`${count(Math.floor(s.totalTimeTheorems))}/${count(DILATION_TOTAL_TT)} total Time Theorems`
 	},
 
 	// Time Dilation. progress-checker.js: Late Eternity starts above 1e15 Dilated Time.
@@ -812,7 +813,11 @@ export const CHECKLIST: readonly ChecklistItem[] = [
 		id: 'pelle-dilation',
 		stage: 'pelle',
 		text: 'Unlock Time Dilation while Doomed',
-		auto: (s) => has(s, 187)
+		// dilation-time-studies.js: Ra's auto-unlock skips Doom and DILR (perk 53) is in Pelle.uselessPerks.
+		detail: `In Doom the DILR Perk does nothing, so the Dilation study asks for its first-time requirement again: EC11 and EC12 five times each (inside Doom, at Doomed goals) and ${count(DILATION_TOTAL_TT)} Time Theorems in total, plus a row-23 study. The Eternity Challenge planner follows a Doomed save.`,
+		auto: (s) => has(s, 187),
+		progress: (s) =>
+			`EC11 ${ec(s, 11)}/5, EC12 ${ec(s, 12)}/5, ${count(Math.floor(s.totalTimeTheorems))}/${count(DILATION_TOTAL_TT)} total Time Theorems`
 	},
 	{
 		id: 'pelle-end',

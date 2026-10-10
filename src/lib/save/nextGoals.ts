@@ -159,9 +159,12 @@ function doomedGoals(s: NormalizedSave): Goal[] {
 	const goals: Goal[] = [];
 	const nextStrike = PELLE_STRIKES.findIndex((_, i) => !s.pelleStrikes.includes(i + 1));
 	if (nextStrike === 4 && !s.achievements.includes(187)) {
+		const gate = stageItems('pelle')
+			.find((item) => item.id === 'pelle-dilation')
+			?.progress?.(s);
 		goals.push({
 			id: 'pelle-dilation',
-			text: 'Unlock Time Dilation while Doomed, then Dilate Time for Strike 5',
+			text: `Unlock Time Dilation while Doomed (${gate}), then Dilate Time for Strike 5`,
 			done: false
 		});
 	} else if (nextStrike >= 0) {

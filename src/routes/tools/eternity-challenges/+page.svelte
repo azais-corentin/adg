@@ -128,7 +128,15 @@
 		{/if}
 	</div>
 
-	{#if save && save.realities > 0}
+	{#if save && doomed}
+		<Callout>
+			<p>
+				Your save is Doomed: these completions start over at the Doomed goals. The Perks that skip
+				unlock requirements still work in Doom, but DILR does not, so unlocking Time Dilation for
+				Pelle's fifth Strike needs EC11 and EC12 at ×5 again.
+			</p>
+		</Callout>
+	{:else if save && save.realities > 0}
 		<Callout>
 			<p>
 				This order is for your first time through. Completions reset with each Reality, and Perks

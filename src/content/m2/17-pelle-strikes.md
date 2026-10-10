@@ -38,6 +38,8 @@ Set a Rift to Idle when you need its resource for something else (buying upgrade
 
 **Strike 5 — Dilating Time.** Dilation stays permanently on. Unlocks the **Paradox** Rift, draining Dilated Time for an all-Dimensions power bonus, and — crucially — future Remnant gain is multiplied enormously (antimatter's contribution ×500, IP ×10, EP ×5), so every Armageddon after this one pays far more. It also resets your tracked Doom records to a fixed starting point, protecting the early-Dilation balance. Trigger: entering Dilation inside Doom. <!-- vendor/ad-source/src/core/secret-formula/celestials/strikes.js:36-44 vendor/ad-source/src/core/dilation.js:10,53 vendor/ad-source/src/core/celestials/pelle/pelle.js:262-298 -->
 
+Dilation has to be unlocked again inside Doom first, and the DILR Perk does nothing there. The Dilation study reads "Requirement: 5 EC11 and EC12 completions and 1,750/12,900 total Time Theorems" (your own totals), costs 5,000 Time Theorems and still needs a row-23 study. So Strike 5 means redoing the Eternity Challenges up to EC11 and EC12 ×5 at their Doomed goals. The [Eternity Challenge planner](/tools/eternity-challenges) reads a Doomed save and shows those goals; the import's Next goals count EC11, EC12 and your total Time Theorems. <!-- dilation-time-studies.js id 1 (Ra autoUnlockDilation skips Doom; Perk.bypassECDilation = perk 53, in Pelle.uselessPerks); round 7 review, emulator (pelle save): "Unlock Time Dilation / Requirement: 5 EC11 and EC12 completions and 1,750/12,900 total Time Theorems / Cost: 5,000 Time Theorems" -->
+
 <Screen
 	src="pelle/celestials-nameless-0.webp"
 	alt="The Nameless subtab inside Doom: the charge and store buttons with their time banks, recorded against the Doomed Reality header."
