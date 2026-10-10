@@ -17,16 +17,18 @@ verified:
 
 ## Unlocking Imaginary Machines
 
-Once a single Reality would give you <Num value="1e1000" /> Reality Machines, two things happen: your Reality Machines become hard-capped at <Num value="1e1000" />, and you start gaining a new resource called Imaginary Machines (iM). <!-- vendor/ad-source/src/core/machines.js:4-8, vendor/ad-source/src/core/secret-formula/h2p.js:1614-1643 -->
+Reality Machines have a cap: at first you can hold at most <Num value="1e1000" />. The first time your Reality Machines reach it, the Reality tab gains an **Imaginary** subtab and you start gaining a new resource, Imaginary Machines (iM). There is nothing new to press. <!-- vendor/ad-source/src/core/machines.js:4-8 (baseRMCap 1e1000, hardcapRM × Imaginary Upgrade 6), 36-38 (isIMUnlocked: RM ≥ hardcap) -->
 
-In practice this means pushing one Reality as far past <Num value="1e1000" /> RM as you can. Use your strongest glyph set, pulse the Black Holes together for a peak antimatter spike, and Reality at the top. There is nothing new to press: the unlock is automatic the first time your projected RM crosses the cap.
+The subtab's header says how the two caps work: "You have reached the limits of reality and cannot hold more than 1e1200 Reality Machines. Machines gained in excess of 1e1000 will raise the maximum amount of Imaginary Machines you can have." In the screenshot further down, the RM cap reads 1e1200 because two levels of Elliptic Materiality (upgrade 6, below) raised it from 1e1000; the 1e1000 that counts for iM never moves. The **Make a new Reality** button then reads "No Machines gained (iM Cap: …)" once you are at the RM cap.
+
+In practice this means pushing a Reality as far past <Num value="1e1000" /> RM as you can. Use your strongest glyph set, pulse the Black Holes together for a peak antimatter spike, and Reality at the top. <!-- emulator (Android 3.18.0), imaginary-machines save: "Your Machine cap is 1.00e1200 + 1.14e8i." and the header text quoted (imaginary-machines/reality-imaginary-0.webp) -->
 
 ## Cap versus current iM
 
 Imaginary Machines have two numbers, and confusing them is the classic early mistake:
 
-- **iM cap** is the most iM you can ever hold. It is set by the highest *uncapped* RM you have ever projected: push further past the RM cap and the cap rises permanently. <!-- vendor/ad-source/src/core/machines.js:44-60 -->
-- **Current iM** drifts toward the cap on its own over time. The gap halves roughly every minute, and this drift ignores game speed entirely, so it keeps filling while you play normally. <!-- vendor/ad-source/src/core/machines.js:62-74 -->
+- **iM cap** is the most iM you can ever hold. It is set by the most Reality Machines a Reality would have given you beyond <Num value="1e1000" />, before the RM cap cuts them off, and it only ever rises. <!-- vendor/ad-source/src/core/machines.js:40-62 (baseIMCap from log10(uncappedRM) − 1000; updateIMCap keeps the highest) -->
+- **Current iM** fills toward the cap on its own: "Imaginary Machines are gained passively over time up to the cap, but gain slows down exponentially as you approach the cap. Every 60 seconds the difference in iM between your current amount and the cap will be cut in half." The refill ignores game speed, so it keeps filling while you play normally. <!-- vendor/ad-source/src/core/machines.js:64-74; header text from imaginary-machines/reality-imaginary-0.webp -->
 
 So the loop for this whole stage is: spend current iM on upgrades, then push a bigger Reality to raise the cap, then wait for current iM to refill toward it. The repeatable upgrade Vacuum Acceleration (upgrade 20) makes the refill 10 times faster once you can afford it.
 
@@ -38,12 +40,12 @@ If an upgrade looks unaffordable, check the cap, not your wallet. Time fills cur
 
 ## Where the upgrades live
 
-Unlocking iM adds an **Imaginary Upgrades** subtab to the Reality tab, next to Glyphs, Upgrades, Perks, Black Hole and Alchemy. It works like the Reality Upgrades list: each upgrade has an unlock condition you must meet first, then an iM price. The first two rows are repeatable (rebuyable); the rest are one-time purchases. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1614-1643 -->
+Unlocking iM adds an **Imaginary** subtab to the Reality tab, between Upgrades and Perks (Glyphs · Upgrades · Imaginary · Perks · Black Hole · Alchemy). It works like the Reality Upgrades list: each upgrade has an unlock condition you must meet first, then an iM price. The first two rows are repeatable (rebuyable); the rest are one-time purchases. <!-- vendor/ad-source/src/core/secret-formula/h2p.js:1614-1643; subtab bar in imaginary-machines/reality-imaginary-0.webp -->
 
 <Screen
 	src="imaginary-machines/reality-imaginary-0.webp"
-	alt="The top of the Imaginary Upgrades subtab: the Machine cap line, the passive refill explanation, the requirement-lock note, and the first repeatable upgrade rows."
-	caption="The Imaginary Upgrades subtab. The header states the cap and the refill rule; the repeatables sit at the top."
+	alt="The top of the Imaginary subtab: Your Machine cap is 1.00e1200 + 1.14e8i, the header about the 1e1200 Reality Machine cap, iM gained in excess of 1e1000 and the 60-second halving, the requirement-lock note, and the Temporal Intensifier upgrade."
+	caption="The Imaginary subtab. The header states both caps and the refill rule; the repeatables sit at the top."
 />
 
 Upgrades whose requirement you could fail by accident (buying something you should not, entering the wrong challenge) can be **locked** from the upgrade button: locking blocks the failing action until you unlock it again. Use it. <!-- vendor/ad-source/src/core/secret-formula/reality/imaginary-upgrades.js:168,223-224 -->
@@ -56,14 +58,15 @@ The first levels cost a few iM, but each level costs 30 to 80 times the one befo
 
 Upgrades 6–10 cost much more per level and each does something specific:
 
-| # | Name | Effect | Priority |
-| - | ---- | ------ | -------- |
-| 6 | Elliptic Materiality | Raises the RM cap by ×<Num value="1e100" /> per level | Buy early: a higher RM cap means a higher iM cap |
-| 7 | Runic Assurance | Delays Glyph Instability by 200 levels per level | Buy when instability starts eating your glyph levels |
-| 8 | Hyperbolic Apeirogon | Multiplies Infinity Dimensions by <Num value="1e100000" /> per level | Big push power; buy as affordable |
-| 9 | Cosmic Filament | Galaxy strength +3% per level | Steady value |
-| 10 | Entropic Condensing | Singularity gain ×(1 + level) (each level adds ×1) | Buy before you start condensing seriously in Lai'tela |
-Upgrade 6 deserves emphasis: because the iM cap grows with uncapped RM past the cap, raising the RM cap raises everything downstream. <!-- vendor/ad-source/src/core/machines.js:6-8 -->
+| #   | Name                 | Effect                                                               | Priority                                                   |
+| --- | -------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 6   | Elliptic Materiality | Raises the RM cap by ×<Num value="1e100" /> per level                | When you want to hold more RM; it doesn't raise the iM cap |
+| 7   | Runic Assurance      | Delays Glyph Instability by 200 levels per level                     | Buy when instability starts eating your glyph levels       |
+| 8   | Hyperbolic Apeirogon | Multiplies Infinity Dimensions by <Num value="1e100000" /> per level | Big push power; buy as affordable                          |
+| 9   | Cosmic Filament      | Galaxy strength +3% per level                                        | Steady value                                               |
+| 10  | Entropic Condensing  | Singularity gain ×(1 + level) (each level adds ×1)                   | Buy before you start condensing seriously in Lai'tela      |
+
+Upgrade 6 only changes how many Reality Machines you can hold. The iM cap counts the Machines a Reality would give beyond <Num value="1e1000" /> whatever your RM cap is, so for iM, a bigger push is what counts. <!-- vendor/ad-source/src/core/machines.js:6-8, 40-43 -->
 
 ## The first one-time upgrades (11–14)
 

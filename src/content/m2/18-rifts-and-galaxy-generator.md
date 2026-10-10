@@ -22,7 +22,7 @@ Filling drains 3% of the linked resource per second per active Rift, two at most
 
 - **Vacuum (IP):** fill while IP income exceeds the drain; idle it during IP-spending bursts (Infinity upgrades, Break upgrades, shard-adjacent purchases).
 - **Decay (Replicanti):** needs Replicanti flowing faster than the drain — push Vacuum to 6% (uncapped Replicanti) and the Replication-glyph effect first if it stalls. Its fill can pass 100%, and the excess is what Chaos spends.
-- **Chaos (Decay fill):** drains your Decay *percentage*, not a currency: each 1% of Chaos costs 10% of Decay's fill. Its 9% milestone keeps Decay's effect maxed and its milestones active from then on, so fill Decay high first, then let Chaos take 90% of it ([Pelle Strikes](/guide/m2/pelle-strikes) has the order).
+- **Chaos (Decay fill):** drains your Decay _percentage_, not a currency: each 1% of Chaos costs 10% of Decay's fill. Its 9% milestone keeps Decay's effect maxed and its milestones active from then on, so fill Decay high first, then let Chaos take 90% of it ([Pelle Strikes](/guide/m2/pelle-strikes) has the order).
 - **Recursion (EP):** the long one. Fill it during late-Doom EP farming with a Time glyph equipped (EP^0.3 scaling once Chaos's glyph milestone is on).
 - **Paradox (Dilated Time):** fills alongside normal post-Dilation play; its second milestone raises Tachyon gain to the 1.4th power, speeding its own completion.
 
@@ -40,8 +40,8 @@ Sacrifices are permanent for the rest of the Doom. Before each one, spend the Ri
 
 <Screen
 	src="pelle/reality-imaginary-0.webp"
-	alt="The Imaginary Upgrades subtab inside Doom: the capped Machine header with the disabled-upgrade note and the repeatable rows below."
-	caption="Imaginary Upgrades in Doom. Most one-time effects switch off here, so buy everything you can before Dooming."
+	alt="The Imaginary subtab inside Doom: the capped Machine header with the disabled-upgrade note and the repeatable rows below."
+	caption="The Imaginary subtab in Doom. Most one-time effects switch off here, so buy everything you can before Dooming."
 />
 
 ## The final push
