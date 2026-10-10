@@ -5,7 +5,7 @@ import {
 	isValidImportString,
 	truncateInput
 } from './study-string.ts';
-import { PRESETS } from './presets.ts';
+import { PRESETS, presetFit } from './presets.ts';
 import { parsePlannerState } from './state.ts';
 import { DEFAULT_CONTEXT, type TreeContext } from './tree.ts';
 
@@ -138,6 +138,24 @@ describe('presets', () => {
 		expect(result.invalid).toEqual([]);
 		expect(result.skipped).toEqual([]);
 		expect(exportStudyString(result.tree)).toBe(preset.studies);
+	});
+
+	it('prices the whole tree and names what the game state blocks', () => {
+		const ec11 = PRESETS.find((p) => p.id === 'ec11');
+		if (!ec11) throw new Error('no ec11 preset');
+		expect(presetFit(ec11, ctx).blockers).toEqual([]);
+		const fit = presetFit(ec11, { ...ctx, completedECs: [1, 2, 3, 5] });
+		expect(fit.full.tt).toBe(5706);
+		expect(fit.full.ec).toBe(11);
+		expect(fit.blockers).toEqual(['Needs EC10 completed once.']);
+		expect(fit.fitted.studies).toHaveLength(24);
+		expect(fit.fitted.ec).toBe(0);
+		// 71's path needs 201, which needs 192: only EC10 is the game state's doing.
+		const dilation = PRESETS.find((p) => p.id === 'pre-dilation');
+		if (!dilation) throw new Error('no pre-dilation preset');
+		expect(presetFit(dilation, { ...ctx, completedECs: [1, 2, 3, 5] }).blockers).toEqual([
+			'Needs EC10 completed once.'
+		]);
 	});
 });
 

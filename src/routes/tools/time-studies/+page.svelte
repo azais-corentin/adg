@@ -6,7 +6,7 @@
 	import { formatTheorems } from '#lib/save/bignum.ts';
 	import { getStage } from '#lib/stages.ts';
 	import TreeView from '#lib/tools/time-studies/TreeView.svelte';
-	import { PRESETS } from '#lib/tools/time-studies/presets.ts';
+	import { PRESETS, presetFit } from '#lib/tools/time-studies/presets.ts';
 	import {
 		EMPTY_STATE,
 		parsePlannerState,
@@ -160,6 +160,9 @@
 		importReport = { invalid: result.invalid, skipped: result.skipped };
 		focused = null;
 		status = `${source}: ${result.tree.studies.length} studies${result.tree.ec ? ` and EC${result.tree.ec}` : ''}, ${formatTheorems(result.tree.tt)} TT.`;
+		if (result.skipped.length > 0) {
+			status += ` ${result.skipped.length} left out, listed under Study string.`;
+		}
 		return true;
 	}
 
@@ -198,13 +201,12 @@
 		status = 'Build cleared.';
 	}
 
-	const presetCosts = $derived(
-		new Map(
-			PRESETS.map((p) => {
-				const result = importStudyString(p.studies, ctx);
-				return [p.id, result.ok ? result.tree.tt : 0];
-			})
-		)
+	const presetCards = $derived(
+		PRESETS.map((preset) => {
+			const fit = presetFit(preset, ctx);
+			const lostEC = fit.full.ec !== 0 && fit.fitted.ec === 0 ? ` and no EC${fit.full.ec}` : '';
+			return { preset, fit, lostEC };
+		})
 	);
 	const stage = $derived(progress.ready ? progress.stage : null);
 
@@ -403,17 +405,25 @@
 			</div>
 		{/if}
 		<ul class="presets">
-			{#each PRESETS as preset (preset.id)}
+			{#each presetCards as { preset, fit, lostEC } (preset.id)}
 				<li class="preset" class:near={stage === preset.stage}>
 					<div>
 						<h3>{preset.name}</h3>
 						<p class="meta">
 							<span class="chip">adg suggestion</span>
 							<span>{getStage(preset.stage).name}</span>
-							<span class="num">{formatTheorems(presetCosts.get(preset.id) ?? 0)} TT</span>
+							<span class="num">{formatTheorems(fit.full.tt)} TT</span>
 							{#if stage === preset.stage}<strong>Your stage</strong>{/if}
 						</p>
 						<p>{preset.rationale}</p>
+						{#if fit.blockers.length > 0}
+							<p class="cut" data-testid="preset-cut">
+								<strong>{fit.blockers.join(' ')}</strong> With the game state below, Load gives {fit
+									.fitted.studies.length} of its {fit.full.studies.length} studies ({formatTheorems(
+									fit.fitted.tt
+								)} TT){lostEC}.
+							</p>
+						{/if}
 					</div>
 					<button
 						type="button"
@@ -834,6 +844,11 @@
 
 	.preset .button {
 		flex: none;
+	}
+
+	.preset .cut {
+		padding-left: var(--space-2);
+		border-left: 3px solid light-dark(#a35400, #f0a43c);
 	}
 
 	.preset.mine {

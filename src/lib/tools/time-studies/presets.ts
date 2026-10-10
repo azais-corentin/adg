@@ -3,6 +3,8 @@
  * this guide, not the game's presets or anyone's optimal route.
  */
 import type { StageId } from '#lib/stages.ts';
+import { importStudyString } from './study-string.ts';
+import { check, DEFAULT_CONTEXT, type Skipped, type Tree, type TreeContext } from './tree.ts';
 
 export interface Preset {
 	id: string;
@@ -72,3 +74,40 @@ export const PRESETS: readonly Preset[] = [
 			'201 opens a second Dimension path (bought after it); any 23x study is what Time Dilation’s unlock looks for.'
 	}
 ];
+
+export interface PresetFit {
+	/** The whole preset, bought with every EC gate open: what its card prices. */
+	full: Tree;
+	/** What the game state lets the game buy of it, in order. */
+	fitted: Tree;
+	skipped: Skipped[];
+	/**
+	 * Game-state requirements that cut it short, e.g. "Needs EC10 completed once." Studies that
+	 * only fell out because a study they need did are not listed.
+	 */
+	blockers: string[];
+}
+
+function treeOf(preset: Preset, ctx: TreeContext) {
+	const result = importStudyString(preset.studies, ctx);
+	if (!result.ok) throw new Error(`Preset ${preset.id}: ${result.error}`);
+	return result;
+}
+
+/** The preset in full and as far as `ctx` allows, with what blocks the rest. */
+export function presetFit(preset: Preset, ctx: TreeContext): PresetFit {
+	const full = treeOf(preset, DEFAULT_CONTEXT).tree;
+	const { tree: fitted, skipped } = treeOf(preset, ctx);
+	// A skipped study is blocked by the game state itself if it still fails with the rest of the
+	// full tree bought; otherwise it only lacked a study that was skipped before it.
+	const blockers = new Set<string>();
+	for (const { ref } of skipped) {
+		const rest =
+			ref.kind === 'ec'
+				? { ...full, ec: 0 }
+				: { ...full, studies: full.studies.filter((id) => id !== ref.id) };
+		const verdict = check(rest, ref, ctx);
+		if (!verdict.ok) blockers.add(verdict.reason);
+	}
+	return { full, fitted, skipped, blockers: [...blockers] };
+}
